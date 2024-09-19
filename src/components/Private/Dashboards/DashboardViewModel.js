@@ -15,7 +15,9 @@ class DashboardViewModel {
         this.user = user;
         this.fetchUserAchats = fetchUserAchats;
         this.fetchTicketDetails = fetchTicketDetails;
-        this.loadAchats();
+        if (this.user) {
+            this.loadAchats();
+        }
     }
 
     async loadAchats() {
@@ -28,18 +30,18 @@ class DashboardViewModel {
 
         try {
             const achatsData = await this.fetchUserAchats(this.user.token);
+            if (!achatsData) throw new Error('No achats data');
             const achats = achatsData.map(achat => new Achat(achat));
 
             const ticketIds = achatsData.map(achat => achat.ticket).join(',');
             const ticketsData = await this.fetchTicketDetails(this.user.token, ticketIds);
+            if (!ticketsData) throw new Error('No tickets data');
             const tickets = ticketsData.map(ticket => new Ticket(ticket));
 
             runInAction(() => {
                 this.achats = achats;
                 this.tickets = tickets;
                 this.loading = false;
-                console.log("Loaded data", this.achats, this.tickets);
-                
             });
         } catch (error) {
             console.error("Failed to load data", error);
