@@ -7,7 +7,13 @@ import ResumeCart from "../../../components/Public/Cart/ResumeTotal/ResumeCartVi
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ShoppingCart } from '@mui/icons-material';
+import PersonIcon from '@mui/icons-material/Person';
 import AuthContext from '../../../Contexts/authContext';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import LogoutIcon from '@mui/icons-material/Logout';
+import CategoryIcon from '@mui/icons-material/Category';
 
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
@@ -17,6 +23,18 @@ export default function Navbar() {
 
   const toogleUl = () => {
     setToggleMMenuMobile(!toggleMenuMobile);
+  };
+
+
+  const [selectedCurrency, setSelectedCurrency] = useState('USD');
+
+  const handleCurrencyChange = (currency) => {
+    setSelectedCurrency(currency);
+  };
+  const [selectedLanguage, setSelectedLanguage] = useState('English');
+
+  const handleLanguageChange = (language) => {
+    setSelectedLanguage(language);
   };
 
   const navigate = useNavigate();
@@ -60,36 +78,159 @@ export default function Navbar() {
   return (
     <Wrapper>
       <div className=" row d-flex justify-content-center ">
-        <div className="d-flex divMenu">
-          <div className="col mt-4">
-            {toggleMenuMobile && largeur < 622 && (
+
+        <div className="divMenu">
+          {largeur > 800 && (
+            // <div className='shopping-cart' onClick={() => navigate('/cart')}>
+            <div className='shopping-cart'>
+              <div className="row mt-3">
+                <div className="col ">
+                  <div className="row">
+                    <div className=" col ">
+                      <CategoryIcon className="colorIcon" />
+                      <NavLink to="/profile" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Categories</NavLink>
+                    </div>
+                    <div className="col">
+                      <div className="dropdown">
+                        <button
+                          className="btn btn-secondary dropdown-toggle"
+                          type="button"
+                          id="currencyDropdown"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          {selectedCurrency}
+                        </button>
+                        <ul className="dropdown-menu" aria-labelledby="currencyDropdown">
+                          <li>
+                            <button className="dropdown-item" onClick={() => handleCurrencyChange('USD')}>
+                              USD
+                            </button>
+                          </li>
+                          <li>
+                            <button className="dropdown-item" onClick={() => handleCurrencyChange('EUR')}>
+                              EUR
+                            </button>
+                          </li>
+                          <li>
+                            <button className="dropdown-item" onClick={() => handleCurrencyChange('GBP')}>
+                              GBP
+                            </button>
+                          </li>
+                          <li>
+                            <button className="dropdown-item" onClick={() => handleCurrencyChange('CAD')}>
+                              CAD
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="col">
+                      <div className="dropdown">
+                        <button
+                          className="btn btn-secondary dropdown-toggle colorIcon"
+                          type="button"
+                          id="languageDropdown"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          {selectedLanguage}
+                        </button>
+                        <ul className="dropdown-menu" aria-labelledby="languageDropdown">
+                          <li>
+                            <button className="dropdown-item" onClick={() => handleLanguageChange('English')}>
+                              English
+                            </button>
+                          </li>
+                          <li>
+                            <button className="dropdown-item" onClick={() => handleLanguageChange('French')}>
+                              French
+                            </button>
+                          </li>
+                          <li>
+                            <button className="dropdown-item" onClick={() => handleLanguageChange('Spanish')}>
+                              Spanish
+                            </button>
+                          </li>
+                          <li>
+                            <button className="dropdown-item" onClick={() => handleLanguageChange('German')}>
+                              German
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+                <div className="col ">
+                  <div className="row ">
+                    <div className="section-sign-card col shopping-cart-container">
+                      <span className="separator"></span>
+                      <ShoppingCart className="colorIcon"  onClick={() => navigate('/cart')}/>
+                      <p>{getTotalQuantity() || 0}</p>
+                      <div className="cartVisible">
+                        <ResumeCart className="cart" />
+                      </div>
+                    </div>
+                    {user ? (<>
+                      <div className=" col">
+                        <DashboardCustomizeIcon className="colorIcon" />
+                        <NavLink to="/dashboard" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Dashboard</NavLink>
+                      </div>
+                      <div className=" col">
+                        <PeopleAltIcon className="colorIcon" />
+                        <NavLink to="/profile" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Profile</NavLink>
+                      </div>
+                      <div className="card col">
+                        <LogoutIcon className="colorIcon" />
+                        <button onClick={logout} className="logoutButton">Logout</button>
+                      </div>
+                    </>
+                    ) : (
+                      <>
+                        <div className=" col">
+                          <PersonIcon className="colorIcon" />
+                          <NavLink to="/login" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Login</NavLink>
+                        </div>
+                        <div className=" col">
+                          <HowToRegIcon className="colorIcon" />
+                          <NavLink to="/register" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Register</NavLink>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+
+
+
+          <div className="col">
+            {toggleMenuMobile && largeur < 800 && (
               <ul className="ulListeMobile">
-                <li><NavLink to="/" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Home</NavLink></li>
+                <li><NavLink to="/" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Home</NavLink></li>
                 {user ? (
-              <>
-                <li><NavLink to="/dashboard" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Dashboard</NavLink></li>
-                <li><NavLink to="/profile" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Profile</NavLink></li>
-                <li><button onClick={logout} className="logoutButton">Logout</button></li>
-              </>
-            ) : (
-              <>
-              <li><NavLink to="/login" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Login</NavLink></li>
-              <li><NavLink to="/register" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Register</NavLink></li>
-              </>
-            )}
+                  <>
+                    <li><NavLink to="/dashboard" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Dashboard</NavLink></li>
+                    <li><NavLink to="/profile" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Profile</NavLink></li>
+                    <li><button onClick={logout} className="logoutButton">Logout</button></li>
+                  </>
+                ) : (
+                  <>
+                    <li><NavLink to="/login" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Login</NavLink></li>
+                    <li><NavLink to="/register" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Register</NavLink></li>
+                  </>
+                )}
               </ul>
             )}
-            <div className='shopping-cart' onClick={() => navigate('/cart')}>
-              <ShoppingCart id='cartIcon' />
-              <p>{getTotalQuantity() || 0}</p>
-            </div>
-            <div className="cartVisible">
-              <ResumeCart className="cart" />
-            </div>
           </div>
 
           <AnimateHeight duration={500} height={height}>
-            <div className="Menu" onClick={toogleMenu}>
+            <div className="Menu activeLink" onClick={toogleMenu}>
               <span className="spanMenu">Menu</span>
               <RxHamburgerMenu />
             </div>
@@ -98,20 +239,17 @@ export default function Navbar() {
 
         <div className=" ulMenu">
           <ul className="ulListe">
-            <li><NavLink to="/" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Home</NavLink></li>
-            {/* <li><NavLink to="/news" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>News</NavLink></li>
-            <li><NavLink to="/top" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Top</NavLink></li> */}
-            {/* <li><NavLink to="/category" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Category</NavLink></li> */}
+            <li><NavLink to="/" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Home</NavLink></li>
             {user ? (
               <>
-                <li><NavLink to="/dashboard" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Dashboard</NavLink></li>
-                <li><NavLink to="/profile" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Profile</NavLink></li>
+                <li><NavLink to="/dashboard" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Dashboard</NavLink></li>
+                <li><NavLink to="/profile" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Profile</NavLink></li>
                 <li><button onClick={logout} className="logoutButton">Logout</button></li>
               </>
             ) : (
               <>
-              <li><NavLink to="/login" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Login</NavLink></li>
-              <li><NavLink to="/register" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Register</NavLink></li>
+                <li><NavLink to="/login" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Login</NavLink></li>
+                <li><NavLink to="/register" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Register</NavLink></li>
               </>
             )}
           </ul>
@@ -122,10 +260,13 @@ export default function Navbar() {
 }
 
 const Wrapper = styled.header`
-  width: 100%;
-  height: 140px;
-  background: #44545c;
-
+  .separator {
+  display: inline-block;
+  border-left: 1px solid white;
+  height: 150%;
+  margin: 0 10px;
+  vertical-align: middle; 
+}
   .burgerMenu {
   }
   .ulMenuMobile {
@@ -135,25 +276,24 @@ const Wrapper = styled.header`
   }
   .ulListe {
     list-style-type: none;
-    background: #44545c;
-    height: 100%;
+    background: white;
+    height: 100px;
     display: flex;
     justify-content: left;
     align-items: center;
   }
   
- 
+ .align-cart-quantity{
+  display: flex;
+  cursor: pointer;
+}
 
   .divMenu {
-    background: gray;
-    /* height: 60px; */
-    width: 70%;
+    background: #262626;
+    height: 90px;
+    width: 100%;
   }
   .Menu {
-    margin-top: 10px;
-    margin-right: 60px;
-    padding: 10px;
-    background: #44545c;
     height: 40px;
     display: none;
   }
@@ -164,21 +304,31 @@ const Wrapper = styled.header`
     padding: 5px;
   }
   .ulMenu {
-    width: 75%;
+    width: 100%;
   }
   .activeLink {
     padding: 7px;
-    border-bottom: solid 3px #70acac;
+
     text-decoration:none;
-    color: #70acac;
+    color: orange;
   }
   .noActiveLink{
     text-decoration:none;
     color: white;
     &:hover {
-        color: #70acac;
+        color: orange;
       }
   }
+
+
+  .noActiveLinkCategory{
+    text-decoration:none;
+    color: black;
+    &:hover {
+        color: orange;
+      }
+  }
+
   ul {
     & li {
       width: 60px;
@@ -192,21 +342,28 @@ const Wrapper = styled.header`
     }
   }
   .shopping-cart {
-  background-color: white;
-  position: relative;
   padding: 15px;
   border-radius: 100px;
-  width:60px;
-  left: 103%;
-  z-index: 1;
-}
-.cartVisible{
-  visibility:hidden;
-}
-.shopping-cart:hover + .cartVisible{
-  visibility:visible;
 }
 
+.shopping-cart-container {
+  position: relative;
+}
+
+.cartVisible {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.shopping-cart-container:hover .cartVisible {
+  visibility: visible;
+}
 .cart {
   background-color:white;
   position: absolute;
@@ -217,29 +374,33 @@ const Wrapper = styled.header`
   overflow-y: scroll;
 }
 
-.cartVisible:hover{
-  visibility:visible;
-}
 
+.colorIcon {
+  margin-right: 5px;
+  margin-bottom: 5px;
+ color: white;
+}
 
 .shopping-cart:active {
   box-shadow: 0 4px 4px gray;
 }
 
-#cartIcon{
-  color: black;
-}
 
-.shopping-cart > p{
-  position: absolute;
+.section-sign-card{
+  display: flex;
+  align-items: center;
+
+}
+.section-sign-card > p{
   top: 0;
   right: 0;
   background-color: red;
   padding: 0px 6px;
+  margin: 5px;
   color: white;
   border-radius: 50px;
 }
-  @media screen and (max-width: 622px) {
+  @media screen and (max-width: 800px) {
     .burgerMenu {
       display: block;
     }
@@ -248,7 +409,7 @@ const Wrapper = styled.header`
       display: none;
     }
 
-    .shopping-cart {
+.shopping-cart {
 
   width:60px;
   left: 150%;
@@ -259,7 +420,7 @@ const Wrapper = styled.header`
     }
   }
 
-  @media screen and (max-width: 460px) {
+  @media screen and (max-width: 800px) {
 
   .shopping-cart {
   left: 190%;
@@ -274,4 +435,31 @@ const Wrapper = styled.header`
     cursor: pointer;
     font-size: 1em;
   }
+    @media screen and (max-width: 800px) {
+  .ulListeMobile {
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 90%; /* Réduit la largeur pour ajouter de l'espace autour */
+    background-color: white;
+    z-index: 10;
+    padding: 20px; /* Ajoute un padding autour du contenu */
+    margin: 0 auto; /* Centrer la div */
+    border-radius: 15px; /* Arrondir les coins */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre subtile */
+  }
+
+  .Menu {
+    position: relative;
+    z-index: 20;
+  }
+
+  .ulListeMobile li {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+
 `;
