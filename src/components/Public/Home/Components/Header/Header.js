@@ -1,96 +1,91 @@
 import styled from "styled-components";
-import Mode1 from "./mode1.jpg";
-import Mode2 from "./model2.jpg";
 import React, { useState, useEffect } from "react";
 import CarouselComp from "../Carousel/CarouselComp/CarouselView";
 import Feature from "./Feature";
 import ProductCategories from "../Products/Product_categories";
+import { observer } from "mobx-react-lite";
+import { useDependencies } from '../../../../../../src/DependencyContext';
 
-
-export default function Header() {
-
-  const [isActive, setIsActive] = useState(false);
-
-  const changeBool = () => {
-    setIsActive((isActive) => !isActive);
-  };
+const Header = observer(() => {
+  const { headerViewModel } = useDependencies();
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      changeBool();
-      console.log(isActive);
-    }, 4000);
+ 
+    headerViewModel.loadHomeSlider();
+  }, [headerViewModel]);
 
-    return () => clearInterval(interval);
-  }, []);
+  useEffect(() => {
+    if (headerViewModel.homeSlider.length > 0) {
+
+      const interval = setInterval(() => {
+        setCurrentSlideIndex((prevIndex) => 
+          (prevIndex + 1) % headerViewModel.homeSlider.length
+        );
+      }, 4000);
+
+      return () => clearInterval(interval); 
+    }
+  }, [headerViewModel.homeSlider]);
+
+  if (headerViewModel.loading) {
+    return <p>Loading...</p>;
+  }
+
+  const currentSlide = headerViewModel.homeSlider[currentSlideIndex];
+
   return (
     <Wrapper>
-      <div className={isActive ? "div_principal" : "div_principal2"}>
-        <div className="text-light divHeader ">
-          <div className="textHeader ">
-            <h4>MAGINIFIQUE</h4>
-            <h1>LES JEUX SONT LA</h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-            ducimus deleniti mollitia reiciendis dolores doloribus? Sunt tempora
-            enim adipisci. Delectus?Amet ducimus deleniti mollitia reiciendis
-            dolores doloribus? Sunt tempora enim adipisci. Delectus?
-            <p></p>
-            {/* <button type="button" class="btn btn-info m-3">
-              Discover
-            </button>
-            <button type="button" class="btn btn-info">
-              Add To Cart
-            </button> */}
+      <div
+        className="div_principal"
+        style={{ backgroundImage: `url(${currentSlide.image})` }}
+      >
+        <div className="text-light divHeader">
+          <div className="textHeader">
+            <h4>{currentSlide.title}</h4>
+            <h1>{currentSlide.description}</h1>
+            <p>{currentSlide.buttonMessage}</p>
+            <a href={currentSlide.buttonUrl} className="btn btn-info m-3">
+              {currentSlide.buttonMessage}
+            </a>
           </div>
-          <div className="priceHeader ">
+          <div className="priceHeader">
             <div className="priceDiv">
-            From
-            <h1>$30</h1>
-            Shop
+              From
+              <h1>$30</h1>
+              Shop
             </div>
-          
           </div>
         </div>
       </div>
-     
+
       <Feature />
 
-<h1 className="m-4 p-4 text-center">CATEGORIES </h1>
-<div className="featureCenter">
-<CarouselComp/>
-</div>
+      <h1 className="m-4 p-4 text-center">CATEGORIES</h1>
+      <div className="featureCenter">
+        <CarouselComp />
+      </div>
 
-<ProductCategories/>
+      <ProductCategories />
     </Wrapper>
   );
-}
+});
+
+export default Header;
+
 const Wrapper = styled.div`
   .div_principal {
-    height: 780px;
-    background: url(${Mode1});
-   
+    height: 540px;
     background-size: cover;
-    
-    background-position: center;
-    
-  }
-  .div_principal2 {
-    height: 780px;
-    background: url(${Mode2});
-    
-    background-size: cover;
-    
     background-position: center;
   }
   .textHeader {
     width: 30%;
-    /* margin-left: 30%;
-    margin-right: 50%; */
     position: absolute;
     top: 300px;
     left: 300px;
     animation: fly-ball 4s infinite;
-    color: black;
+    color: white;
   }
   .divHeader {
     position: relative;
@@ -106,46 +101,12 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: rorateDiv 4s infinite;
+    animation: rotateDiv 4s infinite;
   }
-
-  ul {
-    list-style-type: none;
+  .priceDiv {
+    text-align: center;
   }
-  .priceDiv{
-    text-align:center;
-  }
-
-  .shopping-cart {
-  background-color: black;
-  position: relative;
-  padding: 25px;
-  border-radius: 100px;
-  position: fixed;
-  bottom: 40px;
-  right: 10%;
-  z-index: 1;
-}
-
-.shopping-cart:active {
-  box-shadow: 0 4px 4px gray;
-}
-
-#cartIcon{
-  color: white;
-}
-
-.shopping-cart > p{
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: red;
-  padding: 4px 8px;
-  color: white;
-  border-radius: 50px;
-}
-
-@media(max-width: 1343px){
+    @media(max-width: 1343px){
   .textHeader {
     top: 350px;
    
@@ -211,7 +172,7 @@ const Wrapper = styled.div`
     }
   }
 
-  @keyframes rorateDiv {
+  @keyframes rotateDiv {
     100% {
       transform: rotate(-360deg);
     }
