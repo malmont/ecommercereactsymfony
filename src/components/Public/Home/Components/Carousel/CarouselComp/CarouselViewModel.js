@@ -1,28 +1,27 @@
-// src/components/Carousel/viewmodels/CarouselViewModel.js
-
 import { makeAutoObservable, runInAction } from "mobx";
-import { getCategories } from '../carouselApi';
-import CategoryModel from '../../../../../../models/CategoryModel';
+import { getProductByOffers } from '../carouselApi';
+import ProductModel from '../../../../../../models/ProductModel';
 
 class CarouselViewModel {
-  categories = [];
+  products = [];
   loading = true;
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  async loadCategories() {
+  async loadProducts() {
     try {
-      const categoriesData = await getCategories();
-      const categories = categoriesData.map(category => new CategoryModel(category));
+      const productsData = await getProductByOffers();
+      const productsArray = Object.values(productsData);
+      const products = productsArray.map(product => new ProductModel(product));
 
       runInAction(() => {
-        this.categories = categories;
+        this.products = products;
         this.loading = false;
       });
     } catch (error) {
-      console.error('Failed to load categories:', error);
+      console.error('Failed to load products:', error);
       runInAction(() => {
         this.loading = false;
       });

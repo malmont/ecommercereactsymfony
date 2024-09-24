@@ -1,7 +1,6 @@
-const API_URL = 'https://backend-strapi.online/jeesign/api';
-
+import { API_BASE_URL } from '../../../../../constants/apiConstants';
 export const getHomeSlider = async () => {
-    const response = await fetch(`https://cors-anywhere.herokuapp.com/${API_URL}/homeslider`, {
+    const response = await fetch(`${API_BASE_URL}/homeslider`, {
         headers: {
             'Origin': 'http://localhost:3000',
         }

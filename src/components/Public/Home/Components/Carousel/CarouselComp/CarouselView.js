@@ -8,9 +8,9 @@ import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../../../DependencyContext';
 
 const responsive = {
-  superLargeDesktop: { breakpoint: { max: 4000, min: 1640 }, items: 4 },
-  desktop: { breakpoint: { max: 1640, min: 1024 }, items: 3 },
-  tablet: { breakpoint: { max: 1024, min: 657 }, items: 2 },
+  superLargeDesktop: { breakpoint: { max: 4000, min: 1640 }, items: 6 },
+  desktop: { breakpoint: { max: 1640, min: 1024 }, items: 5 },
+  tablet: { breakpoint: { max: 1024, min: 657 }, items: 4 },
   mobile: { breakpoint: { max: 657, min: 0 }, items: 1 }
 };
 
@@ -19,7 +19,7 @@ const CarouselComp = observer(() => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    carouselViewModel.loadCategories();
+    carouselViewModel.loadProducts();
   }, [carouselViewModel]);
 
   if (carouselViewModel.loading) {
@@ -29,10 +29,11 @@ const CarouselComp = observer(() => {
   return (
     <Wrapper>
       <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={2000}>
-        {carouselViewModel.categories.map((category, index) => (
-          <div key={index} onClick={() => navigate(`/category/${category.type_epreuve_sportive}`)}>
-            <CategoryCard category={category} />
-          </div>
+        {carouselViewModel.products.map((product, index) => (
+          // <div key={index} onClick={() => navigate(`/category/${category.type_epreuve_sportive}`)}>
+          //   <CategoryCard category={product} />
+          // </div>
+          <CategoryCard category={product} />
         ))}
       </Carousel>
     </Wrapper>
