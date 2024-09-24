@@ -61,7 +61,7 @@ const Header = observer(() => {
 
       <Feature />
 
-      <h1 className="m-4 p-4 text-center">CATEGORIES</h1>
+      <h1 className="m-4 p-4 text-center">Flash Sales</h1>
       <div className="featureCenter">
         <CarouselComp />
       </div>

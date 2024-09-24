@@ -1,11 +1,18 @@
 // src/components/Carousel/api/carouselApi.js
+import { API_BASE_URL } from '../../../../../constants/apiConstants';
 
 const API_URL = 'https://backend-strapi.online/api.jeuxolympiques.com/api';
 
-export const getCategories = async () => {
-    const response = await fetch(`${API_URL}/epreuves/categories/`);
+
+
+export const getProductByOffers = async () => {
+    const response = await fetch(`${API_BASE_URL}/products/isfeatured`, {
+        headers: {
+            'Origin': 'http://localhost:3000',
+        }
+    });
     if (!response.ok) {
-        throw new Error('Failed to fetch categories');
+        throw new Error('Failed to fetch tickets by category');
     }
     return await response.json();
 };

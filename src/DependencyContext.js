@@ -10,7 +10,7 @@ import LoginViewModel from '../src/components/Public/Login/LoginViewModel';
 import CartViewModel from '../src/components/Public/Cart/Total/CartViewModel';
 import { fetchUserAchats, fetchTicketDetails } from '../src/components/Private/Dashboards/api';
 import { fetchUserProfile, updateUserProfile } from '../src/components/Private/Profile/api';
-import { getCategories, getTicketsByCategory } from '../src/components/Public/Home/Components/Carousel/carouselApi';
+import { getProductByOffers, getTicketsByCategory } from '../src/components/Public/Home/Components/Carousel/carouselApi';
 import HeaderViewModel from '../src/components/Public/Home/Components/Header/HeaderViewModel';
 
 const DependencyContext = createContext();
@@ -22,7 +22,7 @@ export const DependencyProvider = ({ children }) => {
 
   const dashboardViewModel = new DashboardViewModel(user, fetchUserAchats, fetchTicketDetails);
   const profileViewModel = new ProfileViewModel(user, fetchUserProfile, updateUserProfile);
-  const carouselViewModel = new CarouselViewModel(getCategories);
+  const carouselViewModel = new CarouselViewModel(getProductByOffers);
   const epreuvesByCategoryViewModel = new EpreuvesByCategoryViewModel(getTicketsByCategory);
   const registerViewModel = new RegisterViewModel();
   const loginViewModel = new LoginViewModel({ setUser: (user) => user });
