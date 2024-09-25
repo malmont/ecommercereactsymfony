@@ -7,10 +7,10 @@ import Home from '../components/Public/Home/Home';
 import Cart from '../components/Public/Cart/Total/CartView';
 import DetailsProducts from '../components/Public/Home/Components/Products/DetailsProducts';
 import CarouselComp from '../components/Public/Home/Components/Carousel/CarouselComp/CarouselView';
-import EpreuvesByCategory from '../components/Public/Home/Components//Carousel/EpreuveByCategotyComp/EpreuvesByCategoryView';
 import Confirmation from '../components/Public/Cart/Confirmation';
 import Login from '../components/Public/Login/LoginView';
 import Register from '../components/Public/register/registerView';
+import Product_categories from '../components/Public/Home/Components/Products/Product_categories';
 
 export default function PublicRoute() {
   return (
@@ -22,8 +22,8 @@ export default function PublicRoute() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/DetailsProducts" element={<DetailsProducts />} />
         <Route path="/categories" element={<CarouselComp />} />
-        <Route path="/category/:category" element={<EpreuvesByCategory />} />
         <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="/Product" element={<Product_categories/>} />
       </Route>
     </Routes>
   );
