@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import React, { useState, useEffect } from "react";
-import CarouselComp from "../Carousel/CarouselComp/CarouselView";
+import CarouselView from "../Carousel/CarouselComp/CarouselView";
 import Feature from "./Feature";
-import ProductCategories from "../Products/Product_categories";
+import NewArrivalCard from "../Carousel/NewArrival/CarouselNewArrivalView";
+import CarousselBestSellerView from "../Carousel/BesSeller/CarousselBestSellerView";
 import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../../../src/DependencyContext';
+import ExploreCategoryView from "../../ExploreAllCategory/Components/ExploreCategoryView";
 
 const Header = observer(() => {
   const { headerViewModel } = useDependencies();
@@ -63,10 +65,22 @@ const Header = observer(() => {
 
       <h1 className="m-4 p-4 text-center">Flash Sales</h1>
       <div className="featureCenter">
-        <CarouselComp />
+        <CarouselView />
+      </div>
+      <h1 className="m-4 p-4 text-center">New arrival</h1>
+      <div className="featureCenter">
+        <NewArrivalCard />
+      </div>
+      <h1 className="m-4 p-4 text-center">Best Sellers</h1>
+      <div className="featureCenter">
+        <CarousselBestSellerView />
       </div>
 
-      <ProductCategories />
+      <div className="featureCenter">
+        <ExploreCategoryView />
+      </div>
+
+
     </Wrapper>
   );
 });

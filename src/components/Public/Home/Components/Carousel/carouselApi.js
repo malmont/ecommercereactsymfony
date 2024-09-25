@@ -5,8 +5,8 @@ const API_URL = 'https://backend-strapi.online/api.jeuxolympiques.com/api';
 
 
 
-export const getProductByOffers = async () => {
-    const response = await fetch(`${API_BASE_URL}/products/isfeatured`, {
+export const getProductByOffers = async (offers) => {
+    const response = await fetch(`${API_BASE_URL}/products/${offers}`, {
         headers: {
             'Origin': 'http://localhost:3000',
         }
@@ -17,13 +17,6 @@ export const getProductByOffers = async () => {
     return await response.json();
 };
 
-export const getTicketsByCategory = async (category) => {
-    const response = await fetch(`${API_URL}/tickets/by_category/?type_epreuve_sportive=${category}`);
-    if (!response.ok) {
-        throw new Error('Failed to fetch tickets by category');
-    }
-    return await response.json();
-};
 
 export const getTicketsByLevel = async (niveau) => {
     const response = await fetch(`${API_URL}/epreuves/by_level/?niveau_epreuve=${niveau}`);

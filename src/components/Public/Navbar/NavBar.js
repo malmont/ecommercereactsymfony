@@ -240,18 +240,12 @@ export default function Navbar() {
         <div className=" ulMenu">
           <ul className="ulListe">
             <li><NavLink to="/" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Home</NavLink></li>
-            {user ? (
+           
               <>
-                <li><NavLink to="/dashboard" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Dashboard</NavLink></li>
-                <li><NavLink to="/profile" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Profile</NavLink></li>
-                <li><button onClick={logout} className="logoutButton">Logout</button></li>
+                <li><NavLink to="/Product" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Categories</NavLink></li>
+                <li><NavLink to="/categoryView" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Register</NavLink></li>
               </>
-            ) : (
-              <>
-                <li><NavLink to="/login" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Login</NavLink></li>
-                <li><NavLink to="/register" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Register</NavLink></li>
-              </>
-            )}
+ 
           </ul>
         </div>
       </div>
