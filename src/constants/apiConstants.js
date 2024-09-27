@@ -1,1 +1,1 @@
-export const API_BASE_URL = 'https://cors-anywhere.herokuapp.com/https://backend-strapi.online/jeesign/api/';
+export const API_BASE_URL = 'https://backend-strapi.online/jeesign/api/';

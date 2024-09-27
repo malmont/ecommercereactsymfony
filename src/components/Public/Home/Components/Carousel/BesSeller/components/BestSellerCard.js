@@ -1,24 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
 import RatingStars from './RatingStars';
+import { useNavigate } from 'react-router-dom';
 
-const BestSellerCard = ({ category }) => (
-  <Card>
-    <div className="card cardProperty">
-    <img className="card-img-top" src={category.image} alt={category.name} />
-      <div className="card-body colorText">
-        <h6 className="card-title">{category.name}</h6>
-        <RatingStars rating={3} />
-        <div className="row">
-          <p className="card-text col">Best Sellers.</p>
-          <p  className="ard-text  col">
-            {(category.price / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
-          </p>
+const BestSellerCard = ({ category }) => {
+  const navigate = useNavigate(); 
+
+  return (
+    <Card>
+      <div className="card cardProperty">
+        <img 
+          src={category.image}
+          alt={category.name}
+          onClick={() =>
+            navigate('/DetailsProducts', {
+              state: { category },
+            })
+          }
+        />
+        <div className="card-body colorText">
+          <h6 className="card-title">{category.name}</h6>
+          <RatingStars rating={3} />
+          <div className="row">
+            <p className="card-text col">Best Sellers.</p>
+            <p className="card-text col">
+              {(category.price / 100).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+              })}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </Card>
-);
+    </Card>
+  );
+};
 
 const Card = styled.div`
   .cardProperty {
@@ -31,21 +47,22 @@ const Card = styled.div`
     justify-content: space-between; /* This ensures that the button at the bottom doesn't stretch */
   }
 
-  .card-img-top {
+  img {
     width: 100%;
-    height: auto; /* Adjust this as necessary */
+    height: 400px; 
   }
+
 
   .colorText {
     color: black;
   }
 
   .card-body {
-    flex-grow: 1; /* Makes the card body take up all available space */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Spaces out the title and the bottom row */
-    padding: 20px; /* Adds padding inside the card body for better spacing */
+    justify-content: 
+    padding: 20px; 
   }
 `;
 
