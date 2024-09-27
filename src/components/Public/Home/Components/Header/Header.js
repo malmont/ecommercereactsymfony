@@ -6,7 +6,8 @@ import NewArrivalCard from "../Carousel/NewArrival/CarouselNewArrivalView";
 import CarousselBestSellerView from "../Carousel/BesSeller/CarousselBestSellerView";
 import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../../../src/DependencyContext';
-import ExploreCategoryView from "../../ExploreAllCategory/Components/ExploreCategoryView";
+import ExploreCategoryView from "../ExploreAllCategory/Components/ExploreCategoryView";
+import EmailCard from "../EmailCard/EmailCard";
 
 const Header = observer(() => {
   const { headerViewModel } = useDependencies();
@@ -78,6 +79,10 @@ const Header = observer(() => {
 
       <div className="featureCenter">
         <ExploreCategoryView />
+      </div>
+
+      <div className="featureCenter m-4">
+        <EmailCard />
       </div>
 
 

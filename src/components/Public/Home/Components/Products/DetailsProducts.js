@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { addToCart } from "../../../../../redux/cartSlice";
@@ -6,225 +7,147 @@ import { HiCash } from "react-icons/hi";
 import { AiFillStar } from "react-icons/ai";
 import { IoIosPaperPlane } from "react-icons/io";
 import { BiAnalyse } from "react-icons/bi";
-import { BsChevronDown } from "react-icons/bs";
 
-export default function DetailsProducts({ route }) {
+export default function DetailsProducts() {
   const { state } = useLocation();
   const dispatch = useDispatch();
 
-  // Fonction pour formater l'heure
-  const formatTime = (timeString) => {
-    const date = new Date(timeString);
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [availableStock, setAvailableStock] = useState(null);
+
+  const getUniqueColors = (variants) => {
+    const uniqueColors = [];
+    variants.forEach((variant) => {
+      if (!uniqueColors.some((color) => color.id === variant.color.id)) {
+        uniqueColors.push(variant.color);
+      }
+    });
+    return uniqueColors;
   };
 
-  console.log(state);
+  const getAvailableSizes = (variants, selectedColor) => {
+    return variants
+      .filter((variant) => variant.color.name === selectedColor)
+      .map((variant) => variant.size);
+  };
+
+  const updateStock = (selectedSize, selectedColor, variants) => {
+    const matchingVariant = variants.find(
+      (variant) =>
+        variant.size.name === selectedSize && variant.color.name === selectedColor
+    );
+    if (matchingVariant) {
+      setAvailableStock(matchingVariant.stockQuantity);
+    } else {
+      setAvailableStock(null);
+    }
+  };
+
+  const handleAddToCart = () => {
+    if (selectedSize && selectedColor) {
+      dispatch(addToCart({ ...state, selectedSize, selectedColor }));
+    } else {
+      alert("Veuillez sélectionner une taille et une couleur.");
+    }
+  };
+
+  const uniqueColors = getUniqueColors(state.category.variants); 
 
   return (
     <Wrapper>
       <div className="principalDetails">
         <div className="row">
-          <div className="col m-4 right">
+          <div className="col-md-6">
             <img
               className="imageEncadrement"
               width={530}
-              src={state.image}
-              alt=""
+              src={state.category.image}
+              alt={state.category.name} 
             />
           </div>
-          <div className="col center">
-            <h1>{state.title}</h1>
-            <h2>{state.price} $</h2>
+          <div className="col-md-6 center">
+            <h1>{state.category.name}</h1>
+            <h2>{(state.category.price / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</h2> 
+
+            <div className="colorSelection">
+              <h4>Sélectionnez une couleur :</h4>
+              <div className="colorOptions">
+                {uniqueColors.map((color) => (
+                  <ColorButton
+                    key={color.id}
+                    onClick={() => {
+                      setSelectedColor(color.name);
+                      setSelectedSize(null); 
+                      setAvailableStock(null); 
+                    }}
+                    isSelected={selectedColor === color.name}
+                    color={color.codeHexa}
+                  />
+                ))}
+              </div>
+            </div>
+            {selectedColor && (
+              <div className="sizeSelection">
+                <h4>Sélectionnez une taille :</h4>
+                <div className="sizeOptions">
+                  {getAvailableSizes(state.category.variants, selectedColor).map((size) => (
+                    <SizeButton
+                      key={size.id}
+                      onClick={() => {
+                        setSelectedSize(size.name);
+                        updateStock(size.name, selectedColor, state.category.variants);
+                      }}
+                      isSelected={selectedSize === size.name}
+                    >
+                      {size.name.charAt(0)} 
+                    </SizeButton>
+                  ))}
+                </div>
+              </div>
+            )}
+            {selectedColor && (
+              <div className="infoSelection">
+                <p>Couleur sélectionnée : <strong>{selectedColor}</strong></p>
+              </div>
+            )}
+            {selectedSize && (
+              <div className="infoSelection">
+                <p>Taille sélectionnée : <strong>{selectedSize}</strong></p>
+              </div>
+            )}
+            {selectedSize && selectedColor && (
+              <div className="infoSelection">
+                <p>Stock disponible : <strong>{availableStock ?? "Indisponible"}</strong></p>
+              </div>
+            )}
+
             <button
               className="btn btn-primary p-2 my-4 activeButton"
-              onClick={() => dispatch(addToCart(state))}
+              onClick={handleAddToCart}
+              disabled={!selectedSize || !selectedColor}
             >
-              Add to Cart
+              Ajouter au panier
             </button>
+
             <div className="Feature">
               <div className="objectFeature">
                 <HiCash size={30} />
-                <p>Secure checkouts</p>
+                <p>Paiement sécurisé</p>
               </div>
               <div className="objectFeature">
                 <AiFillStar size={30} />
-                <p>Fast Shipping</p>
+                <p>Livraison rapide</p>
               </div>
               <div className="objectFeature">
                 <IoIosPaperPlane size={30} />
-                <p>Fast Shipping</p>
+                <p>Suivi d'expédition</p>
               </div>
               <div className="objectFeature">
                 <BiAnalyse size={30} />
-                <p>Easy returns</p>
+                <p>Retours faciles</p>
               </div>
             </div>
-            <hr />
-            <div>
-              <p>
-                <a
-                  className="btn my-2 Collapse"
-                  data-bs-toggle="collapse"
-                  href="#multiCollapseExample1"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="multiCollapseExample1"
-                >
-                  NIVEAU EPREUVE
-                  <BsChevronDown size={20} />
-                </a>
-              </p>
-              <div className="row">
-                <div className="col">
-                  <div
-                    className="collapse multi-collapse"
-                    id="multiCollapseExample1"
-                  >
-                    <div className="card card-body cardWith">
-                      <p>{state.niveauEpreuve}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr />
-            <div>
-              <p>
-                <a
-                  className="btn my-2 Collapse"
-                  data-bs-toggle="collapse"
-                  href="#multiCollapseExample2"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="multiCollapseExample2"
-                >
-                  COMPLEXE SPORTIF
-                  <BsChevronDown size={20} />
-                </a>
-              </p>
-              <div className="row">
-                <div className="col">
-                  <div
-                    className="collapse multi-collapse"
-                    id="multiCollapseExample2"
-                  >
-                    <div className="card card-body cardWith">
-                      <p>{state.nameComplexe}</p>
-                      <p>Adresse: {state.adressComplexe}</p>
-                      <p>HALL: {state.hallComplexe}</p>
-                      <p>Nombre de place: {state.numberPlace}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr />
-            <div>
-              <p>
-                <a
-                  className="btn my-2 Collapse"
-                  data-bs-toggle="collapse"
-                  href="#multiCollapseExample4"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="multiCollapseExample1"
-                >
-                 TYPE TARIF
-                  <BsChevronDown size={20} />
-                </a>
-              </p>
-              <div className="row">
-                <div className="col">
-                  <div
-                    className="collapse multi-collapse"
-                    id="multiCollapseExample4"
-                  >
-                    <div className="card card-body cardWith">
-                      <p>{state.tarifType}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr />
-            <div>
-              <p>
-                <a
-                  className="btn my-2 Collapse"
-                  data-bs-toggle="collapse"
-                  href="#multiCollapseExample5"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="multiCollapseExample1"
-                >
-                  HEURE DEBUT
-                  <BsChevronDown size={20} />
-                </a>
-              </p>
-              <div className="row">
-                <div className="col">
-                  <div
-                    className="collapse multi-collapse"
-                    id="multiCollapseExample5"
-                  >
-                    <div className="card card-body cardWith">
-                      <p>{formatTime(state.heureDebut)}</p> {/* Utilisation de la fonction de formatage */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr />
-            <div>
-              <p>
-                <a
-                  className="btn my-2 Collapse"
-                  data-bs-toggle="collapse"
-                  href="#multiCollapseExample3"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="multiCollapseExample3"
-                >
-                  RETURN POLICY
-                  <BsChevronDown size={20} />
-                </a>
-              </p>
-              <div className="row">
-                <div className="col">
-                  <div
-                    className="collapse multi-collapse"
-                    id="multiCollapseExample3"
-                  >
-                    <div className="card card-body cardWith">
-                      Returns Policy
-                      <br />
-                      <br />
-                      <p>
-                        You may return your most new, unworn items within 14
-                        days from the day you receive your package. This policy
-                        begins on the initial delivery attempt. Tags must be
-                        attached. We will not honor your return without a tag.
-                        Once we receive your package, we will inspect it and
-                        issue you an online credit (minus shipping fees.) We do
-                        not offer money back refunds.
-                      </p>
-                      <br />
-                      ACCESSORIES, INTIMATES, AND SALE OR DISCOUNTED ITEMS ARE
-                      FINAL SALE. NO RETURNS OR EXCHANGES.
-                      <br />
-                      <p>
-                        Online orders will not be honored in store for exchange
-                        or in-store credit. Online returns will be issued an
-                        online credit.
-                      </p>
-                      For more detailed information on our return policy or
-                      terms and conditions please visit our return policy page.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr />
           </div>
         </div>
       </div>
@@ -233,63 +156,75 @@ export default function DetailsProducts({ route }) {
 }
 
 const Wrapper = styled.div`
-  .backg {
-    background-color: black;
-  }
   .imageEncadrement {
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+    border: 1px solid #ccc;
     padding: 10px;
     border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
   }
   .center {
     text-align: start;
-    margin-top: auto;
-    margin-bottom: auto;
+    padding: 20px;
   }
-
-  .right {
-    text-align: end;
+  .sizeSelection,
+  .colorSelection {
+    margin: 20px 0;
   }
-
-  .dropddownSize {
-    width: 420px;
+  .colorOptions, .sizeOptions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
   }
-  .activeButton {
-    width: 420px;
+  h4 {
+    margin-bottom: 10px;
   }
-  .Description {
-    width: 420px;
+  .infoSelection {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
   }
   .Feature {
-    padding: 20px;
-    width: 420px;
-    background-color: rgba(128, 128, 128, 0.1);
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
   }
   .objectFeature {
-    margin-right: 20px;
-    display: inline-block;
-    width: 70px;
-    height: 80px;
     text-align: center;
   }
   .objectFeature p {
     margin-top: 10px;
-    text-align: center;
-    font-size: 12px;
-  }
-  .cardWith {
-    width: 420px;
-  }
-  hr {
-    margin-top: 0px;
-    width: 420px;
-  }
-  .Collapse {
-    display: flex;
-    justify-content: space-between;
-    width: 420px;
-    font-size: 12px;
+    font-size: 14px;
   }
 `;
+
+const SizeButton = styled.button`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid ${(props) => (props.isSelected ? "#007BFF" : "#ccc")};
+  background-color: ${(props) => (props.isSelected ? "#007BFF" : "white")};
+  color: ${(props) => (props.isSelected ? "white" : "black")};
+  font-size: 18px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #007BFF;
+    color: white;
+  }
+`;
+
+const ColorButton = styled.button`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid ${(props) => (props.isSelected ? "#007BFF" : "#ccc")};
+  background-color: ${(props) => props.color};
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid #007BFF;
+  }
+`;
+
