@@ -1,42 +1,34 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import AuthContext from '../../../Contexts/authContext';
+import { observer } from 'mobx-react-lite'; 
+import { useDependencies } from '../../../DependencyContext';
 
-const LoginView = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const { user, login } = useContext(AuthContext);
+const LoginView = observer(() => {
+  const { loginViewModel } = useDependencies(); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-
-    try {
-      await login(username, password);
-    } catch (error) {
-      setError('Login failed: ' + error.message);
-    }
+    loginViewModel.handleLogin(e);
   };
 
   useEffect(() => {
-    if (user) {
+    if (loginViewModel.authContext.user) {
       navigate('/dashboard');
     }
-  }, [user, navigate]);
+  }, [loginViewModel.authContext.user, navigate]);
 
   return (
     <Wrapper>
       <Form onSubmit={handleSubmit}>
         <Header>Login</Header>
-        {error && <ErrorMessage>{error}</ErrorMessage>}
+        {loginViewModel.errorMessage && <ErrorMessage>{loginViewModel.errorMessage}</ErrorMessage>}
         <FormField>
           <input
             type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={loginViewModel.username}
+            onChange={(e) => loginViewModel.handleChange('username', e.target.value)}
             placeholder="Username"
             required
           />
@@ -44,8 +36,8 @@ const LoginView = () => {
         <FormField>
           <input
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={loginViewModel.password}
+            onChange={(e) => loginViewModel.handleChange('password', e.target.value)}
             placeholder="Password"
             required
           />
@@ -57,7 +49,7 @@ const LoginView = () => {
       </Form>
     </Wrapper>
   );
-};
+});
 
 const Wrapper = styled.div`
   background-color: #808080;

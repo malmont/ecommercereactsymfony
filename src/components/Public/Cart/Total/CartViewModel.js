@@ -3,6 +3,7 @@ import { CartItemModel } from "../../../../models/CartItemModel";
 import { incrementQuantity, decrementQuantity, removeItem, clearCart } from '../../../../redux/cartSlice';
 import { createAchat } from '../cartApi';
 import {jwtDecode} from 'jwt-decode'; 
+
 class CartViewModel {
   cart = [];
   user = null;
@@ -12,28 +13,38 @@ class CartViewModel {
     makeAutoObservable(this);
     this.user = user;
     this.dispatch = dispatch;
-    this.cart = cart.map(item => new CartItemModel(item.id, item.image, item.title, item.price, item.quantity));
+    this.cart = cart.map(item => new CartItemModel(
+      item.id,
+      item.image,
+      item.title,
+      item.price,
+      item.quantity,
+      item.color,
+      item.size,
+      item.colorHex, 
+      item.variantId
+    ));
   }
 
-  incrementQuantity(id) {
-    const item = this.cart.find(item => item.id === id);
+  incrementQuantity(variantId) {
+    const item = this.cart.find(item => item.variantId === variantId);
     if (item) {
       item.quantity += 1;
-      this.dispatch(incrementQuantity(id));
+      this.dispatch(incrementQuantity(variantId));
     }
   }
 
-  decrementQuantity(id) {
-    const item = this.cart.find(item => item.id === id);
+  decrementQuantity(variantId) {
+    const item = this.cart.find(item => item.variantId === variantId);
     if (item && item.quantity > 1) {
       item.quantity -= 1;
-      this.dispatch(decrementQuantity(id));
+      this.dispatch(decrementQuantity(variantId));
     }
   }
 
-  removeItem(id) {
-    this.cart = this.cart.filter(item => item.id !== id);
-    this.dispatch(removeItem(id));
+  removeItem(variantId) {
+    this.cart = this.cart.filter(item => item.variantId !== variantId);
+    this.dispatch(removeItem(variantId));
   }
 
   clearCart() {
@@ -54,6 +65,7 @@ class CartViewModel {
     return ((this.totalPrice * tax) / 100) + this.totalPrice;
   }
 
+
   handleCheckout = async () => {
     if (!this.user) {
         this.navigate('/login');
@@ -68,7 +80,7 @@ class CartViewModel {
 
             await Promise.all(promises);
             console.log('Achats créés avec succès');
-            this.clearCart(); // Assuming you have a method to clear the cart
+            this.clearCart(); 
             this.navigate('/confirmation', { state: { cart: this.cart, totalPrice: this.totalPriceWithTax } });
         } catch (error) {
             console.error("Erreur lors de la création des achats", error);

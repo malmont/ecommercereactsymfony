@@ -15,10 +15,11 @@ import { getProductByOffers} from '../src/components/Public/Home/Components/Caro
 import HeaderViewModel from '../src/components/Public/Home/Components/Header/HeaderViewModel';
 import CarouselNewArrivalViewModel from '../src/components/Public/Home/Components/Carousel/NewArrival/CarouselNewArrivalViewModel';
 import CarouselBestSellerViewModel from '../src/components/Public/Home/Components/Carousel/BesSeller/CarouselBestSellerViewModel';
+
 const DependencyContext = createContext();
 
 export const DependencyProvider = ({ children }) => {
-  const { user } = useContext(AuthContext);
+  const { login, logout, user } = useContext(AuthContext);  
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
 
@@ -28,7 +29,9 @@ export const DependencyProvider = ({ children }) => {
   const carouselNewArrivalViewModel = new CarouselNewArrivalViewModel(getProductByOffers);
   const carouselBestSellerViewModel = new CarouselBestSellerViewModel(getProductByOffers);
   const registerViewModel = new RegisterViewModel();
-  const loginViewModel = new LoginViewModel({ setUser: (user) => user });
+  
+  // Passe tout le AuthContext au LoginViewModel
+  const loginViewModel = new LoginViewModel({ login, logout, user }); 
   const cartViewModel = new CartViewModel(user, cart, dispatch);
   const headerViewModel = new HeaderViewModel();
 

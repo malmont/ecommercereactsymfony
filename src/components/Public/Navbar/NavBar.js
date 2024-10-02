@@ -81,7 +81,6 @@ export default function Navbar() {
 
         <div className="divMenu">
           {largeur > 800 && (
-            // <div className='shopping-cart' onClick={() => navigate('/cart')}>
             <div className='shopping-cart'>
               <div className="row mt-3">
                 <div className="col ">
@@ -159,21 +158,12 @@ export default function Navbar() {
                           </li>
                         </ul>
                       </div>
-
                     </div>
-
+                
                   </div>
                 </div>
                 <div className="col ">
                   <div className="row ">
-                    <div className="section-sign-card col shopping-cart-container">
-                      <span className="separator"></span>
-                      <ShoppingCart className="colorIcon"  onClick={() => navigate('/cart')}/>
-                      <p>{getTotalQuantity() || 0}</p>
-                      <div className="cartVisible">
-                        <ResumeCart className="cart" />
-                      </div>
-                    </div>
                     {user ? (<>
                       <div className=" col">
                         <DashboardCustomizeIcon className="colorIcon" />
@@ -183,7 +173,7 @@ export default function Navbar() {
                         <PeopleAltIcon className="colorIcon" />
                         <NavLink to="/profile" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Profile</NavLink>
                       </div>
-                      <div className="card col">
+                      <div className=" col">
                         <LogoutIcon className="colorIcon" />
                         <button onClick={logout} className="logoutButton">Logout</button>
                       </div>
@@ -200,15 +190,18 @@ export default function Navbar() {
                         </div>
                       </>
                     )}
+                      <div className="section-sign-card col shopping-cart-container">
+                      <ShoppingCart className="colorIcon"  onClick={() => navigate('/cart')}/>
+                      <p>{getTotalQuantity() || 0}</p>
+                      <div className="cartVisible">
+                        <ResumeCart className="cart" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           )}
-
-
-
-
           <div className="col">
             {toggleMenuMobile && largeur < 800 && (
               <ul className="ulListeMobile">

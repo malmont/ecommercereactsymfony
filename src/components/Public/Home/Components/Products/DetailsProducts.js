@@ -12,9 +12,17 @@ export default function DetailsProducts() {
   const { state } = useLocation();
   const dispatch = useDispatch();
 
+
+
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
   const [availableStock, setAvailableStock] = useState(null);
+
+  console.log("Données reçues : ", state);  
+  
+    if (!state || !state.category) {
+      return <p>Loading...</p>; 
+    }
 
   const getUniqueColors = (variants) => {
     const uniqueColors = [];
@@ -46,13 +54,32 @@ export default function DetailsProducts() {
 
   const handleAddToCart = () => {
     if (selectedSize && selectedColor) {
-      dispatch(addToCart({ ...state, selectedSize, selectedColor }));
+      const selectedVariant = state.category.variants.find(
+        (variant) => variant.size.name === selectedSize && variant.color.name === selectedColor
+      );
+      
+      if (selectedVariant) {
+        const selectedColorDetails = selectedVariant.color; 
+        dispatch(
+          addToCart({
+            id: state.category.id,
+            title: state.category.name,
+            image: state.category.image,
+            price: state.category.price,
+            size: selectedSize,   
+            color: selectedColor,
+            colorHex: selectedColorDetails.codeHexa,  
+            variantId: selectedVariant.id, 
+          })
+        );
+      } else {
+        alert("Le variant sélectionné n'est pas disponible.");
+      }
     } else {
       alert("Veuillez sélectionner une taille et une couleur.");
     }
   };
-
-  const uniqueColors = getUniqueColors(state.category.variants); 
+  const uniqueColors = getUniqueColors(state.category.variants);
 
   return (
     <Wrapper>
@@ -227,4 +254,3 @@ const ColorButton = styled.button`
     border: 2px solid #007BFF;
   }
 `;
-

@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { API_BASE_URL } from '../constants/apiConstants';
 
 const AuthContext = createContext();
 
@@ -7,34 +8,70 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem('access_token');
-    if (token) {
-      setUser({ token });
-    }
-    setLoading(false);
+    const validateToken = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}validate-token`, {
+          method: 'GET',
+          credentials: 'include',
+        });
+        console.log(response);
+        if (response.ok) {
+          const data = await response.json();
+          if (data.status === 'success') {
+            setUser({ token: true }); 
+          }
+        } else {
+          setUser(null); 
+        }
+      } catch (error) {
+        console.error('Erreur lors de la validation du token', error);
+        setUser(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    validateToken();
   }, []);
 
   const login = async (username, password) => {
-    const response = await fetch('https://backend-strapi.online/api.jeuxolympiques.com/api/token/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password }),
-    });
+    try {
+      const response = await fetch(`${API_BASE_URL}login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username,
+          password,
+          platform: 'web', 
+        }),
+        credentials: 'include', 
+      });
 
-    const data = await response.json();
-    if (response.ok) {
-      setUser({ token: data.access });
-      localStorage.setItem('access_token', data.access);
-      localStorage.setItem('refresh_token', data.refresh);
-    } else {
-      throw new Error(data.detail || 'Failed to login');
+      if (response.ok) {
+        setUser({ token: true });
+      } else {
+        const data = await response.json();
+        throw new Error(data.detail || 'Failed to login');
+      }
+    } catch (error) {
+      console.error('Erreur lors de la connexion', error);
+      throw error;
     }
   };
 
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('refresh_token');
+  const logout = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}logout`, {
+        method: 'POST',
+        credentials: 'include',
+      });
+
+      if (response.ok) {
+        setUser(null);
+      }
+    } catch (error) {
+      console.error('Erreur lors de la déconnexion', error);
+    }
   };
 
   return (
