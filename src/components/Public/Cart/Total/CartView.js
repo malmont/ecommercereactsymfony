@@ -16,14 +16,19 @@ const CartView = observer(() => {
             <div className="col-12 col-md-8">
               <h3>Shopping Cart</h3>
               {cartViewModel.cart?.map((item) => (
-                <CartItemView
-                  key={item.id}
-                  id={item.id}
-                  image={item.image}
-                  title={item.title}
-                  price={item.price}
-                  quantity={item.quantity}
-                />
+               <CartItemView
+               key={item.variantId} 
+               id={item.id}
+               image={item.image}
+               title={item.title}
+               price={item.price}
+               quantity={item.quantity}
+               color={item.color}
+               colorHex={item.colorHex}
+               size={item.size}
+               variantId={item.variantId}
+               showButtons={true} 
+             />
               ))}
             </div>
             <div className="col-12 col-md-4 row align-items-end">

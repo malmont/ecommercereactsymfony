@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
 import CategoryCard from '../components/CategoryCard';
 import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../../../DependencyContext';
@@ -16,7 +15,6 @@ const responsive = {
 
 const CarouselComp = observer(() => {
   const { carouselViewModel } = useDependencies();
-  const navigate = useNavigate();
 
   useEffect(() => {
     carouselViewModel.loadProducts();
@@ -30,9 +28,6 @@ const CarouselComp = observer(() => {
     <Wrapper>
       <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={2000}>
         {carouselViewModel.products.map((product, index) => (
-          // <div key={index} onClick={() => navigate(`/category/${category.type_epreuve_sportive}`)}>
-          //   <CategoryCard category={product} />
-          // </div>
           <CategoryCard category={product} />
         ))}
       </Carousel>

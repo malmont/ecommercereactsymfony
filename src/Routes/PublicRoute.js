@@ -11,6 +11,7 @@ import Confirmation from '../components/Public/Cart/Confirmation';
 import Login from '../components/Public/Login/LoginView';
 import Register from '../components/Public/register/registerView';
 import Product_categories from '../components/Public/Home/Components/Products/Product_categories';
+import CheckoutPage from '../components/Public/Cart/Total/CheckoutPage'
 
 export default function PublicRoute() {
   return (
@@ -24,6 +25,7 @@ export default function PublicRoute() {
         <Route path="/categories" element={<CarouselComp />} />
         <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/Product" element={<Product_categories/>} />
+        <Route path="/CheckoutPage" element={<CheckoutPage/>} />
       </Route>
     </Routes>
   );

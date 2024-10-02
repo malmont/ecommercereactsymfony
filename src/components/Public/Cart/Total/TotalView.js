@@ -3,27 +3,30 @@ import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 import { useNavigate } from 'react-router-dom';
 import { useDependencies } from '../../../../DependencyContext';
-import { clearCart } from '../../../../../src/redux/cartSlice';
-import { useDispatch } from 'react-redux';
+
 
 const TotalView = observer(() => {
   const { cartViewModel } = useDependencies();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+ 
 
   const handleCheckout = async () => {
     if (!cartViewModel.user) {
       navigate('/login');
     } else {
       try {
-        await cartViewModel.handleCheckout();
-        dispatch(clearCart());
-        navigate('/confirmation', { state: { cart: cartViewModel.cart, totalPrice: cartViewModel.totalPriceWithTax } });
+        navigate('/CheckoutPage', { 
+          state: { 
+            cart: cartViewModel.cart, 
+            totalPrice: cartViewModel.totalPriceWithTax 
+          } 
+        });
       } catch (error) {
-        console.error("Erreur lors de la création des achats", error);
+        console.error("Erreur lors de la navigation vers la page de récapitulatif", error);
       }
     }
   };
+  
 
   return (
     <Wrapper>
@@ -39,7 +42,7 @@ const TotalView = observer(() => {
           </div>
           <div className="col-6 col-sm-4">
             <p className="total__p">
-              <strong>${cartViewModel.totalPrice}</strong>
+              <strong>{((cartViewModel.totalPrice) / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</strong>
             </p>
           </div>
         </div>
@@ -53,7 +56,7 @@ const TotalView = observer(() => {
           </div>
           <div className="col-6 col-sm-4">
             <p className="total__p">
-              <strong>${((cartViewModel.totalPrice * 20) / 100)}</strong>
+              <strong>{((cartViewModel.totalPrice* 0.2) / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</strong>
             </p>
           </div>
         </div>
@@ -83,7 +86,7 @@ const TotalView = observer(() => {
           </div>
           <div className="col-6 col-sm-4">
             <p className="total__p">
-              <strong>${cartViewModel.totalPriceWithTax}</strong>
+              <strong>{((cartViewModel.totalPriceWithTax) / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</strong>
             </p>
           </div>
         </div>

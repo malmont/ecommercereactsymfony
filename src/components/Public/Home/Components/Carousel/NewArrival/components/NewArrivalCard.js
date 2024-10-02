@@ -1,10 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
-const NewArrivalCard = ({ category }) => (
+const NewArrivalCard = ({ category }) =>  {
+  const navigate = useNavigate(); 
+  return (
   <Card>
     <div className="card cardProperty">
-      <img className="card-img-top" src={category.image} alt={category.name} />
+      <img className="card-img-top"
+          src={category.image}
+          alt={category.name}
+          onClick={() =>
+            navigate('/DetailsProducts', {
+              state: { category },
+            })
+          }
+        />
       <div className="card-body colorText">
         <h6 className="card-title">{category.name}</h6>
         <div className="row">
@@ -16,7 +27,8 @@ const NewArrivalCard = ({ category }) => (
       </div>
     </div>
   </Card>
-);
+  );
+};
 
 const Card = styled.div`
   .cardProperty {

@@ -3,13 +3,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import Countdown from 'react-countdown';
+import { useNavigate } from 'react-router-dom';
 
-const CategoryCard = ({ category }) => (
+const CategoryCard = ({ category }) =>{
+  const navigate = useNavigate(); 
+  return (
   <Card>
      
     <div class="card cardPorperty">
     <Countdown date={Date.now() + 100000} renderer={renderer} />
-      <img class="card-img-top" src={category.image} alt={category.type_epreuve_sportive} />
+    <img class="card-img-top" 
+          src={category.image}
+          alt={category.name}
+          onClick={() =>
+            navigate('/DetailsProducts', {
+              state: { category },
+            })
+          }
+        />
       <div class="card-body">
         <h6 class="card-title">
           {category.name}
@@ -23,7 +34,8 @@ const CategoryCard = ({ category }) => (
     </div>
 
   </Card>
-);
+ );
+};
 const renderer = ({ hours, minutes, seconds }) => {
   return (
     <div className="countdown">
