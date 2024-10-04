@@ -4,9 +4,27 @@ import TotalView from '../Total/TotalView';
 import CartItemView from '../Total/CartItemView';
 import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../DependencyContext';
+import { useNavigate } from 'react-router-dom';
 
 const CartView = observer(() => {
   const { cartViewModel } = useDependencies();
+  const handleCheckout = async () => {
+    if (!cartViewModel.user) {
+      navigate('/login');
+    } else {
+      try {
+        navigate('/CheckoutPage', { 
+          state: { 
+            cart: cartViewModel.cart, 
+            totalPrice: cartViewModel.totalPriceWithTax 
+          } 
+        });
+      } catch (error) {
+        console.error("Erreur lors de la navigation vers la page de récapitulatif", error);
+      }
+    }
+  };
+  const navigate = useNavigate();
 
   return (
     <Wrapper>
@@ -32,7 +50,7 @@ const CartView = observer(() => {
               ))}
             </div>
             <div className="col-12 col-md-4 row align-items-end">
-              <TotalView />
+            <TotalView handleCheckout={handleCheckout} buttonLabel="Proceed to checkOut" />
             </div>
           </div>
         </div>

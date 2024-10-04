@@ -1,8 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { CartItemModel } from "../../../../models/CartItemModel";
 import { incrementQuantity, decrementQuantity, removeItem, clearCart } from '../../../../redux/cartSlice';
-import { createAchat } from '../cartApi';
-import {jwtDecode} from 'jwt-decode'; 
+
 
 class CartViewModel {
   cart = [];
@@ -66,27 +65,27 @@ class CartViewModel {
   }
 
 
-  handleCheckout = async () => {
-    if (!this.user) {
-        this.navigate('/login');
-    } else {
-        try {
-            const decodedToken = jwtDecode(this.user.token);
-            const userId = decodedToken.user_id;
+//   handleCheckout = async () => {
+//     if (!this.user) {
+//         this.navigate('/login');
+//     } else {
+//         try {
+//             const decodedToken = jwtDecode(this.user.token);
+//             const userId = decodedToken.user_id;
 
-            const promises = this.cart.map(item => {
-                return createAchat(this.user.token, item, userId);
-            });
+//             const promises = this.cart.map(item => {
+//                 return createAchat(this.user.token, item, userId);
+//             });
 
-            await Promise.all(promises);
-            console.log('Achats créés avec succès');
-            this.clearCart(); 
-            this.navigate('/confirmation', { state: { cart: this.cart, totalPrice: this.totalPriceWithTax } });
-        } catch (error) {
-            console.error("Erreur lors de la création des achats", error);
-        }
-    }
-};
+//             await Promise.all(promises);
+//             console.log('Achats créés avec succès');
+//             this.clearCart(); 
+//             this.navigate('/confirmation', { state: { cart: this.cart, totalPrice: this.totalPriceWithTax } });
+//         } catch (error) {
+//             console.error("Erreur lors de la création des achats", error);
+//         }
+//     }
+// };
 }
 
 

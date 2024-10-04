@@ -3,17 +3,17 @@ import { NavLink } from 'react-router-dom';
 import OrderList from './OrderList';
 import AddressList from './AddressList';
 import AccountDetails from './AccountDetails'; 
-import CarrierList from './CarrierList'; // Importer CarrierList
+import CarrierList from './CarrierList'; 
 import styled from 'styled-components';
-import { useDependencies } from '../../../DependencyContext'; // Importer DependencyContext
+import { useDependencies } from '../../../DependencyContext'; 
 
 const AccountDashboard = () => {
-  const { orderListViewModel, addressListViewModel, carrierListViewModel } = useDependencies(); // Ajouter CarrierListViewModel
+  const { orderListViewModel, addressListViewModel, carrierListViewModel } = useDependencies(); 
   const [activeTab, setActiveTab] = useState('dashboard');
 
   useEffect(() => {
     if (!orderListViewModel.user) {
-      // Gérer l'absence de user si nécessaire
+
     }
   }, [orderListViewModel.user]);
 
@@ -94,7 +94,7 @@ const AccountDashboard = () => {
               )}
               {activeTab === 'orders' && <OrderList viewModel={orderListViewModel} />} 
               {activeTab === 'address' && <AddressList viewModel={addressListViewModel} />} 
-              {activeTab === 'carriers' && <CarrierList viewModel={carrierListViewModel} />} {/* Ajouter CarrierList */}
+              {activeTab === 'carriers' && <CarrierList viewModel={carrierListViewModel} />}
               {activeTab === 'accountDetails' && <AccountDetails />} 
             </Content>
           </div>
