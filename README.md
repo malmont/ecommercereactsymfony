@@ -1,3 +1,49 @@
+
+<!-- PROJECT LOGO --> <p align="center"> <h3 align="center">Site Ecommerce - Libre et Open Source</h3> <p align="center"> Un système de point de vente moderne développé avec React et Symfony, libre et open source ! <br /> <a posflutterweb/">Voir la Démo</a> · <a href="https://github.com/malmont/posflutter/issues">Signaler un Bug</a> · <a href="https://github.com/malmont/posflutter/issues">Demander une Fonctionnalité</a> </p> </p>
+
+
+🔗 Testez l'application ici
+<br /> <a href="https://malmont.github.io/ecommercereactsymfony/">Voir la Démo</a> 
+Identifiants de test :
+
+Login : test@pos.com
+Mot de passe : Test@1234
+## Stack techniques:
+
+* ** Architecture**: Code structuré et modulaire avec séparation des responsabilités en couches : .
+* **MVVM**: Patter MVVM..
+
+* **Fonctionnalités POS de commerce**: Gestion des produits, catégories, panier, et Dashboard USER.
+
+<!-- Features -->
+---
+| Fonctionnalité | UseCases                                                                                                                                                                                                   |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Produits       | Liste des produits, Recherche par catégorie
+| Panier        | Ajouter au panier, Mettre à jour le panier
+| Commandes       | Voir les détails des commandes
+| Paiements       | Gestion des paiements
+
+
+                                                                           |
+
+![Description de l'image](https://ucarecdn.com/6ff18061-2e45-4e83-aeda-c2437643d5fb/Screenshot20241004at112904.png)
+
+![Description de l'image](https://ucarecdn.com/9a959614-64f4-4a33-8767-1b7a89cd6a75/Screenshot20241004at112924.png)
+![Description de l'image](https://ucarecdn.com/9a959614-64f4-4a33-8767-1b7a89cd6a75/Screenshot20241004at112924.png)
+![Description de l'image](https://ucarecdn.com/b0d214cf-7c76-4157-94d6-9aa6a373371f/Screenshot20241004at112941.png)
+![Description de l'image](https://ucarecdn.com/1b98f986-a75d-49bf-9f06-aea2d07038b2/Screenshot20241004at112954.png)
+![Description de l'image](https://ucarecdn.com/2ef4d073-5d9c-4c13-985d-66d81e8b1ebb/Screenshot20241004at112948.png)
+
+Commencer
+Suivez ces étapes pour configurer votre environnement de développement et exécuter l'application en local.
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/malmont/ecommercereactsymfony.git
+   ```
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -39,32 +85,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
