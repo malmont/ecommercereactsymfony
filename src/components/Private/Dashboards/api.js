@@ -10,6 +10,7 @@ export const fetchAddresses = async () => {
             headers: {
                 'Content-Type': 'application/json',
             },
+            credentials: 'include'
         });
         console.log(response);
         if (!response.ok) {
@@ -32,6 +33,7 @@ export const fetchUserOrders = async () => {
             headers: {
                 'Content-Type': 'application/json',
             },
+            credentials: 'include'
         });
 
         if (!response.ok) {
@@ -53,6 +55,7 @@ export const fetchCarriers = async () => {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include'
       });
   
       if (!response.ok) {
