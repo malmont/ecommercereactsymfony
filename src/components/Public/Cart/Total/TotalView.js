@@ -1,32 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
-import { useNavigate } from 'react-router-dom';
 import { useDependencies } from '../../../../DependencyContext';
 
-
-const TotalView = observer(() => {
+const TotalView = observer(({ handleCheckout, buttonLabel = 'Proceed to Checkout' }) => {
   const { cartViewModel } = useDependencies();
-  const navigate = useNavigate();
- 
-
-  const handleCheckout = async () => {
-    if (!cartViewModel.user) {
-      navigate('/login');
-    } else {
-      try {
-        navigate('/CheckoutPage', { 
-          state: { 
-            cart: cartViewModel.cart, 
-            totalPrice: cartViewModel.totalPriceWithTax 
-          } 
-        });
-      } catch (error) {
-        console.error("Erreur lors de la navigation vers la page de récapitulatif", error);
-      }
-    }
-  };
-  
 
   return (
     <Wrapper>
@@ -50,13 +28,11 @@ const TotalView = observer(() => {
         <div className="trait"></div>
         <div className="row">
           <div className="col">
-            <p className="total__p">
-              Taxe (20%)
-            </p>
+            <p className="total__p">Taxe (20%)</p>
           </div>
           <div className="col-6 col-sm-4">
             <p className="total__p">
-              <strong>{((cartViewModel.totalPrice* 0.2) / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</strong>
+              <strong>{((cartViewModel.totalPrice * 0.2) / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</strong>
             </p>
           </div>
         </div>
@@ -65,9 +41,7 @@ const TotalView = observer(() => {
 
         <div className="row">
           <div className="col">
-            <p className="total__p">
-              Shipping
-            </p>
+            <p className="total__p">Shipping</p>
           </div>
           <div className="col-6 col-sm-4">
             <p className="total__p">
@@ -80,9 +54,7 @@ const TotalView = observer(() => {
 
         <div className="row">
           <div className="col">
-            <p className="total__p">
-              Total TTC
-            </p>
+            <p className="total__p">Total TTC</p>
           </div>
           <div className="col-6 col-sm-4">
             <p className="total__p">
@@ -91,7 +63,9 @@ const TotalView = observer(() => {
           </div>
         </div>
 
-        <button type="button" className="btn btn-success" onClick={handleCheckout}>Proceed to checkOut</button>
+        <button type="button" className="btn btn-success" onClick={handleCheckout}>
+          {buttonLabel}
+        </button>
       </div>
       <div className="height"></div>
     </Wrapper>

@@ -16,6 +16,7 @@ import CarouselNewArrivalViewModel from '../src/components/Public/Home/Component
 import CarouselBestSellerViewModel from '../src/components/Public/Home/Components/Carousel/BesSeller/CarouselBestSellerViewModel';
 import { fetchAddresses, fetchUserOrders,fetchCarriers } from '../src/components/Private/Dashboards/api';
 import CarrierListViewModel from '../src/components/Private/Dashboards/CarrierListViewModel';
+import CheckoutViewModel from '../src/components/Public/Cart/Total/CheckoutViewModel';
 
 
 const DependencyContext = createContext();
@@ -38,6 +39,7 @@ export const DependencyProvider = ({ children }) => {
   const loginViewModel = new LoginViewModel({ login, logout, user }); 
   const cartViewModel = new CartViewModel(user, cart, dispatch);
   const headerViewModel = new HeaderViewModel();
+  const checkoutViewModel = new CheckoutViewModel(cartViewModel, addressListViewModel, carrierListViewModel);
 
   return (
     <DependencyContext.Provider value={{
@@ -52,7 +54,8 @@ export const DependencyProvider = ({ children }) => {
       carouselBestSellerViewModel,
       orderListViewModel,
       addressListViewModel,
-      carrierListViewModel
+      carrierListViewModel,
+      checkoutViewModel
     }}>
       {children}
     </DependencyContext.Provider>
