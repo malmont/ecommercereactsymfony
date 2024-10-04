@@ -14,6 +14,7 @@ import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import LogoutIcon from '@mui/icons-material/Logout';
 import CategoryIcon from '@mui/icons-material/Category';
+import HomeIcon from '@mui/icons-material/Home';
 
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
@@ -159,7 +160,7 @@ export default function Navbar() {
                         </ul>
                       </div>
                     </div>
-                
+
                   </div>
                 </div>
                 <div className="col ">
@@ -190,8 +191,8 @@ export default function Navbar() {
                         </div>
                       </>
                     )}
-                      <div className="section-sign-card col shopping-cart-container">
-                      <ShoppingCart className="colorIcon"  onClick={() => navigate('/cart')}/>
+                    <div className="section-sign-card col shopping-cart-container">
+                      <ShoppingCart className="colorIcon" onClick={() => navigate('/cart')} />
                       <p>{getTotalQuantity() || 0}</p>
                       <div className="cartVisible">
                         <ResumeCart className="cart" />
@@ -202,43 +203,78 @@ export default function Navbar() {
               </div>
             </div>
           )}
-          <div className="col">
-            {toggleMenuMobile && largeur < 800 && (
-              <ul className="ulListeMobile">
-                <li><NavLink to="/" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Home</NavLink></li>
-                {user ? (
-                  <>
-                    <li><NavLink to="/dashboard" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Dashboard</NavLink></li>
-                    <li><NavLink to="/profile" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Profile</NavLink></li>
-                    <li><button onClick={logout} className="logoutButton">Logout</button></li>
-                  </>
-                ) : (
-                  <>
-                    <li><NavLink to="/login" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Login</NavLink></li>
-                    <li><NavLink to="/register" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Register</NavLink></li>
-                  </>
-                )}
-              </ul>
-            )}
-          </div>
+         
+            <div className="col">
+              {toggleMenuMobile && largeur < 800 && (
+                <ul className="ulListeMobile">
+                  {/* <li><NavLink to="/" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Home</NavLink></li> */}
+                  <div className=" col">
+                    <HomeIcon className="colorIconBlack" />
+                    <NavLink to="/" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Home</NavLink>
+                  </div>
+                  {user ? (
+                    <>
+                      <div className=" col">
+                        <DashboardCustomizeIcon className="colorIconBlack" />
+                        <NavLink to="/dashboard" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Dashboard</NavLink>
+                      </div>
+                      <div className=" col">
+                        <PeopleAltIcon className="colorIconBlack" />
+                        <NavLink to="/profile" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Profile</NavLink>
+                      </div>
+                      <div className=" col">
+                        <LogoutIcon className="colorIconBlack" />
+                        <button onClick={logout} className="logoutButton">Logout</button>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className=" col">
+                        <PersonIcon className="colorIconBlack" />
+                        <NavLink to="/login" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Login</NavLink>
+                      </div>
+                      <div className=" col">
+                        <HowToRegIcon className="colorIconBlack" />
+                        <NavLink to="/register" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Register</NavLink>
+                      </div>
+                    </>
+                  )}
+                </ul>
 
+
+              )}
+         
+           
+          </div>
+       
+
+          <div className="section-sign-card-mobile  p-3">
+              <ShoppingCart className="colorIcon" onClick={() => navigate('/cart')} />
+              <p>{getTotalQuantity() || 0}</p>
+              <div className="cartVisible">
+                <ResumeCart className="cart" />
+              </div>
+            </div>
+    
           <AnimateHeight duration={500} height={height}>
             <div className="Menu activeLink" onClick={toogleMenu}>
               <span className="spanMenu">Menu</span>
               <RxHamburgerMenu />
             </div>
           </AnimateHeight>
+     
+      
         </div>
 
         <div className=" ulMenu">
           <ul className="ulListe">
             <li><NavLink to="/" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Home</NavLink></li>
-           
-              <>
-                <li><NavLink to="/Product" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Categories</NavLink></li>
-                <li><NavLink to="/categoryView" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Register</NavLink></li>
-              </>
- 
+
+            <>
+              <li><NavLink to="/Product" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Categories</NavLink></li>
+              <li><NavLink to="/categoryView" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Register</NavLink></li>
+            </>
+
           </ul>
         </div>
       </div>
@@ -269,6 +305,12 @@ const Wrapper = styled.header`
     justify-content: left;
     align-items: center;
   }
+    .colorIconBlack { 
+    margin-right: 5px;
+    margin-bottom: 5px;
+    color: black;
+
+  }
   
  .align-cart-quantity{
   display: flex;
@@ -277,7 +319,7 @@ const Wrapper = styled.header`
 
   .divMenu {
     background: #262626;
-    height: 90px;
+    height: 120px;
     width: 100%;
   }
   .Menu {
@@ -387,6 +429,22 @@ const Wrapper = styled.header`
   color: white;
   border-radius: 50px;
 }
+
+.section-sign-card-mobile{
+   display: flex;
+  align-items: center;
+  justify-content: star;
+}
+  .section-sign-card-mobile > p{
+  top: 0;
+  right: 0;
+  background-color: red;
+  padding: 0px 6px;
+  margin: 5px;
+  color: white;
+  border-radius: 50px;
+}
+
   @media screen and (max-width: 800px) {
     .burgerMenu {
       display: block;
@@ -403,8 +461,10 @@ const Wrapper = styled.header`
   z-index: 1;
 }
     .Menu {
-      display: block;
-    }
+     display: flex;
+  align-items: center;
+  justify-content: end;
+    
   }
 
   @media screen and (max-width: 800px) {
