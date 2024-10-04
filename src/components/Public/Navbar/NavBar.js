@@ -248,7 +248,7 @@ export default function Navbar() {
           </div>
        
 
-          <div className="section-sign-card-mobile  p-3">
+          <div className="section-sign-card-mobile  mt-4 ">
               <ShoppingCart className="colorIcon" onClick={() => navigate('/cart')} />
               <p>{getTotalQuantity() || 0}</p>
               <div className="cartVisible">
@@ -257,7 +257,7 @@ export default function Navbar() {
             </div>
     
           <AnimateHeight duration={500} height={height}>
-            <div className="Menu activeLink" onClick={toogleMenu}>
+            <div className="MenuMobile activeLink" onClick={toogleMenu}>
               <span className="spanMenu">Menu</span>
               <RxHamburgerMenu />
             </div>
@@ -289,6 +289,14 @@ const Wrapper = styled.header`
   height: 150%;
   margin: 0 10px;
   vertical-align: middle; 
+}
+   .MenuMobile {
+     display: none;
+   
+  }
+  .section-sign-card-mobile{
+   display: none;
+
 }
   .burgerMenu {
   }
@@ -326,6 +334,8 @@ const Wrapper = styled.header`
     height: 40px;
     display: none;
   }
+  
+  
   .colorBorder {
     background-color: black;
   }
@@ -430,20 +440,7 @@ const Wrapper = styled.header`
   border-radius: 50px;
 }
 
-.section-sign-card-mobile{
-   display: flex;
-  align-items: center;
-  justify-content: star;
-}
-  .section-sign-card-mobile > p{
-  top: 0;
-  right: 0;
-  background-color: red;
-  padding: 0px 6px;
-  margin: 5px;
-  color: white;
-  border-radius: 50px;
-}
+
 
   @media screen and (max-width: 800px) {
     .burgerMenu {
@@ -460,18 +457,31 @@ const Wrapper = styled.header`
   left: 150%;
   z-index: 1;
 }
-    .Menu {
-     display: flex;
-  align-items: center;
-  justify-content: end;
-    
+    .MenuMobile {
+     display: inline-block;
+   
   }
-
+ 
+}
   @media screen and (max-width: 800px) {
 
   .shopping-cart {
   left: 190%;
 
+}
+  .section-sign-card-mobile{
+   display: flex;
+  align-items: center;
+  justify-content: end;
+}
+  .section-sign-card-mobile > p{
+  top: 0;
+  right: 0;
+  background-color: red;
+  padding: 0px 6px;
+  margin: 5px;
+  color: white;
+  border-radius: 50px;
 }
   
   }
