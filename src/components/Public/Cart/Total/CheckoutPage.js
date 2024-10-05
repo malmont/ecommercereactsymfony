@@ -74,7 +74,7 @@ const CheckoutPage = observer(() => {
                         <div className="col-12 col-md-4 row align-items-end">
                             <div className="checkout__details">
                                 <h4>Select Carrier:</h4>
-                                <div className="carriers m-4">
+                                <div className="carriers m-2">
                                     {checkoutViewModel.carrierListViewModel.carriers.map((carrier) => (
                                         <CarrierOption
                                             key={carrier.id}
@@ -82,12 +82,12 @@ const CheckoutPage = observer(() => {
                                             isSelected={checkoutViewModel.selectedCarrier?.id === carrier.id}
                                         >
                                             <img src={carrier.photo} alt={carrier.name} />
-                                            <p>{carrier.name}</p>
+                                     
                                         </CarrierOption>
                                     ))}
                                 </div>
                                 <h4>Select Delivery Address:</h4>
-                                <div className="addresses m-4">
+                                <div className="addresses m-2">
                                     {checkoutViewModel.addressListViewModel.addresses.map((address) => (
                                         <AddressOption
                                             key={address.id}
@@ -99,7 +99,7 @@ const CheckoutPage = observer(() => {
                                     ))}
                                 </div>
                                 <h4>Select Payment Method:</h4>
-                                <div className="paymentMethods m-4">
+                                <div className="paymentMethods m-2">
                                     {checkoutViewModel.paymentMethods.map((method) => (
                                         <PaymentMethodOption
                                             key={method.id}
@@ -107,7 +107,7 @@ const CheckoutPage = observer(() => {
                                             isSelected={checkoutViewModel.selectedPaymentMethod?.id === method.id}
                                         >
                                             <img src={method.image} alt={method.name} />
-                                            <p>{method.name}</p>
+                              
                                         </PaymentMethodOption>
                                     ))}
                                 </div>
