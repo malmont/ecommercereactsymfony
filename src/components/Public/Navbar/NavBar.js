@@ -212,6 +212,10 @@ export default function Navbar() {
                     <HomeIcon className="colorIconBlack" />
                     <NavLink to="/" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Home</NavLink>
                   </div>
+                  <div className=" col ">
+                      <CategoryIcon className="colorIconBlack" />
+                      <NavLink to="/Product" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Categories</NavLink>
+                    </div>
                   {user ? (
                     <>
                       <div className=" col">
