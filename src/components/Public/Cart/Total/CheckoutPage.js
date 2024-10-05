@@ -154,6 +154,7 @@ const Wrapper = styled.div`
 
   .carriers, .addresses, .paymentMethods {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
   }
 
