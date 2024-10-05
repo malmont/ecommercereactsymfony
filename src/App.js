@@ -10,6 +10,7 @@ import Confirmation from './components/Public/Cart/Confirmation';
 import { DependencyProvider } from './DependencyContext';
 import { useContext } from 'react';
 import Order from './components/Private/Dashboards/Order';
+import CheckoutPage from '../src/components/Public/Cart/Total/CheckoutPage';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ const AppRoutes = () => {
           <Route path="/profile" element={<ProfileView />} />
           <Route path="/confirmation" element={<Confirmation />} /> 
           <Route path="/order/:orderId" element={<Order />} /> 
+          <Route path="/CheckoutPage" element={<CheckoutPage/>} />
         </Route>
 
       </Routes>
