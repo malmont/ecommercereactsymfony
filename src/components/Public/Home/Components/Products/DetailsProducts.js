@@ -183,6 +183,8 @@ export default function DetailsProducts() {
 }
 
 const Wrapper = styled.div`
+
+padding: 30px;
   .imageEncadrement {
     border: 1px solid #ccc;
     padding: 10px;
