@@ -10,11 +10,11 @@ import { getProductByCategories } from './api';
 
 export default function ProductCategories() {
   const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState(5); 
+  const [category, setCategory] = useState(5);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1); 
-  const [totalPages, setTotalPages] = useState(1); 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -23,14 +23,14 @@ export default function ProductCategories() {
 
       try {
         const response = await getProductByCategories({
-          keyword: '', 
-          categories: category == 5 ? [] : [category], 
+          keyword: '',
+          categories: category == 5 ? [] : [category],
           page: currentPage,
           pageSize: 12
         });
-        
+
         setProducts(response.data);
-        setTotalPages(Math.ceil(response.meta.total / response.meta.pageSize)); 
+        setTotalPages(Math.ceil(response.meta.total / response.meta.pageSize));
       } catch (error) {
         console.error('Failed to fetch products', error);
         setError('Une erreur est survenue lors de la récupération des produits.');
@@ -40,11 +40,11 @@ export default function ProductCategories() {
     };
 
     fetchProducts();
-  }, [category, currentPage]); 
+  }, [category, currentPage]);
 
   const handleCategoryChange = e => {
     setCategory(e.target.value);
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
 
@@ -84,23 +84,23 @@ export default function ProductCategories() {
       {error && <p>{error}</p>}
 
       {!loading && !error && products.length > 0 ? (
-      <div className="featureCenter">
-      <div className="container">
-        <div className="row ">
-          <Waypoint bottomOffset="70%" onEnter={() => setProducts(products)} />
-          {trail.map((style, index) => (
-            // Applique la classe Bootstrap directement à animated.div
-            <animated.div key={uuidv4()} style={style} className="col-md-4 col-sm-6 col-lg-3 mb-4">
-              <BestSellerCard 
-                key={products[index].id}
-                category={products[index]} 
-              />
-            </animated.div>
-          ))}
+        <div className="featureCenter">
+          <div className="container">
+            <div className="row justify-content-center">
+              <Waypoint bottomOffset="70%" onEnter={() => setProducts(products)} />
+              {trail.map((style, index) => (
+                <animated.div key={uuidv4()} style={style} className="col-lg-3 mb-4 d-flex justify-content-center">
+                  <BestSellerCard
+                    key={products[index].id}
+                    category={products[index]}
+                  />
+                </animated.div>
+              ))}
+            </div>
+
+          </div>
         </div>
-      </div>
-    </div>
-       
+
       ) : (
         !loading && !error && <p>Aucun produit trouvé pour cette catégorie.</p>
       )}
@@ -136,6 +136,13 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
   }
+  
+    .featureCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+    
   .featureCenter {
     display: flex;
     justify-content: center;
