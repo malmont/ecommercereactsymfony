@@ -15,58 +15,38 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import LogoutIcon from '@mui/icons-material/Logout';
 import CategoryIcon from '@mui/icons-material/Category';
 import HomeIcon from '@mui/icons-material/Home';
+import NavbarViewModel from "./NavbarViewModel";
+import { observer } from "mobx-react-lite";
 
-export default function Navbar() {
-  const { user, logout } = useContext(AuthContext);
-  const [height, setHeight] = useState(90);
-  const [toggleMenuMobile, setToggleMMenuMobile] = useState(false);
-  const [largeur, setLargeur] = useState(window.innerWidth);
-
-  const toogleUl = () => {
-    setToggleMMenuMobile(!toggleMenuMobile);
-  };
-
-
-  const [selectedCurrency, setSelectedCurrency] = useState('USD');
-
-  const handleCurrencyChange = (currency) => {
-    setSelectedCurrency(currency);
-  };
-  const [selectedLanguage, setSelectedLanguage] = useState('English');
-
-  const handleLanguageChange = (language) => {
-    setSelectedLanguage(language);
-  };
-
+const Navbar = observer(() => {
+  const authContext = useContext(AuthContext);
+  const cartSelector = useSelector;
   const navigate = useNavigate();
-  const cart = useSelector((state) => state.cart);
+  
+  const navbarVM = new NavbarViewModel(authContext, cartSelector);
+
+
+  const [height, setHeight] = useState(90); 
+  const [toggleMenuMobile, setToggleMenuMobile] = useState(false);
 
   const toogleMenu = () => {
     if (height === 90) {
-      setHeight(250);
+      setHeight(250); 
       setTimeout(() => {
-        setToggleMMenuMobile(true);
+        setToggleMenuMobile(true); 
       }, 600);
     } else {
       setHeight(90);
-      setToggleMMenuMobile(false);
+      setToggleMenuMobile(false); 
     }
-  };
-
-  const getTotalQuantity = () => {
-    let total = 0;
-    cart.forEach(item => {
-      total += item.quantity;
-    });
-    return total;
   };
 
   useEffect(() => {
     const changeWidth = () => {
-      setLargeur(window.innerWidth);
-      if (largeur > 622) {
-        setHeight(90);
-        setToggleMMenuMobile(false);
+      navbarVM.updateWidth();
+      if (navbarVM.largeur > 622) {
+        setHeight(90); 
+        setToggleMenuMobile(false); 
       }
     };
     window.addEventListener("resize", changeWidth);
@@ -74,126 +54,81 @@ export default function Navbar() {
     return () => {
       window.removeEventListener("resize", changeWidth);
     };
-  }, [largeur]);
+  }, [navbarVM]);
 
   return (
     <Wrapper>
-      <div className=" row d-flex justify-content-center ">
-
+      <div className="row d-flex justify-content-center">
         <div className="divMenu">
-          {largeur > 800 && (
+          {navbarVM.largeur > 800 && (
             <div className='shopping-cart'>
               <div className="row mt-3">
-                <div className="col ">
+                <div className="col">
                   <div className="row">
-                    <div className=" col ">
+                    <div className="col">
                       <CategoryIcon className="colorIcon" />
-                      <NavLink to="/profile" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Categories</NavLink>
+                      <NavLink to={navbarVM.categoriesPath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Categories</NavLink>
                     </div>
                     <div className="col">
                       <div className="dropdown">
-                        <button
-                          className="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          id="currencyDropdown"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          {selectedCurrency}
+                        <button className="btn btn-secondary dropdown-toggle" type="button" id="currencyDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                          {navbarVM.selectedCurrency}
                         </button>
                         <ul className="dropdown-menu" aria-labelledby="currencyDropdown">
-                          <li>
-                            <button className="dropdown-item" onClick={() => handleCurrencyChange('USD')}>
-                              USD
-                            </button>
-                          </li>
-                          <li>
-                            <button className="dropdown-item" onClick={() => handleCurrencyChange('EUR')}>
-                              EUR
-                            </button>
-                          </li>
-                          <li>
-                            <button className="dropdown-item" onClick={() => handleCurrencyChange('GBP')}>
-                              GBP
-                            </button>
-                          </li>
-                          <li>
-                            <button className="dropdown-item" onClick={() => handleCurrencyChange('CAD')}>
-                              CAD
-                            </button>
-                          </li>
+                          <li><button className="dropdown-item" onClick={() => navbarVM.handleCurrencyChange('USD')}>USD</button></li>
+                          <li><button className="dropdown-item" onClick={() => navbarVM.handleCurrencyChange('EUR')}>EUR</button></li>
+                          <li><button className="dropdown-item" onClick={() => navbarVM.handleCurrencyChange('GBP')}>GBP</button></li>
+                          <li><button className="dropdown-item" onClick={() => navbarVM.handleCurrencyChange('CAD')}>CAD</button></li>
                         </ul>
                       </div>
                     </div>
                     <div className="col">
                       <div className="dropdown">
-                        <button
-                          className="btn btn-secondary dropdown-toggle colorIcon"
-                          type="button"
-                          id="languageDropdown"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          {selectedLanguage}
+                        <button className="btn btn-secondary dropdown-toggle colorIcon" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                          {navbarVM.selectedLanguage}
                         </button>
                         <ul className="dropdown-menu" aria-labelledby="languageDropdown">
-                          <li>
-                            <button className="dropdown-item" onClick={() => handleLanguageChange('English')}>
-                              English
-                            </button>
-                          </li>
-                          <li>
-                            <button className="dropdown-item" onClick={() => handleLanguageChange('French')}>
-                              French
-                            </button>
-                          </li>
-                          <li>
-                            <button className="dropdown-item" onClick={() => handleLanguageChange('Spanish')}>
-                              Spanish
-                            </button>
-                          </li>
-                          <li>
-                            <button className="dropdown-item" onClick={() => handleLanguageChange('German')}>
-                              German
-                            </button>
-                          </li>
+                          <li><button className="dropdown-item" onClick={() => navbarVM.handleLanguageChange('English')}>English</button></li>
+                          <li><button className="dropdown-item" onClick={() => navbarVM.handleLanguageChange('French')}>French</button></li>
+                          <li><button className="dropdown-item" onClick={() => navbarVM.handleLanguageChange('Spanish')}>Spanish</button></li>
+                          <li><button className="dropdown-item" onClick={() => navbarVM.handleLanguageChange('German')}>German</button></li>
                         </ul>
                       </div>
                     </div>
-
                   </div>
                 </div>
-                <div className="col ">
-                  <div className="row ">
-                    {user ? (<>
-                      <div className=" col">
-                        <DashboardCustomizeIcon className="colorIcon" />
-                        <NavLink to="/dashboard" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Dashboard</NavLink>
-                      </div>
-                      <div className=" col">
-                        <PeopleAltIcon className="colorIcon" />
-                        <NavLink to="/profile" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Profile</NavLink>
-                      </div>
-                      <div className=" col">
-                        <LogoutIcon className="colorIcon" />
-                        <button onClick={logout} className="logoutButton">Logout</button>
-                      </div>
-                    </>
+                <div className="col">
+                  <div className="row">
+                    {navbarVM.user ? (
+                      <>
+                        <div className="col">
+                          <DashboardCustomizeIcon className="colorIcon" />
+                          <NavLink to={navbarVM.dashboardPath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Dashboard</NavLink>
+                        </div>
+                        <div className="col">
+                          <PeopleAltIcon className="colorIcon" />
+                          <NavLink to={navbarVM.profilePath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Profile</NavLink>
+                        </div>
+                        <div className="col">
+                          <LogoutIcon className="colorIcon" />
+                          <button onClick={authContext.logout} className="logoutButton">Logout</button>
+                        </div>
+                      </>
                     ) : (
                       <>
-                        <div className=" col">
+                        <div className="col">
                           <PersonIcon className="colorIcon" />
-                          <NavLink to="/login" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Login</NavLink>
+                          <NavLink to={navbarVM.loginPath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Login</NavLink>
                         </div>
-                        <div className=" col">
+                        <div className="col">
                           <HowToRegIcon className="colorIcon" />
-                          <NavLink to="/register" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Register</NavLink>
+                          <NavLink to={navbarVM.registerPath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLink" }}>Register</NavLink>
                         </div>
                       </>
                     )}
                     <div className="section-sign-card col shopping-cart-container">
-                      <ShoppingCart className="colorIcon" onClick={() => navigate('/cart')} />
-                      <p>{getTotalQuantity() || 0}</p>
+                      <ShoppingCart className="colorIcon" onClick={() => navigate(navbarVM.cartPath)} />
+                      <p>{navbarVM.getTotalQuantity() || 0}</p>
                       <div className="cartVisible">
                         <ResumeCart className="cart" />
                       </div>
@@ -203,89 +138,79 @@ export default function Navbar() {
               </div>
             </div>
           )}
-         
-            <div className="col">
-              {toggleMenuMobile && largeur < 800 && (
-                <ul className="ulListeMobile">
-                  {/* <li><NavLink to="/" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Home</NavLink></li> */}
-                  <div className=" col">
-                    <HomeIcon className="colorIconBlack" />
-                    <NavLink to="/" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Home</NavLink>
-                  </div>
-                  <div className=" col ">
-                      <CategoryIcon className="colorIconBlack" />
-                      <NavLink to="/Product" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Categories</NavLink>
+
+          {/* Menu burger */}
+          <div className="col">
+            {toggleMenuMobile && navbarVM.largeur < 800 && (
+              <ul className="ulListeMobile">
+                <div className="col">
+                  <HomeIcon className="colorIconBlack" />
+                  <NavLink to={navbarVM.homePath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Home</NavLink>
+                </div>
+                <div className="col">
+                  <CategoryIcon className="colorIconBlack" />
+                  <NavLink to={navbarVM.categoriesPath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Categories</NavLink>
+                </div>
+                {navbarVM.user ? (
+                  <>
+                    <div className="col">
+                      <DashboardCustomizeIcon className="colorIconBlack" />
+                      <NavLink to={navbarVM.dashboardPath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Dashboard</NavLink>
                     </div>
-                  {user ? (
-                    <>
-                      <div className=" col">
-                        <DashboardCustomizeIcon className="colorIconBlack" />
-                        <NavLink to="/dashboard" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Dashboard</NavLink>
-                      </div>
-                      <div className=" col">
-                        <PeopleAltIcon className="colorIconBlack" />
-                        <NavLink to="/profile" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Profile</NavLink>
-                      </div>
-                      <div className=" col">
-                        <LogoutIcon className="colorIconBlack" />
-                        <button onClick={logout} className="logoutButton">Logout</button>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className=" col">
-                        <PersonIcon className="colorIconBlack" />
-                        <NavLink to="/login" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Login</NavLink>
-                      </div>
-                      <div className=" col">
-                        <HowToRegIcon className="colorIconBlack" />
-                        <NavLink to="/register" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Register</NavLink>
-                      </div>
-                    </>
-                  )}
-                </ul>
-
-
-              )}
-         
-           
+                    <div className="col">
+                      <PeopleAltIcon className="colorIconBlack" />
+                      <NavLink to={navbarVM.profilePath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Profile</NavLink>
+                    </div>
+                    <div className="col">
+                      <LogoutIcon className="colorIconBlack" />
+                      <button onClick={authContext.logout} className="logoutButton">Logout</button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="col">
+                      <PersonIcon className="colorIconBlack" />
+                      <NavLink to={navbarVM.loginPath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Login</NavLink>
+                    </div>
+                    <div className="col">
+                      <HowToRegIcon className="colorIconBlack" />
+                      <NavLink to={navbarVM.registerPath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Register</NavLink>
+                    </div>
+                  </>
+                )}
+              </ul>
+            )}
           </div>
-       
 
-          <div className="section-sign-card-mobile  mt-4 ">
-              <ShoppingCart className="colorIcon" onClick={() => navigate('/cart')} />
-              <p>{getTotalQuantity() || 0}</p>
-              <div className="cartVisible">
-                <ResumeCart className="cart" />
-              </div>
+          <div className="section-sign-card-mobile mt-4">
+            <ShoppingCart className="colorIcon" onClick={() => navigate(navbarVM.cartPath)} />
+            <p>{navbarVM.getTotalQuantity() || 0}</p>
+            <div className="cartVisible">
+              <ResumeCart className="cart" />
             </div>
-    
+          </div>
+
           <AnimateHeight duration={500} height={height}>
             <div className="MenuMobile activeLink" onClick={toogleMenu}>
               <span className="spanMenu">Menu</span>
               <RxHamburgerMenu />
             </div>
           </AnimateHeight>
-     
-      
         </div>
 
-        <div className=" ulMenu">
+        <div className="ulMenu">
           <ul className="ulListe">
-            <li><NavLink to="/" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Home</NavLink></li>
-
+            <li><NavLink to={navbarVM.homePath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Home</NavLink></li>
             <>
-              <li><NavLink to="/Product" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Categories</NavLink></li>
-              <li><NavLink to="/categoryView" className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Register</NavLink></li>
+              <li><NavLink to={navbarVM.categoriesPath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Categories</NavLink></li>
+              <li><NavLink to={navbarVM.registerPath} className={({ isActive }) => { return isActive ? "activeLink" : "noActiveLinkCategory" }}>Register</NavLink></li>
             </>
-
           </ul>
         </div>
       </div>
     </Wrapper>
   );
-}
-
+});
 const Wrapper = styled.header`
   .separator {
   display: inline-block;
@@ -524,3 +449,5 @@ const Wrapper = styled.header`
 }
 
 `;
+
+export default Navbar;
