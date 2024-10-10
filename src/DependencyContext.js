@@ -17,6 +17,7 @@ import CarouselBestSellerViewModel from '../src/components/Public/Home/Component
 import { fetchAddresses, fetchUserOrders,fetchCarriers } from '../src/components/Private/Dashboards/api';
 import CarrierListViewModel from '../src/components/Private/Dashboards/CarrierListViewModel';
 import CheckoutViewModel from '../src/components/Public/Cart/Total/CheckoutViewModel';
+import NavbarViewModel from '../src/components/Public/Navbar/NavbarViewModel'; 
 
 
 const DependencyContext = createContext();
@@ -40,7 +41,7 @@ export const DependencyProvider = ({ children }) => {
   const cartViewModel = new CartViewModel(user, cart, dispatch);
   const headerViewModel = new HeaderViewModel();
   const checkoutViewModel = new CheckoutViewModel(cartViewModel, addressListViewModel, carrierListViewModel);
-
+  const navbarViewModel = new NavbarViewModel({ user }, state => cart); 
   return (
     <DependencyContext.Provider value={{
 
@@ -55,7 +56,8 @@ export const DependencyProvider = ({ children }) => {
       orderListViewModel,
       addressListViewModel,
       carrierListViewModel,
-      checkoutViewModel
+      checkoutViewModel,
+      navbarViewModel
     }}>
       {children}
     </DependencyContext.Provider>
