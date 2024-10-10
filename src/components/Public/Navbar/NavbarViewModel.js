@@ -1,4 +1,13 @@
 import { makeAutoObservable } from "mobx";
+import CategoryIcon from '@mui/icons-material/Category';
+import HomeIcon from '@mui/icons-material/Home';
+import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import LogoutIcon from '@mui/icons-material/Logout';
+import PersonIcon from '@mui/icons-material/Person';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import MenuIcon from '@mui/icons-material/Menu';
 
 class NavbarViewModel {
   user = null;
@@ -9,7 +18,6 @@ class NavbarViewModel {
   selectedLanguage = 'English';
   cart = [];
 
-  // Définitions des chemins
   loginPath = "/login";
   registerPath = "/register";
   dashboardPath = "/dashboard";
@@ -18,16 +26,36 @@ class NavbarViewModel {
   categoriesPath = "/Product";
   cartPath = "/cart";
 
-  constructor(authContext, cartSelector) {
+  icons = {
+    CategoryIcon,
+    HomeIcon,
+    DashboardCustomizeIcon,
+    PeopleAltIcon,
+    LogoutIcon,
+    PersonIcon,
+    HowToRegIcon,
+    ShoppingCartIcon,
+    MenuIcon
+  };
+
+  constructor(authContext, cartSelector, navigate) {
     this.user = authContext.user;
     this.cart = cartSelector((state) => state.cart);
+    this.navigate = navigate;
     makeAutoObservable(this);
   }
 
-  toogleUl() {
-    this.toggleMenuMobile = !this.toggleMenuMobile;
+  toogleMenu = () => {
+    if (this.height === 90) {
+      this.height = 250;
+      setTimeout(() => {
+        this.toggleMenuMobile = true;
+      }, 600);
+    } else {
+      this.height = 90;
+      this.toggleMenuMobile = false;
+    }
   }
-
 
   handleCurrencyChange(currency) {
     this.selectedCurrency = currency;
@@ -47,6 +75,26 @@ class NavbarViewModel {
       this.height = 90;
       this.toggleMenuMobile = false;
     }
+  }
+
+  getNavLinkClass = (isActive) => {
+    return isActive ? "activeLink" : "noActiveLink";
+  }
+
+  getNavLinkCategoryClass = (isActive) => {
+    return isActive ? "activeLink" : "noActiveLinkCategory";
+  }
+
+  shouldShowShoppingCart = () => {
+    return this.largeur > 800;
+  }
+
+  shouldShowMobileMenu = () => {
+    return this.toggleMenuMobile && this.largeur < 800;
+  }
+
+  navigateToCart = () => {
+    this.navigate(this.cartPath);
   }
 }
 

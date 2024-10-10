@@ -1,0 +1,37 @@
+{
+  "name": "@malmont/navbar-type-a",
+  "version": "1.0.4",
+  "description": "Composant Navbar pour l'application e-commerce",
+  "main": "dist/Navbar.js",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir dist --copy-files",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "mobx": "^6.12.4",
+    "mobx-react-lite": "^4.0.7",
+    "react": "^18.2.0",
+    "react-animate-height": "^3.2.3",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.26.2",
+    "styled-components": "^6.1.13"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.7",
+    "@babel/core": "^7.25.7",
+    "@babel/plugin-proposal-class-properties": "^7.25.7",
+    "@babel/plugin-transform-runtime": "^7.25.7",
+    "@babel/preset-env": "^7.25.7",
+    "@babel/preset-react": "^7.25.7",
+    "babel-plugin-styled-components": "^2.1.4"
+  },
+  "author": "malmont",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
