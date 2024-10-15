@@ -21,7 +21,6 @@ function NavbarLoader() {
 
 
   useEffect(() => {
-    // Simuler la réponse de l'API
     const simulateApiResponse = new Promise((resolve) => {
       resolve({ navbarComponent: 'navbar-type-a' });
     });
@@ -30,25 +29,22 @@ function NavbarLoader() {
       .then((config) => {
         const componentName = config.navbarComponent;
 
-        // Mapping des composants disponibles avec React.lazy
         const componentMap = {
           'navbar-type-a': React.lazy(() => import('@malmont/navbar-type-a')),
           // 'navbar-type-b': React.lazy(() => import('@malmont/navbar-type-b')),
           // Ajoutez d'autres composants ici
         };
-        
+
         const Navbar = componentMap[componentName];
 
         if (Navbar) {
           setNavbarComponent(() => Navbar);
         } else {
           console.error('Composant Navbar non trouvé pour le nom :', componentName);
-          // Gérer l'erreur, éventuellement charger un composant par défaut
         }
       })
       .catch((error) => {
         console.error('Erreur lors de la récupération des préférences utilisateur :', error);
-        // Gérer l'erreur, éventuellement charger un composant par défaut
       });
   }, []);
 

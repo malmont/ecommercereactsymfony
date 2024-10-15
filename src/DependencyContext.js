@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import AuthContext from '../src/Contexts/authContext';
 import ProfileViewModel from '../src/components/Private/Profile/ProfileViewModel';
 import CarouselViewModel from '../src/components/Public/Home/Components/Carousel/CarouselComp/CarouselViewModel';
-
+import { useNavigate } from 'react-router-dom';
 import RegisterViewModel from '../src/components/Public/register/RegisterViewModel';
 import LoginViewModel from '../src/components/Public/Login/LoginViewModel';
 import CartViewModel from '../src/components/Public/Cart/Total/CartViewModel';
@@ -26,7 +26,7 @@ export const DependencyProvider = ({ children }) => {
   const { login, logout, user } = useContext(AuthContext);  
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const profileViewModel = new ProfileViewModel(user, fetchUserProfile, updateUserProfile);
   const carouselViewModel = new CarouselViewModel(getProductByOffers);
   const carouselNewArrivalViewModel = new CarouselNewArrivalViewModel(getProductByOffers);
@@ -41,7 +41,7 @@ export const DependencyProvider = ({ children }) => {
   const cartViewModel = new CartViewModel(user, cart, dispatch);
   const headerViewModel = new HeaderViewModel();
   const checkoutViewModel = new CheckoutViewModel(cartViewModel, addressListViewModel, carrierListViewModel);
-  const navbarViewModel = new NavbarViewModel({ user }, state => cart); 
+  const navbarViewModel = new NavbarViewModel({ user }, state => cart,navigate); 
   return (
     <DependencyContext.Provider value={{
 
