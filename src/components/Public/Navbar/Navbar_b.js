@@ -2,106 +2,14 @@ import React, { useEffect, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { observer } from "mobx-react-lite";
+import { useAdminContext } from '../../../theme/AdminContext';
 
-// const NavbarContainer = styled.nav`
-//   background-color: #262626;
-//   color: white;
-//   padding: 1rem;
-// `;
 
 const NavbarContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
-
-// const Logo = styled(NavLink)`
-//   font-size: 1.5rem;
-//   font-weight: bold;
-//   color: white;
-//   text-decoration: none;
-// `;
-
-// const NavLinks = styled.div`
-//   display: none;
-//   @media (min-width: 768px) {
-//     display: flex;
-//   }
-// `;
-
-// const NavItem = styled(NavLink)`
-//   color: white;
-//   text-decoration: none;
-//   padding: 0.5rem 1rem;
-//   &:hover {
-//     color: orange;
-//   }
-//   &.active {
-//     color: orange;
-//   }
-// `;
-
-// const NavButton = styled.button`
-//   background-color: transparent;
-//   border: none;
-//   color: white;
-//   cursor: pointer;
-//   font-size: 1rem;
-//   padding: 0.5rem 1rem;
-//   &:hover {
-//     color: orange;
-//   }
-// `;
-
-// const MobileMenuButton = styled.button`
-//   background-color: transparent;
-//   border: none;
-//   color: white;
-//   cursor: pointer;
-//   font-size: 1.5rem;
-//   display: none;
-//   @media (max-width: 767px) {
-//     display: block;
-//   }
-// `;
-
-// const MobileMenu = styled.div`
-//   position: absolute;
-//   top: 100%;
-//   left: 0;
-//   right: 0;
-//   background-color: #262626;
-//   padding: 1rem;
-//   display: ${props => props.isOpen ? 'block' : 'none'};
-// `;
-
-// const MobileNavItem = styled(NavItem)`
-//   display: block;
-//   padding: 0.5rem 0;
-// `;
-
-// const CartIcon = styled.div`
-//   cursor: pointer;
-// `;
-
-// const CartCount = styled.span`
-//   position: absolute;
-//   top: -8px;
-//   right: -8px;
-//   background-color: red;
-//   color: white;
-//   border-radius: 50%;
-//   padding: 2px 6px;
-//   font-size: 0.8rem;
-// `;
-
-// const Select = styled.select`
-//   background-color: #333;
-//   color: white;
-//   border: none;
-//   padding: 0.5rem;
-//   margin-right: 1rem;
-// `;
 
 const RightSection = styled.div`
   display: flex;
@@ -127,11 +35,25 @@ const CartPreview = styled.div`
     display: block;
   }
 `;
+const AdminToggleButton = styled.button`
+  background-color: ${props => (props.active ? '#ff6600' : '#007bff')};
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 1rem;
 
-const Navbar_b = ({ ResumeCart, AuthContext, useDependencies,selectedStyle }) => {
+  /* Masquer le bouton en mode mobile et tablette (moins de 800px de largeur) */
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+`;
+
+const Navbar_b = ({ ResumeCart, AuthContext, useDependencies, selectedStyle }) => {
   const authContext = useContext(AuthContext);
   const { navbarViewModel: vm } = useDependencies();
-
+  const { toggleAdminSettings, showAdminSettings } = useAdminContext();
   useEffect(() => {
     const changeWidth = () => {
       vm.updateWidth();
@@ -181,6 +103,9 @@ const Navbar_b = ({ ResumeCart, AuthContext, useDependencies,selectedStyle }) =>
           </selectedStyle.NavLinks>
         </div>
         <RightSection>
+        <AdminToggleButton onClick={toggleAdminSettings} active={showAdminSettings}>
+          {showAdminSettings ? 'Admin' : 'Admin'}
+        </AdminToggleButton>
           <selectedStyle.Select value={vm.selectedCurrency} onChange={(e) => vm.handleCurrencyChange(e.target.value)}>
             <option value="USD">USD</option>
             <option value="EUR">EUR</option>
@@ -222,6 +147,7 @@ const Navbar_b = ({ ResumeCart, AuthContext, useDependencies,selectedStyle }) =>
             <selectedStyle.MobileNavItem to={vm.registerPath}>Inscription</selectedStyle.MobileNavItem>
           </>
         )}
+   
         <selectedStyle.Select value={vm.selectedCurrency} onChange={(e) => vm.handleCurrencyChange(e.target.value)}>
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>

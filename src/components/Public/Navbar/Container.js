@@ -4,7 +4,7 @@ import ResumeCart from "../../../components/Public/Cart/ResumeTotal/ResumeCartVi
 import AuthContext from '../../../Contexts/authContext';
 import { useDependencies } from "../../../DependencyContext";
 import { ThemeProvider } from 'styled-components';  
-import { ThemeStyleContext } from '../../../theme/ThemeStyleContext'; 
+import { ThemeStyleContext } from '../../../theme/AdminContext'; 
 
 const Container = () => {
   const { theme, style } = useContext(ThemeStyleContext); 

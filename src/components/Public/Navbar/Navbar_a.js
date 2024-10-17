@@ -3,15 +3,8 @@ import React, { useEffect, useContext } from "react";
 import AnimateHeight from "react-animate-height";
 import { NavLink } from 'react-router-dom';
 import { observer } from "mobx-react-lite";
+import { useAdminContext } from '../../../theme/AdminContext';
 
-// const NavbarContainer = styled.header`
-//   width: 100%;
-// `;
-
-const TopNavbar = styled.div`
-  background: #262626;
-  padding: 15px;
-`;
 
 const NavbarContent = styled.div`
   display: flex;
@@ -19,101 +12,6 @@ const NavbarContent = styled.div`
   align-items: center;
   padding: 0 20px;
 `;
-
-// const Logo = styled(NavLink)`
-//   font-size: 1.5rem;
-//   font-weight: bold;
-//   color: white;
-//   text-decoration: none;
-// `;
-
-// const NavLinks = styled.ul`
-//   list-style-type: none;
-//   background: white;
-//   height: 100px;
-//   display: flex;
-//   justify-content: left;
-//   align-items: center;
-//   padding: 0;
-//   margin: 0;
-// `;
-
-// const NavItem = styled(NavLink)`
-//   color: white;
-//   text-decoration: none;
-//   padding: 0.5rem 1rem;
-//   &:hover {
-//     color: orange;
-//   }
-//   &.active {
-//     color: orange;
-//   }
-// `;
-
-// const NavButton = styled.button`
-//   background: none;
-//   border: none;
-//   color: white;
-//   cursor: pointer;
-//   font-size: 1em;
-// `;
-
-// const MobileMenuButton = styled.div`
-//   display: none;
-//   @media screen and (max-width: 800px) {
-//     display: inline-block;
-//     color: white;
-//     cursor: pointer;
-//   }
-// `;
-
-// const MobileMenu = styled.ul`
-//   list-style-type: none;
-//   display: none;
-//   @media screen and (max-width: 800px) {
-//     display: ${props => props.isOpen ? 'block' : 'none'};
-//     position: absolute;
-//     top: 100px;
-//     left: 0;
-//     width: 90%;
-//     background-color: white;
-//     z-index: 10;
-//     padding: 20px;
-//     margin: 0 auto;
-//     border-radius: 15px;
-//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-//   }
-// `;
-
-// const MobileNavItem = styled(NavItem)`
-//   @media screen and (max-width: 800px) {
-//     width: 100%;
-//     padding: 10px 0;
-//     text-align: center;
-//   }
-// `;
-
-// const CartIcon = styled.div`
-//   cursor: pointer;
-//   color: white;
-// `;
-
-// const CartCount = styled.p`
-//   background-color: red;
-//   color: white;
-//   border-radius: 50%;
-//   padding: 0 6px;
-//   margin: 5px;
-//   display: inline-block;
-// `;
-
-// const Select = styled.select`
-//   background-color: #333;
-//   color: white;
-//   border: none;
-//   padding: 0.5rem;
-//   margin-right: 1rem;
-// `;
 
 const RightSection = styled.div`
   display: flex;
@@ -154,15 +52,15 @@ const CartContainer = styled.div`
 
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  color: ${props => props.ismobile === "true" ? 'black' : 'white'};
+  color: ${(props) => props.theme.colors.navLinkText};
   &:hover, &.active {
     color: orange;
   }
 `;
 
 const MainMenu = styled.div`
-  background: white;
-  height: 100px;
+
+  height: 45px;
   overflow: hidden;
 `;
 
@@ -180,11 +78,24 @@ const CurrencyLanguageSelect = styled.div`
     display: none;
   }
 `;
+const AdminToggleButton = styled.button`
+  background-color: ${props => (props.active ? '#ff6600' : '#007bff')};
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 
-const Navbar_a = ({ ResumeCart, AuthContext, useDependencies,selectedStyle }) => {
+  /* Masquer le bouton en mode mobile et tablette (moins de 800px de largeur) */
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+`;
+const Navbar_a = ({ ResumeCart, AuthContext, useDependencies, selectedStyle }) => {
   const authContext = useContext(AuthContext);
   const { navbarViewModel: navbarVM } = useDependencies();
-  console.log(selectedStyle); 
+  const { toggleAdminSettings, showAdminSettings } = useAdminContext();
+  console.log(selectedStyle);
   useEffect(() => {
     const changeWidth = () => {
       navbarVM.updateWidth();
@@ -198,7 +109,7 @@ const Navbar_a = ({ ResumeCart, AuthContext, useDependencies,selectedStyle }) =>
 
   return (
     <selectedStyle.NavbarContainer>
-      <TopNavbar>
+      <selectedStyle.TopNavbar>
         <NavbarContent className="row">
           <LeftSection className="col-md-4">
             <selectedStyle.Logo to={navbarVM.homePath}>
@@ -221,6 +132,9 @@ const Navbar_a = ({ ResumeCart, AuthContext, useDependencies,selectedStyle }) =>
             </CurrencyLanguageSelect>
           </LeftSection>
           <RightSection className="col-md-8">
+            <AdminToggleButton onClick={toggleAdminSettings} active={showAdminSettings}>
+              {showAdminSettings ? 'Admin' : 'Admin'}
+            </AdminToggleButton>
             {navbarVM.user ? (
               <>
                 <selectedStyle.NavButton as={StyledNavLink} to={navbarVM.dashboardPath}>
@@ -269,7 +183,7 @@ const Navbar_a = ({ ResumeCart, AuthContext, useDependencies,selectedStyle }) =>
             {React.createElement(navbarVM.icons.MenuIcon, { className: 'colorIcon' })}
           </selectedStyle.MobileMenuButton>
         </NavbarContent>
-      </TopNavbar>
+      </selectedStyle.TopNavbar>
       <MainMenu>
         <selectedStyle.NavLinks className="ulListe">
           <selectedStyle.NavItem>
