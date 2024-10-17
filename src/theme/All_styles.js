@@ -1,155 +1,188 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { shimmer, gradientAnimation } from './animations'; 
+
+import { shimmer, gradientAnimation } from './animations';
 
 export const styles = {
- style1 : {
-  NavbarContainer: styled.nav`
-    background: ${(props) => props.theme.colors.navbarBackground};
-    padding: 0.75rem 2rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  `,
+  style1: {
+    navbarHeight: '90px',
+    TopNavbar: styled.div`
+      background: ${(props) => props.theme.colors.TopNavbarBackground};
+      padding: 15px;
+    `,
 
-  NavbarContent: styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-  `,
-
-  Logo: styled(NavLink)`
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: ${(props) => props.theme.colors.logoText};
-    text-decoration: none;
-  `,
-
-  NavLinks: styled.ul`
-    list-style-type: none;
-    background: ${(props) => props.theme.colors.navLinksBackground};
-    height: 100px;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-  `,
-
-  NavItem: styled(NavLink)`
-    color: ${(props) => props.theme.colors.navItemText};
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-
-    &:hover {
-      color: ${(props) => props.theme.colors.navItemHover};
-    }
-
-    &.active {
-      color: ${(props) => props.theme.colors.navItemActive};
-    }
-  `,
-
-  NavButton: styled.button`
-    background: none;
-    border: none;
-    color: ${(props) => props.theme.colors.navButtonText};
-    cursor: pointer;
-    font-size: 1em;
-  `,
-
-  MobileMenuButton: styled.div`
-    display: none;
-    @media screen and (max-width: 800px) {
-      display: inline-block;
-      color: ${(props) => props.theme.colors.mobileMenuButton};
-      cursor: pointer;
-    }
-  `,
-
-  MobileMenu: styled.ul`
-    list-style-type: none;
-    display: none;
-    @media screen and (max-width: 800px) {
-      display: ${(props) => (props.isOpen ? 'block' : 'none')};
-      position: absolute;
-      top: 100px;
+    NavbarContainer: styled.nav`
+      background: ${(props) => props.theme.colors.navbarContainerBackground};
+      padding: 0.75rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
       left: 0;
-      width: 90%;
-      background-color: ${(props) => props.theme.colors.mobileMenuBackground};
-      z-index: 10;
-      padding: 20px;
-      margin: 0 auto;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-  `,
+      z-index: 1000;
+      transition: all 0.3s ease;
+     
+    `,
 
-  MobileNavItem: styled(NavLink)`
-    @media screen and (max-width: 800px) {
+    NavbarContent: styled.div`
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    `,
+
+    Logo: styled(NavLink)`
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: ${(props) => props.theme.colors.logoText};
+      text-decoration: none;
+    `,
+
+    // Masquer les liens sur mobile
+    NavLinks: styled.ul`
+      list-style-type: none;
+       background: ${(props) => props.theme.colors.navLinksBackground};
+      height: 40px;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+  
+      @media screen and (max-width: 800px) {
+        display: none;
+      }
+    `,
+
+    NavItem: styled(NavLink)`
+      color: ${(props) => props.theme.colors.navItemText};
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+  
+      &:hover {
+        color: ${(props) => props.theme.colors.navItemHover};
+      }
+  
+      &.active {
+        color: ${(props) => props.theme.colors.navItemActive};
+      }
+    `,
+
+    NavButton: styled.button`
+      background: none;
+      border: none;
+      color: ${(props) => props.theme.colors.navButtonText};
+      cursor: pointer;
+      font-size: 1em;
+    `,
+
+    // Bouton burger qui s'affiche uniquement sur mobile
+    MobileMenuButton: styled.div`
+      display: none;
+      @media screen and (max-width: 800px) {
+        display: inline-block;
+        color: ${(props) => props.theme.colors.mobileMenuButton};
+        cursor: pointer;
+      }
+    `,
+
+    // Menu mobile
+    MobileMenu: styled.ul`
+      list-style-type: none;
+      display: none;
+      @media screen and (max-width: 800px) {
+        display: ${(props) => (props.isOpen ? 'block' : 'none')};
+        position: absolute;
+        top: 60px;  // Ajuster la hauteur si nécessaire
+        left: 0;
+        right: 0;
+        width: auto;  // Correction ici
+        background-color: ${(props) => props.theme.colors.mobileMenuBackground};
+        z-index: 10;
+        padding: 20px;
+        margin: 0 auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    `,
+
+    // Liens dans le menu mobile
+    MobileNavItem: styled(NavLink)`
+      display: block;
       width: 100%;
       padding: 10px 0;
       text-align: center;
       color: ${(props) => props.theme.colors.mobileNavItemText};
-    }
+      text-decoration: none;
+  
+      &:hover {
+        color: ${(props) => props.theme.colors.navItemHover};
+      }
+  
+      &.active {
+        color: ${(props) => props.theme.colors.navItemActive};
+      }
+    `,
+
+    CartIcon: styled.div`
+      cursor: pointer;
+      color: ${(props) => props.theme.colors.cartIcon};
+    `,
+
+    CartCount: styled.p`
+      background-color: ${(props) => props.theme.colors.cartCountBackground};
+      color: ${(props) => props.theme.colors.cartCountText};
+      border-radius: 50%;
+      padding: 0 6px;
+      margin: 5px;
+      display: inline-block;
+    `,
+
+    Select: styled.select`
+      background-color: ${(props) => props.theme.colors.selectBackground};
+      color: ${(props) => props.theme.colors.selectText};
+      border: none;
+      padding: 0.5rem;
+      margin-right: 1rem;
+    `
+  },
+
+
+  style2: {
+    navbarHeight: '30px',
+
+    TopNavbar: styled.div`
+    background: ${(props) => props.theme.colors.TopNavbarBackground};
+    padding: 15px;
   `,
 
-  CartIcon: styled.div`
-    cursor: pointer;
-    color: ${(props) => props.theme.colors.cartIcon};
-  `,
-
-  CartCount: styled.p`
-    background-color: ${(props) => props.theme.colors.cartCountBackground};
-    color: ${(props) => props.theme.colors.cartCountText};
-    border-radius: 50%;
-    padding: 0 6px;
-    margin: 5px;
-    display: inline-block;
-  `,
-
-  Select: styled.select`
-    background-color: ${(props) => props.theme.colors.selectBackground};
-    color: ${(props) => props.theme.colors.selectText};
-    border: none;
-    padding: 0.5rem;
-    margin-right: 1rem;
-  `
-},
-
- style2 : {
-  NavbarContainer: styled.nav`
-    background-color: ${(props) => props.theme.colors.navbarBackground};
+    NavbarContainer: styled.nav`
+    background: ${(props) => props.theme.colors.navbarContainerBackground};
     color: ${(props) => props.theme.colors.textColor};
     padding: 1rem;
   `,
 
-  NavbarContent: styled.div`
+    NavbarContent: styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
   `,
 
-  Logo: styled(NavLink)`
+    Logo: styled(NavLink)`
     font-size: 1.5rem;
     font-weight: bold;
     color: ${(props) => props.theme.colors.logoColor};
     text-decoration: none;
   `,
 
-  NavLinks: styled.div`
+    NavLinks: styled.div`
     display: none;
     @media (min-width: 768px) {
+     background: ${(props) => props.theme.colors.navLinksBackground};
       display: flex;
     }
   `,
 
-  NavItem: styled(NavLink)`
+    NavItem: styled(NavLink)`
     color: ${(props) => props.theme.colors.linkColor};
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -163,7 +196,7 @@ export const styles = {
     }
   `,
 
-  NavButton: styled.button`
+    NavButton: styled.button`
     background-color: ${(props) => props.theme.colors.buttonBackground};
     border: none;
     color: ${(props) => props.theme.colors.buttonText};
@@ -176,7 +209,7 @@ export const styles = {
     }
   `,
 
-  MobileMenuButton: styled.button`
+    MobileMenuButton: styled.button`
     background-color: ${(props) => props.theme.colors.mobileMenuButtonBackground};
     border: none;
     color: ${(props) => props.theme.colors.mobileMenuButtonText};
@@ -184,22 +217,31 @@ export const styles = {
     font-size: 1.5rem;
     display: none;
 
-    @media (max-width: 767px) {
-      display: block;
-    }
+    @media screen and (max-width: 800px) {
+        display: inline-block;
+        color: ${(props) => props.theme.colors.mobileMenuButton};
+        cursor: pointer;
+      }
   `,
 
-  MobileMenu: styled.div`
+    MobileMenu: styled.div`
+  list-style-type: none;
+  display: none;
+  @media screen and (max-width: 800px) {
+    display: ${(props) => (props.isOpen ? 'block' : 'none')};
     position: absolute;
-    top: 100%;
+     width: 200px;
+    top: 60px;
     left: 0;
     right: 0;
+    z-index: 10;
     background-color: ${(props) => props.theme.colors.mobileMenuBackground};
     padding: 1rem;
-    display: ${(props) => (props.isOpen ? 'block' : 'none')};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
   `,
 
-  MobileNavItem: styled(NavLink)`
+    MobileNavItem: styled(NavLink)`
     display: block;
     padding: 0.5rem 0;
     color: ${(props) => props.theme.colors.mobileNavItemText};
@@ -213,12 +255,12 @@ export const styles = {
     }
   `,
 
-  CartIcon: styled.div`
+    CartIcon: styled.div`
     cursor: pointer;
     color: ${(props) => props.theme.colors.cartIconColor};
   `,
 
-  CartCount: styled.span`
+    CartCount: styled.span`
     position: absolute;
     top: -8px;
     right: -8px;
@@ -229,47 +271,54 @@ export const styles = {
     font-size: 0.8rem;
   `,
 
-  Select: styled.select`
+    Select: styled.select`
     background-color: ${(props) => props.theme.colors.selectBackground};
     color: ${(props) => props.theme.colors.selectText};
     border: none;
     padding: 0.5rem;
     margin-right: 1rem;
   `
-},
+  },
 
 
- style3 :{
-  NavbarContainer: styled.nav`
-    background-color: ${(props) => props.theme.colors.navbarBackground};
+  style3: {
+    navbarHeight: '50px',
+
+    TopNavbar: styled.div`
+    background: ${(props) => props.theme.colors.TopNavbarBackground};
+    padding: 15px;
+  `,
+
+    NavbarContainer: styled.nav`
+    background: ${(props) => props.theme.colors.navbarContainerBackground};
     color: ${(props) => props.theme.colors.logoText};
     padding: 1rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   `,
 
-  NavbarContent: styled.div`
+    NavbarContent: styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
   `,
 
-  Logo: styled(NavLink)`
+    Logo: styled(NavLink)`
     font-size: 1.5rem;
     font-weight: bold;
     color: ${(props) => props.theme.colors.logoText};
     text-decoration: none;
   `,
 
-  NavLinks: styled.div`
+    NavLinks: styled.div`
     display: flex;
     align-items: center;
-
+ background: ${(props) => props.theme.colors.navLinksBackground};
     @media (max-width: 768px) {
       display: none;
     }
   `,
 
-  NavItem: styled(NavLink)`
+    NavItem: styled(NavLink)`
     color: ${(props) => props.theme.colors.navItemText};
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -296,7 +345,7 @@ export const styles = {
     }
   `,
 
-  NavButton: styled.button`
+    NavButton: styled.button`
     background-color: ${(props) => props.theme.colors.buttonBackground};
     border: none;
     color: ${(props) => props.theme.colors.navButtonText};
@@ -312,20 +361,19 @@ export const styles = {
     }
   `,
 
-  MobileMenuButton: styled.button`
+    MobileMenuButton: styled.button`
     display: none;
     background: none;
     border: none;
     color: ${(props) => props.theme.colors.mobileMenuButton};
     font-size: 1.5rem;
     cursor: pointer;
-
     @media (max-width: 768px) {
       display: block;
     }
   `,
 
-  MobileMenu: styled.div`
+    MobileMenu: styled.div`
     position: fixed;
     top: 60px;
     left: 0;
@@ -337,7 +385,7 @@ export const styles = {
     z-index: 1000;
   `,
 
-  MobileNavItem: styled(NavLink)`
+    MobileNavItem: styled(NavLink)`
     margin: 0.5rem 0;
     color: ${(props) => props.theme.colors.mobileNavItemText};
     text-decoration: none;
@@ -349,16 +397,16 @@ export const styles = {
     }
   `,
 
-  CartIcon: styled.div`
+    CartIcon: styled.div`
     cursor: pointer;
     transition: all 0.3s ease;
-
+ color: ${(props) => props.theme.colors.cartIconColor};
     &:hover {
       transform: scale(1.1);
     }
   `,
 
-  CartCount: styled.span`
+    CartCount: styled.span`
     position: absolute;
     top: -8px;
     right: -8px;
@@ -370,7 +418,7 @@ export const styles = {
     transition: all 0.3s ease;
   `,
 
-  Select: styled.select`
+    Select: styled.select`
     background-color: ${(props) => props.theme.colors.selectBackground};
     color: ${(props) => props.theme.colors.selectText};
     border: none;
@@ -384,38 +432,44 @@ export const styles = {
       background-color: ${(props) => props.theme.colors.buttonHover};
     }
   `
-},
-style4 : {
-  NavbarContainer: styled.nav`
-    background-color: ${(props) => props.theme.colors.navbarBackground};
+  },
+  style4: {
+    navbarHeight: '50px',
+    TopNavbar: styled.div`
+    background: ${(props) => props.theme.colors.TopNavbarBackground};
+    padding: 15px;
+  `,
+
+    NavbarContainer: styled.nav`
+     background: ${(props) => props.theme.colors.navbarContainerBackground};
     color: ${(props) => props.theme.colors.logoText};
     padding: 1rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   `,
 
-  NavbarContent: styled.div`
+    NavbarContent: styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
   `,
 
-  Logo: styled(NavLink)`
+    Logo: styled(NavLink)`
     font-size: 1.5rem;
     font-weight: bold;
     color: ${(props) => props.theme.colors.logoText};
     text-decoration: none;
   `,
 
-  NavLinks: styled.div`
+    NavLinks: styled.div`
     display: flex;
     align-items: center;
-
+ background: ${(props) => props.theme.colors.navLinksBackground};
     @media (max-width: 768px) {
       display: none;
     }
   `,
 
-  NavItem: styled(NavLink)`
+    NavItem: styled(NavLink)`
     color: ${(props) => props.theme.colors.navItemText};
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -442,7 +496,7 @@ style4 : {
     }
   `,
 
-  NavButton: styled.button`
+    NavButton: styled.button`
     background-color: ${(props) => props.theme.colors.buttonBackground};
     border: none;
     color: ${(props) => props.theme.colors.navButtonText};
@@ -458,7 +512,7 @@ style4 : {
     }
   `,
 
-  MobileMenuButton: styled.button`
+    MobileMenuButton: styled.button`
     display: none;
     background: none;
     border: none;
@@ -471,7 +525,7 @@ style4 : {
     }
   `,
 
-  MobileMenu: styled.div`
+    MobileMenu: styled.div`
     position: fixed;
     top: 60px;
     left: 0;
@@ -483,7 +537,7 @@ style4 : {
     z-index: 1000;
   `,
 
-  MobileNavItem: styled(NavLink)`
+    MobileNavItem: styled(NavLink)`
     margin: 0.5rem 0;
     color: ${(props) => props.theme.colors.mobileNavItemText};
     text-decoration: none;
@@ -495,16 +549,16 @@ style4 : {
     }
   `,
 
-  CartIcon: styled.div`
+    CartIcon: styled.div`
     cursor: pointer;
     transition: all 0.3s ease;
-
+ color: ${(props) => props.theme.colors.cartIconColor};
     &:hover {
       transform: scale(1.1);
     }
   `,
 
-  CartCount: styled.span`
+    CartCount: styled.span`
     position: absolute;
     top: -8px;
     right: -8px;
@@ -516,7 +570,7 @@ style4 : {
     transition: all 0.3s ease;
   `,
 
-  Select: styled.select`
+    Select: styled.select`
     background-color: ${(props) => props.theme.colors.selectBackground};
     color: ${(props) => props.theme.colors.selectText};
     border: none;
@@ -530,12 +584,18 @@ style4 : {
       background-color: ${(props) => props.theme.colors.buttonHover};
     }
   `
-},
+  },
 
 
-style5 : {
-  NavbarContainer: styled.nav`
-    background-color: ${(props) => props.theme.colors.navbarBackground};
+  style5: {
+    navbarHeight: '90px',
+    TopNavbar: styled.div`
+    background: ${(props) => props.theme.colors.TopNavbarBackground};
+    padding: 15px;
+  `,
+
+    NavbarContainer: styled.nav`
+     background: ${(props) => props.theme.colors.navbarContainerBackground};
     backdrop-filter: blur(10px);
     padding: 0.5rem 2rem;
     position: fixed;
@@ -547,7 +607,7 @@ style5 : {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   `,
 
-  NavbarContent: styled.div`
+    NavbarContent: styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -555,7 +615,7 @@ style5 : {
     margin: 0 auto;
   `,
 
-  Logo: styled(NavLink)`
+    Logo: styled(NavLink)`
     font-size: 1.5rem;
     font-weight: bold;
     color: ${(props) => props.theme.colors.logoText};
@@ -567,16 +627,16 @@ style5 : {
     }
   `,
 
-  NavLinks: styled.div`
+    NavLinks: styled.div`
     display: flex;
     align-items: center;
-
+ background: ${(props) => props.theme.colors.navLinksBackground};
     @media (max-width: 768px) {
       display: none;
     }
   `,
 
-  NavItem: styled(NavLink)`
+    NavItem: styled(NavLink)`
     color: ${(props) => props.theme.colors.navItemText};
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -590,7 +650,7 @@ style5 : {
     }
   `,
 
-  NavButton: styled.button`
+    NavButton: styled.button`
     background-color: ${(props) => props.theme.colors.buttonBackground};
     color: ${(props) => props.theme.colors.buttonText};
     border: none;
@@ -604,7 +664,7 @@ style5 : {
     }
   `,
 
-  MobileMenuButton: styled.button`
+    MobileMenuButton: styled.button`
     display: none;
     background: none;
     border: none;
@@ -617,7 +677,7 @@ style5 : {
     }
   `,
 
-  MobileMenu: styled.div`
+    MobileMenu: styled.div`
     display: none;
     position: absolute;
     top: 100%;
@@ -633,7 +693,7 @@ style5 : {
     }
   `,
 
-  MobileNavItem: styled(NavLink)`
+    MobileNavItem: styled(NavLink)`
     display: block;
     margin: 0.5rem 0;
     color: ${(props) => props.theme.colors.mobileNavItemText};
@@ -646,13 +706,14 @@ style5 : {
     }
   `,
 
-  CartIcon: styled.div`
+    CartIcon: styled.div`
     position: relative;
     cursor: pointer;
     margin-left: 1rem;
+     color: ${(props) => props.theme.colors.cartIconColor};
   `,
 
-  CartCount: styled.span`
+    CartCount: styled.span`
     position: absolute;
     top: -8px;
     right: -8px;
@@ -663,7 +724,7 @@ style5 : {
     font-size: 0.75rem;
   `,
 
-  Select: styled.select`
+    Select: styled.select`
     background-color: ${(props) => props.theme.colors.selectBackground};
     color: ${(props) => props.theme.colors.selectText};
     border: 1px solid ${(props) => props.theme.colors.selectBorder};
@@ -678,9 +739,16 @@ style5 : {
       outline: none;
     }
   `
-},
- style6 :{
-  NavbarContainer: styled.nav`
+  },
+  style6: {
+    navbarHeight: '110px',
+
+    TopNavbar: styled.div`
+    background: ${(props) => props.theme.colors.TopNavbarBackground};
+    padding: 15px;
+  `,
+
+    NavbarContainer: styled.nav`
     background: linear-gradient(45deg, ${(props) => props.theme.colors.gradientStart}, ${(props) => props.theme.colors.gradientMid}, ${(props) => props.theme.colors.gradientEnd}, ${(props) => props.theme.colors.gradientExtra});
     background-size: 300% 300%;
     animation: ${gradientAnimation} 15s ease infinite;
@@ -694,7 +762,7 @@ style5 : {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   `,
 
-  NavbarContent: styled.div`
+    NavbarContent: styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -702,7 +770,7 @@ style5 : {
     margin: 0 auto;
   `,
 
-  Logo: styled(NavLink)`
+    Logo: styled(NavLink)`
     font-size: 1.75rem;
     font-weight: bold;
     color: ${(props) => props.theme.colors.logoText};
@@ -715,21 +783,23 @@ style5 : {
     }
   `,
 
-  NavLinks: styled.div`
+    NavLinks: styled.div`
+    padding: 0.3rem 0.2rem;
     display: flex;
     align-items: center;
-
+    background: ${(props) => props.theme.colors.navLinksBackground};
     @media (max-width: 768px) {
       display: none;
     }
   `,
 
-  NavItem: styled(NavLink)`
+    NavItem: styled(NavLink)`
     color: ${(props) => props.theme.colors.navItemText};
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
-    border-radius: 25px;
+    padding: 0.2rem 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    border-radius: 5px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -756,12 +826,12 @@ style5 : {
     }
   `,
 
-  NavButton: styled.button`
+    NavButton: styled.button`
     background-color: ${(props) => props.theme.colors.buttonBackground};
     color: ${(props) => props.theme.colors.buttonText};
     border: none;
     padding: 0.5rem 1.25rem;
-    border-radius: 25px;
+    border-radius: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: bold;
@@ -775,7 +845,7 @@ style5 : {
     }
   `,
 
-  MobileMenuButton: styled.button`
+    MobileMenuButton: styled.button`
     display: none;
     background: none;
     border: none;
@@ -793,7 +863,7 @@ style5 : {
     }
   `,
 
-  MobileMenu: styled.div`
+    MobileMenu: styled.div`
     display: none;
     position: absolute;
     top: 100%;
@@ -809,25 +879,25 @@ style5 : {
     }
   `,
 
-  MobileNavItem: styled(NavLink)`
+    MobileNavItem: styled(NavLink)`
     display: block;
     margin: 0.75rem 0;
     color: ${(props) => props.theme.colors.mobileNavItemText};
     text-align: center;
   `,
 
-  CartIcon: styled.div`
+    CartIcon: styled.div`
     position: relative;
     cursor: pointer;
     margin-left: 1rem;
     transition: all 0.3s ease;
-
+ color: ${(props) => props.theme.colors.cartIconColor};
     &:hover {
       transform: scale(1.1);
     }
   `,
 
-  CartCount: styled.span`
+    CartCount: styled.span`
     position: absolute;
     top: -8px;
     right: -8px;
@@ -840,13 +910,13 @@ style5 : {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   `,
 
-  Select: styled.select`
+    Select: styled.select`
     background-color: ${(props) => props.theme.colors.selectBackground};
     color: ${(props) => props.theme.colors.selectText};
     border: none;
     padding: 0.5rem 1rem;
     margin-left: 1rem;
-    border-radius: 25px;
+    border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
     appearance: none;
@@ -865,11 +935,18 @@ style5 : {
       box-shadow: 0 0 0 2px ${(props) => props.theme.colors.selectFocusShadow};
     }
   `
-},
+  },
 
- style7 : {
-  NavbarContainer: styled.nav`
-    background: ${(props) => props.theme.colors.navbarBackground};
+  style7: {
+    navbarHeight: '110px',
+
+    TopNavbar: styled.div`
+    background: ${(props) => props.theme.colors.TopNavbarBackground};
+    padding: 15px;
+  `,
+
+    NavbarContainer: styled.nav`
+     background: ${(props) => props.theme.colors.navbarContainerBackground};
     padding: 0.75rem 2rem;
     position: fixed;
     width: 100%;
@@ -878,9 +955,10 @@ style5 : {
     z-index: 1000;
     transition: all 0.3s ease;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    
   `,
 
-  NavbarContent: styled.div`
+    NavbarContent: styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -888,7 +966,7 @@ style5 : {
     margin: 0 auto;
   `,
 
-  Logo: styled(NavLink)`
+    Logo: styled(NavLink)`
     font-size: 1.75rem;
     font-weight: bold;
     color: ${(props) => props.theme.colors.logoText};
@@ -913,30 +991,31 @@ style5 : {
     }
   `,
 
-  NavLinks: styled.div`
+    NavLinks: styled.div`
     display: flex;
     align-items: center;
-
+    background: ${(props) => props.theme.colors.navLinksBackground};
     @media (max-width: 768px) {
       display: none;
     }
   `,
 
-  NavItem: styled(NavLink)`
+    NavItem: styled(NavLink)`
     color: ${(props) => props.theme.colors.navItemText};
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
+    padding: 0.2rem 0.2rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
     border-radius: 4px;
     transition: all 0.3s ease;
 
     &:hover, &.active {
       background-color: ${(props) => props.theme.colors.navItemHoverBackground};
-      color: ${(props) => props.theme.colors.navItemHover};
+      color: ${(props) => props.theme.colors.navItemText};
     }
   `,
 
-  NavButton: styled.button`
+    NavButton: styled.button`
     background-color: ${(props) => props.theme.colors.buttonBackground};
     color: ${(props) => props.theme.colors.buttonText};
     border: none;
@@ -970,7 +1049,7 @@ style5 : {
     }
   `,
 
-  MobileMenuButton: styled.button`
+    MobileMenuButton: styled.button`
     display: none;
     background: none;
     border: none;
@@ -988,7 +1067,7 @@ style5 : {
     }
   `,
 
-  MobileMenu: styled.div`
+    MobileMenu: styled.div`
     display: none;
     position: absolute;
     top: 100%;
@@ -1003,25 +1082,25 @@ style5 : {
     }
   `,
 
-  MobileNavItem: styled(NavLink)`
+    MobileNavItem: styled(NavLink)`
     display: block;
     margin: 0.75rem 0;
     color: ${(props) => props.theme.colors.mobileNavItemText};
     text-align: center;
   `,
 
-  CartIcon: styled.div`
+    CartIcon: styled.div`
     position: relative;
     cursor: pointer;
     margin-left: 1rem;
     transition: all 0.3s ease;
-
+    color: ${(props) => props.theme.colors.cartIconColor};
     &:hover {
       color: ${(props) => props.theme.colors.cartIconHover};
     }
   `,
 
-  CartCount: styled.span`
+    CartCount: styled.span`
     position: absolute;
     top: -8px;
     right: -8px;
@@ -1033,7 +1112,7 @@ style5 : {
     font-weight: bold;
   `,
 
-  Select: styled.select`
+    Select: styled.select`
     background-color: ${(props) => props.theme.colors.selectBackground};
     color: ${(props) => props.theme.colors.selectText};
     border: 1px solid ${(props) => props.theme.colors.selectBorder};
@@ -1058,6 +1137,330 @@ style5 : {
       box-shadow: 0 0 0 2px ${(props) => props.theme.colors.selectFocus};
     }
   `
-},
+  },
+  style8: {
+    navbarHeight: '60px',
+  
+    TopNavbar: styled.div`
+      background: ${(props) => props.theme.colors.TopNavbarBackground};
+      padding: 15px;
+    `,
+  
+    NavbarContainer: styled.nav`
+      background: linear-gradient(135deg, ${(props) => props.theme.colors.gradientStart}, ${(props) => props.theme.colors.gradientEnd});
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    `,
+  
+    NavbarContent: styled.div`
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    `,
+  
+    Logo: styled(NavLink)`
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: ${(props) => props.theme.colors.logoText};
+      text-decoration: none;
+      transition: color 0.3s ease;
+      &:hover {
+        color: ${(props) => props.theme.colors.logoHover};
+      }
+    `,
+  
+    NavLinks: styled.div`
+      display: flex;
+      align-items: center;
+      background: ${(props) => props.theme.colors.navLinksBackground};
+      @media (max-width: 768px) {
+        display: none;
+      }
+    `,
+  
+    NavItem: styled(NavLink)`
+      color: ${(props) => props.theme.colors.navItemText};
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+  
+      &:hover, &.active {
+        background-color: ${(props) => props.theme.colors.navItemHoverBackground};
+        color: ${(props) => props.theme.colors.navItemHover};
+      }
+    `,
+  
+    NavButton: styled.button`
+      background-color: ${(props) => props.theme.colors.buttonBackground};
+      color: ${(props) => props.theme.colors.buttonText};
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: ${(props) => props.theme.colors.buttonHover};
+      }
+    `,
+  
+    MobileMenuButton: styled.button`
+      display: none;
+      background: none;
+      border: none;
+      color: ${(props) => props.theme.colors.mobileMenuButton};
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  
+      @media (max-width: 768px) {
+        display: block;
+      }
+    `,
+  
+    MobileMenu: styled.div`
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: ${(props) => props.theme.colors.mobileMenuBackground};
+      padding: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  
+      @media (max-width: 768px) {
+        display: ${(props) => (props.isOpen ? 'block' : 'none')};
+      }
+    `,
+  
+    MobileNavItem: styled(NavLink)`
+      display: block;
+      margin: 0.5rem 0;
+      color: ${(props) => props.theme.colors.mobileNavItemText};
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+  
+      &:hover, &.active {
+        color: ${(props) => props.theme.colors.mobileNavItemHover};
+      }
+    `,
+  
+    CartIcon: styled.div`
+      position: relative;
+      cursor: pointer;
+      margin-left: 1rem;
+      transition: all 0.3s ease;
+      color: ${(props) => props.theme.colors.cartIconColor};
+  
+      &:hover {
+        transform: scale(1.1);
+      }
+    `,
+  
+    CartCount: styled.span`
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: ${(props) => props.theme.colors.cartCountBackground};
+      color: ${(props) => props.theme.colors.cartCountText};
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 0.75rem;
+    `,
+  
+    Select: styled.select`
+      background-color: ${(props) => props.theme.colors.selectBackground};
+      color: ${(props) => props.theme.colors.selectText};
+      border: none;
+      padding: 0.5rem;
+      margin-right: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  
+      &:hover {
+        background-color: ${(props) => props.theme.colors.selectHover};
+      }
+  
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px ${(props) => props.theme.colors.selectFocus};
+      }
+    `
+  },
+  style9: {
+    navbarHeight: '70px',
+  
+    TopNavbar: styled.div`
+      background: ${(props) => props.theme.colors.TopNavbarBackground};
+      padding: 10px;
+    `,
+  
+    NavbarContainer: styled.nav`
+      background-color: ${(props) => props.theme.colors.navbarBackground};
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    `,
+  
+    NavbarContent: styled.div`
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    `,
+  
+    Logo: styled(NavLink)`
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: ${(props) => props.theme.colors.logoText};
+      text-decoration: none;
+      transition: color 0.3s ease;
+  
+      &:hover {
+        color: ${(props) => props.theme.colors.logoHover};
+      }
+    `,
+  
+    NavLinks: styled.div`
+      display: flex;
+      align-items: center;
+      background: ${(props) => props.theme.colors.navLinksBackground};
+      @media (max-width: 768px) {
+        display: none;
+      }
+    `,
+  
+    NavItem: styled(NavLink)`
+      color: ${(props) => props.theme.colors.navItemText};
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      margin-right: 0.5rem;
+      transition: all 0.3s ease;
+  
+      &:hover, &.active {
+        background-color: ${(props) => props.theme.colors.navItemHoverBackground};
+        color: ${(props) => props.theme.colors.navItemHover};
+      }
+    `,
+  
+    NavButton: styled.button`
+      background-color: ${(props) => props.theme.colors.buttonBackground};
+      color: ${(props) => props.theme.colors.buttonText};
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: ${(props) => props.theme.colors.buttonHover};
+      }
+    `,
+  
+    MobileMenuButton: styled.button`
+      display: none;
+      background: none;
+      border: none;
+      color: ${(props) => props.theme.colors.mobileMenuButton};
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  
+      @media (max-width: 768px) {
+        display: block;
+      }
+    `,
+  
+    MobileMenu: styled.div`
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: ${(props) => props.theme.colors.mobileMenuBackground};
+      padding: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  
+      @media (max-width: 768px) {
+        display: ${(props) => (props.isOpen ? 'block' : 'none')};
+      }
+    `,
+  
+    MobileNavItem: styled(NavLink)`
+      display: block;
+      margin: 0.5rem 0;
+      color: ${(props) => props.theme.colors.mobileNavItemText};
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+  
+      &:hover, &.active {
+        color: ${(props) => props.theme.colors.mobileNavItemHover};
+      }
+    `,
+  
+    CartIcon: styled.div`
+      position: relative;
+      cursor: pointer;
+      margin-left: 1rem;
+      transition: all 0.3s ease;
+      color: ${(props) => props.theme.colors.cartIconColor};
+  
+      &:hover {
+        transform: scale(1.1);
+      }
+    `,
+  
+    CartCount: styled.span`
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: ${(props) => props.theme.colors.cartCountBackground};
+      color: ${(props) => props.theme.colors.cartCountText};
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 0.75rem;
+    `,
+  
+    Select: styled.select`
+      background-color: ${(props) => props.theme.colors.selectBackground};
+      color: ${(props) => props.theme.colors.selectText};
+      border: none;
+      padding: 0.5rem;
+      margin-right: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  
+      &:hover {
+        background-color: ${(props) => props.theme.colors.selectHover};
+      }
+  
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px ${(props) => props.theme.colors.selectFocus};
+      }
+    `
+  },
+  
 
 };

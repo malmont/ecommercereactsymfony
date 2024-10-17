@@ -11,46 +11,82 @@ import { DependencyProvider } from './DependencyContext';
 import { useContext } from 'react';
 import Order from './components/Private/Dashboards/Order';
 import CheckoutPage from '../src/components/Public/Cart/Total/CheckoutPage';
-import { ThemeStyleProvider, ThemeStyleContext } from './theme/ThemeStyleContext'; 
+import { AdminProvider, useAdminContext  } from '../src/theme/AdminContext'; 
 import { ThemeProvider } from 'styled-components';  
+import AdminComponentSettings from '../src/theme/AdminComponentSettings'; 
+import styled from 'styled-components';
+import { themes } from './theme/All_themes'; 
+
 
 function App() {
   return (
     <AuthProvider>
-      <AppRoutes />
+      <AdminProvider> 
+        <AppRoutes />
+      </AdminProvider>
     </AuthProvider>
   );
 }
 
 const AppRoutes = () => {
   const { user, loading } = useContext(AuthContext);
+  const { themeChoice, showAdminSettings } = useAdminContext(); 
 
   if (loading) {
     return <div>Loading...</div>; 
   }
 
+  const theme = themes[themeChoice] || themes.light;
+
   return (
     <DependencyProvider user={user}>
-      <ThemeStyleProvider> 
-        <ThemeStyleContext.Consumer>
-          {({ theme }) => ( 
-            <ThemeProvider theme={theme}>
-              <Routes>
-                <Route path="/*" element={<PublicRoute />} />
-                <Route element={<PrivateRoute />}>
-                  <Route path="/dashboard" element={<DashboardView />} />
-                  <Route path="/profile" element={<ProfileView />} />
-                  <Route path="/confirmation" element={<Confirmation />} /> 
-                  <Route path="/order/:orderId" element={<Order />} /> 
-                  <Route path="/CheckoutPage" element={<CheckoutPage />} />
-                </Route>
-              </Routes>
-            </ThemeProvider>
-          )}
-        </ThemeStyleContext.Consumer>
-      </ThemeStyleProvider>
+      <ThemeProvider theme={theme}>
+        <AppLayout>
+          <Sidebar show={showAdminSettings}>
+            <AdminComponentSettings /> 
+          </Sidebar>
+          <MainContent>
+            <Routes>
+              <Route path="/*" element={<PublicRoute />} />
+              <Route element={<PrivateRoute />}>
+                <Route path="/dashboard" element={<DashboardView />} />
+                <Route path="/profile" element={<ProfileView />} />
+                <Route path="/confirmation" element={<Confirmation />} /> 
+                <Route path="/order/:orderId" element={<Order />} /> 
+                <Route path="/CheckoutPage" element={<CheckoutPage />} />
+              </Route>
+            </Routes>
+          </MainContent>
+        </AppLayout>
+      </ThemeProvider>
     </DependencyProvider>
   );
 }
 
 export default App;
+
+const AppLayout = styled.div`
+  display: flex;
+  min-height: 100vh; 
+  flex-direction: row;
+`;
+
+const Sidebar = styled.div`
+  width: 250px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  display: ${({ show }) => (show ? 'block' : 'none')};
+
+  @media (max-width: 768px) {
+    display: none; /* Masquer en mode mobile et tablette */
+  }
+`;
+
+const MainContent = styled.div`
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  overflow-y: auto;
+`;

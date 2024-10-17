@@ -1,309 +1,132 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { observer } from "mobx-react-lite";
-
-const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
-`;
-
-const NavbarContainer = styled.nav`
-  background-color: #1a1a2e;
-  color: #e94560;
-  padding: 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-`;
+import { useAdminContext } from '../../../theme/AdminContext';
 
 const NavbarContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 `;
 
-const Logo = styled(NavLink)`
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #e94560;
-  text-decoration: none;
+const AdminToggleButton = styled.button`
+  background-color: ${props => (props.active ? '#ff6600' : '#007bff')};
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 1rem;
+  
+  /* Masquer le bouton en mode mobile et tablette (moins de 800px de largeur) */
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 `;
 
 const NavLinks = styled.div`
   display: flex;
   align-items: center;
+  gap: 20px;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 800px) {
     display: none;
   }
 `;
 
 const NavItem = styled(NavLink)`
-  color: #e94560;
+  color: ${(props) => props.theme.colors.navItemText};
   text-decoration: none;
   padding: 0.5rem 1rem;
-  transition: all 0.3s ease;
-  position: relative;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: #e94560;
-    transition: all 0.3s ease;
-  }
-
-  &:hover, &.active {
-    color: white;
-    &:after {
-      width: 100%;
-      left: 0;
-    }
-  }
-`;
-
-const NavButton = styled.button`
-  background-color: #0f3460;
-  border: none;
-  color: #e94560;
-  cursor: pointer;
   font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #e94560;
-    color: #0f3460;
+    color: ${(props) => props.theme.colors.navItemHover};
+  }
+
+  &.active {
+    color: ${(props) => props.theme.colors.navItemActive};
   }
 `;
 
-const MobileMenuButton = styled.button`
-  display: none;
-  background: none;
-  border: none;
-  color: #e94560;
-  font-size: 1.5rem;
-  cursor: pointer;
-
-  @media (max-width: 768px) {
-    display: block;
-  }
-`;
-
-const MobileMenu = styled.div`
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  background-color: #1a1a2e;
-  padding: 1rem;
-  display: ${props => props.isOpen ? 'flex' : 'none'};
-  flex-direction: column;
-  z-index: 1000;
-  animation: ${fadeIn} 0.3s ease;
-`;
-
-const MobileNavItem = styled(NavItem)`
-  margin: 0.5rem 0;
-`;
-
-const CartIcon = styled.div`
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
-
-const CartCount = styled.span`
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background-color: #e94560;
-  color: #1a1a2e;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 0.8rem;
-  transition: all 0.3s ease;
-`;
-
-const Select = styled.select`
-  background-color: #16213e;
-  color: #e94560;
-  border: none;
-  padding: 0.5rem;
-  margin-right: 1rem;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: #0f3460;
-  }
-`;
-
-// Nouveaux composants standardisés
-const RightSection = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const NavbarSection = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const CartPreview = styled.div`
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: #16213e;
-  border: 1px solid #e94560;
-  border-radius: 10px;
-  padding: 1rem;
-  display: none;
-  z-index: 1000;
-  animation: ${fadeIn} 0.3s ease;
-`;
-
-const CartContainer = styled.div`
-  position: relative;
-  margin-left: 1rem;
-
-  &:hover ${CartPreview} {
-    display: block;
-  }
-`;
-
-const Navbar_c = ({ ResumeCart, AuthContext, useDependencies }) => {
-  const authContext = useContext(AuthContext);
+const Navbar_c = observer(({ ResumeCart, AuthContext, useDependencies, selectedStyle }) => {
   const { navbarViewModel: vm } = useDependencies();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { toggleAdminSettings, showAdminSettings } = useAdminContext();
 
   useEffect(() => {
-    const changeWidth = () => {
-      vm.updateWidth();
-    };
-    window.addEventListener("resize", changeWidth);
-
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("resize", changeWidth);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [vm]);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <NavbarContainer style={{ backgroundColor: isScrolled ? '#0f3460' : '#1a1a2e' }}>
+    <selectedStyle.NavbarContainer scrolled={isScrolled}>
       <NavbarContent>
-        <Logo to={vm.homePath}>
-          {React.createElement(vm.icons.HomeIcon)} MyStore
-        </Logo>
+        <selectedStyle.Logo to={vm.homePath}>MyStore</selectedStyle.Logo>
         <NavLinks>
-          <NavbarSection>
-            <NavItem to={vm.homePath}>
-              {React.createElement(vm.icons.HomeIcon)} Accueil
-            </NavItem>
-            <NavItem to={vm.categoriesPath}>
-              {React.createElement(vm.icons.CategoryIcon)} Catégories
-            </NavItem>
-          </NavbarSection>
-          <NavbarSection>
-            {vm.user ? (
-              <>
-                <NavItem to={vm.dashboardPath}>
-                  {React.createElement(vm.icons.DashboardCustomizeIcon)} Tableau de bord
-                </NavItem>
-                <NavItem to={vm.profilePath}>
-                  {React.createElement(vm.icons.PeopleAltIcon)} Profil
-                </NavItem>
-                <NavButton onClick={authContext.logout}>
-                  {React.createElement(vm.icons.LogoutIcon)} Déconnexion
-                </NavButton>
-              </>
-            ) : (
-              <>
-                <NavItem to={vm.loginPath}>
-                  {React.createElement(vm.icons.PersonIcon)} Connexion
-                </NavItem>
-                <NavItem to={vm.registerPath}>
-                  {React.createElement(vm.icons.HowToRegIcon)} Inscription
-                </NavItem>
-              </>
-            )}
-          </NavbarSection>
-        </NavLinks>
-        <RightSection>
-          <Select value={vm.selectedCurrency} onChange={(e) => vm.handleCurrencyChange(e.target.value)}>
+          <NavItem to={vm.homePath}>Home</NavItem>
+          <NavItem to={vm.categoriesPath}>Categories</NavItem>
+          {vm.user ? (
+            <>
+              <NavItem to={vm.dashboardPath}>Dashboard</NavItem>
+              <NavItem to={vm.profilePath}>Profile</NavItem>
+              <selectedStyle.NavButton onClick={vm.logout}>Logout</selectedStyle.NavButton>
+            </>
+          ) : (
+            <>
+              <NavItem to={vm.loginPath}>Login</NavItem>
+              <NavItem to={vm.registerPath}>Register</NavItem>
+            </>
+          )}
+          <selectedStyle.Select value={vm.selectedCurrency} onChange={(e) => vm.handleCurrencyChange(e.target.value)}>
             <option value="USD">USD</option>
             <option value="EUR">EUR</option>
             <option value="GBP">GBP</option>
-          </Select>
-          <Select value={vm.selectedLanguage} onChange={(e) => vm.handleLanguageChange(e.target.value)}>
-            <option value="English">English</option>
-            <option value="French">Français</option>
-            <option value="Spanish">Español</option>
-          </Select>
-          <CartContainer>
-            <CartIcon onClick={() => vm.navigateToCart()}>
-              {React.createElement(vm.icons.ShoppingCartIcon)}
-              {vm.getTotalQuantity() > 0 && (
-                <CartCount>{vm.getTotalQuantity()}</CartCount>
-              )}
-            </CartIcon>
-            <CartPreview>
-              <ResumeCart className="cart" />
-            </CartPreview>
-          </CartContainer>
-        </RightSection>
-        <MobileMenuButton onClick={vm.toogleMenu}>
-          {React.createElement(vm.icons.MenuIcon)}
-        </MobileMenuButton>
+          </selectedStyle.Select>
+          <selectedStyle.Select value={vm.selectedLanguage} onChange={(e) => vm.handleLanguageChange(e.target.value)}>
+            <option value="English">EN</option>
+            <option value="French">FR</option>
+            <option value="Spanish">ES</option>
+          </selectedStyle.Select>
+          <selectedStyle.CartIcon onClick={() => vm.navigateToCart()}>
+            {React.createElement(vm.icons.ShoppingCartIcon, { color: '#ecf0f1', size: 24 })}
+            {vm.getTotalQuantity() > 0 && (
+              <selectedStyle.CartCount>{vm.getTotalQuantity()}</selectedStyle.CartCount>
+            )}
+          </selectedStyle.CartIcon>
+        </NavLinks>
+        <AdminToggleButton onClick={toggleAdminSettings} active={showAdminSettings}>
+          {showAdminSettings ? 'Admin' : 'Admin'}
+        </AdminToggleButton>
+        <selectedStyle.MobileMenuButton onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {React.createElement(vm.icons.MenuIcon, { color: '#ecf0f1', size: 24 })}
+        </selectedStyle.MobileMenuButton>
       </NavbarContent>
-      <MobileMenu isOpen={vm.toggleMenuMobile}>
-        <MobileNavItem to={vm.homePath}>Accueil</MobileNavItem>
-        <MobileNavItem to={vm.categoriesPath}>Catégories</MobileNavItem>
+      <selectedStyle.MobileMenu isOpen={isMobileMenuOpen}>
+        <selectedStyle.MobileNavItem to={vm.homePath}>Home</selectedStyle.MobileNavItem>
+        <selectedStyle.MobileNavItem to={vm.categoriesPath}>Categories</selectedStyle.MobileNavItem>
         {vm.user ? (
           <>
-            <MobileNavItem to={vm.dashboardPath}>Tableau de bord</MobileNavItem>
-            <MobileNavItem to={vm.profilePath}>Profil</MobileNavItem>
-            <NavButton onClick={authContext.logout}>Déconnexion</NavButton>
+            <selectedStyle.MobileNavItem to={vm.dashboardPath}>Dashboard</selectedStyle.MobileNavItem>
+            <selectedStyle.MobileNavItem to={vm.profilePath}>Profile</selectedStyle.MobileNavItem>
+            <selectedStyle.NavButton onClick={vm.logout}>Logout</selectedStyle.NavButton>
           </>
         ) : (
           <>
-            <MobileNavItem to={vm.loginPath}>Connexion</MobileNavItem>
-            <MobileNavItem to={vm.registerPath}>Inscription</MobileNavItem>
+            <selectedStyle.MobileNavItem to={vm.loginPath}>Login</selectedStyle.MobileNavItem>
+            <selectedStyle.MobileNavItem to={vm.registerPath}>Register</selectedStyle.MobileNavItem>
           </>
         )}
-        <Select value={vm.selectedCurrency} onChange={(e) => vm.handleCurrencyChange(e.target.value)}>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="GBP">GBP</option>
-        </Select>
-        <Select value={vm.selectedLanguage} onChange={(e) => vm.handleLanguageChange(e.target.value)}>
-          <option value="English">English</option>
-          <option value="French">Français</option>
-          <option value="Spanish">Español</option>
-        </Select>
-        <CartContainer>
-          <CartIcon onClick={() => vm.navigateToCart()}>
-            {React.createElement(vm.icons.ShoppingCartIcon)}
-            {vm.getTotalQuantity() > 0 && (
-              <CartCount>{vm.getTotalQuantity()}</CartCount>
-            )}
-          </CartIcon>
-        </CartContainer>
-      </MobileMenu>
-    </NavbarContainer>
+      </selectedStyle.MobileMenu>
+    </selectedStyle.NavbarContainer>
   );
-};
+});
 
-export default observer(Navbar_c);
+export default Navbar_c;

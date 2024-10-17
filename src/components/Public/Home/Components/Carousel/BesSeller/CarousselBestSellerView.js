@@ -30,9 +30,6 @@ const CarousselBestSellerView = observer(() => {
     <Wrapper>
       <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={2000}>
         {carouselBestSellerViewModel.products.map((product, index) => (
-          // <div key={index} onClick={() => navigate(`/category/${category.type_epreuve_sportive}`)}>
-          //   <CategoryCard category={product} />
-          // </div>
           <BestSellerCard category={product} />
         ))}
       </Carousel>
