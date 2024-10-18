@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-
+import { observer } from "mobx-react-lite";
 const OrderList = ({ viewModel }) => {
     const { orders, loading } = viewModel;
     const navigate = useNavigate();
@@ -30,8 +30,8 @@ const OrderList = ({ viewModel }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {orders.map((order) => (
-                                        <tr key={order.id}>
+                                    {orders.map((order, index) => (
+                                        <tr key={`${order.id}-${index}`}>
                                             <td>{order.reference}</td>
                                             <td>{new Date(order.orderDate).toLocaleDateString()}</td>
                                             <td>Completed</td>
@@ -45,7 +45,6 @@ const OrderList = ({ viewModel }) => {
                                                     }}>
                                                     View
                                                 </button>
-
                                             </td>
                                         </tr>
                                     ))}
@@ -62,7 +61,7 @@ const OrderList = ({ viewModel }) => {
 };
 
 const Wrapper = styled.div`
-  // Style inchangé
+ 
 `;
+export default observer(OrderList);
 
-export default OrderList;
