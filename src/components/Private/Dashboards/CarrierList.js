@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { observer } from "mobx-react-lite";
 const CarrierList = ({ viewModel }) => {
   const { carriers, loading } = viewModel;
 
@@ -26,8 +26,8 @@ const CarrierList = ({ viewModel }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {carriers.map((carrier) => (
-                    <tr key={carrier.id}>
+                  {carriers.map((carrier, index) => (
+                      <tr key={`carrier-${carrier.id}-${index}`}>
                       <td>
                         <img src={carrier.photo} alt={carrier.name} width="50" height="50" />
                         {carrier.name}
@@ -55,5 +55,5 @@ const Wrapper = styled.div`
     margin-right: 20px;
   }
 `;
+export default observer(CarrierList);
 
-export default CarrierList;

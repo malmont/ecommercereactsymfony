@@ -13,10 +13,14 @@ const CartView = observer(() => {
       navigate('/login');
     } else {
       try {
+        // Sérialiser les données
+        const serializedCart = JSON.stringify(cartViewModel.cart);
+        const totalPrice = cartViewModel.totalPriceWithTax;
+  
         navigate('/CheckoutPage', { 
           state: { 
-            cart: cartViewModel.cart, 
-            totalPrice: cartViewModel.totalPriceWithTax 
+            cart: serializedCart, 
+            totalPrice 
           } 
         });
       } catch (error) {
@@ -24,6 +28,7 @@ const CartView = observer(() => {
       }
     }
   };
+  
   const navigate = useNavigate();
 
   return (
