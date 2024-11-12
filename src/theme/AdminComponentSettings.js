@@ -2,29 +2,46 @@ import React from 'react';
 import { useAdminContext } from './AdminContext'; 
 import { themes } from './All_themes';
 import { styles } from './All_styles'; 
-import { components } from './All_components';
+import { componentsNavbar } from './All_components';
+import { componentsSection1 } from './All_components';
+import { ComponentTypeSection1 } from './All_components';
 import { saveAdminSettings } from './adminSettingsService'; 
 import styled from 'styled-components'; 
 
 const AdminComponentSettings = () => {
   const {
-    navbarComponent,
-    setNavbarComponent,
-    styleChoice,
-    setStyleChoice,
-    themeChoice,
-    setThemeChoice,
+    navbarComponent, 
+    setNavbarComponent, 
+    styleChoice, 
+    setStyleChoice, 
+    themeChoice, 
+    setThemeChoice, 
+    section1Component,
+    setSection1Component,
+    typeComponentSection1,
+    setTypeComponentSection1,
   } = useAdminContext();
+
+  const [section1Selected, setSection1Selected] = useState(false);
 
   const handleNavbarChange = (event) => setNavbarComponent(event.target.value);
   const handleStyleChange = (event) => setStyleChoice(event.target.value);
   const handleThemeChange = (event) => setThemeChoice(event.target.value);
+
+  const handleComponentsSection1 = (event) => {
+    setSection1Component(event.target.value);
+    setSection1Selected(true); // Marque comme sélectionné dès qu'une option est choisie
+  };
+
+  const handleComponentTypeSection1 = (event) => setTypeComponentSection1(event.target.value);
 
   const handleSaveSettings = async () => {
     const settings = {
       navbarComponent,
       styleChoice,
       themeChoice,
+      section1Component,
+      typeComponentSection1,
     };
 
     try {
@@ -39,19 +56,6 @@ const AdminComponentSettings = () => {
   return (
     <Wrapper>
       <h2>Paramètres du composant</h2>
-      
-      {/* Choix du composant Navbar */}
-      <SettingGroup>
-        <Label>Choisissez un composant Navbar :</Label>
-        <Select value={navbarComponent} onChange={handleNavbarChange}>
-          {Object.keys(components).map((componentKey) => (
-            <option key={componentKey} value={componentKey}>
-              {components[componentKey].name} {/* Affichez le nom du composant */}
-            </option>
-          ))}
-        </Select>
-      </SettingGroup>
-
       {/* Choix du style */}
       <SettingGroup>
         <Label>Choisissez un style :</Label>
@@ -75,6 +79,44 @@ const AdminComponentSettings = () => {
           ))}
         </Select>
       </SettingGroup>
+
+      {/* Choix du composant Navbar */}
+      <SettingGroup>
+        <Label>Choisissez un composant Navbar :</Label>
+        <Select value={navbarComponent} onChange={handleNavbarChange}>
+          {Object.keys(componentsNavbar).map((componentKey) => (
+            <option key={componentKey} value={componentKey}>
+              {componentsNavbar[componentKey].name}
+            </option>
+          ))}
+        </Select>
+      </SettingGroup>
+
+      {/* Choix du composant section1 */}
+      <SettingGroup>
+        <Label>Choisissez un composant de la section 1 :</Label>
+        <Select value={section1Component} onChange={handleComponentsSection1}>
+          {Object.keys(componentsSection1).map((componentKey) => (
+            <option key={componentKey} value={componentKey}>
+              {componentsSection1[componentKey].name}
+            </option>
+          ))}
+        </Select>
+      </SettingGroup>
+
+      {/* Choix du type de composant - visible uniquement après sélection dans section1Component */}
+      {section1Selected && (
+        <SettingGroup>
+          <Label>Choisissez un type de composant :</Label>
+          <Select value={typeComponentSection1} onChange={handleComponentTypeSection1}>
+            {Object.keys(ComponentTypeSection1).map((componentKey) => (
+              <option key={componentKey} value={componentKey}>
+                {ComponentTypeSection1[componentKey].name}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+      )}
 
       {/* Bouton de sauvegarde */}
       <SaveButton onClick={handleSaveSettings}>

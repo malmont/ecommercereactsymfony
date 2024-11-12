@@ -1,15 +1,15 @@
 import React, { Suspense } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { useAdminContext } from '../../theme/AdminContext';
+import { useAdminContext } from '../AdminContext';
 import ResumeCart from '../../components/Public/Cart/ResumeTotal/ResumeCartView';
 import AuthContext from '../../Contexts/authContext';
 import { useDependencies } from '../../DependencyContext';
-import NavbarTypeA from './Navbar/Navbar_a'; 
-import NavbarTypeB from './Navbar/Navbar_b';
-import NavbarTypeD from './Navbar/Navbar_d'; 
-import NavbarTypeC from './Navbar/Navbar_c'; 
-import { themes } from '../../theme/All_themes'; 
-import { styles } from '../../theme/All_styles'; 
+import NavbarTypeA from '../../components/Public/Navbar/Navbar_a'; 
+import NavbarTypeB from '../../components/Public/Navbar/Navbar_b';
+import NavbarTypeD from '../../components/Public/Navbar/Navbar_d'; 
+import NavbarTypeC from '../../components/Public/Navbar/Navbar_c'; 
+import { themes } from '../All_themes'; 
+import { styles } from '../All_styles'; 
 
 
 const navbarMap = {
@@ -19,14 +19,12 @@ const navbarMap = {
   typeD: NavbarTypeD,
 };
 
-const Container = () => {
+const ContainerNavBar = () => {
   const { themeChoice, styleChoice, navbarComponent } = useAdminContext();
 
   const selectedTheme = themes[themeChoice];
   const selectedStyle = styles[styleChoice];
-
   const NavbarComponent = navbarMap[navbarComponent] || NavbarTypeA;
-
   return (
     <ThemeProvider theme={selectedTheme}>
       <div>
@@ -41,4 +39,4 @@ const Container = () => {
   );
 };
 
-export default Container;
+export default ContainerNavBar;
