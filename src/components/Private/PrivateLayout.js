@@ -1,11 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import NavbarLoader from '../Public/Navbar/NavbarLoader';
+import Navbar from '../../theme/ThemeContainer/ContainerNavBar'; 
 import Footer from '../Public/Footer/Footer'
 export default function PrivateLayout() {
   return (
     <div>
-      <NavbarLoader />
+      <Navbar />
       <Outlet />
       <Footer />
     </div>

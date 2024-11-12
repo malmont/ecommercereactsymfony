@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Navbar from '../Public/container'; 
+import Navbar from '../../theme/ThemeContainer/ContainerNavBar'; 
 import Footer from './Footer/Footer';
 import styled from 'styled-components';
 import { useAdminContext } from '../../theme/AdminContext';

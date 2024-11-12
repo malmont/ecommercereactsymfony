@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React, { useState, useEffect } from "react";
-import CarouselView from "../Carousel/CarouselComp/CarouselView";
+import ContainerSection1 from "../../../../../theme/ThemeContainer/ContainerSection1";
 import Feature from "./Feature";
 import NewArrivalCard from "../Carousel/NewArrival/CarouselNewArrivalView";
 import CarousselBestSellerView from "../Carousel/BesSeller/CarousselBestSellerView";
@@ -66,7 +66,7 @@ const Header = observer(() => {
 
       <h1 className="m-4 p-4 text-center">Flash Sales</h1>
       <div className="featureCenter">
-        <CarouselView />
+        <ContainerSection1 />
       </div>
       <h1 className="m-4 p-4 text-center">New arrival</h1>
       <div className="featureCenter">

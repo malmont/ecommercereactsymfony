@@ -30,9 +30,6 @@ const CarouselNewArrivalView = observer(() => {
     <Wrapper>
       <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={2000}>
         {carouselNewArrivalViewModel.products.map((product, index) => (
-          // <div key={index} onClick={() => navigate(`/category/${category.type_epreuve_sportive}`)}>
-          //   <CategoryCard category={product} />
-          // </div>
           <NewArrivalCard category={product} />
         ))}
       </Carousel>

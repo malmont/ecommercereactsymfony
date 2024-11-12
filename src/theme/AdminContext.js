@@ -8,6 +8,8 @@ export const useAdminContext = () => {
 };
 
 export const AdminProvider = ({ children }) => {
+  const [section1Component, setSection1Component] = useState('typeA'); 
+  const [typeComponentSection1, setTypeComponentSection1] = useState('typeA'); 
   const [navbarComponent, setNavbarComponent] = useState('typeA'); 
   const [styleChoice, setStyleChoice] = useState('style1'); 
   const [themeChoice, setThemeChoice] = useState('light'); 
@@ -21,6 +23,8 @@ export const AdminProvider = ({ children }) => {
         setNavbarComponent(settings.navbarComponent || 'typeA');
         setStyleChoice(settings.styleChoice || 'style1');
         setThemeChoice(settings.themeChoice || 'light');
+        setSection1Component(settings.section1Component || 'typeA');
+        setTypeComponentSection1(settings.typeComponentSection1 || 'typeA');
       }
     } catch (error) {
       console.error('Erreur lors de la récupération des paramètres:', error);
@@ -57,6 +61,10 @@ export const AdminProvider = ({ children }) => {
     setThemeChoice, 
     showAdminSettings, 
     toggleAdminSettings,
+    section1Component,
+    setSection1Component,
+    typeComponentSection1,
+    setTypeComponentSection1,
   };
 
   return (
