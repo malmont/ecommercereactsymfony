@@ -11,7 +11,6 @@ import NavbarTypeC from '../../components/Public/Navbar/Navbar_c';
 import { themes } from '../All_themes'; 
 import { styles } from '../All_styles'; 
 
-
 const navbarMap = {
   typeA: NavbarTypeA,
   typeB: NavbarTypeB,
@@ -19,10 +18,13 @@ const navbarMap = {
   typeD: NavbarTypeD,
 };
 
-const ContainerNavBar = () => {
-  const { themeChoice, styleChoice, navbarComponent } = useAdminContext();
-
-  const selectedTheme = themes[themeChoice];
+const ContainerTypeNavBar = () => {
+  const { themeChoice, styleChoice, navbarComponent ,loadingSettings} = useAdminContext();
+  if (loadingSettings) {
+    return <div>Loading...</div>;
+  }
+  console.log('themeChoice',themeChoice);
+  const selectedTheme = themes[themeChoice] || themes.light;
   const selectedStyle = styles[styleChoice];
   const NavbarComponent = navbarMap[navbarComponent] || NavbarTypeA;
   return (
@@ -39,4 +41,4 @@ const ContainerNavBar = () => {
   );
 };
 
-export default ContainerNavBar;
+export default ContainerTypeNavBar;
