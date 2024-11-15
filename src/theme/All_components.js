@@ -33,16 +33,22 @@ export const componentsNavbar = {
 
   export const ComponentTypeSection1 = {
     typeA: {
-      name: 'Type Component Section1 Type A',
+      name: 'Type A',
     },
     typeB: {
-      name: 'Type Component Section1 Type B',
+      name: 'Type B',
     },
     typeC: {
-        name: 'Type Component Section1 Type C',
+        name: 'Type C',
       },
     typeD: {
-      name: 'Type Component Section1 Type D',
+      name: 'Type D',
+    },
+    typeE: {
+      name: 'Type E',
+    },
+    typeF: {
+      name: 'Type  F',
     },
   };
   

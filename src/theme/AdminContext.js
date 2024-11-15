@@ -14,12 +14,13 @@ export const AdminProvider = ({ children }) => {
   const [styleChoice, setStyleChoice] = useState('style1'); 
   const [themeChoice, setThemeChoice] = useState('light'); 
   const [showAdminSettings, setShowAdminSettings] = useState(true);
-
+  const [loadingSettings, setLoadingSettings] = useState(true);
 
   const fetchAdminSettings = async () => {
     try {
       const settings = await getAdminSettings(); 
       if (settings) {
+        console.log('settings', settings);
         setNavbarComponent(settings.navbarComponent || 'typeA');
         setStyleChoice(settings.styleChoice || 'style1');
         setThemeChoice(settings.themeChoice || 'light');
@@ -28,13 +29,14 @@ export const AdminProvider = ({ children }) => {
       }
     } catch (error) {
       console.error('Erreur lors de la récupération des paramètres:', error);
+    } finally {
+      setLoadingSettings(false); 
     }
   };
 
   useEffect(() => {
     fetchAdminSettings();
   }, []);
-
 
   useEffect(() => {
     const savedVisibility = localStorage.getItem('showAdminSettings');
@@ -46,7 +48,6 @@ export const AdminProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('showAdminSettings', JSON.stringify(showAdminSettings));
   }, [showAdminSettings]);
-
 
   const toggleAdminSettings = () => {
     setShowAdminSettings(!showAdminSettings);
@@ -65,6 +66,7 @@ export const AdminProvider = ({ children }) => {
     setSection1Component,
     typeComponentSection1,
     setTypeComponentSection1,
+    loadingSettings,
   };
 
   return (

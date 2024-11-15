@@ -13,6 +13,9 @@ import OrderListViewModel from '../src/components/Private/Dashboards/OrderListVi
 import AddressListViewModel from '../src/components/Private/Dashboards/AddressListViewModel';
 import HeaderViewModel from '../src/components/Public/Home/Components/Header/HeaderViewModel';
 import CarouselNewArrivalViewModel from '../src/components/Public/Home/Components/Carousel/NewArrival/CarouselNewArrivalViewModel';
+import CarouselComp2ViewModel from '../src/components/Public/Home/Components/Carousel/Carouselcomp2/CarouselComp2ViewModel';
+import CarouselComp3ViewModel from '../src/components/Public/Home/Components/Carousel/Carouselcomp3/CarouselComp3ViewModel';
+import CarouselComp4ViewModel from '../src/components/Public/Home/Components/Carousel/Carouselcomp4/CarouselComp4ViewModel';
 import CarouselBestSellerViewModel from '../src/components/Public/Home/Components/Carousel/BesSeller/CarouselBestSellerViewModel';
 import { fetchAddresses, fetchUserOrders,fetchCarriers } from '../src/components/Private/Dashboards/api';
 import CarrierListViewModel from '../src/components/Private/Dashboards/CarrierListViewModel';
@@ -31,6 +34,9 @@ export const DependencyProvider = ({ children }) => {
   const carouselViewModel = new CarouselViewModel(getProductByOffers);
   const carouselNewArrivalViewModel = new CarouselNewArrivalViewModel(getProductByOffers);
   const carouselBestSellerViewModel = new CarouselBestSellerViewModel(getProductByOffers);
+  const carouselComp2ViewModel = new CarouselComp2ViewModel(getProductByOffers);
+  const carouselComp3ViewModel = new CarouselComp3ViewModel(getProductByOffers);
+  const carouselComp4ViewModel = new CarouselComp4ViewModel(getProductByOffers);
   const orderListViewModel = new OrderListViewModel(fetchUserOrders, user);
   const addressListViewModel = new AddressListViewModel(fetchAddresses, user);
   const carrierListViewModel = new CarrierListViewModel(fetchCarriers);
@@ -53,6 +59,9 @@ export const DependencyProvider = ({ children }) => {
       headerViewModel,
       carouselNewArrivalViewModel,
       carouselBestSellerViewModel,
+      carouselComp2ViewModel,
+      carouselComp3ViewModel,
+      carouselComp4ViewModel,
       orderListViewModel,
       addressListViewModel,
       carrierListViewModel,

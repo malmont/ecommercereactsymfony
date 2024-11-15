@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { useAdminContext } from './AdminContext'; 
 import { themes } from './All_themes';
 import { styles } from './All_styles'; 
@@ -30,7 +30,7 @@ const AdminComponentSettings = () => {
 
   const handleComponentsSection1 = (event) => {
     setSection1Component(event.target.value);
-    setSection1Selected(true); // Marque comme sélectionné dès qu'une option est choisie
+    setSection1Selected(true); 
   };
 
   const handleComponentTypeSection1 = (event) => setTypeComponentSection1(event.target.value);
@@ -45,6 +45,7 @@ const AdminComponentSettings = () => {
     };
 
     try {
+      console.log('settings to save:', settings);
       await saveAdminSettings(settings); 
       alert('Paramètres sauvegardés avec succès !');
     } catch (error) {
@@ -55,68 +56,77 @@ const AdminComponentSettings = () => {
 
   return (
     <Wrapper>
-      <h2>Paramètres du composant</h2>
-      {/* Choix du style */}
-      <SettingGroup>
-        <Label>Choisissez un style :</Label>
-        <Select value={styleChoice} onChange={handleStyleChange}>
-          {Object.keys(styles).map((styleKey) => (
-            <option key={styleKey} value={styleKey}>
-              {styleKey}
-            </option>
-          ))}
-        </Select>
-      </SettingGroup>
+      <h5>Paramètres composants</h5>
 
-      {/* Choix du thème */}
-      <SettingGroup>
-        <Label>Choisissez un thème :</Label>
-        <Select value={themeChoice} onChange={handleThemeChange}>
-          {Object.keys(themes).map((themeKey) => (
-            <option key={themeKey} value={themeKey}>
-              {themeKey}
-            </option>
-          ))}
-        </Select>
-      </SettingGroup>
-
-      {/* Choix du composant Navbar */}
-      <SettingGroup>
-        <Label>Choisissez un composant Navbar :</Label>
-        <Select value={navbarComponent} onChange={handleNavbarChange}>
-          {Object.keys(componentsNavbar).map((componentKey) => (
-            <option key={componentKey} value={componentKey}>
-              {componentsNavbar[componentKey].name}
-            </option>
-          ))}
-        </Select>
-      </SettingGroup>
-
-      {/* Choix du composant section1 */}
-      <SettingGroup>
-        <Label>Choisissez un composant de la section 1 :</Label>
-        <Select value={section1Component} onChange={handleComponentsSection1}>
-          {Object.keys(componentsSection1).map((componentKey) => (
-            <option key={componentKey} value={componentKey}>
-              {componentsSection1[componentKey].name}
-            </option>
-          ))}
-        </Select>
-      </SettingGroup>
-
-      {/* Choix du type de composant - visible uniquement après sélection dans section1Component */}
-      {section1Selected && (
+      {/* Encadrement pour "Choix du style" */}
+      <Card>
+     
         <SettingGroup>
-          <Label>Choisissez un type de composant :</Label>
-          <Select value={typeComponentSection1} onChange={handleComponentTypeSection1}>
-            {Object.keys(ComponentTypeSection1).map((componentKey) => (
-              <option key={componentKey} value={componentKey}>
-                {ComponentTypeSection1[componentKey].name}
+          <Label>Choix du Style</Label>
+          <Select value={styleChoice} onChange={handleStyleChange}>
+            {Object.keys(styles).map((styleKey) => (
+              <option key={styleKey} value={styleKey}>
+                {styleKey}
               </option>
             ))}
           </Select>
         </SettingGroup>
-      )}
+      </Card>
+
+      {/* Encadrement pour "Choix du thème" */}
+      <Card>
+        <SettingGroup>
+          <Label>Choix du thème</Label>
+          <Select value={themeChoice} onChange={handleThemeChange}>
+            {Object.keys(themes).map((themeKey) => (
+              <option key={themeKey} value={themeKey}>
+                {themeKey}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+      </Card>
+
+      {/* Encadrement pour "Choix de la Navbar" */}
+      <Card>
+        <SettingGroup>
+          <Label>Choix de la Navbar</Label>
+          <Select value={navbarComponent} onChange={handleNavbarChange}>
+            {Object.keys(componentsNavbar).map((componentKey) => (
+              <option key={componentKey} value={componentKey}>
+                {componentsNavbar[componentKey].name}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+      </Card>
+
+      {/* Encadrement pour "Section 1" */}
+      <Card>
+      
+        <SettingGroup>
+        <Label>SECTION 1</Label>
+          <Label>Choix type section 1</Label>
+          <Select value={section1Component} onChange={handleComponentsSection1}>
+            {Object.keys(componentsSection1).map((componentsSection1Key) => (
+              <option key={componentsSection1Key} value={componentsSection1Key}>
+                {componentsSection1[componentsSection1Key].name}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+
+        <SettingGroup>
+          <Label>Choix composant</Label>
+          <Select value={typeComponentSection1} onChange={handleComponentTypeSection1}>
+            {Object.keys(ComponentTypeSection1).map((ComponentTypeSection1Key) => (
+              <option key={ComponentTypeSection1Key} value={ComponentTypeSection1Key}>
+                {ComponentTypeSection1[ComponentTypeSection1Key].name}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+      </Card>
 
       {/* Bouton de sauvegarde */}
       <SaveButton onClick={handleSaveSettings}>
@@ -135,6 +145,15 @@ const Wrapper = styled.div`
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+`;
+
+const Card = styled.div`
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 `;
 
 const SettingGroup = styled.div`

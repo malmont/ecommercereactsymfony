@@ -1,15 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
 import RatingStars from './RatingStars';
 import { useNavigate } from 'react-router-dom';
+import { useAdminContext } from '../../../../../../../theme/AdminContext';
+import { styles } from '../../../../../../../theme/All_styles'; 
+
 
 const BestSellerCard = ({ category }) => {
-  const navigate = useNavigate(); 
-
+  const navigate = useNavigate();
+  const {  styleChoice } = useAdminContext();
+  const selectedStyle = styles[styleChoice];
   return (
-    <Card>
-      <div className="card cardProperty">
-        <img 
+    <selectedStyle.BestSellerCardContainer>
+      <selectedStyle.CardProperty>
+        <selectedStyle.CardImage 
           src={category.image}
           alt={category.name}
           onClick={() =>
@@ -18,8 +21,10 @@ const BestSellerCard = ({ category }) => {
             })
           }
         />
-        <div className="card-body colorText">
-          <h6 className="card-title">{category.name}</h6>
+        <selectedStyle.CardBody>
+        <h6 className="card-title">
+            {category.name.length > 10 ? `${category.name.slice(0, 10)}...` : category.name}
+          </h6>
           <RatingStars rating={3} />
           <div className="row">
             <p className="card-text col">Best Sellers.</p>
@@ -30,40 +35,10 @@ const BestSellerCard = ({ category }) => {
               })}
             </p>
           </div>
-        </div>
-      </div>
-    </Card>
+        </selectedStyle.CardBody>
+      </selectedStyle.CardProperty>
+    </selectedStyle.BestSellerCardContainer>
   );
 };
-
-const Card = styled.div`
-  .cardProperty {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    background-color: white;
-    height: 570px;
-    width: 290px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* This ensures that the button at the bottom doesn't stretch */
-  }
-
-  img {
-    width: 100%;
-    height: 400px; 
-  }
-
-
-  .colorText {
-    color: black;
-  }
-
-  .card-body {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: 
-    padding: 20px; 
-  }
-`;
 
 export default BestSellerCard;

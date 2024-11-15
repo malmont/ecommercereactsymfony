@@ -30,11 +30,12 @@ function App() {
 
 const AppRoutes = () => {
   const { user, loading } = useContext(AuthContext);
-  const { themeChoice, showAdminSettings } = useAdminContext(); 
+  const { themeChoice, showAdminSettings,loadingSettings } = useAdminContext(); 
 
-  if (loading) {
-    return <div>Loading...</div>; 
+  if (loading || loadingSettings) {
+    return <div>Loading...</div>;
   }
+
 
   const theme = themes[themeChoice] || themes.light;
 
@@ -70,14 +71,18 @@ const AppLayout = styled.div`
   min-height: 100vh; 
   flex-direction: row;
 `;
-
 const Sidebar = styled.div`
-  width: 250px;
+  width: 300px;
   background-color: #f4f4f4;
   padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Ombre à gauche */
   overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
   display: ${({ show }) => (show ? 'block' : 'none')};
+  z-index: 1000; /* Assurez-vous qu'il soit au-dessus du contenu principal */
 
   @media (max-width: 768px) {
     display: none; /* Masquer en mode mobile et tablette */
@@ -89,4 +94,6 @@ const MainContent = styled.div`
   padding: 20px;
   background-color: #fff;
   overflow-y: auto;
+  margin-right: ${({ showSidebar }) => (showSidebar ? '250px' : '0')}; /* Compense la largeur de Sidebar */
+  transition: margin-right 0.3s ease;
 `;

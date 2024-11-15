@@ -1,21 +1,24 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Navbar from '../../theme/ThemeContainer/ContainerNavBar'; 
+import ContainerTypeNavBar from '../../theme/ThemeContainer/ContainerTypeNavBar';
 import Footer from './Footer/Footer';
 import styled from 'styled-components';
 import { useAdminContext } from '../../theme/AdminContext';
 import { styles } from '../../theme/All_styles'; 
 
 export default function Layout() {
-  const { styleChoice } = useAdminContext(); 
-  const selectedStyle = styles[styleChoice];
+  const { styleChoice, loadingSettings } = useAdminContext(); 
+  if (loadingSettings) {
+    return <div>Loading...</div>;
+  }
 
-  const navbarHeight = selectedStyle.navbarHeight || '90px';  
+  const selectedStyle = styles[styleChoice] ; 
+  const navbarHeight = selectedStyle?.navbarHeight || '90px';
 
   return (
     <LayoutContainer>
       <NavbarWrapper>
-        <Navbar />
+        <ContainerTypeNavBar />
       </NavbarWrapper>
       <MainContent navbarHeight={navbarHeight}>
         <Outlet />

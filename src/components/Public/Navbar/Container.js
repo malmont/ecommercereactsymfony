@@ -2,15 +2,14 @@ import React, { useContext } from "react";
 import Navbar from "./Navbar_d"; 
 import ResumeCart from "../../../components/Public/Cart/ResumeTotal/ResumeCartView";
 import AuthContext from '../../../Contexts/authContext';
-import { useDependencies } from "../../../DependencyContext";
-import { ThemeProvider } from 'styled-components';  
+
 import { ThemeStyleContext } from '../../../theme/AdminContext'; 
 
 const Container = () => {
   const { theme, style } = useContext(ThemeStyleContext); 
 
   return (
-    <ThemeProvider theme={theme}>  
+ 
       <div>
         <Navbar
           ResumeCart={ResumeCart}
@@ -19,7 +18,7 @@ const Container = () => {
           selectedStyle={style} 
         />
       </div>
-    </ThemeProvider>
+
   );
 };
 
