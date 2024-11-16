@@ -9,7 +9,7 @@ const CarouselComp3Card = ({ category }) => {
   const selectedStyle = styles[styleChoice];
 
   return (
-    <selectedStyle.BestSellerCardContainer>
+    <selectedStyle.CardContainer>
       {/* Prix en haut */}
       <selectedStyle.CardBody>
         <selectedStyle.NavButton>
@@ -38,7 +38,7 @@ const CarouselComp3Card = ({ category }) => {
         </h6>
         <selectedStyle.ColorText>New Arrival.</selectedStyle.ColorText>
       </selectedStyle.CardBody>
-    </selectedStyle.BestSellerCardContainer>
+    </selectedStyle.CardContainer>
   );
 };
 

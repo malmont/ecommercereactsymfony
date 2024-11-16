@@ -10,7 +10,7 @@ const CarouselComp4Card = ({ category }) => {
   const selectedStyle = styles[styleChoice];
 
   return (
-    <selectedStyle.BestSellerCardContainer>
+    <selectedStyle.CardContainer>
       <selectedStyle.CardProperty>
         {/* Image du produit */}
         <selectedStyle.CardImage
@@ -41,7 +41,7 @@ const CarouselComp4Card = ({ category }) => {
           </FloatingButton>
         </CardFooter>
       </selectedStyle.CardProperty>
-    </selectedStyle.BestSellerCardContainer>
+    </selectedStyle.CardContainer>
   );
 };
 

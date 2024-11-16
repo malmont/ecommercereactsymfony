@@ -17,16 +17,16 @@ export const componentsNavbar = {
 
   export const componentsSection1 = {
     typeA: {
-      name: 'Section1 Type A',
+      name: 'Section Feature',
     },
     typeB: {
-      name: 'Section1 Type B',
+      name: 'Section Carousel',
     },
     typeC: {
-        name: 'Section1 Type C',
+        name: 'Section Card',
       },
     typeD: {
-      name: 'Section1 Type D',
+      name: 'Section1 Mail',
     },
   };
   

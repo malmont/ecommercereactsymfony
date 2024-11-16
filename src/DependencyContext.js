@@ -26,7 +26,10 @@ export const DependencyProvider = ({ children }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const profileViewModel = new ProfileViewModel(user, fetchUserProfile, updateUserProfile);
-  const carouselComposantViewModel = new CarouselComposantViewModel(getProductByOffers);
+  const carouselViewModelSection1 = new CarouselComposantViewModel(getProductByOffers);
+  const carouselViewModelSection2 = new CarouselComposantViewModel(getProductByOffers);
+  const carouselViewModelSection3 = new CarouselComposantViewModel(getProductByOffers);
+  const carouselViewModelSection4 = new CarouselComposantViewModel(getProductByOffers);
   const orderListViewModel = new OrderListViewModel(fetchUserOrders, user);
   const addressListViewModel = new AddressListViewModel(fetchAddresses, user);
   const carrierListViewModel = new CarrierListViewModel(fetchCarriers);
@@ -45,7 +48,10 @@ export const DependencyProvider = ({ children }) => {
       loginViewModel,
       cartViewModel,
       headerViewModel,
-      carouselComposantViewModel,
+      carouselViewModelSection1,
+      carouselViewModelSection2,
+      carouselViewModelSection3,
+      carouselViewModelSection4,
       orderListViewModel,
       addressListViewModel,
       carrierListViewModel,

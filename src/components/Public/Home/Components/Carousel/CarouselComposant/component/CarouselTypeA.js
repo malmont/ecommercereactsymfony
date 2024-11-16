@@ -11,7 +11,7 @@ const CategoryCard = ({ category }) => {
   const selectedStyle = styles[styleChoice] ; 
   return (
 
-    <BestSellerCardContainer>
+    <CardContainer>
       <selectedStyle.CardProperty>
         <Countdown date={Date.now() + 100000} renderer={(props) => renderer(props, selectedStyle)} />
         <CardImage
@@ -37,7 +37,7 @@ const CategoryCard = ({ category }) => {
           </p>
         </selectedStyle.CardBody>
       </selectedStyle.CardProperty>
-    </BestSellerCardContainer>
+    </CardContainer>
 
   );
 };
@@ -60,7 +60,7 @@ const CardImage= styled.img`
   padding-top: 10px;
   border-radius: 30%;
 `;
-const BestSellerCardContainer= styled.div`
+const CardContainer= styled.div`
 display: flex;
 flex-direction: column;
 justify-content: space-between;

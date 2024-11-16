@@ -17,6 +17,7 @@ const navbarMap = {
 
 const ContainerSection4 = () => {
   const {  section4Component,typeComponentSection4 ,selectTypeProductFetchSection4} = useAdminContext();
+  const { carouselViewModelSection4 } = useDependencies();
   const SectionComponent = navbarMap[section4Component] || FeaturesSection;
   console.log('SectionComponent',SectionComponent);
   return (
@@ -24,6 +25,7 @@ const ContainerSection4 = () => {
         <SectionComponent
           typeComponentSection={typeComponentSection4}
           selectTypeProductFetch={selectTypeProductFetchSection4}
+          carouselViewModelSection={carouselViewModelSection4}
         />
       </div>
   );
