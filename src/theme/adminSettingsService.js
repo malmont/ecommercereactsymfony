@@ -17,7 +17,15 @@ export const saveAdminSettings = async (settings) => {
       styleChoice,
       themeChoice,
       section1Component,
-      typeComponentSection1, } = settings;
+      typeComponentSection1, 
+      selectTypeProductFetch,
+      typeComponentSection2,
+      section2Component,
+      typeComponentSection3,
+      section3Component,
+      typeComponentSection4,
+      section4Component
+     } = settings;
     const response = await fetch(`${API_BASE_URL}admin-settings`, {
       method: 'PUT',
       headers: {
@@ -29,6 +37,13 @@ export const saveAdminSettings = async (settings) => {
         themeChoice,
         section1Component,
         typeComponentSection1,
+        selectTypeProductFetch,
+        typeComponentSection2,
+        section2Component,
+        typeComponentSection3,
+        section3Component,
+        typeComponentSection4,
+        section4Component
       }),
     });
 

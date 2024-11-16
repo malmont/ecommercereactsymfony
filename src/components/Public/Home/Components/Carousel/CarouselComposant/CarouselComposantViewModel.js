@@ -2,7 +2,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 import { getProductByOffers } from '../carouselApi';
 import ProductModel from '../../../../../../models/ProductModel';
 
-class CarouselNewArrivalViewModel {
+class CarouselComposantViewModel {
   products = [];
   loading = true;
 
@@ -10,9 +10,9 @@ class CarouselNewArrivalViewModel {
     makeAutoObservable(this);
   }
 
-  async loadProducts() {
+  async loadProducts(selectTypeProductFetch) {
     try {
-      const productsData = await getProductByOffers('newarrivals');
+      const productsData = await getProductByOffers(selectTypeProductFetch);
       const productsArray = Object.values(productsData);
       const products = productsArray.map(product => new ProductModel(product));
 
@@ -29,4 +29,4 @@ class CarouselNewArrivalViewModel {
   }
 }
 
-export default CarouselNewArrivalViewModel;
+export default CarouselComposantViewModel;

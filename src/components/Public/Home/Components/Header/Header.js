@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import ContainerSection1 from "../../../../../theme/ThemeContainer/ContainerSection1";
-import Feature from "./Feature";
-import NewArrivalCard from "../Carousel/NewArrival/CarouselNewArrivalView";
-import CarousselBestSellerView from "../Carousel/BesSeller/CarousselBestSellerView";
+import ContainerSection2 from "../../../../../theme/ThemeContainer/ContainerSection2";
+import ContainerSection3 from "../../../../../theme/ThemeContainer/ContainerSection3";
+import ContainerSection4 from "../../../../../theme/ThemeContainer/ContainerSection4";
 import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../../../src/DependencyContext';
 import ExploreCategoryView from "../ExploreAllCategory/Components/ExploreCategoryView";
@@ -62,19 +62,19 @@ const Header = observer(() => {
         </div>
       </div>
 
-      <Feature />
+      <ContainerSection1 />
 
       <h1 className="m-4 p-4 text-center">Flash Sales</h1>
       <div className="featureCenter">
-        <ContainerSection1 />
+        <ContainerSection2 />
       </div>
       <h1 className="m-4 p-4 text-center">New arrival</h1>
       <div className="featureCenter">
-        <NewArrivalCard />
+      <ContainerSection3 />
       </div>
       <h1 className="m-4 p-4 text-center">Best Sellers</h1>
       <div className="featureCenter">
-        <CarousselBestSellerView />
+      <ContainerSection4 />
       </div>
 
       <div className="featureCenter">

@@ -2,7 +2,6 @@ import React, { createContext, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import AuthContext from '../src/Contexts/authContext';
 import ProfileViewModel from '../src/components/Private/Profile/ProfileViewModel';
-import CarouselViewModel from '../src/components/Public/Home/Components/Carousel/CarouselComp/CarouselViewModel';
 import { useNavigate } from 'react-router-dom';
 import RegisterViewModel from '../src/components/Public/register/RegisterViewModel';
 import LoginViewModel from '../src/components/Public/Login/LoginViewModel';
@@ -12,11 +11,7 @@ import { getProductByOffers} from '../src/components/Public/Home/Components/Caro
 import OrderListViewModel from '../src/components/Private/Dashboards/OrderListViewModel';
 import AddressListViewModel from '../src/components/Private/Dashboards/AddressListViewModel';
 import HeaderViewModel from '../src/components/Public/Home/Components/Header/HeaderViewModel';
-import CarouselNewArrivalViewModel from '../src/components/Public/Home/Components/Carousel/NewArrival/CarouselNewArrivalViewModel';
-import CarouselComp2ViewModel from '../src/components/Public/Home/Components/Carousel/Carouselcomp2/CarouselComp2ViewModel';
-import CarouselComp3ViewModel from '../src/components/Public/Home/Components/Carousel/Carouselcomp3/CarouselComp3ViewModel';
-import CarouselComp4ViewModel from '../src/components/Public/Home/Components/Carousel/Carouselcomp4/CarouselComp4ViewModel';
-import CarouselBestSellerViewModel from '../src/components/Public/Home/Components/Carousel/BesSeller/CarouselBestSellerViewModel';
+import CarouselComposantViewModel from '../src/components/Public/Home/Components/Carousel/CarouselComposant/CarouselComposantViewModel';
 import { fetchAddresses, fetchUserOrders,fetchCarriers } from '../src/components/Private/Dashboards/api';
 import CarrierListViewModel from '../src/components/Private/Dashboards/CarrierListViewModel';
 import CheckoutViewModel from '../src/components/Public/Cart/Total/CheckoutViewModel';
@@ -31,12 +26,7 @@ export const DependencyProvider = ({ children }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const profileViewModel = new ProfileViewModel(user, fetchUserProfile, updateUserProfile);
-  const carouselViewModel = new CarouselViewModel(getProductByOffers);
-  const carouselNewArrivalViewModel = new CarouselNewArrivalViewModel(getProductByOffers);
-  const carouselBestSellerViewModel = new CarouselBestSellerViewModel(getProductByOffers);
-  const carouselComp2ViewModel = new CarouselComp2ViewModel(getProductByOffers);
-  const carouselComp3ViewModel = new CarouselComp3ViewModel(getProductByOffers);
-  const carouselComp4ViewModel = new CarouselComp4ViewModel(getProductByOffers);
+  const carouselComposantViewModel = new CarouselComposantViewModel(getProductByOffers);
   const orderListViewModel = new OrderListViewModel(fetchUserOrders, user);
   const addressListViewModel = new AddressListViewModel(fetchAddresses, user);
   const carrierListViewModel = new CarrierListViewModel(fetchCarriers);
@@ -50,18 +40,12 @@ export const DependencyProvider = ({ children }) => {
   const navbarViewModel = new NavbarViewModel({ user }, state => cart,navigate); 
   return (
     <DependencyContext.Provider value={{
-
       profileViewModel,
-      carouselViewModel,
       registerViewModel,
       loginViewModel,
       cartViewModel,
       headerViewModel,
-      carouselNewArrivalViewModel,
-      carouselBestSellerViewModel,
-      carouselComp2ViewModel,
-      carouselComp3ViewModel,
-      carouselComp4ViewModel,
+      carouselComposantViewModel,
       orderListViewModel,
       addressListViewModel,
       carrierListViewModel,

@@ -4,8 +4,8 @@ import { useTrail, animated } from "react-spring";
 import { v4 as uuidv4 } from "uuid";
 import { Waypoint } from "react-waypoint";
 
-import BestSellerCard from "../Carousel/BesSeller/components/BestSellerCard";
-import Card from "./Component/Card";
+import BestSellerCard from "../Carousel/CarouselComposant/component/CarouselTypeB";
+
 import { getProductByCategories } from './api';
 
 export default function ProductCategories() {
