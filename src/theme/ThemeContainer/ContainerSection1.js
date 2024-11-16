@@ -16,14 +16,14 @@ const navbarMap = {
 };
 
 const ContainerSection1 = () => {
-  const {  section1Component,typeComponentSection1 } = useAdminContext();
+  const {  section1Component,typeComponentSection1,selectTypeProductFetch } = useAdminContext();
   const SectionComponent = navbarMap[section1Component] || FeaturesSection;
   console.log('SectionComponent',SectionComponent);
   return (
       <div>
         <SectionComponent
-          typComponent={typeComponentSection1}
-          useDependencies={useDependencies}
+          typeComponentSection={typeComponentSection1}
+          selectTypeProductFetch={selectTypeProductFetch}
         />
       </div>
   );

@@ -19,7 +19,7 @@ const featureMap = {
   typeF: FeatureTypeF,
 };
 
-const ContainerFeatureSection = ({typComponent }) => {
+const ContainerFeatureSection = ({typeComponentSection }) => {
   const { themeChoice, styleChoice,loadingSettings } = useAdminContext();
   if (loadingSettings) {
     return <div>Loading...</div>;
@@ -27,9 +27,8 @@ const ContainerFeatureSection = ({typComponent }) => {
   console.log('themeChoice',themeChoice);
   const selectedTheme = themes[themeChoice];
   const selectedStyle = styles[styleChoice];
-console.log('themeChoice',themeChoice);
-console.log('styleChoice',styleChoice);
-  const Feature = featureMap[typComponent] || FeatureTypeA;
+
+  const Feature = featureMap[typeComponentSection] || FeatureTypeA;
 
   return (
     <ThemeProvider theme={selectedTheme}>

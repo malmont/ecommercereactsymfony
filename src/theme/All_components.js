@@ -52,3 +52,20 @@ export const componentsNavbar = {
     },
   };
   
+  export const TypeProductFetch = {
+    typeBestsellers: {
+      name: 'bestsellers',
+    },
+    typeNewarrivals: {
+      name: 'newarrivals',
+    },
+    typeSpecialoffers: {
+        name: 'specialoffers',
+      },
+    typeIsfeatured: {
+      name: 'isfeatured',
+    },
+    typeIsAccessory: {
+      name: 'isAccessory',
+    },
+  };
