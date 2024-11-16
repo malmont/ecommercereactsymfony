@@ -34,6 +34,9 @@ export const themes = {
       discountBadgeText: '#ffffff',
       countdownText : '#000000',
       countdownBackground : '#ffffff',
+      featureBackground : '#f8f9fa',
+      cardText: '#000000',
+      border :'#dee2e6',
     },
   },
   dark: {
@@ -71,6 +74,9 @@ export const themes = {
       discountBadgeText: '#ffffff',
       countdownText : '#ffffff',
       countdownBackground : '#333333',
+      featureBackground : '#1e1e1e',
+      cardText: '#ffffff',
+      border :'#333333',
     },
   },
   custom: {
@@ -108,6 +114,8 @@ export const themes = {
       discountBadgeText: '#fff',
       countdownText : '#fff',
       countdownBackground : '#ff3366',
+      cardText: '#fff',
+      border :'#ff3366',
     },
   },
   theme1: {
@@ -145,6 +153,9 @@ export const themes = {
       discountBadgeText: '#fff',
       countdownText : '#333',
       countdownBackground : '#ffeb99',
+      featureBackground : '#ffeb99',
+      cardText: '#333',
+      border :'#ffeb99',
     },
   },
   theme2: {
@@ -182,6 +193,9 @@ export const themes = {
       discountBadgeText: '#ffffff',
       countdownText : '#ffffff',
       countdownBackground : '#a5d6a7',
+      featureBackground : '#a5d6a7',
+      cardText: '#ffffff',
+      border :'#a5d6a7',
     },
   },
   theme3: {
@@ -219,6 +233,9 @@ export const themes = {
       discountBadgeText: '#ffffff',
       countdownText : '#ffffff', 
       countdownBackground : '#c5cae9',
+      featureBackground : '#c5cae9',
+      cardText: '#ffffff',
+      border :'#c5cae9',
     },
   },
 };

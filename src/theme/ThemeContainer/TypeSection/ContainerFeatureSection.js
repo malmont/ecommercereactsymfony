@@ -1,13 +1,11 @@
 import { useAdminContext } from '../../AdminContext';
-import { useDependencies } from '../../../DependencyContext';
-import FeatureTypeA from '../../../components/Public/Home/Components/Header/Feature';
+import FeatureTypeA from '../../../components/Public/Home/Components/Feature/FeatureTypeA';
 import FeatureTypeB from '../../../components/Public/Home/Components/Header/Feature';
 import FeatureTypeD from '../../../components/Public/Home/Components/Header/Feature';
 import FeatureTypeC from '../../../components/Public/Home/Components/Header/Feature';
 import FeatureTypeE from '../../../components/Public/Home/Components/Header/Feature';
 import FeatureTypeF from '../../../components/Public/Home/Components/Header/Feature';
 import { themes } from '../../All_themes'; 
-import { styles } from '../../All_styles'; 
 import { ThemeProvider } from 'styled-components';
 
 const featureMap = {
@@ -20,13 +18,12 @@ const featureMap = {
 };
 
 const ContainerFeatureSection = ({typeComponentSection }) => {
-  const { themeChoice, styleChoice,loadingSettings } = useAdminContext();
+  const { themeChoice,loadingSettings } = useAdminContext();
   if (loadingSettings) {
     return <div>Loading...</div>;
   }
-  console.log('themeChoice',themeChoice);
   const selectedTheme = themes[themeChoice];
-  const selectedStyle = styles[styleChoice];
+
 
   const Feature = featureMap[typeComponentSection] || FeatureTypeA;
 
@@ -34,8 +31,7 @@ const ContainerFeatureSection = ({typeComponentSection }) => {
     <ThemeProvider theme={selectedTheme}>
       <div>
         <Feature
-          useDependencies={useDependencies}
-          selectedStyle={selectedStyle}
+
         />
       </div>
     </ThemeProvider>

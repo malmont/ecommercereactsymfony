@@ -5,7 +5,7 @@ import { IoIosPaperPlane } from "react-icons/io";
 import { useAdminContext } from "../../../../../theme/AdminContext";
 import { styles } from "../../../../../theme/All_styles";
 
-const Feature = () => {
+const FeatureTypeB = () => {
   const { styleChoice,loadingSettings } = useAdminContext();
   if (loadingSettings) {
     return <div>Loading...</div>;
@@ -32,5 +32,5 @@ const Feature = () => {
   );
 };
 
-export default Feature;
+export default FeatureTypeB;
 

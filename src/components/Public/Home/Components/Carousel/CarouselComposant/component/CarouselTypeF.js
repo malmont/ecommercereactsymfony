@@ -9,7 +9,7 @@ const CarouselComp2Card = ({ category }) => {
   const selectedStyle = styles[styleChoice];
 
   return (
-    <selectedStyle.BestSellerCardContainer>
+    <selectedStyle.CardContainer>
       <selectedStyle.CardBody>
         <h6 className="card-title">
           {category.name.length > 10 ? `${category.name.slice(0, 17)}...` : category.name}
@@ -41,7 +41,7 @@ const CarouselComp2Card = ({ category }) => {
           </selectedStyle.NavButton>
         </div>
       </selectedStyle.CardBody>
-    </selectedStyle.BestSellerCardContainer>
+    </selectedStyle.CardContainer>
   );
 };
 

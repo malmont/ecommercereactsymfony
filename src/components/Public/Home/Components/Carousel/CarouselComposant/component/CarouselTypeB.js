@@ -10,7 +10,7 @@ const BestSellerCard = ({ category }) => {
   const {  styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
   return (
-    <selectedStyle.BestSellerCardContainer>
+    <selectedStyle.CardContainer>
       <selectedStyle.CardProperty>
         <selectedStyle.CardImage 
           src={category.image}
@@ -37,7 +37,7 @@ const BestSellerCard = ({ category }) => {
           </div>
         </selectedStyle.CardBody>
       </selectedStyle.CardProperty>
-    </selectedStyle.BestSellerCardContainer>
+    </selectedStyle.CardContainer>
   );
 };
 

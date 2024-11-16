@@ -5,7 +5,7 @@ import { themes } from '../../All_themes';
 import { ThemeProvider } from 'styled-components';
 
 
-const ContainerCarouselSection = ({typeComponentSection,selectTypeProductFetch }) => {
+const ContainerCarouselSection = ({typeComponentSection,selectTypeProductFetch ,carouselViewModelSection}) => {
   const { themeChoice,loadingSettings } = useAdminContext();
   if (loadingSettings) {
     return <div>Loading...</div>;
@@ -19,6 +19,7 @@ const ContainerCarouselSection = ({typeComponentSection,selectTypeProductFetch }
         <CarouselComposantView
         typeComponentSection={typeComponentSection}
         selectTypeProductFetch={selectTypeProductFetch}
+        carouselViewModelSection={carouselViewModelSection}
         />
       </div>
     </ThemeProvider>

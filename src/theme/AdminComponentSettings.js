@@ -1,12 +1,12 @@
-import { React, useState } from 'react';
-import { useAdminContext } from './AdminContext'; 
+
+import { useAdminContext } from './AdminContext';
 import { themes } from './All_themes';
-import { styles } from './All_styles'; 
+import { styles } from './All_styles';
 import { componentsNavbar } from './All_components';
 import { componentsSection1 } from './All_components';
-import { ComponentTypeSection1,TypeProductFetch } from './All_components';
-import { saveAdminSettings } from './adminSettingsService'; 
-import styled from 'styled-components'; 
+import { ComponentTypeSection1, TypeProductFetch } from './All_components';
+import { saveAdminSettings } from './adminSettingsService';
+import styled from 'styled-components';
 
 const AdminComponentSettings = () => {
   const {
@@ -22,12 +22,6 @@ const AdminComponentSettings = () => {
     setTypeComponentSection1,
     selectTypeProductFetch,
     setselectTypeProductFetch,
-    selectTypeProductFetchSection2,
-    setselectTypeProductFetchSection2,
-    selectTypeProductFetchSection3,
-    setselectTypeProductFetchSection3,
-    selectTypeProductFetchSection4,
-    setselectTypeProductFetchSection4,
     section2Component,
     setSection2Component,
     typeComponentSection2,
@@ -40,6 +34,12 @@ const AdminComponentSettings = () => {
     setSection4Component,
     typeComponentSection4,
     setTypeComponentSection4,
+    selectTypeProductFetchSection2,
+    setselectTypeProductFetchSection2,
+    selectTypeProductFetchSection3,
+    setselectTypeProductFetchSection3,
+    selectTypeProductFetchSection4,
+    setselectTypeProductFetchSection4
 
   } = useAdminContext();
 
@@ -47,7 +47,7 @@ const AdminComponentSettings = () => {
   const handleNavbarChange = (event) => setNavbarComponent(event.target.value);
   const handleStyleChange = (event) => setStyleChoice(event.target.value);
   const handleThemeChange = (event) => setThemeChoice(event.target.value);
-  
+
 
   const handleComponentsSection1 = (event) => {
     setSection1Component(event.target.value);
@@ -55,20 +55,20 @@ const AdminComponentSettings = () => {
 
   const handleSelectTypeProductFetch = (event) => {
     setselectTypeProductFetch(event.target.value);
-   
+
   };
 
   const handleComponentTypeSection1 = (event) => setTypeComponentSection1(event.target.value);
-  const handleComponentsSection2 = (event) => { setSection2Component(event.target.value);};
+  const handleComponentsSection2 = (event) => { setSection2Component(event.target.value); };
   const handleComponentTypeSection2 = (event) => setTypeComponentSection2(event.target.value);
   const handleSelectTypeProductFetchSection2 = (event) => setselectTypeProductFetchSection2(event.target.value);
-  const handleComponentsSection3 = (event) => { setSection3Component(event.target.value);};
+  const handleComponentsSection3 = (event) => { setSection3Component(event.target.value); };
   const handleComponentTypeSection3 = (event) => setTypeComponentSection3(event.target.value);
   const handleSelectTypeProductFetchSection3 = (event) => setselectTypeProductFetchSection3(event.target.value);
-  const handleComponentsSection4 = (event) => { setSection4Component(event.target.value);};
+  const handleComponentsSection4 = (event) => { setSection4Component(event.target.value); };
   const handleComponentTypeSection4 = (event) => setTypeComponentSection4(event.target.value);
   const handleSelectTypeProductFetchSection4 = (event) => setselectTypeProductFetchSection4(event.target.value);
-  
+
 
   const handleSaveSettings = async () => {
     const settings = {
@@ -91,7 +91,7 @@ const AdminComponentSettings = () => {
 
     try {
       console.log('settings to save:', settings);
-      await saveAdminSettings(settings); 
+      await saveAdminSettings(settings);
       alert('Paramètres sauvegardés avec succès !');
     } catch (error) {
       console.error('Erreur lors de la sauvegarde des paramètres :', error);
@@ -105,7 +105,7 @@ const AdminComponentSettings = () => {
 
       {/* Encadrement pour "Choix du style" */}
       <Card>
-     
+
         <SettingGroup>
           <Label>Choix du Style</Label>
           <Select value={styleChoice} onChange={handleStyleChange}>
@@ -148,9 +148,9 @@ const AdminComponentSettings = () => {
 
       {/* Encadrement pour "Section 1" */}
       <Card>
-      
+
         <SettingGroup>
-        <Label>SECTION 1</Label>
+          <Label>SECTION 1</Label>
           <Label>Choix type section 1</Label>
           <Select value={section1Component} onChange={handleComponentsSection1}>
             {Object.keys(componentsSection1).map((componentsSection1Key) => (
@@ -186,7 +186,8 @@ const AdminComponentSettings = () => {
 
       {/* Encadrement pour "Section 2" */}
       <Card>
-        <settingGroup>  
+        <settingGroup>
+          <Label>SECTION 2</Label>
           <Label>Choix type section 2</Label>
           <Select value={section2Component} onChange={handleComponentsSection2}>
             {Object.keys(componentsSection1).map((componentsSection2Key) => (
@@ -222,6 +223,7 @@ const AdminComponentSettings = () => {
       {/* Encadrement pour "Section 3" */}
       <Card>
         <SettingGroup>
+          <Label>SECTION 3</Label>
           <Label>Choix type section 3</Label>
           <Select value={section3Component} onChange={handleComponentsSection3}>
             {Object.keys(componentsSection1).map((componentsSection3Key) => (
@@ -257,6 +259,7 @@ const AdminComponentSettings = () => {
       {/* Encadrement pour "Section 4" */}
       <Card>
         <SettingGroup>
+          <Label>SECTION 4</Label>
           <Label>Choix type section 4</Label>
           <Select value={section4Component} onChange={handleComponentsSection4}>
             {Object.keys(componentsSection1).map((componentsSection4Key) => (
@@ -287,7 +290,7 @@ const AdminComponentSettings = () => {
             ))}
           </Select>
         </SettingGroup>
-      </Card>  
+      </Card>
 
       {/* Bouton de sauvegarde */}
       <SaveButton onClick={handleSaveSettings}>

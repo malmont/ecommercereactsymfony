@@ -30,6 +30,7 @@ export const AdminProvider = ({ children }) => {
   const fetchAdminSettings = async () => {
     try {
       const settings = await getAdminSettings(); 
+      console.log('settings from fetchAdminSettings', settings);
       if (settings) {
         console.log('settings', settings);
         setNavbarComponent(settings.navbarComponent || 'typeA');
@@ -44,9 +45,9 @@ export const AdminProvider = ({ children }) => {
         setTypeComponentSection3(settings.typeComponentSection3 || 'typeA');
         setSection4Component(settings.section4Component || 'typeA');
         setTypeComponentSection4(settings.typeComponentSection4 || 'typeA');
-        selectTypeProductFetchSection2(settings.selectTypeProductFetchSection2 || 'bestsellers');
-        selectTypeProductFetchSection3(settings.selectTypeProductFetchSection3 || 'bestsellers');
-        selectTypeProductFetchSection4(settings.selectTypeProductFetchSection4 || 'bestsellers');
+        setselectTypeProductFetchSection2(settings.selectTypeProductFetchSection2 || 'bestsellers');
+        setselectTypeProductFetchSection3(settings.selectTypeProductFetchSection3 || 'bestsellers');
+        setselectTypeProductFetchSection4(settings.selectTypeProductFetchSection4 || 'bestsellers');
       }
     } catch (error) {
       console.error('Erreur lors de la récupération des paramètres:', error);

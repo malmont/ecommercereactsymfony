@@ -142,7 +142,7 @@ export const styles = {
       margin-right: 1rem;
     `
     ,
-     BestSellerCardContainer: styled.div`
+    CardContainer: styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -196,6 +196,35 @@ color: ${(props) => props.theme.colors.colorText || 'white'};
 Time: styled.div`
   font-weight: bold;
   font-size: 16px;`,
+
+  FeatureWrapper: styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: ${(props) => props.theme.colors.featureBackground };
+`,
+
+FeatureCard: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 10px;
+  background-color: ${(props) => props.theme.colors.cardBackground };
+  border: 1px solid ${(props) => props.theme.colors.border };
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: ${(props) => props.theme.colors.cardText };
+  font-weight: bold;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+`,
   
   },
 
@@ -331,7 +360,7 @@ Time: styled.div`
     padding: 0.5rem;
     margin-right: 1rem;
   `,
-  BestSellerCardContainer: styled.div`
+  CardContainer: styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -390,7 +419,51 @@ color: ${(props) => props.theme.colors.colorText || 'white'};
 Time: styled.div`
   font-weight: bold;
   font-size: 16px;
+`,FeatureWrapper: styled.div`
+display: flex;
+flex-wrap: wrap; /* Permet aux cartes de s'adapter à plusieurs lignes */
+justify-content: space-around; /* Espacement uniforme entre les cartes */
+align-items: center;
+padding: 30px;
+background-color: ${(props) => props.theme.colors.featureBackground || "#f4f4f4"};
+border-radius: 15px; /* Ajout d'une bordure arrondie */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
 `,
+
+  FeatureCard: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  margin: 15px;
+  background-color: ${(props) => props.theme.colors.cardBackground || "#fff"};
+  border: 2px solid ${(props) => props.theme.colors.border || "#ccc"};
+  border-radius: 12px; /* Bordures arrondies */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Effet de profondeur */
+  color: ${(props) => props.theme.colors.cardText || "#444"};
+  font-weight: bold;
+  text-align: center; /* Centrage du texte */
+  transition: all 0.4s ease;
+
+  &:hover {
+    transform: translateY(-8px); /* Animation de déplacement vers le haut */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre accentuée */
+    background-color: ${(props) => props.theme.colors.hoverCardBackground || "#f0f0f0"}; /* Changement de couleur au survol */
+  }
+
+  svg {
+    margin-bottom: 10px; /* Espacement entre l'icône et le texte */
+    color: ${(props) => props.theme.colors.iconColor || "#888"}; /* Couleur des icônes */
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.iconHoverColor || "#555"}; /* Couleur des icônes au survol */
+    }
+  }
+  `,
+
+
   },
 
 
@@ -546,7 +619,7 @@ Time: styled.div`
     }
   `,
   
-  BestSellerCardContainer: styled.div`
+  CardContainer: styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -609,6 +682,51 @@ Time: styled.div`
   font-weight: bold;
   font-size: 16px;
 `,
+  FeatureWrapper: styled.div`
+    display: flex;
+    flex-wrap: wrap; /* Permet un alignement flexible des cartes */
+    justify-content: space-evenly; /* Espacement uniforme entre les cartes */
+    align-items: center;
+    padding: 30px;
+    background-color: ${(props) => props.theme.colors.featureBackground || "#f0f0f0"};
+    border-radius: 20px; /* Coins arrondis pour un aspect élégant */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+  `,
+
+  FeatureCard: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    margin: 15px;
+    background-color: ${(props) => props.theme.colors.cardBackground || "#ffffff"};
+    border: 2px dashed ${(props) => props.theme.colors.border || "#bbb"}; /* Bordure en pointillés pour un look distinct */
+    border-radius: 15px; /* Coins arrondis */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Effet de profondeur */
+    color: ${(props) => props.theme.colors.cardText || "#444"};
+    font-weight: bold;
+    text-align: center; /* Centrage du texte */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+    &:hover {
+      transform: translateY(-10px) rotate(3deg); /* Effet de bascule au survol */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Ombre accentuée */
+      background-color: ${(props) => props.theme.colors.hoverCardBackground || "#f7f7f7"}; /* Couleur d'arrière-plan au survol */
+    }
+
+    svg {
+      margin-bottom: 10px; /* Espacement entre l'icône et le texte */
+      color: ${(props) => props.theme.colors.iconColor || "#888"}; /* Couleur des icônes */
+      transition: color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        color: ${(props) => props.theme.colors.iconHoverColor || "#333"}; /* Couleur des icônes au survol */
+        transform: scale(1.2); /* Agrandissement des icônes au survol */
+      }
+    }
+  `,
+
   },
 
   style4: {
@@ -762,7 +880,7 @@ Time: styled.div`
       background-color: ${(props) => props.theme.colors.buttonHover};
     }
   `,
-  BestSellerCardContainer: styled.div`
+  CardContainer: styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -832,6 +950,52 @@ Time: styled.div`
   font-weight: bold;
   font-size: 18px;
   color: ${(props) => props.theme.colors.timeText };
+`,
+FeatureWrapper: styled.div`
+  display: flex;
+  flex-wrap: wrap; /* S'adapte aux écrans plus petits */
+  justify-content: space-around; /* Espacement uniforme entre les cartes */
+  align-items: center;
+  padding: 25px;
+  background-color: ${(props) => props.theme.colors.featureBackground || "#e8e8e8"};
+  border-radius: 15px; /* Coins légèrement arrondis */
+  border: 2px solid ${(props) => props.theme.colors.border || "#ccc"}; /* Bordure visible */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); /* Effet d'ombre léger */
+`,
+
+FeatureCard: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  margin: 15px;
+  background-color: ${(props) => props.theme.colors.cardBackground || "#fefefe"};
+  border: 1px solid ${(props) => props.theme.colors.border || "#bbb"}; /* Bordure discrète */
+  border-radius: 12px; /* Coins arrondis */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+  color: ${(props) => props.theme.colors.cardText || "#222"};
+  font-size: 1rem; /* Taille du texte */
+  font-weight: bold;
+  text-align: center; /* Centrage du texte */
+  transition: all 0.4s ease;
+
+  &:hover {
+    transform: scale(1.05); /* Légère mise en avant au survol */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Ombre plus marquée */
+    background-color: ${(props) => props.theme.colors.hoverCardBackground || "#fafafa"}; /* Couleur au survol */
+  }
+
+  svg {
+    margin-bottom: 8px; /* Espacement entre l'icône et le texte */
+    color: ${(props) => props.theme.colors.iconColor || "#555"}; /* Couleur des icônes */
+    transition: color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.iconHoverColor || "#111"}; /* Couleur au survol */
+      transform: rotate(10deg); /* Légère rotation des icônes */
+    }
+  }
 `,
 
 
@@ -990,7 +1154,7 @@ Time: styled.div`
       outline: none;
     }
   `,
-  BestSellerCardContainer: styled.div`
+  CardContainer: styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1072,8 +1236,60 @@ Time: styled.div`
   font-size: 20px;
   color: ${(props) => props.theme.colors.timeText };
 `,
+FeatureWrapper: styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: ${(props) => props.theme.colors.featureBackground || "#e8e8e8"};
+  border-radius: 15px;
+  border: 1px solid ${(props) => props.theme.colors.border || "#ccc"};
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 1200px;
+`,
+
+  FeatureCard: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    margin: 15px;
+    width: 250px; /* Taille cohérente pour toutes les cartes */
+    height: 200px; /* Ajustement de la hauteur */
+    background-color: ${(props) => props.theme.colors.cardBackground || "#fff"};
+    border: 2px solid ${(props) => props.theme.colors.cardBorder || "#ddd"};
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    color: ${(props) => props.theme.colors.cardText || "#222"};
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.4s, box-shadow 0.4s;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      background-color: ${(props) => props.theme.colors.hoverCardBackground || "#fafafa"};
+    }
+
+    svg {
+      margin-bottom: 10px;
+      color: ${(props) => props.theme.colors.iconColor || "#444"};
+      transition: color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        color: ${(props) => props.theme.colors.iconHoverColor || "#111"};
+        transform: scale(1.1);
+      }
+    }
+  `,
 
   },
+
+
   style6: {
     navbarHeight: '110px',
 
@@ -1269,7 +1485,7 @@ Time: styled.div`
       box-shadow: 0 0 0 2px ${(props) => props.theme.colors.selectFocusShadow};
     }
   `,
-  BestSellerCardContainer: styled.div`
+  CardContainer: styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1351,6 +1567,59 @@ Time: styled.div`
   font-weight: bold;
   font-size: 18px;
   color: ${(props) => props.theme.colors.timeText || '#ff0000'};
+`,
+FeatureWrapper: styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: linear-gradient(
+    135deg,
+    ${(props) => props.theme.colors.featureGradientStart || "#e3ffe7"},
+    ${(props) => props.theme.colors.featureGradientEnd || "#d9e7ff"}
+  );
+  border-radius: 20px;
+  margin: 20px auto;
+  max-width: 1400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+`,
+
+FeatureCard: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin: 15px;
+  width: 280px;
+  height: 220px;
+  background-color: ${(props) => props.theme.colors.cardBackground || "#ffffff"};
+  border: 2px solid ${(props) => props.theme.colors.cardBorder || "#cccccc"};
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  color: ${(props) => props.theme.colors.cardText || "#333333"};
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.4s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    background: ${(props) => props.theme.colors.hoverCardBackground || "#f3f3f3"};
+  }
+
+  svg {
+    margin-bottom: 10px;
+    color: ${(props) => props.theme.colors.iconColor || "#666666"};
+    transition: color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.iconHoverColor || "#222222"};
+      transform: rotate(10deg);
+    }
+  }
 `,
 
   },
@@ -1554,7 +1823,7 @@ Time: styled.div`
       outline: none;
       box-shadow: 0 0 0 2px ${(props) => props.theme.colors.selectFocus};
     }
-  `,BestSellerCardContainer: styled.div`
+  `,CardContainer: styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1651,9 +1920,73 @@ Time: styled.div`
   color: ${(props) => props.theme.colors.timeText || '#ff0000'};
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 `,
+FeatureWrapper: styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px;
+  background: linear-gradient(
+    120deg,
+    ${(props) => props.theme.colors.featureGradientStart || "#e0f7fa"},
+    ${(props) => props.theme.colors.featureGradientEnd || "#80deea"}
+  );
+  border-radius: 20px;
+  margin: 20px auto;
+  max-width: 1400px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+`,
+
+FeatureCard: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin: 15px;
+  width: 300px;
+  height: 240px;
+  background: linear-gradient(
+    135deg,
+    ${(props) => props.theme.colors.cardGradientStart || "#ffffff"},
+    ${(props) => props.theme.colors.cardGradientEnd || "#eceff1"}
+  );
+  border: 1px solid ${(props) => props.theme.colors.cardBorder || "#d1d9e6"};
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  color: ${(props) => props.theme.colors.cardText || "#333333"};
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(
+      135deg,
+      ${(props) => props.theme.colors.cardHoverGradientStart || "#f5f5f5"},
+      ${(props) => props.theme.colors.cardHoverGradientEnd || "#e0e0e0"}
+    );
+  }
+
+  svg {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    color: ${(props) => props.theme.colors.iconColor || "#4fc3f7"};
+    transition: transform 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      transform: rotate(10deg);
+      color: ${(props) => props.theme.colors.iconHoverColor || "#0288d1"};
+    }
+  }
+`,
 
 
   },
+
   style8: {
     navbarHeight: '60px',
   
@@ -1814,7 +2147,7 @@ Time: styled.div`
         box-shadow: 0 0 0 2px ${(props) => props.theme.colors.selectFocus};
       }
     `,
-    BestSellerCardContainer: styled.div`
+    CardContainer: styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1895,9 +2228,68 @@ DiscountBadge: styled.span`
     font-size: 22px;
     color: ${(props) => props.theme.colors.timeText || '#ff0000'};
   `,
-  
+  FeatureWrapper: styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px;
+  background: linear-gradient(
+    135deg,
+    ${(props) => props.theme.colors.featureGradientStart || "#ffffff"},
+    ${(props) => props.theme.colors.featureGradientEnd || "#e0e0e0"}
+  );
+  border-radius: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+`,
+
+FeatureCard: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin: 15px;
+  width: 280px;
+  height: 220px;
+  background: ${(props) => props.theme.colors.cardBackground || "#fff"};
+  border: 2px solid ${(props) => props.theme.colors.cardAccent || "#d4af37"}; /* Bordure dorée */
+  border-radius: 15px;
+
+  color: ${(props) => props.theme.colors.cardText || "#333"};
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 215, 0, 0.7);
+    background: linear-gradient(
+      135deg,
+      ${(props) => props.theme.colors.cardHoverBackgroundStart || "#f5f5f5"},
+      ${(props) => props.theme.colors.cardHoverBackgroundEnd || "#fafafa"}
+    );
+  }
+
+  svg {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    color: ${(props) => props.theme.colors.iconColor || "#ffc107"};
+    transition: transform 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+      color: ${(props) => props.theme.colors.iconHoverColor || "#ff9800"};
+    }
+  }
+`,
 
   },
+
+
   style9: {
     navbarHeight: '70px',
   
@@ -2059,7 +2451,7 @@ DiscountBadge: styled.span`
         box-shadow: 0 0 0 2px ${(props) => props.theme.colors.selectFocus};
       }
     `,
-    BestSellerCardContainer: styled.div`
+    CardContainer: styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -2145,8 +2537,65 @@ DiscountBadge: styled.span`
     font-size: 22px;
     color: ${(props) => props.theme.colors.timeText || '#ff0000'};
   `,
-    
+  FeatureWrapper: styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 4px 15px rgba(255, 228, 225, 0.5);
+  margin: 20px auto;
+  max-width: 1200px;
+  transition: background 0.3s ease;
+
+
+`,
+FeatureCard: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin: 15px;
+  width: 280px;
+  height: 220px;
+  background: ${(props) => props.theme.colors.cardBackground || "#fff"};
+  border: 2px solid ${(props) => props.theme.colors.cardBorder || "#000"}; /* Bordure noire */
+  border-radius: 24px; /* Coins arrondis similaires à CardProperty */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+  color: ${(props) => props.theme.colors.cardText || "#333"};
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 4px 15px rgba(0, 0, 0, 0.3); /* Accentuation de l'ombre */
+    background: ${(props) =>
+      props.theme.colors.cardHoverBackground ||
+      "linear-gradient(135deg, #f5f5f5, #e0e0e0)"};
+  }
+
+  svg {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    color: ${(props) => props.theme.colors.iconColor || "#000"};
+    transition: transform 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      transform: rotate(10deg);
+      color: ${(props) => props.theme.colors.iconHoverColor || "#555"};
+    }
+  }
+`,
+
+
   }, 
+
+
   style10: {
     navbarHeight: '80px',
   
@@ -2327,7 +2776,7 @@ DiscountBadge: styled.span`
       }
     `,
   
-    BestSellerCardContainer: styled.div`
+    CardContainer: styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -2411,6 +2860,68 @@ DiscountBadge: styled.span`
       font-size: 22px;
       color: ${(props) => props.theme.colors.timeText || '#ff0000'};
     `,
+    FeatureWrapper: styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    background: ${(props) =>
+      props.theme.colors.featureBackground ||
+      "linear-gradient(135deg, #ffffff, #ecf0f1)"};
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(52, 152, 219, 0.2);
+    margin: 20px auto;
+    max-width: 1400px;
+    transition: background 0.4s ease;
+  
+    &:hover {
+      background: ${(props) =>
+        props.theme.colors.featureHoverBackground ||
+        "linear-gradient(135deg, #ecf0f1, #ffffff)"};
+    }
+  `,
+  
+  FeatureCard: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    margin: 15px;
+    width: 280px;
+    height: 250px;
+    background: ${(props) => props.theme.colors.cardBackground || "#ffffff"};
+    border: 2px solid ${(props) => props.theme.colors.cardBorder || "#ddd"};
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(52, 152, 219, 0.2);
+    color: ${(props) => props.theme.colors.cardText || "#34495e"};
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(52, 152, 219, 0.3);
+      background: ${(props) =>
+        props.theme.colors.cardHoverBackground ||
+        "linear-gradient(135deg, #ecf0f1, #ffffff)"};
+    }
+  
+    svg {
+      margin-bottom: 20px;
+      font-size: 3rem;
+      color: ${(props) => props.theme.colors.iconColor || "#3498db"};
+      transition: transform 0.3s ease, color 0.3s ease;
+  
+      &:hover {
+        transform: rotate(10deg);
+        color: ${(props) => props.theme.colors.iconHoverColor || "#2980b9"};
+      }
+    }
+  `,
+  
   },
   
 };
