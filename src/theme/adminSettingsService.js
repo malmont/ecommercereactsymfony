@@ -27,7 +27,17 @@ export const saveAdminSettings = async (settings) => {
       section4Component,
       selectTypeProductFetchSection2,
       selectTypeProductFetchSection3,
-      selectTypeProductFetchSection4
+      selectTypeProductFetchSection4,
+      selectTypeProductFetchSection5,
+      selectTypeProductFetchSection6,
+      selectTypeProductFetchSection7,
+      typeComponentSection5,
+      typeComponentSection6,
+      typeComponentSection7,
+      section5Component,
+      section6Component,
+      section7Component
+
      } = settings;
     const response = await fetch(`${API_BASE_URL}admin-settings`, {
       method: 'PUT',
@@ -49,7 +59,16 @@ export const saveAdminSettings = async (settings) => {
         section4Component,
         selectTypeProductFetchSection2,
         selectTypeProductFetchSection3,
-        selectTypeProductFetchSection4
+        selectTypeProductFetchSection4,
+        selectTypeProductFetchSection5,
+        selectTypeProductFetchSection6,
+        selectTypeProductFetchSection7,
+        typeComponentSection5,
+        typeComponentSection6,
+        typeComponentSection7,
+        section5Component,
+        section6Component,
+        section7Component
       }),
     });
 

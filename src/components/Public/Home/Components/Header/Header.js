@@ -1,94 +1,40 @@
 import styled from "styled-components";
-import React, { useState, useEffect } from "react";
 import ContainerSection1 from "../../../../../theme/ThemeContainer/ContainerSection1";
 import ContainerSection2 from "../../../../../theme/ThemeContainer/ContainerSection2";
 import ContainerSection3 from "../../../../../theme/ThemeContainer/ContainerSection3";
 import ContainerSection4 from "../../../../../theme/ThemeContainer/ContainerSection4";
-import { observer } from "mobx-react-lite";
-import { useDependencies } from '../../../../../../src/DependencyContext';
+import ContainerSection5 from "../../../../../theme/ThemeContainer/ContainerSection5";
 import ExploreCategoryView from "../ExploreAllCategory/Components/ExploreCategoryView";
 import EmailCard from "../EmailCard/EmailCard";
 
-const Header = observer(() => {
-  const { headerViewModel } = useDependencies();
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-
-  useEffect(() => {
- 
-    headerViewModel.loadHomeSlider();
-  }, [headerViewModel]);
-
-  useEffect(() => {
-    if (headerViewModel.homeSlider.length > 0) {
-
-      const interval = setInterval(() => {
-        setCurrentSlideIndex((prevIndex) => 
-          (prevIndex + 1) % headerViewModel.homeSlider.length
-        );
-      }, 4000);
-
-      return () => clearInterval(interval); 
-    }
-  }, [headerViewModel.homeSlider]);
-
-  if (headerViewModel.loading) {
-    return <p>Loading...</p>;
-  }
-
-  const currentSlide = headerViewModel.homeSlider[currentSlideIndex];
-
+const Header = () => {
   return (
     <Wrapper>
-      <div
-        className="div_principal"
-        style={{ backgroundImage: `url(${currentSlide.image})` }}
-      >
-        <div className="text-light divHeader">
-          <div className="textHeader">
-            <h4>{currentSlide.title}</h4>
-            <h1>{currentSlide.description}</h1>
-            <p>{currentSlide.buttonMessage}</p>
-            <a href={currentSlide.buttonUrl} className="btn btn-info m-3">
-              {currentSlide.buttonMessage}
-            </a>
-          </div>
-          <div className="priceHeader">
-            <div className="priceDiv">
-              From
-              <h1>$30</h1>
-              Shop
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <div className = "mb-4"> 
       <ContainerSection1 />
-
+      </div>
+      <ContainerSection2 />
       <h1 className="m-4 p-4 text-center">Flash Sales</h1>
       <div className="featureCenter">
-        <ContainerSection2 />
+        <ContainerSection3 />
       </div>
       <h1 className="m-4 p-4 text-center">New arrival</h1>
       <div className="featureCenter">
-      <ContainerSection3 />
+        <ContainerSection4 />
       </div>
       <h1 className="m-4 p-4 text-center">Best Sellers</h1>
       <div className="featureCenter">
-      <ContainerSection4 />
+        <ContainerSection5 />
       </div>
-
       <div className="featureCenter">
         <ExploreCategoryView />
       </div>
-
       <div className="featureCenter m-4">
         <EmailCard />
       </div>
-
-
     </Wrapper>
   );
-});
+};
 
 export default Header;
 

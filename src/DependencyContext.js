@@ -30,6 +30,9 @@ export const DependencyProvider = ({ children }) => {
   const carouselViewModelSection2 = new CarouselComposantViewModel(getProductByOffers);
   const carouselViewModelSection3 = new CarouselComposantViewModel(getProductByOffers);
   const carouselViewModelSection4 = new CarouselComposantViewModel(getProductByOffers);
+  const carouselViewModelSection5 = new CarouselComposantViewModel(getProductByOffers);
+  const carouselViewModelSection6 = new CarouselComposantViewModel(getProductByOffers);
+  const carouselViewModelSection7 = new CarouselComposantViewModel(getProductByOffers);
   const orderListViewModel = new OrderListViewModel(fetchUserOrders, user);
   const addressListViewModel = new AddressListViewModel(fetchAddresses, user);
   const carrierListViewModel = new CarrierListViewModel(fetchCarriers);
@@ -52,6 +55,9 @@ export const DependencyProvider = ({ children }) => {
       carouselViewModelSection2,
       carouselViewModelSection3,
       carouselViewModelSection4,
+      carouselViewModelSection5,
+      carouselViewModelSection6,
+      carouselViewModelSection7,
       orderListViewModel,
       addressListViewModel,
       carrierListViewModel,
