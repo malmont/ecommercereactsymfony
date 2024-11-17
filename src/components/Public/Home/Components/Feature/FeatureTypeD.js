@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { MdOutlinePayment } from "react-icons/md";
-import { PiStarThin } from "react-icons/pi";
-import { TbTruckDelivery } from "react-icons/tb";
+import { IoCard } from "react-icons/io5";
+import { TbPremiumRights } from "react-icons/tb";
+import { IoAirplane } from "react-icons/io5";
 import { useAdminContext } from "../../../../../theme/AdminContext";
 import { styles } from "../../../../../theme/All_styles";
 
@@ -11,16 +11,16 @@ const StyledRow = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 150px; /* Espacement horizontal et vertical entre les cartes */
+  gap: 200px; 
   text-align: center;
-  margin: 20px 0; /* Espacement autour de la rangée */
+  margin: 10px 0; 
 `;
 
 const StyledFeatureCard = styled.div`
-  margin: 10px 15px; /* Espacement spécifique pour chaque carte */
+  margin: 20px 35px; 
 `;
 
-const FeatureTypeB = () => {
+const FeatureTypeD = () => {
   const { styleChoice, loadingSettings } = useAdminContext();
 
   if (loadingSettings) {
@@ -28,21 +28,22 @@ const FeatureTypeB = () => {
   }
 
   const selectedStyle = styles[styleChoice];
-  console.log("selectedStyle12", selectedStyle);
-
   return (
     <selectedStyle.FeatureWrapper>
       <StyledRow>
         <StyledFeatureCard as={selectedStyle.FeatureCard}>
-          <MdOutlinePayment size={30} data-testid="cash-icon" />
+          <IoCard size={40} data-testid="cash-icon" />
+          <div className="m-1"></div>
           <span className="mx-3">FAST SECURE PAYMENTS</span>
         </StyledFeatureCard>
         <StyledFeatureCard as={selectedStyle.FeatureCard} className="bg-danger">
-          <PiStarThin size={30} data-testid="star-icon" />
+          <TbPremiumRights size={40} data-testid="star-icon" />
+          <div className="m-1"></div>
           <span className="mx-3">PREMIUM PRODUCTS</span>
         </StyledFeatureCard>
         <StyledFeatureCard as={selectedStyle.FeatureCard}>
-          <TbTruckDelivery size={30} data-testid="plane-icon" />
+          <IoAirplane size={40} data-testid="plane-icon" />
+          <div className="m-1"></div>
           <span className="mx-3">FREE & FAST DELIVERY</span>
         </StyledFeatureCard>
       </StyledRow>
@@ -50,4 +51,4 @@ const FeatureTypeB = () => {
   );
 };
 
-export default FeatureTypeB;
+export default FeatureTypeD;

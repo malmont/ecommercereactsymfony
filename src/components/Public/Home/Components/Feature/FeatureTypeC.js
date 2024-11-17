@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { MdOutlinePayment } from "react-icons/md";
-import { PiStarThin } from "react-icons/pi";
-import { TbTruckDelivery } from "react-icons/tb";
+import { RiSecurePaymentFill } from "react-icons/ri";
+import { MdWorkspacePremium } from "react-icons/md";
+import { CiDeliveryTruck } from "react-icons/ci";
 import { useAdminContext } from "../../../../../theme/AdminContext";
 import { styles } from "../../../../../theme/All_styles";
 
@@ -11,16 +11,16 @@ const StyledRow = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 150px; /* Espacement horizontal et vertical entre les cartes */
+  gap: 300px; /* Espacement horizontal et vertical entre les cartes */
   text-align: center;
-  margin: 20px 0; /* Espacement autour de la rangée */
+  margin: 20px 0; 
 `;
 
 const StyledFeatureCard = styled.div`
   margin: 10px 15px; /* Espacement spécifique pour chaque carte */
 `;
 
-const FeatureTypeB = () => {
+const FeatureTypeC = () => {
   const { styleChoice, loadingSettings } = useAdminContext();
 
   if (loadingSettings) {
@@ -34,15 +34,15 @@ const FeatureTypeB = () => {
     <selectedStyle.FeatureWrapper>
       <StyledRow>
         <StyledFeatureCard as={selectedStyle.FeatureCard}>
-          <MdOutlinePayment size={30} data-testid="cash-icon" />
+          <RiSecurePaymentFill size={30} data-testid="cash-icon" />
           <span className="mx-3">FAST SECURE PAYMENTS</span>
         </StyledFeatureCard>
         <StyledFeatureCard as={selectedStyle.FeatureCard} className="bg-danger">
-          <PiStarThin size={30} data-testid="star-icon" />
+          <MdWorkspacePremium size={30} data-testid="star-icon" />
           <span className="mx-3">PREMIUM PRODUCTS</span>
         </StyledFeatureCard>
         <StyledFeatureCard as={selectedStyle.FeatureCard}>
-          <TbTruckDelivery size={30} data-testid="plane-icon" />
+          <CiDeliveryTruck size={30} data-testid="plane-icon" />
           <span className="mx-3">FREE & FAST DELIVERY</span>
         </StyledFeatureCard>
       </StyledRow>
@@ -50,4 +50,4 @@ const FeatureTypeB = () => {
   );
 };
 
-export default FeatureTypeB;
+export default FeatureTypeC;

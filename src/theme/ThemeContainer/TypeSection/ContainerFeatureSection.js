@@ -1,18 +1,18 @@
 import { useAdminContext } from '../../AdminContext';
 import FeatureTypeA from '../../../components/Public/Home/Components/Feature/FeatureTypeA';
-import FeatureTypeB from '../../../components/Public/Home/Components/Header/Feature';
-import FeatureTypeD from '../../../components/Public/Home/Components/Header/Feature';
-import FeatureTypeC from '../../../components/Public/Home/Components/Header/Feature';
-import FeatureTypeE from '../../../components/Public/Home/Components/Header/Feature';
-import FeatureTypeF from '../../../components/Public/Home/Components/Header/Feature';
+import FeatureTypeB from '../../../components/Public/Home/Components/Feature/FeatureTypeB';
+import FeatureTypeD from '../../../components/Public/Home/Components/Feature/FeatureTypeD';
+import FeatureTypeC from '../../../components/Public/Home/Components/Feature/FeatureTypeC';
+import FeatureTypeE from '../../../components/Public/Home/Components/Feature/FeatureTypeE';
+import FeatureTypeF from '../../../components/Public/Home/Components/Feature/FeatureTypeF';
 import { themes } from '../../All_themes'; 
 import { ThemeProvider } from 'styled-components';
 
 const featureMap = {
   typeA: FeatureTypeA,
   typeB: FeatureTypeB,
-  typeC: FeatureTypeD,
-  typeD: FeatureTypeC,
+  typeC: FeatureTypeC,
+  typeD: FeatureTypeD,
   typeE: FeatureTypeE,
   typeF: FeatureTypeF,
 };
