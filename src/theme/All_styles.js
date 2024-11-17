@@ -1247,7 +1247,7 @@ FeatureWrapper: styled.div`
   border: 1px solid ${(props) => props.theme.colors.border || "#ccc"};
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
-  max-width: 1200px;
+  max-width: 1600px;
 `,
 
   FeatureCard: styled.div`
@@ -1257,8 +1257,8 @@ FeatureWrapper: styled.div`
     justify-content: center;
     padding: 25px;
     margin: 15px;
-    width: 250px; /* Taille cohérente pour toutes les cartes */
-    height: 200px; /* Ajustement de la hauteur */
+    width: 250px; 
+    height: 200px; 
     background-color: ${(props) => props.theme.colors.cardBackground || "#fff"};
     border: 2px solid ${(props) => props.theme.colors.cardBorder || "#ddd"};
     border-radius: 12px;
@@ -1581,7 +1581,7 @@ FeatureWrapper: styled.div`
   );
   border-radius: 20px;
   margin: 20px auto;
-  max-width: 1400px;
+  max-width: 1800px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 `,
 
@@ -1933,7 +1933,7 @@ FeatureWrapper: styled.div`
   );
   border-radius: 20px;
   margin: 20px auto;
-  max-width: 1400px;
+  max-width: 1800px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(8px);
 `,
@@ -2241,7 +2241,7 @@ DiscountBadge: styled.span`
   );
   border-radius: 20px;
   margin: 20px auto;
-  max-width: 1200px;
+  max-width: 1700px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 `,
 
@@ -2250,10 +2250,10 @@ FeatureCard: styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 20px;
   margin: 15px;
   width: 280px;
-  height: 220px;
+  height: 120px;
   background: ${(props) => props.theme.colors.cardBackground || "#fff"};
   border: 2px solid ${(props) => props.theme.colors.cardAccent || "#d4af37"}; /* Bordure dorée */
   border-radius: 15px;
@@ -2547,7 +2547,7 @@ DiscountBadge: styled.span`
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 4px 15px rgba(255, 228, 225, 0.5);
   margin: 20px auto;
-  max-width: 1200px;
+  max-width: 1700px;
   transition: background 0.3s ease;
 
 
@@ -2557,10 +2557,10 @@ FeatureCard: styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 20px;
   margin: 15px;
   width: 280px;
-  height: 220px;
+  height: 120px;
   background: ${(props) => props.theme.colors.cardBackground || "#fff"};
   border: 2px solid ${(props) => props.theme.colors.cardBorder || "#000"}; /* Bordure noire */
   border-radius: 24px; /* Coins arrondis similaires à CardProperty */
@@ -2872,7 +2872,7 @@ FeatureCard: styled.div`
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(52, 152, 219, 0.2);
     margin: 20px auto;
-    max-width: 1400px;
+    max-width: 1800px;
     transition: background 0.4s ease;
   
     &:hover {
@@ -2887,10 +2887,10 @@ FeatureCard: styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 25px;
+    padding: 15px;
     margin: 15px;
     width: 280px;
-    height: 250px;
+    height: 150px;
     background: ${(props) => props.theme.colors.cardBackground || "#ffffff"};
     border: 2px solid ${(props) => props.theme.colors.cardBorder || "#ddd"};
     border-radius: 12px;

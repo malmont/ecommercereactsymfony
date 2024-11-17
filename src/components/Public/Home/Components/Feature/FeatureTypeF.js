@@ -1,26 +1,31 @@
 import React from "react";
 import styled from "styled-components";
-import { MdOutlinePayment } from "react-icons/md";
-import { PiStarThin } from "react-icons/pi";
-import { TbTruckDelivery } from "react-icons/tb";
+import { FaMoneyBillTransfer } from "react-icons/fa6";
+import { GiStarsStack } from "react-icons/gi";
+import { RiPlanetFill } from "react-icons/ri";
 import { useAdminContext } from "../../../../../theme/AdminContext";
 import { styles } from "../../../../../theme/All_styles";
 
 // Styled-components
 const StyledRow = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content:  space-evenly;
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 150px; /* Espacement horizontal et vertical entre les cartes */
+  gap: 200px; /* Espacement horizontal */
   text-align: center;
-  margin: 20px 0; /* Espacement autour de la rangée */
+  margin: 10px 0; /* Espacement vertical autour de la rangée */
 `;
 
 const StyledFeatureCard = styled.div`
-  margin: 10px 15px; /* Espacement spécifique pour chaque carte */
+  margin: 5px 35px; /* Espacement autour des cartes */
 `;
 
-const FeatureTypeB = () => {
+const LowerFeatureCard = styled(StyledFeatureCard)`
+  margin-top: 120px; /* Décale cette carte vers le bas */
+`;
+
+const FeatureTypeF = () => {
   const { styleChoice, loadingSettings } = useAdminContext();
 
   if (loadingSettings) {
@@ -28,21 +33,22 @@ const FeatureTypeB = () => {
   }
 
   const selectedStyle = styles[styleChoice];
-  console.log("selectedStyle12", selectedStyle);
-
   return (
     <selectedStyle.FeatureWrapper>
       <StyledRow>
         <StyledFeatureCard as={selectedStyle.FeatureCard}>
-          <MdOutlinePayment size={30} data-testid="cash-icon" />
+          <FaMoneyBillTransfer size={50} data-testid="cash-icon" />
+          <div className="m-3"></div>
           <span className="mx-3">FAST SECURE PAYMENTS</span>
         </StyledFeatureCard>
-        <StyledFeatureCard as={selectedStyle.FeatureCard} className="bg-danger">
-          <PiStarThin size={30} data-testid="star-icon" />
+        <LowerFeatureCard as={selectedStyle.FeatureCard} className="bg-danger">
+          <GiStarsStack size={50} data-testid="star-icon" />
+          <div className="m-3"></div>
           <span className="mx-3">PREMIUM PRODUCTS</span>
-        </StyledFeatureCard>
+        </LowerFeatureCard>
         <StyledFeatureCard as={selectedStyle.FeatureCard}>
-          <TbTruckDelivery size={30} data-testid="plane-icon" />
+          <RiPlanetFill size={50} data-testid="plane-icon" />
+          <div className="m-3"></div>
           <span className="mx-3">FREE & FAST DELIVERY</span>
         </StyledFeatureCard>
       </StyledRow>
@@ -50,4 +56,4 @@ const FeatureTypeB = () => {
   );
 };
 
-export default FeatureTypeB;
+export default FeatureTypeF;
