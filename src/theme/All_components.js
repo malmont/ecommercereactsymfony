@@ -26,7 +26,10 @@ export const componentsNavbar = {
         name: 'Section Card',
       },
     typeD: {
-      name: 'Section1 Mail',
+      name: 'Section Mail',
+    },
+    typeE: {
+      name: 'Section Slider',
     },
   };
   

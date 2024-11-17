@@ -39,7 +39,25 @@ const AdminComponentSettings = () => {
     selectTypeProductFetchSection3,
     setselectTypeProductFetchSection3,
     selectTypeProductFetchSection4,
-    setselectTypeProductFetchSection4
+    setselectTypeProductFetchSection4,
+    selectTypeProductFetchSection5,
+    setselectTypeProductFetchSection5,
+    selectTypeProductFetchSection6,
+    setselectTypeProductFetchSection6,
+    selectTypeProductFetchSection7,
+    setselectTypeProductFetchSection7,
+    typeComponentSection5,
+    setTypeComponentSection5,
+    typeComponentSection6,
+    setTypeComponentSection6,
+    typeComponentSection7,
+    setTypeComponentSection7,
+    section5Component,
+    setSection5Component,
+    section6Component,
+    setSection6Component,
+    section7Component,
+    setSection7Component,
 
   } = useAdminContext();
 
@@ -68,6 +86,16 @@ const AdminComponentSettings = () => {
   const handleComponentsSection4 = (event) => { setSection4Component(event.target.value); };
   const handleComponentTypeSection4 = (event) => setTypeComponentSection4(event.target.value);
   const handleSelectTypeProductFetchSection4 = (event) => setselectTypeProductFetchSection4(event.target.value);
+  const handleComponentsSection5 = (event) => { setSection5Component(event.target.value); };
+  const handleComponentTypeSection5 = (event) => setTypeComponentSection5(event.target.value);
+  const handleSelectTypeProductFetchSection5 = (event) => setselectTypeProductFetchSection5(event.target.value);
+  const handleComponentsSection6 = (event) => { setSection6Component(event.target.value); };
+  const handleComponentTypeSection6 = (event) => setTypeComponentSection6(event.target.value);
+  const handleSelectTypeProductFetchSection6 = (event) => setselectTypeProductFetchSection6(event.target.value);
+  const handleComponentsSection7 = (event) => { setSection7Component(event.target.value); };
+  const handleComponentTypeSection7 = (event) => setTypeComponentSection7(event.target.value);
+  const handleSelectTypeProductFetchSection7 = (event) => setselectTypeProductFetchSection7(event.target.value);
+
 
 
   const handleSaveSettings = async () => {
@@ -87,6 +115,16 @@ const AdminComponentSettings = () => {
       section3Component,
       typeComponentSection4,
       section4Component,
+      selectTypeProductFetchSection5,
+      selectTypeProductFetchSection6,
+      selectTypeProductFetchSection7,
+      typeComponentSection5,
+      typeComponentSection6,
+      typeComponentSection7,
+      section5Component,
+      section6Component,
+      section7Component
+
     };
 
     try {
@@ -286,6 +324,114 @@ const AdminComponentSettings = () => {
             {Object.keys(TypeProductFetch).map((TypeProductFetch4Key) => (
               <option key={TypeProductFetch4Key} value={TypeProductFetch4Key}>
                 {TypeProductFetch[TypeProductFetch4Key].name}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+      </Card>
+
+      {/* Encadrement pour "Section 5" */}
+      <Card>
+        <SettingGroup>
+          <Label>SECTION 5</Label>
+          <Label>Choix type section 5</Label>
+          <Select value={section5Component} onChange={handleComponentsSection5}>
+            {Object.keys(componentsSection1).map((componentsSection5Key) => (
+              <option key={componentsSection5Key} value={componentsSection5Key}>
+                {componentsSection1[componentsSection5Key].name}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+        <SettingGroup>
+          <Label>Choix composant</Label>
+          <Select value={typeComponentSection5} onChange={handleComponentTypeSection5}>
+            {Object.keys(ComponentTypeSection1).map((ComponentTypeSection5Key) => (
+              <option key={ComponentTypeSection5Key} value={ComponentTypeSection5Key}>
+                {ComponentTypeSection1[ComponentTypeSection5Key].name}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+
+        <SettingGroup>
+          <Label>Choix type de produit</Label>
+          <Select value={selectTypeProductFetchSection5} onChange={handleSelectTypeProductFetchSection5}>
+            {Object.keys(TypeProductFetch).map((TypeProductFetch5Key) => (
+              <option key={TypeProductFetch5Key} value={TypeProductFetch5Key}>
+                {TypeProductFetch[TypeProductFetch5Key].name}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+      </Card>
+
+      {/* Encadrement pour "Section 6" */}
+      <Card>
+        <SettingGroup>
+          <Label>SECTION 6</Label>
+          <Label>Choix type section 6</Label>
+          <Select value={section6Component} onChange={handleComponentsSection6}>
+            {Object.keys(componentsSection1).map((componentsSection6Key) => (
+              <option key={componentsSection6Key} value={componentsSection6Key}>
+                {componentsSection1[componentsSection6Key].name}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+        <SettingGroup>
+          <Label>Choix composant</Label>
+          <Select value={typeComponentSection6} onChange={handleComponentTypeSection6}>
+            {Object.keys(ComponentTypeSection1).map((ComponentTypeSection6Key) => (
+              <option key={ComponentTypeSection6Key} value={ComponentTypeSection6Key}>
+                {ComponentTypeSection1[ComponentTypeSection6Key].name}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+
+        <SettingGroup>
+          <Label>Choix type de produit</Label>
+          <Select value={selectTypeProductFetchSection6} onChange={handleSelectTypeProductFetchSection6}>
+            {Object.keys(TypeProductFetch).map((TypeProductFetch6Key) => (
+              <option key={TypeProductFetch6Key} value={TypeProductFetch6Key}>
+                {TypeProductFetch[TypeProductFetch6Key].name}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+      </Card>
+
+      {/* Encadrement pour "Section 7" */}
+      <Card>
+        <SettingGroup>
+          <Label>SECTION 7</Label>
+          <Label>Choix type section 7</Label>
+          <Select value={section7Component} onChange={handleComponentsSection7}>
+            {Object.keys(componentsSection1).map((componentsSection7Key) => (
+              <option key={componentsSection7Key} value={componentsSection7Key}>
+                {componentsSection1[componentsSection7Key].name}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+        <SettingGroup>
+          <Label>Choix composant</Label>
+          <Select value={typeComponentSection7} onChange={handleComponentTypeSection7}>
+            {Object.keys(ComponentTypeSection1).map((ComponentTypeSection7Key) => (
+              <option key={ComponentTypeSection7Key} value={ComponentTypeSection7Key}>
+                {ComponentTypeSection1[ComponentTypeSection7Key].name}
+              </option>
+            ))}
+          </Select>
+        </SettingGroup>
+
+        <SettingGroup>
+          <Label>Choix type de produit</Label>
+          <Select value={selectTypeProductFetchSection7} onChange={handleSelectTypeProductFetchSection7}>
+            {Object.keys(TypeProductFetch).map((TypeProductFetch7Key) => (
+              <option key={TypeProductFetch7Key} value={TypeProductFetch7Key}>
+                {TypeProductFetch[TypeProductFetch7Key].name}
               </option>
             ))}
           </Select>

@@ -28,7 +28,7 @@ const FeatureTypeC = () => {
   }
 
   const selectedStyle = styles[styleChoice];
-  console.log("selectedStyle12", selectedStyle);
+
 
   return (
     <selectedStyle.FeatureWrapper>

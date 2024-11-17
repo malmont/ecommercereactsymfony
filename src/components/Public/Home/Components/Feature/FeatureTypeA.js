@@ -11,7 +11,6 @@ const FeatureTypeA = () => {
     return <div>Loading...</div>;
   }
   const selectedStyle = styles[styleChoice];
- console.log('selectedStyle12', selectedStyle) 
   return (
     <selectedStyle.FeatureWrapper>
       <div className="row text-center">

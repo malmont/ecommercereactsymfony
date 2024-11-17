@@ -3,16 +3,18 @@ import { useAdminContext } from '../AdminContext';
 import { useDependencies } from '../../DependencyContext';
 import FeaturesSection from '../ThemeContainer/TypeSection/ContainerFeatureSection';
 import CarousselSection from '../ThemeContainer/TypeSection/ContainerCarouselSection';
-import EmalSection from '../ThemeContainer/TypeSection/ContainerCarouselSection';
+import EmailSection from '../ThemeContainer/TypeSection/ContainerCarouselSection';
 import ExploreSection from '../ThemeContainer/TypeSection/ContainerCarouselSection';
+import SliderSection from '../ThemeContainer/TypeSection/ContainerSliderSection';
 
 
 
 const navbarMap = {
   typeA: FeaturesSection,
   typeB: CarousselSection,
-  typeC: EmalSection,
+  typeC: EmailSection,
   typeD: ExploreSection,
+  typeE: SliderSection,
 };
 
 const ContainerSection1 = () => {

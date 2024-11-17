@@ -17,6 +17,12 @@ export const AdminProvider = ({ children }) => {
   const [typeComponentSection3, setTypeComponentSection3] = useState('typeA');
   const [section4Component, setSection4Component] = useState('typeA'); 
   const [typeComponentSection4, setTypeComponentSection4] = useState('typeA');
+  const [section5Component, setSection5Component] = useState('typeA'); 
+  const [typeComponentSection5, setTypeComponentSection5] = useState('typeA');
+  const [section6Component, setSection6Component] = useState('typeA'); 
+  const [typeComponentSection6, setTypeComponentSection6] = useState('typeA');
+  const [section7Component, setSection7Component] = useState('typeA'); 
+  const [typeComponentSection7, setTypeComponentSection7] = useState('typeA');
   const [navbarComponent, setNavbarComponent] = useState('typeA'); 
   const [styleChoice, setStyleChoice] = useState('style1'); 
   const [themeChoice, setThemeChoice] = useState('light'); 
@@ -26,6 +32,9 @@ export const AdminProvider = ({ children }) => {
   const [selectTypeProductFetchSection2, setselectTypeProductFetchSection2] = useState('bestsellers');
   const [selectTypeProductFetchSection3, setselectTypeProductFetchSection3] = useState('bestsellers');
   const [selectTypeProductFetchSection4, setselectTypeProductFetchSection4] = useState('bestsellers');
+  const [selectTypeProductFetchSection5, setselectTypeProductFetchSection5] = useState('bestsellers');
+  const [selectTypeProductFetchSection6, setselectTypeProductFetchSection6] = useState('bestsellers');
+  const [selectTypeProductFetchSection7, setselectTypeProductFetchSection7] = useState('bestsellers');
 
   const fetchAdminSettings = async () => {
     try {
@@ -48,6 +57,16 @@ export const AdminProvider = ({ children }) => {
         setselectTypeProductFetchSection2(settings.selectTypeProductFetchSection2 || 'bestsellers');
         setselectTypeProductFetchSection3(settings.selectTypeProductFetchSection3 || 'bestsellers');
         setselectTypeProductFetchSection4(settings.selectTypeProductFetchSection4 || 'bestsellers');
+        setselectTypeProductFetchSection5(settings.selectTypeProductFetchSection5 || 'bestsellers');
+        setselectTypeProductFetchSection6(settings.selectTypeProductFetchSection6 || 'bestsellers');
+        setselectTypeProductFetchSection7(settings.selectTypeProductFetchSection7 || 'bestsellers');
+        setSection5Component(settings.section5Component || 'typeA');
+        setTypeComponentSection5(settings.typeComponentSection5 || 'typeA');
+        setSection6Component(settings.section6Component || 'typeA');
+        setTypeComponentSection6(settings.typeComponentSection6 || 'typeA');
+        setSection7Component(settings.section7Component || 'typeA');
+        setTypeComponentSection7(settings.typeComponentSection7 || 'typeA');
+
       }
     } catch (error) {
       console.error('Erreur lors de la récupération des paramètres:', error);
@@ -108,7 +127,26 @@ export const AdminProvider = ({ children }) => {
     selectTypeProductFetchSection3,
     setselectTypeProductFetchSection3,
     selectTypeProductFetchSection4,
-    setselectTypeProductFetchSection4
+    setselectTypeProductFetchSection4,
+    section5Component,
+    setSection5Component,
+    typeComponentSection5,
+    setTypeComponentSection5,
+    selectTypeProductFetchSection5,
+    setselectTypeProductFetchSection5,
+    section6Component,
+    setSection6Component,
+    typeComponentSection6,
+    setTypeComponentSection6,
+    selectTypeProductFetchSection6,
+    setselectTypeProductFetchSection6,
+    section7Component,
+    setSection7Component,
+    typeComponentSection7,
+    setTypeComponentSection7,
+    selectTypeProductFetchSection7,
+    setselectTypeProductFetchSection7,
+
   };
 
   return (
