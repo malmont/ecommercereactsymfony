@@ -4,13 +4,14 @@ import ContainerSection2 from "../../../../../theme/ThemeContainer/ContainerSect
 import ContainerSection3 from "../../../../../theme/ThemeContainer/ContainerSection3";
 import ContainerSection4 from "../../../../../theme/ThemeContainer/ContainerSection4";
 import ContainerSection5 from "../../../../../theme/ThemeContainer/ContainerSection5";
-import ExploreCategoryView from "../ExploreAllCategory/Components/ExploreCategoryView";
+import ContainerSection6 from "../../../../../theme/ThemeContainer/ContainerSection6";
+
 import EmailCard from "../EmailCard/EmailCard";
 
 const Header = () => {
   return (
     <Wrapper>
-      <div className = "mb-4"> 
+      <div className = "mb-5"> 
       <ContainerSection1 />
       </div>
       <ContainerSection2 />
@@ -26,8 +27,9 @@ const Header = () => {
       <div className="featureCenter">
         <ContainerSection5 />
       </div>
-      <div className="featureCenter">
-        <ExploreCategoryView />
+      
+      <div className="featureCenter mt-5">
+        <ContainerSection6 />
       </div>
       <div className="featureCenter m-4">
         <EmailCard />

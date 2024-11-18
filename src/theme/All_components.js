@@ -23,10 +23,10 @@ export const componentsNavbar = {
       name: 'Section Carousel',
     },
     typeC: {
-        name: 'Section Card',
+        name: 'Section Mail',
       },
     typeD: {
-      name: 'Section Mail',
+      name: 'Section explore',
     },
     typeE: {
       name: 'Section Slider',

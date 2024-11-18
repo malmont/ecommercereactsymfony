@@ -225,6 +225,99 @@ FeatureCard: styled.div`
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
 `,
+StandardCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 10px 10px;
+  /* Ajout d'une hauteur minimale pour assurer la cohérence */
+  min-height: 400px;
+`,
+
+
+CardExplore: styled.div`
+background-color: ${(props) => props.theme.colors.cardBackground || '#343a40'};
+color: ${(props) => props.theme.colors.cardText || '#ffffff'};
+border: 1px solid ${(props) => props.theme.colors.border || '#444'};
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+border-radius: 10px;
+transition: transform 0.3s ease-in-out;
+height: 450px;
+&:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+`,
+
+RowExplore: styled.div`
+display: flex;
+gap: 15px;
+margin: 4px;
+`,
+
+ColumnExplore: styled.div`
+flex: 1;
+`,
+
+CardBodyExplore: styled.div`
+padding: 15px;
+text-align: center;
+`,
+DifferentCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 10px 10px;
+  min-height: 400px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(255, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.5);
+  }
+`,
+ContentExplore: styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: ${(props) =>
+  props.theme.colors.differentCardBackground };
+color: ${(props) => props.theme.colors.differentCardText };
+border: 1px solid ${(props) =>
+  props.theme.colors.differentCardBorder };
+`,
+CardImageExplore: styled.img`
+  height: 400px;
+  width: 300px;
+`,
+DetailsExplore: styled.div`
+padding: 20px;
+text-align: center;
+`,
+
+TitleExplore: styled.h3`
+font-size: 1.5rem;
+margin-bottom: 10px;
+`,
+
+DescriptionExplore: styled.p`
+font-size: 1rem;
+margin-bottom: 15px;
+`,
+
+LinkExplore: styled.a`
+text-decoration: none;
+color: ${(props) => props.theme.colors.linkText };
+font-weight: bold;
+
+&:hover {
+  color: ${(props) => props.theme.colors.linkHoverText};
+}
+`,
+ImageWrapperExplore: styled.div`
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+`,
   
   },
 
@@ -462,8 +555,126 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
     }
   }
   `,
+  StandardCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 10px;
+  min-height: 500px; /* Hauteur minimale pour les cartes */
+  background-color: ${(props) => props.theme.colors.cardBackground};
+  border: 1px solid ${(props) => props.theme.colors.border};
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+`,
 
+CardExplore: styled.div`
+  background-color: ${(props) => props.theme.colors.cardBackground};
+  color: ${(props) => props.theme.colors.cardText};
+  border: 1px solid ${(props) => props.theme.colors.border};
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
+  }
+`,
+
+RowExplore: styled.div`
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+  flex-wrap: wrap;
+`,
+
+ColumnExplore: styled.div`
+  flex: 1;
+  min-width: 280px;
+`,
+
+CardBodyExplore: styled.div`
+  padding: 15px;
+  text-align: left;
+  background-color: ${(props) => props.theme.colors.cardBodyBackground};
+  border-top: 1px solid ${(props) => props.theme.colors.border};
+`,
+
+DifferentCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 15px;
+  background-color: ${(props) => props.theme.colors.differentCardBackground};
+  border: 1px solid ${(props) => props.theme.colors.differentCardBorder};
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.3);
+  }
+`,
+
+ContentExplore: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: ${(props) => props.theme.colors.contentBackground};
+  color: ${(props) => props.theme.colors.differentCardText};
+  border-radius: 10px;
+  padding: 15px;
+`,
+
+ImageWrapperExplore: styled.div`
+  width: 350px;
+  height: 360px; 
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+  background-color: ${(props) => props.theme.colors.imageWrapperBackground || "#f0f0f0"};
+`,
+
+CardImageExplore: styled.img`
+  object-position: center; 
+  background-color: ${(props) => props.theme.colors.imageBackground};
+`,
+
+DetailsExplore: styled.div`
+  padding: 15px;
+  text-align: left;
+`,
+
+TitleExplore: styled.h3`
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.titleText};
+  margin-bottom: 10px;
+`,
+
+DescriptionExplore: styled.p`
+  font-size: 1rem;
+  line-height: 1.5;
+  color: ${(props) => props.theme.colors.descriptionText};
+  margin-bottom: 15px;
+  max-height: 60px; /* Limite la hauteur de la description */
+  overflow: hidden;
+  text-overflow: ellipsis;
+`,
+
+LinkExplore: styled.a`
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.linkText || "#0073e6"};
+  text-decoration: none;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.linkHoverText || "#005bb5"};
+    text-decoration: underline;
+  }
+`,
   },
 
 
@@ -726,6 +937,137 @@ Time: styled.div`
       }
     }
   `,
+  StandardCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 10px;
+  min-height: 500px; /* Hauteur minimale pour les cartes */
+  background-color: ${(props) => props.theme.colors.cardBackground};
+  border: 2px dashed ${(props) => props.theme.colors.border};
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+`,
+
+CardExplore: styled.div`
+  background-color: ${(props) => props.theme.colors.cardBackground};
+  color: ${(props) => props.theme.colors.cardText};
+  border: 2px solid ${(props) => props.theme.colors.border};
+  border-radius: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    background-color: ${(props) => props.theme.colors.hoverCardBackground};
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
+  }
+`,
+
+RowExplore: styled.div`
+  display: flex;
+  gap: 15px;
+  margin: 10px 0;
+  flex-wrap: wrap; /* S'adapte pour éviter les débordements */
+`,
+
+ColumnExplore: styled.div`
+  flex: 1;
+  min-width: 300px; /* Largeur minimale pour la mise en page responsive */
+`,
+
+CardBodyExplore: styled.div`
+  padding: 20px;
+  text-align: left;
+  background-color: ${(props) => props.theme.colors.cardBodyBackground};
+  border-top: 1px solid ${(props) => props.theme.colors.border};
+`,
+
+DifferentCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 15px;
+  background-color: ${(props) => props.theme.colors.differentCardBackground};
+  border: 2px solid ${(props) => props.theme.colors.differentCardBorder};
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(255, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.3);
+  }
+`,
+
+ContentExplore: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centré pour le style3 */
+  background-color: ${(props) => props.theme.colors.contentBackground};
+  color: ${(props) => props.theme.colors.differentCardText};
+  border-radius: 15px;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hoverContentBackground};
+  }
+`,
+
+ImageWrapperExplore: styled.div`
+  width: 100%;
+  height: 300px; 
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: ${(props) => props.theme.colors.imageWrapperBackground || "#e0e0e0"};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`,
+
+CardImageExplore: styled.img`
+  width: auto;
+  height: 100%;
+  object-fit: cover; 
+  background-color: ${(props) => props.theme.colors.imageBackground};
+`,
+
+DetailsExplore: styled.div`
+  padding: 20px;
+  text-align: center;
+`,
+
+TitleExplore: styled.h3`
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.titleText};
+  margin-bottom: 12px;
+`,
+
+DescriptionExplore: styled.p`
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: ${(props) => props.theme.colors.descriptionText};
+  margin-bottom: 15px;
+  max-height: 80px; /* Limite la hauteur de la description */
+  overflow: hidden;
+  text-overflow: ellipsis;
+`,
+
+LinkExplore: styled.a`
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.linkText};
+  text-decoration: none;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.linkHoverText};
+    text-decoration: underline;
+  }
+`,
 
   },
 
@@ -995,6 +1337,138 @@ FeatureCard: styled.div`
       color: ${(props) => props.theme.colors.iconHoverColor || "#111"}; /* Couleur au survol */
       transform: rotate(10deg); /* Légère rotation des icônes */
     }
+  }
+`,
+StandardCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 15px;
+  min-height: 520px; /* Hauteur minimale */
+  background-color: ${(props) => props.theme.colors.cardBackground};
+  border: 1px solid ${(props) => props.theme.colors.border};
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  }
+`,
+
+CardExplore: styled.div`
+  background-color: ${(props) => props.theme.colors.cardBackground};
+  color: ${(props) => props.theme.colors.cardText};
+  border: 2px solid ${(props) => props.theme.colors.border};
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background-color: ${(props) => props.theme.colors.hoverCardBackground};
+  }
+`,
+
+RowExplore: styled.div`
+  display: flex;
+  gap: 20px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+`,
+
+ColumnExplore: styled.div`
+  flex: 1;
+  min-width: 320px; /* Adaptation responsive */
+`,
+
+CardBodyExplore: styled.div`
+  padding: 20px;
+  text-align: left;
+  background-color: ${(props) => props.theme.colors.cardBodyBackground};
+  border-top: 1px solid ${(props) => props.theme.colors.border};
+  border-radius: 0 0 10px 10px;
+`,
+
+DifferentCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 20px;
+  background-color: ${(props) => props.theme.colors.differentCardBackground};
+  border: 2px dashed ${(props) => props.theme.colors.differentCardBorder};
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 24px rgba(255, 0, 0, 0.35);
+  }
+`,
+
+ContentExplore: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.contentBackground};
+  color: ${(props) => props.theme.colors.differentCardText};
+  border-radius: 15px;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hoverContentBackground};
+  }
+`,
+
+ImageWrapperExplore: styled.div`
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: ${(props) => props.theme.colors.imageWrapperBackground || "#e8e8e8"};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`,
+
+CardImageExplore: styled.img`
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  background-color: ${(props) => props.theme.colors.imageBackground};
+`,
+
+DetailsExplore: styled.div`
+  padding: 20px;
+  text-align: left;
+`,
+
+TitleExplore: styled.h3`
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.titleText};
+  margin-bottom: 15px;
+`,
+
+DescriptionExplore: styled.p`
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: ${(props) => props.theme.colors.descriptionText};
+  margin-bottom: 20px;
+  max-height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`,
+
+LinkExplore: styled.a`
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.linkText};
+  text-decoration: none;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.linkHoverText};
+    text-decoration: underline;
   }
 `,
 
@@ -1286,6 +1760,138 @@ FeatureWrapper: styled.div`
       }
     }
   `,
+  StandardCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 15px;
+  min-height: 520px; /* Hauteur minimale */
+  background-color: ${(props) => props.theme.colors.cardBackground};
+  border: 1px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  }
+`,
+
+CardExplore: styled.div`
+  background-color: ${(props) => props.theme.colors.cardBackground};
+  color: ${(props) => props.theme.colors.cardText};
+  border: 2px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background-color: ${(props) => props.theme.colors.hoverCardBackground};
+  }
+`,
+
+RowExplore: styled.div`
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+`,
+
+ColumnExplore: styled.div`
+  flex: 1;
+  min-width: 320px; /* Adaptation responsive */
+`,
+
+CardBodyExplore: styled.div`
+  padding: 20px;
+  text-align: left;
+  background-color: ${(props) => props.theme.colors.cardBodyBackground};
+  border-top: 1px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 0 0 12px 12px;
+`,
+
+DifferentCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 20px;
+  background-color: ${(props) => props.theme.colors.differentCardBackground};
+  border: 2px dashed ${(props) => props.theme.colors.differentCardBorder};
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(255, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 24px rgba(255, 0, 0, 0.35);
+  }
+`,
+
+ContentExplore: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.contentBackground};
+  color: ${(props) => props.theme.colors.differentCardText};
+  border-radius: 15px;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hoverContentBackground};
+  }
+`,
+
+ImageWrapperExplore: styled.div`
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: ${(props) => props.theme.colors.imageWrapperBackground || "#e8e8e8"};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`,
+
+CardImageExplore: styled.img`
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  background-color: ${(props) => props.theme.colors.imageBackground};
+`,
+
+DetailsExplore: styled.div`
+  padding: 20px;
+  text-align: left;
+`,
+
+TitleExplore: styled.h3`
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.titleText};
+  margin-bottom: 15px;
+`,
+
+DescriptionExplore: styled.p`
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: ${(props) => props.theme.colors.descriptionText};
+  margin-bottom: 20px;
+  max-height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`,
+
+LinkExplore: styled.a`
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.linkText};
+  text-decoration: none;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.linkHoverText};
+    text-decoration: underline;
+  }
+`,
 
   },
 
@@ -1619,6 +2225,141 @@ FeatureCard: styled.div`
       color: ${(props) => props.theme.colors.iconHoverColor || "#222222"};
       transform: rotate(10deg);
     }
+  }
+`,
+StandardCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 25px;
+  min-height: 600px; /* Hauteur plus grande pour style6 */
+  background: linear-gradient(135deg, ${(props) => props.theme.colors.gradientStart}, ${(props) => props.theme.colors.gradientEnd});
+  border: 3px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+
+  &:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  }
+`,
+
+CardExplore: styled.div`
+  background: ${(props) => props.theme.colors.cardBackground};
+  color: ${(props) => props.theme.colors.cardText};
+  border: 2px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 25px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, ${(props) => props.theme.colors.gradientStart}, ${(props) => props.theme.colors.gradientEnd});
+  }
+`,
+
+RowExplore: styled.div`
+  display: flex;
+  gap: 20px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+  justify-content: space-evenly; /* Centrage plus uniforme */
+`,
+
+ColumnExplore: styled.div`
+  flex: 1;
+  min-width: 340px; /* Adaptation responsive */
+`,
+
+CardBodyExplore: styled.div`
+  padding: 30px;
+  text-align: center;
+  background: ${(props) => props.theme.colors.cardBodyBackground};
+  border-top: 1px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 0 0 25px 25px;
+`,
+
+DifferentCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 30px;
+  background: ${(props) => props.theme.colors.differentCardBackground};
+  border: 3px dotted ${(props) => props.theme.colors.differentCardBorder};
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-20px) rotate(-3deg);
+    box-shadow: 0 14px 28px rgba(255, 0, 0, 0.35);
+  }
+`,
+
+ContentExplore: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: ${(props) => props.theme.colors.contentBackground};
+  color: ${(props) => props.theme.colors.differentCardText};
+  border-radius: 25px;
+  padding: 25px;
+  transition: background-color 0.4s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hoverContentBackground};
+  }
+`,
+
+ImageWrapperExplore: styled.div`
+  width: 100%;
+  height: 450px; /* Plus grande pour s'adapter à des images détaillées */
+  overflow: hidden;
+  border-radius: 25px 25px 0 0;
+  background: ${(props) => props.theme.colors.imageWrapperBackground || "#e8e8e8"};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`,
+
+CardImageExplore: styled.img`
+  width: auto;
+  height: 100%;
+  object-fit: cover; /* Focus sur un affichage complet */
+  border-bottom: 3px solid ${(props) => props.theme.colors.cardBorder || '#d4d4d4'};
+`,
+
+DetailsExplore: styled.div`
+  padding: 25px;
+  text-align: center;
+`,
+
+TitleExplore: styled.h3`
+  font-size: 2rem; /* Plus grand pour le style6 */
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.titleText};
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+`,
+
+DescriptionExplore: styled.p`
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: ${(props) => props.theme.colors.descriptionText};
+  margin-bottom: 20px;
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`,
+
+LinkExplore: styled.a`
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.linkText};
+  text-decoration: none;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.linkHoverText};
+    text-decoration: underline;
+    transform: scale(1.1);
   }
 `,
 
@@ -1983,6 +2724,148 @@ FeatureCard: styled.div`
     }
   }
 `,
+StandardCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 15px;
+  min-height: 540px; /* Augmentée pour plus de consistance */
+  background: linear-gradient(
+    145deg,
+    ${(props) => props.theme.colors.cardGradientStart},
+    ${(props) => props.theme.colors.cardGradientEnd}
+  );
+  border: 1px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 20px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.3);
+  }
+`,
+
+CardExplore: styled.div`
+  background: linear-gradient(
+    135deg,
+    ${(props) => props.theme.colors.cardBackground},
+    ${(props) => props.theme.colors.cardAccent}
+  );
+  color: ${(props) => props.theme.colors.cardText};
+  border: 1px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 15px;
+  box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.25);
+  }
+`,
+
+RowExplore: styled.div`
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+  flex-wrap: wrap; /* Permet une meilleure adaptation */
+`,
+
+ColumnExplore: styled.div`
+  flex: 1;
+  min-width: 300px; /* Largeur minimum adaptée */
+`,
+
+CardBodyExplore: styled.div`
+  padding: 20px;
+  text-align: left;
+  background: ${(props) => props.theme.colors.cardBodyBackground};
+  border-top: 1px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 0 0 20px 20px;
+`,
+
+DifferentCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 20px;
+  background: linear-gradient(
+    120deg,
+    ${(props) => props.theme.colors.differentCardBackgroundStart},
+    ${(props) => props.theme.colors.differentCardBackgroundEnd}
+  );
+  border: 1px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 20px;
+  box-shadow: 6px 6px 12px rgba(255, 0, 0, 0.15);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 8px 8px 20px rgba(255, 0, 0, 0.25);
+  }
+`,
+
+ContentExplore: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: ${(props) => props.theme.colors.contentBackground};
+  color: ${(props) => props.theme.colors.contentText};
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+`,
+
+ImageWrapperExplore: styled.div`
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: ${(props) => props.theme.colors.imageWrapperBackground};
+`,
+
+CardImageExplore: styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`,
+
+DetailsExplore: styled.div`
+  padding: 20px;
+  text-align: left;
+  color: ${(props) => props.theme.colors.detailsText};
+`,
+
+TitleExplore: styled.h3`
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.titleText};
+  margin-bottom: 15px;
+`,
+
+DescriptionExplore: styled.p`
+  font-size: 1rem;
+  line-height: 1.6;
+  color: ${(props) => props.theme.colors.descriptionText};
+  margin-bottom: 20px;
+  max-height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`,
+
+LinkExplore: styled.a`
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.linkText};
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.linkHoverText};
+    text-decoration: underline;
+  }
+`,
 
 
   },
@@ -2284,6 +3167,148 @@ FeatureCard: styled.div`
       transform: scale(1.2);
       color: ${(props) => props.theme.colors.iconHoverColor || "#ff9800"};
     }
+  }
+`,
+StandardCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 25px;
+  min-height: 600px;
+  background: linear-gradient(135deg, ${(props) => props.theme.colors.gradientStart}, ${(props) => props.theme.colors.gradientEnd});
+  border: 3px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+
+  &:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  }
+`,
+
+CardExplore: styled.div`
+  background: ${(props) => props.theme.colors.cardBackground};
+  color: ${(props) => props.theme.colors.cardText};
+  border: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
+  border-radius: 25px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, ${(props) => props.theme.colors.gradientStart}, ${(props) => props.theme.colors.gradientEnd});
+  }
+`,
+
+RowExplore: styled.div`
+  display: flex;
+  gap: 20px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+`,
+
+ColumnExplore: styled.div`
+  flex: 1;
+  min-width: 340px;
+`,
+
+CardBodyExplore: styled.div`
+  padding: 30px;
+  text-align: center;
+  background: ${(props) => props.theme.colors.cardBodyBackground};
+  border-top: 1px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
+  border-radius: 0 0 25px 25px;
+`,
+
+DifferentCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 30px;
+  background: ${(props) => props.theme.colors.differentCardBackground};
+  border: 3px dotted ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré en pointillés */
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-20px) rotate(-3deg);
+    box-shadow: 0 14px 28px rgba(255, 0, 0, 0.35);
+  }
+`,
+
+ContentExplore: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: ${(props) => props.theme.colors.contentBackground};
+  color: ${(props) => props.theme.colors.differentCardText};
+  border-radius: 25px;
+  padding: 25px;
+  border: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
+  transition: background-color 0.4s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hoverContentBackground};
+  }
+`,
+
+ImageWrapperExplore: styled.div`
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 25px 25px 0 0;
+  background: ${(props) => props.theme.colors.imageWrapperBackground || "#e8e8e8"};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 3px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
+`,
+
+CardImageExplore: styled.img`
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`,
+
+DetailsExplore: styled.div`
+  padding: 25px;
+  text-align: center;
+`,
+
+TitleExplore: styled.h3`
+  font-size: 2rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.titleText};
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+`,
+
+DescriptionExplore: styled.p`
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: ${(props) => props.theme.colors.descriptionText};
+  margin-bottom: 20px;
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`,
+
+LinkExplore: styled.a`
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.linkText};
+  text-decoration: none;
+  border-bottom: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
+
+  &:hover {
+    color: ${(props) => props.theme.colors.linkHoverText};
+    text-decoration: underline;
+    transform: scale(1.1);
   }
 `,
 
@@ -2592,6 +3617,144 @@ FeatureCard: styled.div`
   }
 `,
 
+StandardCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 20px;
+  min-height: 600px;
+  background: linear-gradient(
+    135deg,
+    ${(props) => props.theme.colors.gradientStart || '#f3f3f3'},
+    ${(props) => props.theme.colors.gradientEnd || '#ffffff'}
+  );
+  border: 3px solid ${(props) => props.theme.colors.cardAccent || '#ff7f50'};
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 4px 20px rgba(255, 127, 80, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 6px 24px rgba(255, 127, 80, 0.7);
+  }
+`,
+
+CardExplore: styled.div`
+  background: ${(props) => props.theme.colors.cardBackground || '#fff'};
+  color: ${(props) => props.theme.colors.cardText || '#000'};
+  border: 2px solid ${(props) => props.theme.colors.cardAccent || '#ff6347'};
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 2px 10px rgba(255, 99, 71, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: rotate(1deg) scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 20px rgba(255, 99, 71, 0.6);
+  }
+`,
+
+RowExplore: styled.div`
+  display: flex;
+  gap: 20px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+`,
+
+ColumnExplore: styled.div`
+  flex: 1;
+  min-width: 340px;
+`,
+
+CardBodyExplore: styled.div`
+  padding: 30px;
+  text-align: center;
+  background: ${(props) => props.theme.colors.cardBodyBackground || '#fefefe'};
+  border-top: 2px solid ${(props) => props.theme.colors.cardAccent || '#ff6347'};
+  border-radius: 0 0 20px 20px;
+`,
+
+DifferentCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 30px;
+  background: ${(props) => props.theme.colors.differentCardBackground || '#ffefeb'};
+  border: 3px dashed ${(props) => props.theme.colors.differentCardBorder || '#ffa07a'};
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(255, 160, 122, 0.3), 0 4px 20px rgba(255, 160, 122, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: rotate(-3deg) scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 160, 122, 0.4), 0 6px 24px rgba(255, 160, 122, 0.6);
+  }
+`,
+
+ContentExplore: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: ${(props) => props.theme.colors.contentBackground || '#fff5f0'};
+  color: ${(props) => props.theme.colors.contentText || '#ff6347'};
+  border-radius: 20px;
+  padding: 25px;
+  transition: background-color 0.4s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hoverContentBackground || '#ffe4e1'};
+  }
+`,
+
+ImageWrapperExplore: styled.div`
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  background: ${(props) => props.theme.colors.imageWrapperBackground || '#e8e8e8'};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`,
+
+CardImageExplore: styled.img`
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  border-bottom: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4d4d4'};
+`,
+
+DetailsExplore: styled.div`
+  padding: 25px;
+  text-align: center;
+`,
+
+TitleExplore: styled.h3`
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.titleText || '#000'};
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+`,
+
+DescriptionExplore: styled.p`
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: ${(props) => props.theme.colors.descriptionText || '#333'};
+  margin-bottom: 20px;
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`,
+
+LinkExplore: styled.a`
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.linkText || '#0073e6'};
+  text-decoration: none;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.linkHoverText || '#005bb5'};
+    text-decoration: underline;
+    transform: scale(1.1);
+  }
+`,
 
   }, 
 
@@ -2921,7 +4084,142 @@ FeatureCard: styled.div`
       }
     }
   `,
-  
+  StandardCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 20px;
+  min-height: 600px;
+  background: linear-gradient(135deg, ${(props) => props.theme.colors.gradientStart}, ${(props) => props.theme.colors.gradientEnd});
+  border: 2px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+`,
+
+CardExplore: styled.div`
+  background: ${(props) => props.theme.colors.cardBackground};
+  color: ${(props) => props.theme.colors.cardText};
+  border: 2px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+`,
+
+RowExplore: styled.div`
+  display: flex;
+  gap: 20px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`,
+
+ColumnExplore: styled.div`
+  flex: 1;
+  min-width: 300px;
+`,
+
+CardBodyExplore: styled.div`
+  padding: 20px;
+  text-align: center;
+  background: ${(props) => props.theme.colors.cardBodyBackground};
+  border-top: 1px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 0 0 15px 15px;
+`,
+
+DifferentCardExploreCard: styled.div`
+  max-width: 100%;
+  padding: 25px;
+  background: ${(props) => props.theme.colors.differentCardBackground};
+  border: 2px dashed ${(props) => props.theme.colors.differentCardBorder};
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(255, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 24px rgba(255, 0, 0, 0.3);
+  }
+`,
+
+ContentExplore: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: ${(props) => props.theme.colors.contentBackground};
+  color: ${(props) => props.theme.colors.contentText};
+  border-radius: 15px;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hoverContentBackground};
+  }
+`,
+
+ImageWrapperExplore: styled.div`
+  width: 100%;
+  height: 350px; 
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  background: ${(props) => props.theme.colors.imageWrapperBackground};
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Aligne l'image en haut */
+`,
+
+
+CardImageExplore: styled.img`
+  width: 100%;
+  height: auto;
+        
+  object-position: top; /* Ajuste l'image pour se concentrer sur le haut */
+  border-bottom: 2px solid ${(props) => props.theme.colors.cardBorder};
+`,
+
+DetailsExplore: styled.div`
+  padding: 20px;
+  text-align: center;
+`,
+
+TitleExplore: styled.h3`
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.titleText};
+  margin-bottom: 10px;
+`,
+
+DescriptionExplore: styled.p`
+  font-size: 1rem;
+  line-height: 1.6;
+  color: ${(props) => props.theme.colors.descriptionText};
+  margin-bottom: 15px;
+  max-height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`,
+
+LinkExplore: styled.a`
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.linkText};
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.linkHoverText};
+    text-decoration: underline;
+  }
+`,
+
   },
   
 };

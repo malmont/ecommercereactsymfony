@@ -1,33 +1,13 @@
+import React from 'react';
+import ContainerSection from './ContainerSection';
 
-import { useAdminContext } from '../AdminContext';
-import { useDependencies } from '../../DependencyContext';
-import FeaturesSection from './TypeSection/ContainerFeatureSection';
-import CarousselSection from './TypeSection/ContainerCarouselSection';
-import EmalSection from './TypeSection/ContainerCarouselSection';
-import ExploreSection from './TypeSection/ContainerCarouselSection';
+const ContainerSection4 = () => (
+  <ContainerSection
+    sectionComponentKey="section4Component"
+    typeComponentSectionKey="typeComponentSection4"
+    selectTypeProductFetchKey="selectTypeProductFetchSection4"
+    carouselViewModelKey="carouselViewModelSection4"
+  />
+);
 
-
-
-const navbarMap = {
-  typeA: FeaturesSection,
-  typeB: CarousselSection,
-  typeC: EmalSection,
-  typeD: ExploreSection,
-};
-
-const ContainerSection4 = () => {
-  const {  section4Component,typeComponentSection4 ,selectTypeProductFetchSection4} = useAdminContext();
-  const { carouselViewModelSection4 } = useDependencies();
-  const SectionComponent = navbarMap[section4Component] || FeaturesSection;
-  console.log('SectionComponent',SectionComponent);
-  return (
-      <div>
-        <SectionComponent
-          typeComponentSection={typeComponentSection4}
-          selectTypeProductFetch={selectTypeProductFetchSection4}
-          carouselViewModelSection={carouselViewModelSection4}
-        />
-      </div>
-  );
-};
 export default ContainerSection4;
