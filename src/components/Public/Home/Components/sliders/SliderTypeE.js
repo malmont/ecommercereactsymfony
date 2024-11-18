@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import { getHomeSlider } from "../Header/api";
+import { getHomeSlider } from "../sliders/api";
 import { useAdminContext } from "../../../../../theme/AdminContext";
 import { styles } from "../../../../../theme/All_styles";
 
