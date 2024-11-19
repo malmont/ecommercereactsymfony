@@ -3,7 +3,7 @@ import { useAdminContext } from '../AdminContext';
 import { useDependencies } from '../../DependencyContext';
 import FeaturesSection from '../ThemeContainer/TypeSection/ContainerFeatureSection';
 import CarousselSection from '../ThemeContainer/TypeSection/ContainerCarouselSection';
-import EmailSection from '../ThemeContainer/TypeSection/ContainerCarouselSection';
+import EmailSection from '../ThemeContainer/TypeSection/ContainerEmailSection';
 import ExploreSection from './TypeSection/ContainerExploreCategorySection';
 import SliderSection from '../ThemeContainer/TypeSection/ContainerSliderSection';
 

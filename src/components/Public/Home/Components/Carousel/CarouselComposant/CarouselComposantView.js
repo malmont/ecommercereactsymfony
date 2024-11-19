@@ -3,7 +3,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
-
 import CarouselTypeA from "../CarouselComposant/component/CarouselTypeA";
 import CarouselTypeB from "../CarouselComposant/component/CarouselTypeB";
 import CarouselTypeD from "../CarouselComposant/component/CarouselTypeD";

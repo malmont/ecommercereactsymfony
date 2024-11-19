@@ -16,9 +16,9 @@ export default function ExploreCategoryCardTypeA({
     return (
       <selectedStyle.DifferentCardExploreCard>
         <selectedStyle.ContentExplore>
-          <selectedStyle.ImageWrapperExplore>
-            <selectedStyle.CardImageExplore src={image} alt="" />
-          </selectedStyle.ImageWrapperExplore>
+          <selectedStyle.ImageWrapperExploreDifferent>
+            <selectedStyle.CardImageExploreDifferent src={image} alt="" />
+          </selectedStyle.ImageWrapperExploreDifferent>
           <selectedStyle.DetailsExplore>
             <selectedStyle.TitleExplore>{titre}</selectedStyle.TitleExplore>
             <selectedStyle.DescriptionExplore>{description}</selectedStyle.DescriptionExplore>
@@ -37,9 +37,9 @@ export default function ExploreCategoryCardTypeA({
       <selectedStyle.CardExplore>
         <selectedStyle.RowExplore>
           <selectedStyle.ColumnExplore>
-            <selectedStyle.ImageWrapperExplore>
-              <selectedStyle.CardImageExplore src={image} alt="" />
-            </selectedStyle.ImageWrapperExplore>
+            <selectedStyle.ImageWrapperExploreStandart>
+              <selectedStyle.CardImageExploreStandart src={image} alt="" />
+            </selectedStyle.ImageWrapperExploreStandart>
           </selectedStyle.ColumnExplore>
           <selectedStyle.ColumnExplore>
             <selectedStyle.CardBodyExplore>

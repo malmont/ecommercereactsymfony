@@ -72,3 +72,25 @@ export const componentsNavbar = {
       name: 'isAccessory',
     },
   };
+
+  export const ComponentTypeCategoryCard = {
+    typeA: {
+      name: 'Type A',
+    },
+    typeB: {
+      name: 'Type B',
+    },
+    typeC: {
+        name: 'Type C',
+      },
+    typeD: {
+      name: 'Type D',
+    },
+    typeE: {
+      name: 'Type E',
+    },
+    typeF: {
+      name: 'Type  F',
+    },
+  };
+  
