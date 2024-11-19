@@ -35,6 +35,7 @@ export const AdminProvider = ({ children }) => {
   const [selectTypeProductFetchSection5, setselectTypeProductFetchSection5] = useState('bestsellers');
   const [selectTypeProductFetchSection6, setselectTypeProductFetchSection6] = useState('bestsellers');
   const [selectTypeProductFetchSection7, setselectTypeProductFetchSection7] = useState('bestsellers');
+  const [typeCategoryCard, setTypeCategoryCard] = useState('typeA');
 
   const fetchAdminSettings = async () => {
     try {
@@ -66,6 +67,7 @@ export const AdminProvider = ({ children }) => {
         setTypeComponentSection6(settings.typeComponentSection6 || 'typeA');
         setSection7Component(settings.section7Component || 'typeA');
         setTypeComponentSection7(settings.typeComponentSection7 || 'typeA');
+        setTypeCategoryCard(settings.typeCategoryCard || 'typeA');
 
       }
     } catch (error) {
@@ -146,7 +148,8 @@ export const AdminProvider = ({ children }) => {
     setTypeComponentSection7,
     selectTypeProductFetchSection7,
     setselectTypeProductFetchSection7,
-
+    typeCategoryCard,
+    setTypeCategoryCard,
   };
 
   return (

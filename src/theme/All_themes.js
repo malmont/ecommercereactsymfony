@@ -46,6 +46,7 @@ export const themes = {
       imageBackground: '#ffffff',
       titleText: '#FFD700',
       descriptionText: '#000000',
+      iconBackground: '#f8f9fa',
       
     },
   },
@@ -96,6 +97,7 @@ export const themes = {
       imageBackground: '#1e1e1e',
       titleText: '#FFD700',
       descriptionText: '#ffffff',
+      iconBackground: '#1e1e1e',
     },
   },
   custom: {
@@ -144,6 +146,7 @@ export const themes = {
       imageBackground: '#ff3366',
       titleText: '#FFD700',
       descriptionText: '#fff',
+      iconBackground: '#ff3366',
     },
   },
   theme1: {
@@ -193,6 +196,7 @@ export const themes = {
       imageBackground: '#ffeb99',
       titleText: '#FFD700',
       descriptionText: '#333',
+      iconBackground: '#ffeb99',
     },
   },
   theme2: {
@@ -242,6 +246,7 @@ export const themes = {
       imageBackground: '#a5d6a7',
       titleText: '#FFD700',
       descriptionText: '#ffffff',
+      iconBackground: '#a5d6a7',
     },
   },
   theme3: {
@@ -291,6 +296,7 @@ export const themes = {
       imageBackground: '#c5cae9',
       titleText: '#FFD700',
       descriptionText: '#ffffff',
+      iconBackground: '#c5cae9',
     },
   },
 };

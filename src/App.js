@@ -13,7 +13,7 @@ import Order from './components/Private/Dashboards/Order';
 import CheckoutPage from '../src/components/Public/Cart/Total/CheckoutPage';
 import { AdminProvider, useAdminContext  } from '../src/theme/AdminContext'; 
 import { ThemeProvider } from 'styled-components';  
-import AdminComponentSettings from '../src/theme/AdminComponentSettings'; 
+import AdminComponentSettings from '../src/theme/Setting/AdminComponentSettings'; 
 import styled from 'styled-components';
 import { themes } from './theme/All_themes'; 
 

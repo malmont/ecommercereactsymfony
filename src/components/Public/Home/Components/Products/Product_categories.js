@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useTrail, animated } from "react-spring";
 import { v4 as uuidv4 } from "uuid";
 import { Waypoint } from "react-waypoint";
+import ContainerTypeCatagoryCard from "../../../../../theme/ThemeContainer/ContainerTypeCatagoryCard";
 
 import BestSellerCard from "../Carousel/CarouselComposant/component/CarouselTypeB";
 
@@ -90,7 +91,7 @@ export default function ProductCategories() {
               <Waypoint bottomOffset="70%" onEnter={() => setProducts(products)} />
               {trail.map((style, index) => (
                 <animated.div key={uuidv4()} style={style} className="col-lg-3 mb-4 d-flex justify-content-center">
-                  <BestSellerCard
+                  <ContainerTypeCatagoryCard
                     key={products[index].id}
                     category={products[index]}
                   />

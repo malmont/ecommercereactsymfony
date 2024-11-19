@@ -5,8 +5,9 @@ import ContainerSection3 from "../../../../../theme/ThemeContainer/ContainerSect
 import ContainerSection4 from "../../../../../theme/ThemeContainer/ContainerSection4";
 import ContainerSection5 from "../../../../../theme/ThemeContainer/ContainerSection5";
 import ContainerSection6 from "../../../../../theme/ThemeContainer/ContainerSection6";
+import ContainerSection7 from "../../../../../theme/ThemeContainer/ContainerSection7";
 
-import EmailCard from "../EmailCard/EmailCard";
+import EmailCard from "../EmailCard/EmailCardTypeA";
 
 const Header = () => {
   return (
@@ -32,7 +33,7 @@ const Header = () => {
         <ContainerSection6 />
       </div>
       <div className="featureCenter m-4">
-        <EmailCard />
+      <ContainerSection7 />
       </div>
     </Wrapper>
   );
