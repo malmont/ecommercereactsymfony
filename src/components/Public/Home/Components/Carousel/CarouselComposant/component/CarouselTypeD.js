@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAdminContext } from '../../../../../../../theme/AdminContext';
-import { styles } from '../../../../../../../theme/All_styles'; 
+import { styles } from '../../../../../../../theme/AllStyles'; 
 import styled from 'styled-components';
 
-const CarouselComp4Card = ({ category }) => {
+const CarouselTypeD = ({ category }) => {
   const navigate = useNavigate();
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
@@ -45,7 +45,7 @@ const CarouselComp4Card = ({ category }) => {
   );
 };
 
-export default CarouselComp4Card;
+export default CarouselTypeD;
 
 const CardFooter = styled.div`
   position: absolute;

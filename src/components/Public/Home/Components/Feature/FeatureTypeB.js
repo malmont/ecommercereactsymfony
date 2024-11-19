@@ -4,7 +4,7 @@ import { MdOutlinePayment } from "react-icons/md";
 import { PiStarThin } from "react-icons/pi";
 import { TbTruckDelivery } from "react-icons/tb";
 import { useAdminContext } from "../../../../../theme/AdminContext";
-import { styles } from "../../../../../theme/All_styles";
+import { styles } from "../../../../../theme/AllStyles";
 
 // Styled-components
 const StyledRow = styled.div`

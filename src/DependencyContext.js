@@ -9,6 +9,7 @@ import CartViewModel from '../src/components/Public/Cart/Total/CartViewModel';
 import { fetchUserProfile, updateUserProfile } from '../src/components/Private/Profile/api';
 import { getProductByOffers} from '../src/components/Public/Home/Components/Carousel/carouselApi';
 import OrderListViewModel from '../src/components/Private/Dashboards/OrderListViewModel';
+import DetailsProductsViewModel from '../src/components/Public/Home/Components/Products/DetailProducts/DetailsProductsViewModel';
 import AddressListViewModel from '../src/components/Private/Dashboards/AddressListViewModel';
 import CarouselComposantViewModel from '../src/components/Public/Home/Components/Carousel/CarouselComposant/CarouselComposantViewModel';
 import { fetchAddresses, fetchUserOrders,fetchCarriers } from '../src/components/Private/Dashboards/api';
@@ -36,6 +37,7 @@ export const DependencyProvider = ({ children }) => {
   const addressListViewModel = new AddressListViewModel(fetchAddresses, user);
   const carrierListViewModel = new CarrierListViewModel(fetchCarriers);
   const registerViewModel = new RegisterViewModel();
+  const detailsProductsViewModel = new DetailsProductsViewModel();
   
   // Passe tout le AuthContext au LoginViewModel
   const loginViewModel = new LoginViewModel({ login, logout, user }); 
@@ -60,7 +62,8 @@ export const DependencyProvider = ({ children }) => {
       addressListViewModel,
       carrierListViewModel,
       checkoutViewModel,
-      navbarViewModel
+      navbarViewModel,
+      detailsProductsViewModel
     }}>
       {children}
     </DependencyContext.Provider>

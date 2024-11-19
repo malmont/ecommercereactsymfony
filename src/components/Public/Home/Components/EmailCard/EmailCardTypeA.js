@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAdminContext } from '../../../../../theme/AdminContext';
-import { styles } from '../../../../../theme/All_styles';
+import { styles } from '../../../../../theme/AllStyles';
 import styled from 'styled-components';
 
 

@@ -2,10 +2,10 @@ import React from 'react';
 import RatingStars from './RatingStars';
 import { useNavigate } from 'react-router-dom';
 import { useAdminContext } from '../../../../../../../theme/AdminContext';
-import { styles } from '../../../../../../../theme/All_styles'; 
+import { styles } from '../../../../../../../theme/AllStyles'; 
 
 
-const BestSellerCard = ({ category }) => {
+const CarouselTypeB = ({ category }) => {
   const navigate = useNavigate();
   const {  styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
@@ -41,4 +41,4 @@ const BestSellerCard = ({ category }) => {
   );
 };
 
-export default BestSellerCard;
+export default CarouselTypeB;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAdminContext } from '../../../../../../../theme/AdminContext';
-import { styles } from '../../../../../../../theme/All_styles';
+import { styles } from '../../../../../../../theme/AllStyles';
 
-const CarouselComp3Card = ({ category }) => {
+const CarouselTypeE = ({ category }) => {
   const navigate = useNavigate();
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
@@ -43,4 +43,4 @@ const CarouselComp3Card = ({ category }) => {
 };
 
 
-export default CarouselComp3Card;
+export default CarouselTypeE;

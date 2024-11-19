@@ -5,7 +5,7 @@ import Layout from '../components/Public/Layout';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../components/Public/Home/Home';
 import Cart from '../components/Public/Cart/Total/CartView';
-import DetailsProducts from '../components/Public/Home/Components/Products/DetailsProducts';
+import DetailsProducts from '../components/Public/Home/Components/Products/DetailProducts/DetailsProductsView';
 import Confirmation from '../components/Public/Cart/Confirmation';
 import Login from '../components/Public/Login/LoginView';
 import Register from '../components/Public/register/registerView';

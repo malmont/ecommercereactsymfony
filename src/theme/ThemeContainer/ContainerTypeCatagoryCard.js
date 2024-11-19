@@ -8,7 +8,6 @@ import CarouselTypeC from "../../components/Public/Home/Components/Carousel/Caro
 import CarouselTypeE from "../../components/Public/Home/Components/Carousel/CarouselComposant/component/CarouselTypeE"; 
 import CarouselTypeF from "../../components/Public/Home/Components/Carousel/CarouselComposant/component/CarouselTypeF";
 import { themes } from '../All_themes'; 
-import { styles } from '../All_styles'; 
 
 const categoryCardMap = {
   typeA: CarouselTypeA,
@@ -20,19 +19,17 @@ const categoryCardMap = {
   
 };
 
-const ContainerTypeCatagoryCard = () => {
-  const { themeChoice, styleChoice, typeCategoryCard ,loadingSettings} = useAdminContext();
+const ContainerTypeCatagoryCard = ({ category }) => {
+  const { themeChoice,typeCategoryCard ,loadingSettings} = useAdminContext();
   if (loadingSettings) {
     return <div>Loading...</div>;
   }
   const selectedTheme = themes[themeChoice] || themes.light;
-  const selectedStyle = styles[styleChoice];
-  const CategoryCardComponent = categoryCardMap[typeCategoryCard] || NavbarTypeA;
+  const CategoryCardComponent = categoryCardMap[typeCategoryCard] || CarouselTypeA;
   return (
     <ThemeProvider theme={selectedTheme}>
       <div>
-        <CategoryCardComponent
-          selectedStyle={selectedStyle}
+        <CategoryCardComponent category={category}
         />
       </div>
     </ThemeProvider>

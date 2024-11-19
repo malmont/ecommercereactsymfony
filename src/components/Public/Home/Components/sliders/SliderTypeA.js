@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { getHomeSlider } from "../sliders/api";
 import { useAdminContext } from "../../../../../theme/AdminContext";
-import { styles } from "../../../../../theme/All_styles";
+import { styles } from "../../../../../theme/AllStyles";
 
 const SliderTypeA = () => {
   const { styleChoice, loadingSettings } = useAdminContext();

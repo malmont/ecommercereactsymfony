@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Countdown from 'react-countdown';
 import { useAdminContext } from '../../../../../../theme/AdminContext';
-import { styles } from '../../../../../../theme/All_styles';
+import { styles } from '../../../../../../theme/AllStyles';
 import styled from 'styled-components'
 
 const CategoryCard = ({ category }) => {

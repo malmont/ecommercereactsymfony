@@ -3,7 +3,7 @@ import { HiCash } from "react-icons/hi";
 import { AiFillStar } from "react-icons/ai";
 import { IoIosPaperPlane } from "react-icons/io";
 import { useAdminContext } from "../../../../../theme/AdminContext";
-import { styles } from "../../../../../theme/All_styles";
+import { styles } from "../../../../../theme/AllStyles";
 
 const Feature = () => {
   const { styleChoice,loadingSettings } = useAdminContext();

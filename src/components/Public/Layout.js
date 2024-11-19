@@ -4,7 +4,7 @@ import ContainerTypeNavBar from '../../theme/ThemeContainer/ContainerTypeNavBar'
 import Footer from './Footer/Footer';
 import styled from 'styled-components';
 import { useAdminContext } from '../../theme/AdminContext';
-import { styles } from '../../theme/All_styles'; 
+import { styles } from '../../theme/AllStyles'; 
 
 export default function Layout() {
   const { styleChoice, loadingSettings } = useAdminContext(); 

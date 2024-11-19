@@ -9,7 +9,7 @@ import NavbarTypeB from '../../components/Public/Navbar/Navbar_b';
 import NavbarTypeD from '../../components/Public/Navbar/Navbar_d'; 
 import NavbarTypeC from '../../components/Public/Navbar/Navbar_c'; 
 import { themes } from '../All_themes'; 
-import { styles } from '../All_styles'; 
+import { styles } from '../AllStyles'; 
 
 const navbarMap = {
   typeA: NavbarTypeA,
