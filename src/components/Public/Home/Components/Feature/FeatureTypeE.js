@@ -4,7 +4,7 @@ import { FaMoneyBillTransfer } from "react-icons/fa6";
 import { GiStarsStack } from "react-icons/gi";
 import { RiPlanetFill } from "react-icons/ri";
 import { useAdminContext } from "../../../../../theme/AdminContext";
-import { styles } from "../../../../../theme/All_styles";
+import { styles } from "../../../../../theme/AllStyles";
 
 // Styled-components
 const StyledRow = styled.div`

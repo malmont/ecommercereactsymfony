@@ -4,7 +4,7 @@ import { IoCard } from "react-icons/io5";
 import { TbPremiumRights } from "react-icons/tb";
 import { IoAirplane } from "react-icons/io5";
 import { useAdminContext } from "../../../../../theme/AdminContext";
-import { styles } from "../../../../../theme/All_styles";
+import { styles } from "../../../../../theme/AllStyles";
 
 // Styled-components
 const StyledRow = styled.div`

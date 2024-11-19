@@ -1,6 +1,6 @@
 import React from "react";
 import { useAdminContext } from "../AdminContext";
-import { styles } from "../All_styles";
+import { styles } from "../AllStyles";
 import { themes } from "../All_themes";
 import { componentsNavbar, componentsSection1, ComponentTypeCategoryCard } from "../All_components";
 import { ComponentTypeSection1, TypeProductFetch } from "../All_components";
@@ -63,6 +63,8 @@ const AdminComponentSettings = () => {
     setSection7Component,
     typeCategoryCard,
     setTypeCategoryCard,
+    detailsProductCardComponent,
+    setDetailsProductCardComponent,
   } = useAdminContext();
 
   // Configuration centralisée des sections
@@ -165,7 +167,8 @@ const AdminComponentSettings = () => {
       section5Component,
       section6Component,
       section7Component,
-      typeCategoryCard
+      typeCategoryCard,
+      detailsProductCardComponent
     };
 
     try {
@@ -179,6 +182,7 @@ const AdminComponentSettings = () => {
   };
   const isCategoryPage = location.pathname === "/Product";
   const isHomePage = location.pathname === "/";
+  const isDetailsProductCardComponent = location.pathname === "/DetailsProducts";
   return (
     <Wrapper>
       <h5>Paramètres composants</h5>
@@ -208,6 +212,14 @@ const AdminComponentSettings = () => {
           label="Choix de la categoryCard"
           value={typeCategoryCard}
           onChange={(event) => setTypeCategoryCard(event.target.value)}
+          options={ComponentTypeCategoryCard}
+        />
+      )}
+      {isDetailsProductCardComponent && (
+        <SettingCard
+          label="Choix de la categoryCard"
+          value={detailsProductCardComponent}
+          onChange={(event) => setDetailsProductCardComponent(event.target.value)}
           options={ComponentTypeCategoryCard}
         />
       )}
