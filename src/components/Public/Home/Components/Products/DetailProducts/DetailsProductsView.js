@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../../../../../redux/cartSlice";
 import { useDependencies } from '../../../../../../DependencyContext';
 import DetailsProductCardTypeA from "./DetailsPorductComponents/DetailsProductCardTypeA"; 
+import ContainerTypeDetailsProductCard from "../../../../../../theme/ThemeContainer/ContainerTypeDetailsProductCard";
 import { styles } from "../../../../../../theme/AllStyles";
 import { useAdminContext } from "../../../../../../theme/AdminContext";
 
@@ -63,7 +64,7 @@ const DetailsProductsView = () => {
     const selectedStyle = styles[styleChoice];
 
     return (
-        <DetailsProductCardTypeA
+        <ContainerTypeDetailsProductCard
           category={state.category}
           uniqueColors={uniqueColors}
           selectedStyle={selectedStyle}
