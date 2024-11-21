@@ -672,4 +672,259 @@ ContainerDetailsProduct: styled.div`
       color: #fff;
     }
   `,
+  ColorCircle: styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  border: ${(props) => (props.isSelected ? `2px solid ${props.theme.colors.primary}` : '2px solid #ccc')};
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    border-color: ${(props) => props.theme.colors.hoverBorder};
+  }
+`,
+
+SizeCircle: styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.colors.sizeCircleBackground};
+  border: ${(props) => (props.isSelected ? `2px solid ${props.theme.colors.primary}` : '2px solid #ccc')};
+  color: ${(props) => (props.isSelected ? '#fff' : props.theme.colors.textColor)};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: ${(props) => props.theme.colors.hoverBackground};
+  }
+`,
+
+CartItemQuantity: styled.span`
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.textColor};
+  background-color: ${(props) => props.theme.colors.quantityBackground};
+  padding: 0.5rem;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: center;
+  min-width: 40px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hoverBackground};
+  }
+`,
+
+CartItemButton: styled.button`
+  background-color: ${(props) => props.theme.colors.buttonBackground};
+  color: ${(props) => props.theme.colors.buttonText};
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin: 1rem;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.buttonHover};
+    transform: scale(1.05);
+  }
+`,
+
+IncrDecButton: styled.button`
+  width: 35px;
+  height: 35px;
+  background-color: ${(props) => props.theme.colors.buttonBackground};
+  color: ${(props) => props.theme.colors.buttonText};
+  border: none;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.buttonHover};
+    transform: scale(1.1);
+  }
+`,
+
+CartItemIncrDec: styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`,
+
+CartItemVariantInfo: styled.div`
+  font-size: 0.9rem;
+  color: ${(props) => props.theme.colors.textSecondary};
+  margin-top: 0.5rem;
+  text-align: left;
+`,
+
+CartItemPrice: styled.div`
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.priceColor};
+  margin-top: 1rem;
+`,
+
+CartItemTitle: styled.h3`
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.textPrimary};
+  margin-bottom: 0.5rem;
+  text-align: left;
+`,
+
+CartItemImage: styled.img`
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+`,
+
+CartItemInfo: styled.div`
+  flex-grow: 1;
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`,
+
+CartItem: styled.div`
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: ${(props) => props.theme.colors.cartItemBackground};
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+`,
+
+CartItemContainer: styled.div`
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 1rem 20px;
+`,
+OrderSummaryContainer: styled.div`
+width: 100%;
+max-width: 400px;
+margin: 2rem auto;
+padding: 1.5rem;
+background: linear-gradient(
+  135deg,
+  ${(props) => props.theme.colors.gradientStart},
+  ${(props) => props.theme.colors.gradientEnd}
+);
+border-radius: 20px;
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+&:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+`,
+
+// Titre du résumé de commande
+OrderSummaryTitle: styled.h2`
+font-size: 1.75rem;
+font-weight: bold;
+color: ${(props) => props.theme.colors.logoText};
+text-align: center;
+text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+margin-bottom: 1.5rem;
+`,
+
+// Ligne de séparation subtile
+Divider: styled.hr`
+border: 0;
+height: 2px;
+background: ${(props) => props.theme.colors.gradientMid};
+margin: 1rem 0;
+`,
+
+// Ligne pour chaque détail dans le résumé
+OrderSummaryRow: styled.div`
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0.75rem 0;
+font-size: 1rem;
+font-weight: 500;
+color: ${(props) => props.theme.colors.navItemText};
+`,
+
+// Texte simple pour les détails
+OrderSummaryText: styled.span`
+color: ${(props) => props.theme.colors.cardBodyText};
+transition: color 0.3s ease;
+
+&:hover {
+  color: ${(props) => props.theme.colors.navItemHoverBackground};
+}
+`,
+
+// Texte mis en évidence (comme le total)
+OrderSummaryHighlight: styled.span`
+font-weight: bold;
+font-size: 1.1rem;
+color: ${(props) => props.theme.colors.buttonHover};
+text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+`,
+
+// Bouton de validation de la commande
+CheckoutButton: styled.button`
+width: 100%;
+padding: 0.75rem;
+background: linear-gradient(
+  135deg,
+  ${(props) => props.theme.colors.buttonBackground},
+  ${(props) => props.theme.colors.buttonHover}
+);
+color: ${(props) => props.theme.colors.buttonText};
+border: none;
+border-radius: 12px;
+font-size: 1rem;
+font-weight: bold;
+text-transform: uppercase;
+cursor: pointer;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+
+&:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+    135deg,
+    ${(props) => props.theme.colors.buttonHover},
+    ${(props) => props.theme.colors.buttonBackground}
+  );
+}
+`,
 }

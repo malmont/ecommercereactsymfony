@@ -591,4 +591,232 @@ ContainerDetailsProduct: styled.div`
       color: ${(props) => props.theme.colors.hoverText || "#fff"};
     }
   `,
+  CartItemContainer: styled.div`
+  margin-bottom: 30px;
+  background: ${(props) => props.theme.colors.containerBackground};
+  border-radius: 25px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+  width: 80%;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+`,
+
+CartItem: styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  border-bottom: 1px solid ${(props) => props.theme.colors.border};
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hoverBackground};
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+`,
+
+CartItemInfo: styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`,
+
+CartItemImage: styled.img`
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid ${(props) => props.theme.colors.border};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`,
+
+CartItemTitle: styled.p`
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.textColor};
+`,
+
+CartItemPrice: styled.p`
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.textHighlight};
+`,
+
+CartItemVariantInfo: styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.cardBodyBackground};
+  padding: 10px;
+  border-radius: 12px;
+`,
+
+CartItemIncrDec: styled.div`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 10px;
+  background-color: ${(props) => props.theme.colors.cardBodyBackground};
+  border-radius: 12px;
+`,
+
+IncrDecButton: styled.button`
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.buttonBackground};
+  border: none;
+  border-radius: 50%;
+  font-size: 1rem;
+  color: ${(props) => props.theme.colors.textColor};
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hoverButtonBackground};
+  }
+`,
+
+CartItemButton: styled.button`
+  padding: 10px 20px;
+  border: none;
+  background-color: ${(props) => props.theme.colors.buttonBackground};
+  color: ${(props) => props.theme.colors.buttonText};
+  border-radius: 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hoverButtonBackground};
+  }
+`,
+
+CartItemQuantity: styled.p`
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.textColor};
+`,
+
+ColorCircle: styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  border: 1px solid ${(props) => props.theme.colors.border};
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+`,
+
+SizeCircle: styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.colors.cardBodyBackground};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.textColor};
+  border: 1px solid ${(props) => props.theme.colors.border};
+`,
+OrderSummaryContainer: styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 25px;
+  border: 1px solid ${(props) => props.theme.colors.border || '#e5e5e5'};
+  border-radius: 20px;
+  background: linear-gradient(
+    145deg,
+    ${(props) => props.theme.colors.cardBackground || '#f9f9f9'},
+    ${(props) => props.theme.colors.secondaryBackground || '#ffffff'}
+  );
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Ombrage général */
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Accentuation au survol */
+  }
+`,
+
+OrderSummaryTitle: styled.h4`
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: ${(props) => props.theme.colors.titleText || '#333'};
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre subtile */
+`,
+
+Divider: styled.div`
+  border-top: 1px dashed ${(props) => props.theme.colors.border || '#ddd'};
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Ombre légère pour les séparations */
+`,
+
+OrderSummaryRow: styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  padding: 10px 15px;
+  color: ${(props) => props.theme.colors.textColor || '#555'};
+  background-color: ${(props) => props.theme.colors.rowBackground || '#ffffff'};
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Ajout d'ombre sur chaque ligne */
+  transition: background-color 0.3s ease;
+
+  &:nth-child(even) {
+    background-color: ${(props) => props.theme.colors.alternateBackground || '#f8f8f8'};
+  }
+`,
+
+OrderSummaryText: styled.p`
+  font-size: 1rem;
+  color: ${(props) => props.theme.colors.textColor || '#666'};
+  margin: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Légère ombre pour le texte */
+`,
+
+OrderSummaryHighlight: styled.p`
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: ${(props) => props.theme.colors.highlight || '#0078d7'};
+  margin: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Accentuation pour les valeurs importantes */
+`,
+
+CheckoutButton: styled.button`
+  padding: 15px 20px;
+  border: none;
+  border-radius: 30px;
+  background: ${(props) => props.theme.colors.buttonBackground || '#4caf50'};
+  color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Ombrage du bouton */
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: ${(props) => props.theme.colors.buttonHover || '#3e8e41'};
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre accentuée au survol */
+  }
+`,
+
 }

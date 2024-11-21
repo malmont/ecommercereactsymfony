@@ -669,6 +669,262 @@ ContainerDetailsProduct: styled.div`
       color: ${(props) => props.theme.colors.featureTextColor || "#34495e"};
     }
   `,
+  ColorCircle: styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color || '#ddd'};
+  border: 2px solid ${(props) => (props.isSelected ? props.theme.colors.primary || '#3498db' : '#ccc')};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+  &:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 10px ${(props) => props.theme.colors.primary || '#3498db'};
+  }
+`,
+
+SizeCircle: styled.button`
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 2px solid ${(props) => (props.isSelected ? props.theme.colors.secondary || '#2ecc71' : '#ccc')};
+  background-color: ${(props) => (props.isSelected ? props.theme.colors.secondary || '#2ecc71' : '#f7f7f7')};
+  color: ${(props) => (props.isSelected ? '#ffffff' : '#000')};
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+    background-color: ${(props) => props.theme.colors.secondaryHover || '#27ae60'};
+    color: #fff;
+  }
+`,
+
+CartItemQuantity: styled.span`
+  background: ${(props) => props.theme.colors.quantityBackground || '#ecf0f1'};
+  color: ${(props) => props.theme.colors.quantityText || '#34495e'};
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid ${(props) => props.theme.colors.quantityBorder || '#bdc3c7'};
+  padding: 5px 10px;
+  border-radius: 5px;
+`,
+
+CartItemButton: styled.button`
+  background: ${(props) => props.theme.colors.buttonBackground || '#3498db'};
+  color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  &:hover {
+    background-color: ${(props) => props.theme.colors.buttonHover || '#2980b9'};
+    transform: scale(1.1);
+  }
+`,
+
+IncrDecButton: styled.button`
+  background: ${(props) => props.theme.colors.incrDecBackground || '#ffffff'};
+  color: ${(props) => props.theme.colors.incrDecText || '#34495e'};
+  border: 1px solid ${(props) => props.theme.colors.incrDecBorder || '#bdc3c7'};
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.incrDecHover || '#ecf0f1'};
+    transform: scale(1.1);
+  }
+`,
+
+CartItemIncrDec: styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`,
+
+CartItemVariantInfo: styled.div`
+  color: ${(props) => props.theme.colors.variantInfoText || '#7f8c8d'};
+  font-size: 14px;
+  margin-top: 5px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+`,
+
+CartItemPrice: styled.div`
+  font-size: 18px;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.priceText || '#2c3e50'};
+  margin-top: 5px;
+`,
+
+CartItemTitle: styled.div`
+  font-size: 16px;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.titleText || '#34495e'};
+  margin-bottom: 5px;
+  text-align: left;
+`,
+
+CartItemImage: styled.img`
+  width: 180px;
+  height: 280px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 10px;
+  border: 2px solid ${(props) => props.theme.colors.imageBorder || '#bdc3c7'};
+`,
+
+CartItemInfo: styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+`,
+
+CartItem: styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 15px;
+  background: ${(props) => props.theme.colors.cartItemBackground || '#ffffff'};
+  border: 1px solid ${(props) => props.theme.colors.cartItemBorder || '#bdc3c7'};
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+`,
+
+CartItemContainer: styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 20px;
+  background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  width: 50%;
+`,
+
+OrderSummaryContainer: styled.div`
+width: 100%;
+max-width: 450px;
+margin: 2rem auto;
+padding: 2rem;
+background: ${(props) => props.theme.colors.summaryBackground || '#ffffff'};
+border-radius: 20px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+border: 2px solid ${(props) => props.theme.colors.primary || '#3498db'};
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+&:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+`,
+
+// Titre du résumé de commande
+OrderSummaryTitle: styled.h2`
+font-size: 1.8rem;
+font-weight: bold;
+color: ${(props) => props.theme.colors.primaryText || '#2c3e50'};
+margin-bottom: 1.5rem;
+text-align: center;
+text-transform: uppercase;
+letter-spacing: 1px;
+text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+`,
+
+// Ligne de séparation subtile
+Divider: styled.hr`
+border: 0;
+height: 2px;
+background: ${(props) => props.theme.colors.primary || '#3498db'};
+margin: 1.5rem 0;
+border-radius: 1px;
+`,
+
+// Ligne pour chaque détail dans le résumé
+OrderSummaryRow: styled.div`
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0.75rem 0;
+font-size: 1rem;
+font-weight: 500;
+color: ${(props) => props.theme.colors.textSecondary || '#7f8c8d'};
+`,
+
+// Texte standard pour les détails
+OrderSummaryText: styled.span`
+color: ${(props) => props.theme.colors.textSecondary || '#7f8c8d'};
+transition: color 0.3s ease;
+
+&:hover {
+  color: ${(props) => props.theme.colors.primary || '#3498db'};
+}
+`,
+
+// Texte mis en évidence (comme le total)
+OrderSummaryHighlight: styled.span`
+font-weight: bold;
+font-size: 1.3rem;
+color: ${(props) => props.theme.colors.primary || '#3498db'};
+text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+`,
+
+// Bouton de validation de la commande
+CheckoutButton: styled.button`
+width: 100%;
+padding: 1rem;
+background: linear-gradient(
+  90deg,
+  ${(props) => props.theme.colors.primary || '#3498db'},
+  ${(props) => props.theme.colors.secondary || '#2ecc71'}
+);
+color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+border: none;
+border-radius: 15px;
+font-size: 1.2rem;
+font-weight: bold;
+text-transform: uppercase;
+cursor: pointer;
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+
+&:hover {
+  transform: scale(1.05);
+  background: ${(props) =>
+    props.theme.colors.primaryHover || '#2980b9'};
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+&:disabled {
+  background: ${(props) =>
+    props.theme.colors.disabledBackground || '#bdc3c7'};
+  cursor: not-allowed;
+}
+`,
 }
 

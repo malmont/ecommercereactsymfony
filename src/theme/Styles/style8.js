@@ -639,5 +639,251 @@ background: linear-gradient(
 border-radius: 15px;
 box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 `,
+ColorCircle: styled.div`
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: ${(props) => props.color || '#ddd'};
+border: ${(props) =>
+  props.isSelected
+    ? `3px solid ${props.theme.colors.goldAccent || '#d4af37'}`
+    : '2px solid #ccc'};
+transition: all 0.3s ease;
 
+&:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+}
+`,
+
+SizeCircle: styled.div`
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: ${(props) =>
+  props.isSelected ? props.theme.colors.goldAccent || '#d4af37' : '#f7f7f7'};
+color: ${(props) => (props.isSelected ? '#fff' : '#000')};
+display: flex;
+align-items: center;
+justify-content: center;
+border: ${(props) =>
+  props.isSelected
+    ? `3px solid ${props.theme.colors.goldAccent || '#d4af37'}`
+    : '2px solid #ccc'};
+font-weight: bold;
+font-size: 0.9rem;
+transition: all 0.3s ease;
+
+&:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+}
+`,
+
+CartItemQuantity: styled.div`
+font-size: 0.9rem;
+font-weight: bold;
+color: ${(props) => props.theme.colors.textPrimary};
+margin: 0 5px;
+text-align: center;
+`,
+
+CartItemButton: styled.button`
+background: ${(props) => props.theme.colors.buttonBackground};
+color: ${(props) => props.theme.colors.buttonText};
+border: none;
+border-radius: 5px;
+padding: 5px 10px;
+cursor: pointer;
+transition: all 0.3s ease;
+
+&:hover {
+  background: ${(props) => props.theme.colors.buttonHover};
+  transform: translateY(-2px);
+}
+
+&:disabled {
+  background: ${(props) => props.theme.colors.disabledBackground};
+  cursor: not-allowed;
+}
+`,
+
+IncrDecButton: styled.button`
+background: ${(props) => props.theme.colors.buttonBackground};
+color: ${(props) => props.theme.colors.buttonText};
+border: none;
+border-radius: 50%;
+width: 30px;
+height: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1rem;
+cursor: pointer;
+transition: all 0.3s ease;
+
+&:hover {
+  background: ${(props) => props.theme.colors.buttonHover};
+  transform: scale(1.1);
+}
+`,
+
+CartItemIncrDec: styled.div`
+display: flex;
+align-items: center;
+gap: 8px;
+`,
+
+CartItemVariantInfo: styled.div`
+font-size: 0.8rem;
+color: ${(props) => props.theme.colors.textSecondary};
+`,
+
+CartItemPrice: styled.div`
+font-size: 1.1rem;
+font-weight: bold;
+color: ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+margin-top: 5px;
+`,
+
+CartItemTitle: styled.div`
+font-size: 1rem;
+font-weight: bold;
+color: ${(props) => props.theme.colors.textPrimary};
+text-align: left;
+`,
+
+CartItemImage: styled.img`
+width: 200px;
+height: 300px;
+border-radius: 5px;
+object-fit: cover;
+box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+margin-right: 10px;
+`,
+
+CartItemInfo: styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+gap: 5px;
+`,
+
+CartItem: styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px;
+background: ${(props) => props.theme.colors.cardBackground};
+border: 2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease;
+
+&:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+`,
+
+CartItemContainer: styled.div`
+width: 55%;
+display: flex;
+flex-direction: column;
+gap: 10px;
+background: ${(props) => props.theme.colors.containerBackground};
+padding: 15px;
+border-radius: 10px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+margin: 20px;
+`,
+OrderSummaryContainer: styled.div`
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: ${(props) => props.theme.colors.cardBackground || '#fff'};
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+  `,
+
+  // Titre du résumé de commande
+  OrderSummaryTitle: styled.h2`
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: ${(props) => props.theme.colors.textPrimary || '#333'};
+    margin-bottom: 1rem;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  `,
+
+  // Ligne de séparation subtile
+  Divider: styled.hr`
+    border: 0;
+    height: 2px;
+    background: ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+    margin: 1rem 0;
+  `,
+
+  // Ligne pour chaque détail dans le résumé
+  OrderSummaryRow: styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: ${(props) => props.theme.colors.textSecondary || '#555'};
+  `,
+
+  // Texte standard pour les détails
+  OrderSummaryText: styled.span`
+    color: ${(props) => props.theme.colors.textSecondary || '#666'};
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+    }
+  `,
+
+  // Texte mis en évidence (comme le total)
+  OrderSummaryHighlight: styled.span`
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  `,
+
+  // Bouton de validation de la commande
+  CheckoutButton: styled.button`
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(
+      90deg,
+      ${(props) => props.theme.colors.goldAccent || '#d4af37'},
+      ${(props) => props.theme.colors.buttonBackground || '#ffd700'}
+    );
+    color: ${(props) => props.theme.colors.buttonText || '#fff'};
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      background: ${(props) => props.theme.colors.goldHover || '#e5c26b'};
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
+  `,
 }

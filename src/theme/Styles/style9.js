@@ -637,5 +637,236 @@ ContainerDetailsProduct: styled.div`
       color: ${(props) => props.theme?.colors?.featureTextColor || "#666"};
     }
   `,
+  ColorCircle: styled.div`
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color || '#ddd'};
+  border: ${(props) =>
+    props.isSelected
+      ? `3px solid ${props.theme.colors.goldAccent || '#ffcc00'}`
+      : '2px solid #ccc'};
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px ${(props) => props.theme.colors.goldAccent || '#ffcc00'};
+  }
+`,
+  SizeCircle: styled.div`
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: ${(props) =>
+      props.isSelected ? props.theme.colors.blackAccent || '#000000' : '#f7f7f7'};
+    color: ${(props) => (props.isSelected ? '#fff' : '#000')};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: ${(props) =>
+      props.isSelected
+        ? `3px solid ${props.theme.colors.blackAccent || '#000000'}`
+        : '2px solid #ccc'};
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 10px ${(props) => props.theme.colors.blackAccent || '#000000'};
+    }
+  `,
+
+  CartItemQuantity: styled.div`
+    font-size: 1rem;
+    font-weight: bold;
+    color: ${(props) => props.theme.colors.textPrimary};
+    margin: 0 5px;
+    text-align: center;
+  `,
+
+  CartItemButton: styled.button`
+    background: ${(props) => props.theme.colors.blackAccent || '#000000'};
+    color: ${(props) => props.theme.colors.buttonText || '#fff'};
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: ${(props) => props.theme.colors.buttonHover || '#333'};
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      background: ${(props) => props.theme.colors.disabledBackground || '#666'};
+      cursor: not-allowed;
+    }
+  `,
+
+  CartItemImage: styled.img`
+    width: 230px;
+    height: 350px;
+    border-radius: 5px;
+    object-fit: cover;
+    border: 2px solid ${(props) => props.theme.colors.blackAccent || '#000000'};
+    margin-right: 10px;
+  `,
+
+  CartItemInfo: styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+    align-items: flex-start;
+  `,
+
+  CartItem: styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: ${(props) => props.theme.colors.cardBackground || '#f0f0f0'};
+    border: 1px solid ${(props) => props.theme.colors.blackAccent || '#000000'};
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+  `,
+
+  CartItemContainer: styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: ${(props) => props.theme.colors.containerBackground || '#ffffff'};
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid ${(props) => props.theme.colors.blackAccent || '#000000'};
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
+    width: 55%;
+  `,
+
+  CartItemVariantInfo: styled.div`
+    font-size: 0.85rem;
+    color: ${(props) => props.theme.colors.textSecondary || '#666'};
+  `,
+
+  CartItemPrice: styled.div`
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: ${(props) => props.theme.colors.blackAccent || '#000000'};
+    margin-top: 5px;
+  `,
+
+  CartItemTitle: styled.div`
+    font-size: 1rem;
+    font-weight: bold;
+    color: ${(props) => props.theme.colors.textPrimary || '#000'};
+    text-align: left;
+  `,
+
+  CartItemIncrDec: styled.div`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  `,
+
+  IncrDecButton: styled.button`
+    background: ${(props) => props.theme.colors.blackAccent || '#000000'};
+    color: ${(props) => props.theme.colors.buttonText || '#fff'};
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: ${(props) => props.theme.colors.buttonHover || '#333'};
+      transform: scale(1.1);
+    }
+  `,
+  OrderSummaryContainer: styled.div`
+  width: 100%;
+  max-width: 450px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: ${(props) => props.theme.colors.cardBackground || '#fff'};
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border: 2px solid ${(props) => props.theme.colors.blackAccent || '#000000'};
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+`,
+OrderSummaryTitle: styled.h2`
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.textPrimary || '#333'};
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+`,
+Divider: styled.hr`
+  border: none;
+  height: 2px;
+  background: ${(props) => props.theme.colors.blackAccent || '#000000'};
+  margin: 1rem 0;
+`,
+OrderSummaryRow: styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: ${(props) => props.theme.colors.textSecondary || '#555'};
+`,
+OrderSummaryText: styled.span`
+  color: ${(props) => props.theme.colors.textSecondary || '#666'};
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.blackAccent || '#000000'};
+  }
+`,
+OrderSummaryHighlight: styled.span`
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: ${(props) => props.theme.colors.blackAccent || '#000000'};
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+`,
+CheckoutButton: styled.button`
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  background: ${(props) => props.theme.colors.blackAccent || '#000000'};
+  color: ${(props) => props.theme.colors.buttonText || '#fff'};
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    background-color: ${(props) => props.theme.colors.buttonHover || '#333333'};
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+`,
 
 }
