@@ -38,7 +38,9 @@ export const saveAdminSettings = async (settings) => {
       section6Component,
       section7Component,
       typeCategoryCard,
-      detailsProductCardComponent
+      detailsProductCardComponent,
+      cartItemCardComponent,
+      totalCardComponent
 
      } = settings;
     const response = await fetch(`${API_BASE_URL}admin-settings`, {
@@ -72,7 +74,9 @@ export const saveAdminSettings = async (settings) => {
         section6Component,
         section7Component,
         typeCategoryCard,
-        detailsProductCardComponent
+        detailsProductCardComponent,
+        cartItemCardComponent,
+        totalCardComponent
       }),
     });
 

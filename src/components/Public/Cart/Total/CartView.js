@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
-import TotalView from '../Total/TotalView';
-import CartItemView from '../Total/CartItemView';
+import ContainerTypeTotalCard from '../../../../theme/ThemeContainer/ContainerTypeTotalCard';
 import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../DependencyContext';
 import { useNavigate } from 'react-router-dom';
+import ContainerTypeCartItemCard from '../../../../theme/ThemeContainer/ContainerTypeCartItemCard';
 
 const CartView = observer(() => {
   const { cartViewModel } = useDependencies();
@@ -39,7 +39,7 @@ const CartView = observer(() => {
             <div className="col-12 col-md-8">
               <h3>Shopping Cart</h3>
               {cartViewModel.cart?.map((item) => (
-               <CartItemView
+               <ContainerTypeCartItemCard
                key={item.variantId} 
                id={item.id}
                image={item.image}
@@ -55,7 +55,7 @@ const CartView = observer(() => {
               ))}
             </div>
             <div className="col-12 col-md-4 row align-items-end">
-            <TotalView handleCheckout={handleCheckout} buttonLabel="Proceed to checkOut" />
+            <ContainerTypeTotalCard handleCheckout={handleCheckout} buttonLabel="Proceed to checkOut" />
             </div>
           </div>
         </div>

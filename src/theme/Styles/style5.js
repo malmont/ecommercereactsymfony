@@ -624,5 +624,230 @@ transition: transform 0.3s ease, background-color 0.3s ease;
   color: #fff;
 }
 `,
+CartItemContainer: styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 15px;
+  background: ${(props) => props.theme.colors.featureBackground};
+  border: 1px solid ${(props) => props.theme.colors.border};
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+  width: 70%;
+  margin-bottom: 20px;
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+  }
+`,
+
+CartItem: styled.div`
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 15px;
+  border-radius: 12px;
+  background-color: ${(props) => props.theme.colors.cardBackground};
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+`,
+
+CartItemInfo: styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`,
+
+CartItemImage: styled.img`
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid ${(props) => props.theme.colors.border};
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+`,
+
+CartItemTitle: styled.p`
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: ${(props) => props.theme.colors.textHighlight};
+`,
+
+CartItemPrice: styled.p`
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.textColor};
+`,
+
+CartItemVariantInfo: styled.div`
+  display: flex;
+  gap: 8px;
+  align-items: center;
+`,
+
+CartItemIncrDec: styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid ${(props) => props.theme.colors.border};
+  border-radius: 10px;
+  padding: 5px 10px;
+`,
+
+IncrDecButton: styled.button`
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: ${(props) => props.theme.colors.buttonBackground};
+  color: ${(props) => props.theme.colors.buttonText};
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: ${(props) => props.theme.colors.buttonHover};
+  }
+`,
+
+CartItemButton: styled.button`
+  width: 120px;
+  padding: 8px 12px;
+  background-color: ${(props) => props.theme.colors.buttonBackground};
+  color: ${(props) => props.theme.colors.buttonText};
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.buttonHover};
+    transform: scale(1.05);
+  }
+`,
+
+CartItemQuantity: styled.p`
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.textColor};
+  padding: 0 10px;
+`,
+
+ColorCircle: styled.div`
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  border: 1px solid ${(props) => props.theme.colors.border};
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+`,
+
+SizeCircle: styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.colors.featureBackground};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.textColor};
+  border: 1px solid ${(props) => props.theme.colors.border};
+`,
+OrderSummaryContainer: styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  border-radius: 20px;
+  background: ${(props) => props.theme.colors.cardBackground};
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+`,
+
+OrderSummaryTitle: styled.h4`
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: ${(props) => props.theme.colors.titleText};
+  text-align: center;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+`,
+
+Divider: styled.div`
+  width: 100%;
+  height: 1px;
+  background: ${(props) => props.theme.colors.border || '#ddd'};
+  margin: 10px 0;
+  opacity: 0.8;
+`,
+
+OrderSummaryRow: styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 15px;
+  background-color: ${(props) => props.theme.colors.rowBackground || '#f9f9f9'};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+
+  &:nth-child(even) {
+    background-color: ${(props) => props.theme.colors.alternateRowBackground || '#ffffff'};
+  }
+`,
+
+OrderSummaryText: styled.p`
+  font-size: 1rem;
+  font-weight: 500;
+  color: ${(props) => props.theme.colors.textColor || '#555'};
+`,
+
+OrderSummaryHighlight: styled.p`
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.highlightText || '#007BFF'};
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+`,
+
+CheckoutButton: styled.button`
+  padding: 15px 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: ${(props) => props.theme.colors.buttonText || '#fff'};
+  background: ${(props) => props.theme.colors.primary || '#007BFF'};
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    background: ${(props) => props.theme.colors.primaryHover || '#0056b3'};
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+`,
 
 }

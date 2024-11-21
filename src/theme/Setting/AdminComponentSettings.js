@@ -65,6 +65,10 @@ const AdminComponentSettings = () => {
     setTypeCategoryCard,
     detailsProductCardComponent,
     setDetailsProductCardComponent,
+    setCartItemCardComponent,
+    cartItemCardComponent,
+    setTotalCardComponent,
+    totalCardComponent,
   } = useAdminContext();
 
   // Configuration centralisée des sections
@@ -168,7 +172,9 @@ const AdminComponentSettings = () => {
       section6Component,
       section7Component,
       typeCategoryCard,
-      detailsProductCardComponent
+      detailsProductCardComponent,
+      cartItemCardComponent,
+      totalCardComponent,
     };
 
     try {
@@ -183,6 +189,8 @@ const AdminComponentSettings = () => {
   const isCategoryPage = location.pathname === "/Product";
   const isHomePage = location.pathname === "/";
   const isDetailsProductCardComponent = location.pathname === "/DetailsProducts";
+  const isCartItemCardComponent = location.pathname === "/cart";
+  const isCheckoutPage = location.pathname === "/CheckoutPage";
   return (
     <Wrapper>
       <h5>Paramètres composants</h5>
@@ -223,6 +231,25 @@ const AdminComponentSettings = () => {
           options={ComponentTypeCategoryCard}
         />
       )}
+
+      {(isCartItemCardComponent || isCheckoutPage) && (
+        <SettingCard
+          label="Choix ItemCard"
+          value={cartItemCardComponent}
+          onChange={(event) => setCartItemCardComponent(event.target.value)}
+          options={ComponentTypeCategoryCard}
+        />
+      )}
+
+      {(isCartItemCardComponent || isCheckoutPage) && (
+        <SettingCard
+          label="Choix TotalCard"
+          value={totalCardComponent}
+          onChange={(event) => setTotalCardComponent(event.target.value)}
+          options={ComponentTypeCategoryCard}
+        />
+      )}
+
 
       {/* Paramètres des sections */}
       {isHomePage &&

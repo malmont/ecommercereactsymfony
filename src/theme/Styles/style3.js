@@ -560,6 +560,238 @@ ContainerDetailsProduct: styled.div`
     }
   `,
 
+  CartItemContainer: styled.div`
+  width: 70%;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, ${(props) => props.theme.colors.containerBackground }, ${(props) => props.theme.colors.secondary || "#ffffff"});
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
+`,
+
+CartItem: styled.div`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border: none;
+  padding: 15px;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`,
+
+CartItemInfo: styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`,
+
+CartItemImage: styled.img`
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid ${(props) => props.theme.colors.cartItemImageBorder || "#fff"};
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`,
+
+CartItemTitle: styled.p`
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.cartItemTitle || "#fff"};
+`,
+
+CartItemPrice: styled.p`
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.cartItemPrice || "#FFD700"};
+`,
+
+CartItemVariantInfo: styled.div`
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 10px;
+  background-color: ${(props) => props.theme.colors.cartItemVariantBackground || "rgba(255, 255, 255, 0.2)"};
+  border-radius: 12px;
+`,
+
+CartItemIncrDec: styled.div`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.incrDecBackground || "rgba(255, 255, 255, 0.1)"};
+  padding: 10px;
+  border-radius: 10px;
+`,
+
+IncrDecButton: styled.button`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.incrDecButtonBackground || "#fff"};
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: ${(props) => props.theme.colors.primary || "#007BFF"};
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.incrDecButtonHover || "#FFD700"};
+    color: ${(props) => props.theme.colors.incrDecButtonHoverText || "#000"};
+    transform: scale(1.2);
+  }
+`,
+
+CartItemButton: styled.button`
+  padding: 12px 20px;
+  border: none;
+  background-color: ${(props) => props.theme.colors.cartItemButtonBackground || "#DC3545"};
+  color: ${(props) => props.theme.colors.cartItemButtonText || "#fff"};
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.cartItemButtonHover || "#C82333"};
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+`,
+
+CartItemQuantity: styled.p`
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.cartItemQuantityText || "#fff"};
+`,
+
+ColorCircle: styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  border: 2px solid ${(props) => props.theme.colors.colorCircleBorder || "#fff"};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`,
+
+SizeCircle: styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.colors.sizeCircleBackground || "rgba(255, 255, 255, 0.2)"};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.sizeCircleText || "#fff"};
+  border: 2px solid ${(props) => props.theme.colors.sizeCircleBorder || "#fff"};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`,
+OrderSummaryContainer: styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  border: 1px solid ${(props) => props.theme.colors.border || '#e0e0e0'};
+  border-radius: 15px;
+  background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  margin: 20px auto;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+`,
+
+OrderSummaryTitle: styled.h4`
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.titleText || '#333'};
+  text-align: center;
+  margin-bottom: 15px;
+`,
+
+Divider: styled.div`
+  border-top: 2px solid ${(props) => props.theme.colors.border || '#ccc'};
+  margin: 15px 0;
+`,
+
+OrderSummaryRow: styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  color: ${(props) => props.theme.colors.textColor || '#555'};
+  padding: 10px 0;
+
+  &:last-child {
+    font-weight: bold;
+    color: ${(props) => props.theme.colors.titleText || '#000'};
+  }
+`,
+
+OrderSummaryText: styled.p`
+  font-size: 1rem;
+  color: ${(props) => props.theme.colors.textColor || '#666'};
+  margin: 0;
+`,
+
+OrderSummaryHighlight: styled.p`
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.highlight || '#007bff'};
+  margin: 0;
+`,
+
+CheckoutButton: styled.button`
+  padding: 15px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: ${(props) => props.theme.colors.buttonBackground || '#28a745'};
+  color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.buttonHover || '#218838'};
+    transform: scale(1.05);
+  }
+`,
 
 }
 
