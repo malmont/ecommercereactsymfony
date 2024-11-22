@@ -799,7 +799,7 @@ margin: 20px;
 `,
 OrderSummaryContainer: styled.div`
     width: 100%;
-    max-width: 400px;
+    max-width: 550px;
     margin: 2rem auto;
     padding: 1.5rem;
     background: ${(props) => props.theme.colors.cardBackground || '#fff'};
@@ -884,6 +884,129 @@ OrderSummaryContainer: styled.div`
       transform: scale(1.05);
       background: ${(props) => props.theme.colors.goldHover || '#e5c26b'};
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
+  `,
+  CarrierContainer: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  `,
+
+  CarrierCard: styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 130px;
+    padding: 15px;
+    background: ${(props) =>
+      props.isSelected
+        ? props.theme.colors.cardSelectedBackground || '#d4af37'
+        : props.theme.colors.cardBackground || '#ffffff'};
+    border: ${(props) =>
+      props.isSelected
+        ? `3px solid ${props.theme.colors.cardSelectedBorder || '#d4af37'}`
+        : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    img {
+      width: 80px;
+      height: auto;
+    }
+  `,
+
+  AddressContainer: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  `,
+
+  AddressCard: styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: ${(props) =>
+      props.isSelected
+        ? props.theme.colors.cardSelectedBackground || '#d4af37'
+        : props.theme.colors.cardBackground || '#ffffff'};
+    border: ${(props) =>
+      props.isSelected
+        ? `3px solid ${props.theme.colors.cardSelectedBorder || '#d4af37'}`
+        : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    p {
+      font-size: 1rem;
+      color: ${(props) => props.theme.colors.textPrimary || '#333'};
+      text-align: center;
+    }
+  `,
+
+  PaymentMethodContainer: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  `,
+
+  PaymentMethodCard: styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 130px;
+    padding: 15px;
+    background: ${(props) =>
+      props.isSelected
+        ? props.theme.colors.cardSelectedBackground || '#d4af37'
+        : props.theme.colors.cardBackground || '#ffffff'};
+    border: ${(props) =>
+      props.isSelected
+        ? `3px solid ${props.theme.colors.cardSelectedBorder || '#d4af37'}`
+        : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    img {
+      width: 80px;
+      height: auto;
     }
   `,
 }

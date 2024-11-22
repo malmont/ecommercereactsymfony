@@ -4,122 +4,94 @@ import { observer } from "mobx-react-lite";
 import { useNavigate } from 'react-router-dom';
 import { useDependencies } from '../../../../DependencyContext';
 import { createOrder } from '../cartApi';
-import TotalView from '../Total/TotalView';
-import CartItemView from '../Total/CartItemView';
+import ContainerTypeCartItemCard from '../../../../theme/ThemeContainer/ContainerTypeCartItemCard';
+import ContainerTypeTotalCard from '../../../../theme/ThemeContainer/ContainerTypeTotalCard';
+import ContainerTypeTotalCheckoutCard from '../../../../theme/ThemeContainer/ContainerTypeTotalCheckoutCard';
 
 const CheckoutPage = observer(() => {
-    const { checkoutViewModel, cartViewModel } = useDependencies(); 
-    const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
+  const { checkoutViewModel, cartViewModel } = useDependencies();
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-    const handleProceedToPayment = async () => {
-        if (!checkoutViewModel.isCheckoutReady()) {
-            alert("Please select a carrier, delivery address, and payment method.");
-            return;
-        }
-
-        const orderData = {
-            orderSource: 1,  // ID pour Ecommerce
-            paymentMethod: checkoutViewModel.selectedPaymentMethod.id, 
-            addressId: checkoutViewModel.selectedAddress.id,  
-            carrierId: checkoutViewModel.selectedCarrier.id,  
-            typeOrder: 1,  // ID pour achatclient
-            items: checkoutViewModel.cart.map(item => ({
-                productVariantId: item.variantId,  
-                quantity: item.quantity 
-            }))
-        };
-
-        try {
-            setLoading(true);
-            const result = await createOrder( orderData);
-            console.log('Order created successfully:', result);
-            cartViewModel.clearCart();
-            navigate('/confirmation', { state: { order: result } });
-        } catch (error) {
-            console.error("Error creating order:", error);
-            alert("Failed to create the order. Please try again.");
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    if (checkoutViewModel.addressListViewModel.loading || checkoutViewModel.carrierListViewModel.loading) {
-        return <p>Loading...</p>;
+  const handleProceedToPayment = async () => {
+    if (!checkoutViewModel.isCheckoutReady()) {
+      alert("Please select a carrier, delivery address, and payment method.");
+      return;
     }
 
-    return (
-        <Wrapper>
-            <div className="cart card">
-                <div className="cart__left">
-                    <div className="card-header row justify-content-between">
-                        <div className="col-12 col-md-8">
-                            <h3>Checkout</h3>
-                            {checkoutViewModel.cart?.map((item) => (
-                                <CartItemView
-                                    key={item.variantId}
-                                    id={item.id}
-                                    image={item.image}
-                                    title={item.title}
-                                    price={item.price}
-                                    quantity={item.quantity}
-                                    color={item.color}
-                                    colorHex={item.colorHex}
-                                    size={item.size}
-                                    variantId={item.variantId}
-                                    showButtons={false}  
-                                />
-                            ))}
-                        </div>
-                        <div className="col-12 col-md-4 row align-items-end">
-                            <div className="checkout__details">
-                                <h4>Select Carrier:</h4>
-                                <div className="carriers m-2">
-                                    {checkoutViewModel.carrierListViewModel.carriers.map((carrier) => (
-                                        <CarrierOption
-                                            key={carrier.id}
-                                            onClick={() => checkoutViewModel.selectCarrier(carrier.id)}
-                                            isSelected={checkoutViewModel.selectedCarrier?.id === carrier.id}
-                                        >
-                                            <img src={carrier.photo} alt={carrier.name} />
-                                     
-                                        </CarrierOption>
-                                    ))}
-                                </div>
-                                <h4>Select Delivery Address:</h4>
-                                <div className="addresses m-2">
-                                    {checkoutViewModel.addressListViewModel.addresses.map((address) => (
-                                        <AddressOption
-                                            key={address.id}
-                                            onClick={() => checkoutViewModel.selectAddress(address.id)}
-                                            isSelected={checkoutViewModel.selectedAddress?.id === address.id}
-                                        >
-                                            <p>{address.fullname}, {address.addressLineOne}, {address.city}</p>
-                                        </AddressOption>
-                                    ))}
-                                </div>
-                                <h4>Select Payment Method:</h4>
-                                <div className="paymentMethods m-2">
-                                    {checkoutViewModel.paymentMethods.map((method) => (
-                                        <PaymentMethodOption
-                                            key={method.id}
-                                            onClick={() => checkoutViewModel.selectPaymentMethod(method.id)}
-                                            isSelected={checkoutViewModel.selectedPaymentMethod?.id === method.id}
-                                        >
-                                            <img src={method.image} alt={method.name} />
-                              
-                                        </PaymentMethodOption>
-                                    ))}
-                                </div>
-                            </div>
+    const orderData = {
+      orderSource: 1,  // ID pour Ecommerce
+      paymentMethod: checkoutViewModel.selectedPaymentMethod.id,
+      addressId: checkoutViewModel.selectedAddress.id,
+      carrierId: checkoutViewModel.selectedCarrier.id,
+      typeOrder: 1,  // ID pour achatclient
+      items: checkoutViewModel.cart.map(item => ({
+        productVariantId: item.variantId,
+        quantity: item.quantity
+      }))
+    };
 
-                            <TotalView handleCheckout={handleProceedToPayment} buttonLabel="Confirm and Proceed" />
-                        </div>
-                    </div>
-                </div>
+    try {
+      setLoading(true);
+      const result = await createOrder(orderData);
+      console.log('Order created successfully:', result);
+      cartViewModel.clearCart();
+      navigate('/confirmation', { state: { order: result } });
+    } catch (error) {
+      console.error("Error creating order:", error);
+      alert("Failed to create the order. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (checkoutViewModel.addressListViewModel.loading || checkoutViewModel.carrierListViewModel.loading) {
+    return <p>Loading...</p>;
+  }
+
+  return (
+    <Wrapper>
+      <div className="cart card">
+        <div className="cart__left">
+          <div className="card-header row justify-content-between">
+            <div className="col col">
+              <h3>Checkout</h3>
+              {checkoutViewModel.cart?.map((item) => (
+                <ContainerTypeCartItemCard
+                  key={item.variantId}
+                  id={item.id}
+                  image={item.image}
+                  title={item.title}
+                  price={item.price}
+                  quantity={item.quantity}
+                  color={item.color}
+                  colorHex={item.colorHex}
+                  size={item.size}
+                  variantId={item.variantId}
+                  showButtons={false}
+                />
+              ))}
             </div>
-        </Wrapper>
-    );
+            <div className="cart__right">
+              <ContainerTypeTotalCheckoutCard
+                carriers={checkoutViewModel.carrierListViewModel.carriers}
+                addresses={checkoutViewModel.addressListViewModel.addresses}
+                paymentMethods={checkoutViewModel.paymentMethods}
+                selectedCarrier={checkoutViewModel.selectedCarrier}
+                selectedAddress={checkoutViewModel.selectedAddress}
+                selectedPaymentMethod={checkoutViewModel.selectedPaymentMethod}
+                selectCarrier={(id) => checkoutViewModel.selectCarrier(id)}
+                selectAddress={(id) => checkoutViewModel.selectAddress(id)}
+                selectPaymentMethod={(id) => checkoutViewModel.selectPaymentMethod(id)}
+              />
+               <div className="mt-4"/>
+              <ContainerTypeTotalCard handleCheckout={handleProceedToPayment} buttonLabel="Confirm and Proceed" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  );
 });
 
 
@@ -152,10 +124,10 @@ const Wrapper = styled.div`
     gap: 20px;
   }
 
-  .carriers, .addresses, .paymentMethods {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  .cart__right {
+    flex: 1;
+    width: 800px; 
+    margin-left: auto;
   }
 
   .checkout__button {
@@ -173,87 +145,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const CarrierOption = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  border: ${(props) => (props.isSelected ? '2px solid #007bff' : '1px solid #ccc')};
-  border-radius: 10px;
-  cursor: pointer;
-  width: 100px;
 
-  img {
-    width: 50px;
-    height: auto;
-    margin-bottom: 10px;
-  }
 
-  p {
-    font-size: 14px;
-    font-weight: bold;
-    color: ${(props) => (props.isSelected ? '#007bff' : 'black')};
-  }
-
-  &:hover {
-    border: 2px solid #007bff;
-  }
-`;
-
-const AddressOption = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  border: ${(props) => (props.isSelected ? '2px solid #007bff' : '1px solid #ccc')};
-  border-radius: 10px;
-  cursor: pointer;
-  width: 150px;
-
-  span {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 14px;
-    font-weight: bold;
-    color: ${(props) => (props.isSelected ? '#007bff' : 'black')};
-  }
-
-  &:hover {
-    border: 2px solid #007bff;
-  }
-`;
-
-const PaymentMethodOption = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  border: ${(props) => (props.isSelected ? '2px solid #007bff' : '1px solid #ccc')};
-  border-radius: 10px;
-  cursor: pointer;
-  width: 100px;
-
-  img {
-    width: 40px;
-    height: auto;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 14px;
-    font-weight: bold;
-    color: ${(props) => (props.isSelected ? '#007bff' : 'black')};
-  }
-
-  &:hover {
-    border: 2px solid #007bff;
-  }
-`;
 
 export default CheckoutPage;

@@ -725,7 +725,7 @@ OrderSummaryContainer: styled.div`
   border-radius: 15px;
   background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  max-width: 450px;
+  max-width: 650px;
   margin: 20px auto;
   transition: all 0.3s ease;
 
@@ -741,6 +741,7 @@ OrderSummaryTitle: styled.h4`
   color: ${(props) => props.theme.colors.titleText || '#333'};
   text-align: center;
   margin-bottom: 15px;
+  
 `,
 
 Divider: styled.div`
@@ -792,6 +793,139 @@ CheckoutButton: styled.button`
     transform: scale(1.05);
   }
 `,
+CarrierContainer: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    background-color: ${(props) =>
+      props.theme.colors.carrierContainerBackground || '#f8f9fa'};
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  `,
+
+  // Carte de transporteur
+  CarrierCard: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    padding: 15px;
+    border: ${(props) =>
+      props.isSelected
+        ? `3px solid ${props.theme.colors.highlight || '#007bff'}`
+        : `1px solid ${props.theme.colors.border || '#ccc'}`};
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: ${(props) =>
+      props.isSelected
+        ? props.theme.colors.selectedBackground || '#eaf4ff'
+        : props.theme.colors.cardBackground || '#ffffff'};
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    img {
+      width: 70px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  `,
+
+  // Conteneur pour les adresses
+  AddressContainer: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 20px;
+    justify-content: center;
+    background-color: ${(props) =>
+      props.theme.colors.addressContainerBackground || '#f8f9fa'};
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  `,
+
+  // Carte d'adresse
+  AddressCard: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 240px;
+    padding: 20px;
+    border: ${(props) =>
+      props.isSelected
+        ? `3px solid ${props.theme.colors.highlight || '#007bff'}`
+        : `1px solid ${props.theme.colors.border || '#ccc'}`};
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: ${(props) =>
+      props.isSelected
+        ? props.theme.colors.selectedBackground || '#eaf4ff'
+        : props.theme.colors.cardBackground || '#ffffff'};
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    p {
+      font-size: 1rem;
+      text-align: center;
+      color: ${(props) => props.theme.colors.textColor || '#333'};
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  `,
+
+  // Conteneur pour les méthodes de paiement
+  PaymentMethodContainer: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    background-color: ${(props) =>
+      props.theme.colors.paymentContainerBackground || '#f8f9fa'};
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  `,
+
+  // Carte de méthode de paiement
+  PaymentMethodCard: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    padding: 15px;
+    border: ${(props) =>
+      props.isSelected
+        ? `3px solid ${props.theme.colors.highlight || '#007bff'}`
+        : `1px solid ${props.theme.colors.border || '#ccc'}`};
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: ${(props) =>
+      props.isSelected
+        ? props.theme.colors.selectedBackground || '#eaf4ff'
+        : props.theme.colors.cardBackground || '#ffffff'};
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    img {
+      width: 60px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  `,
 
 }
 

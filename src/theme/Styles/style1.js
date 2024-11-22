@@ -555,9 +555,10 @@ OrderSummaryContainer: styled.div`
     flex-direction: column;
     gap: 10px;
     padding: 20px;
-    border: 1px solid ${(props) => props.theme.colors.border || '#ccc'};
+    border: 1px solid ${(props) => props.theme.colors.border};
     border-radius: 10px;
     background-color: ${(props) => props.theme.colors.cardBackground || '#fff'};
+    margin-top: 20px;
   `,
   OrderSummaryTitle: styled.h4`
     font-size: 1.5rem;
@@ -596,6 +597,110 @@ OrderSummaryContainer: styled.div`
       background-color: ${(props) => props.theme.colors.buttonHover || '#0056b3'};
     }
   `,
-  
+
+// Conteneur pour les options de transporteurs
+CarrierContainer: styled.div`
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+`,
+
+// Style pour chaque transporteur
+CarrierCard: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  padding: 10px;
+  border: ${(props) =>
+    props.isSelected
+      ? `2px solid ${props.theme.colors.highlight || '#007bff'}`
+      : `1px solid ${props.theme.colors.border || '#ccc'}`};
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 5px;
+  }
+
+  &:hover {
+    border: 2px solid ${(props) => props.theme.colors.highlight || '#007bff'};
+  }
+`,
+
+// Conteneur pour les adresses
+AddressContainer: styled.div`
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+`,
+
+// Style pour chaque adresse
+AddressCard: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  padding: 10px;
+  border: ${(props) =>
+    props.isSelected
+      ? `2px solid ${props.theme.colors.highlight || '#007bff'}`
+      : `1px solid ${props.theme.colors.border || '#ccc'}`};
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  p {
+    font-size: 14px;
+    text-align: center;
+    color: ${(props) => props.theme.colors.textColor || '#000'};
+  }
+
+  &:hover {
+    border: 2px solid ${(props) => props.theme.colors.highlight || '#007bff'};
+  }
+`,
+
+// Conteneur pour les méthodes de paiement
+PaymentMethodContainer: styled.div`
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+`,
+
+// Style pour chaque méthode de paiement
+PaymentMethodCard: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  padding: 10px;
+  border: ${(props) =>
+    props.isSelected
+      ? `2px solid ${props.theme.colors.highlight || '#007bff'}`
+      : `1px solid ${props.theme.colors.border || '#ccc'}`};
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  img {
+    width: 40px;
+    height: auto;
+    margin-bottom: 5px;
+  }
+
+  &:hover {
+    border: 2px solid ${(props) => props.theme.colors.highlight || '#007bff'};
+  }
+`,
   }
 

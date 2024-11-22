@@ -798,7 +798,7 @@ ContainerDetailsProduct: styled.div`
   `,
   OrderSummaryContainer: styled.div`
   width: 100%;
-  max-width: 450px;
+  max-width: 550px;
   margin: 2rem auto;
   padding: 1.5rem;
   background: ${(props) => props.theme.colors.cardBackground || '#fff'};
@@ -869,4 +869,122 @@ CheckoutButton: styled.button`
   }
 `,
 
+CarrierContainer: styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+gap: 20px;
+padding: 20px;
+background: ${(props) => props.theme.colors.containerBackground || '#f0f0f0'};
+border-radius: 15px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+`,
+
+CarrierCard: styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 120px;
+height: 120px;
+padding: 15px;
+background: ${(props) =>
+  props.isSelected
+    ? props.theme.colors.cardSelectedBackground || '#333'
+    : props.theme.colors.cardBackground || '#ffffff'};
+border: ${(props) =>
+  props.isSelected
+    ? `3px solid ${props.theme.colors.cardSelectedBorder || '#000000'}`
+    : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+border-radius: 12px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+&:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+img {
+  width: 60px;
+  height: auto;
+}
+`,
+
+AddressContainer: styled.div`
+display: flex;
+flex-wrap: wrap;
+gap: 15px;
+padding: 15px;
+background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+border-radius: 15px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+`,
+
+AddressCard: styled.div`
+padding: 12px;
+background: ${(props) =>
+  props.isSelected
+    ? props.theme.colors.cardSelectedBackground || '#333'
+    : props.theme.colors.cardBackground || '#ffffff'};
+border: ${(props) =>
+  props.isSelected
+    ? `3px solid ${props.theme.colors.cardSelectedBorder || '#000000'}`
+    : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+border-radius: 12px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+&:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  font-size: 1rem;
+  color: ${(props) => props.theme.colors.textPrimary || '#333'};
+}
+`,
+
+PaymentMethodContainer: styled.div`
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+padding: 15px;
+background: ${(props) => props.theme.colors.containerBackground || '#f0f0f0'};
+border-radius: 15px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+`,
+
+PaymentMethodCard: styled.div`
+width: 110px;
+height: 110px;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 10px;
+background: ${(props) =>
+  props.isSelected
+    ? props.theme.colors.cardSelectedBackground || '#333'
+    : props.theme.colors.cardBackground || '#ffffff'};
+border: ${(props) =>
+  props.isSelected
+    ? `3px solid ${props.theme.colors.cardSelectedBorder || '#000000'}`
+    : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+border-radius: 12px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+&:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+img {
+  width: 50px;
+  height: auto;
+}
+`,
 }
