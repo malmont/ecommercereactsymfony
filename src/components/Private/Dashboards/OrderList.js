@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { observer } from "mobx-react-lite";
+
 const OrderList = ({ viewModel }) => {
     const { orders, loading } = viewModel;
     const navigate = useNavigate();
@@ -18,8 +19,8 @@ const OrderList = ({ viewModel }) => {
                 </div>
                 <div className="card-body">
                     {orders.length > 0 ? (
-                        <div className="table-responsive">
-                            <table className="table table-striped table-hover">
+                        <div className="table-wrapper">
+                            <table className="responsive-table">
                                 <thead>
                                     <tr>
                                         <th>Order</th>
@@ -32,11 +33,11 @@ const OrderList = ({ viewModel }) => {
                                 <tbody>
                                     {orders.map((order, index) => (
                                         <tr key={`${order.id}-${index}`}>
-                                            <td>{order.reference}</td>
-                                            <td>{new Date(order.orderDate).toLocaleDateString()}</td>
-                                            <td>Completed</td>
-                                            <td>${(order.totalAmount / 100).toFixed(2)}</td>
-                                            <td>
+                                            <td data-label="Order">{order.reference}</td>
+                                            <td data-label="Date">{new Date(order.orderDate).toLocaleDateString()}</td>
+                                            <td data-label="Status">Completed</td>
+                                            <td data-label="Total">${(order.totalAmount / 100).toFixed(2)}</td>
+                                            <td data-label="Actions">
                                                 <button
                                                     className="btn btn-dark"
                                                     onClick={() => {
@@ -61,7 +62,58 @@ const OrderList = ({ viewModel }) => {
 };
 
 const Wrapper = styled.div`
- 
-`;
-export default observer(OrderList);
+  .table-wrapper {
+    overflow-x: auto;
+  }
 
+  .responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border: 1px solid #dee2e6;
+    }
+
+    th {
+      background-color: #f8f9fa;
+    }
+
+    @media (max-width: 768px) {
+      thead {
+        display: none;
+      }
+
+      tr {
+        display: block;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #dee2e6;
+      }
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        text-align: left;
+        border: none;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #495057;
+        flex-basis: 50%;
+        text-align: left;
+      }
+
+      td:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+`;
+
+export default observer(OrderList);

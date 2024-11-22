@@ -247,7 +247,7 @@ display: flex;
 justify-content: space-around;
 align-items: center;
 flex-wrap: wrap;
-padding: 40px;
+padding: 30px;
 background: linear-gradient(
   135deg,
   ${(props) => props.theme.colors.featureGradientStart || "#ffffff"},
@@ -257,6 +257,10 @@ border-radius: 20px;
 margin: 20px auto;
 max-width: 1700px;
 box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  @media (max-width: 768px) {
+      padding: 3px;
+    }
+
 `,
 
 FeatureCard: styled.div`
@@ -303,7 +307,7 @@ svg {
 StandardCardExploreCard: styled.div`
 max-width: 100%;
 padding: 25px;
-min-height: 600px;
+min-height: 500px;
 background: linear-gradient(135deg, ${(props) => props.theme.colors.gradientStart}, ${(props) => props.theme.colors.gradientEnd});
 border: 3px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
 border-radius: 20px;
@@ -314,6 +318,10 @@ transition: transform 0.5s ease, box-shadow 0.5s ease;
   transform: translateY(-15px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
+
+  @media (max-width: 768px) {
+     max-width: 85%;
+    }
 `,
 
 CardExplore: styled.div`
@@ -1024,19 +1032,12 @@ OrderSummaryContainer: styled.div`
   `,
 
   // Sidebar pour les onglets
-  DashboardSidebar: styled.div`
-    background: ${(props) => props.theme.colors.sidebarBackground || '#ffffff'};
-    padding: 50px;
-    border-radius: 30px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    border: 3px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'}; /* Contour doré */
-    position: fixed;
-    top: ${(props) => props.theme.navbarHeight || '60px'};
-    left: 0;
-    height: calc(80% - ${(props) => props.theme.navbarHeight || '60px'});
-    width: 300px;
-    overflow-y: auto;
-    margin: 20px;
+ 
+  DashboardWrapper: styled.div`
+  background-color: ${(props) => props.theme.colors.contentBackground || '#f4f4f4'};
+  min-height: 66vh;
+  padding: 20px;
+  margin-top: 90px;
   `,
 
   // Élément de navigation dans la sidebar

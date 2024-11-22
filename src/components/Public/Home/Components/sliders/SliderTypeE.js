@@ -87,7 +87,7 @@ const SliderWrapper = styled.div`
   width: 100%;
   display: flex;
   position: relative;
-  overflow: hidden;
+
 `;
 
 const Slide = styled.div`
@@ -101,6 +101,7 @@ const Slide = styled.div`
   opacity: ${(props) => (props.isActive ? 1 : 0)};
   transform: ${(props) => (props.isActive ? "scale(1)" : "scale(1.1)")};
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  
 `;
 
 const Overlay = styled.div`
@@ -153,4 +154,6 @@ const StyledButton = styled.a`
     transform: translateY(-3px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
+
+  
 `;

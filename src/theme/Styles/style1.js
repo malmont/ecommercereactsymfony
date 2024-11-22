@@ -200,6 +200,10 @@ Time: styled.div`
   align-items: center;
   padding: 20px;
   background-color: ${(props) => props.theme.colors.featureBackground };
+
+  @media screen and (max-width: 800px) {
+        width: 100%;
+      }
 `,
 
 FeatureCard: styled.div`
