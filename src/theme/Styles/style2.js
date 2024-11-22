@@ -808,6 +808,83 @@ CarrierContainer: styled.div`
       border: 3px solid ${(props) => props.theme.colors.highlight || '#007bff'};
     }
   `,
+  DashboardWrapper: styled.div`
+    background-color: ${(props) => props.theme.colors.contentBackground || '#e0f7fa'};
+    min-height: 70vh;
+    padding: 20px;
+  `,
 
+  // Sidebar pour les onglets
+  DashboardSidebar: styled.div`
+    background-color: ${(props) => props.theme.colors.sidebarBackground || '#004d40'};
+    padding: 20px;
+    border-radius: 10px;
+    color: ${(props) => props.theme.colors.sidebarText || '#ffffff'};
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  `,
+
+  // Élément de navigation dans la sidebar
+  DashboardNavItem: styled.li`
+    margin-bottom: 15px;
+    list-style: none;
+  `,
+
+  // Liens de navigation dans la sidebar
+  DashboardNavLink: styled(NavLink)`
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    font-size: 18px;
+    font-weight: 500;
+    color: ${(props) =>
+      props.className?.includes('active')
+        ? props.theme.colors.linkHoverText || '#ffab00'
+        : props.theme.colors.linkText || '#ffffff'};
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.linkHoverBackground || '#00695c'};
+    }
+
+    i {
+      margin-right: 10px;
+    }
+  `,
+
+  // Contenu principal
+  DashboardContent: styled.div`
+    padding: 20px;
+  `,
+
+  // Conteneur pour les onglets
+  DashboardTabPane: styled.div`
+    padding: 20px;
+    background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  `,
+
+  // Carte principale
+  DashboardCard: styled.div`
+    background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  `,
+
+  // En-tête de la carte
+  DashboardCardHeader: styled.div`
+    padding: 20px;
+    background-color: ${(props) => props.theme.colors.cardHeaderBackground || '#004d40'};
+    color: ${(props) => props.theme.colors.cardHeaderText || '#ffffff'};
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  `,
+
+  // Corps de la carte
+  DashboardCardBody: styled.div`
+    padding: 20px;
+  `,
 }
 

@@ -1009,4 +1009,125 @@ OrderSummaryContainer: styled.div`
       height: auto;
     }
   `,
+  DashboardWrapper: styled.div`
+    background: linear-gradient(
+      135deg,
+      ${(props) => props.theme.colors.gradientStart},
+      ${(props) => props.theme.colors.gradientEnd}
+    );
+    min-height: 80vh;
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 30px;
+  `,
+
+  // Sidebar pour les onglets
+  DashboardSidebar: styled.div`
+    background: ${(props) => props.theme.colors.sidebarBackground || '#ffffff'};
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border: 3px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'}; /* Contour doré */
+    position: fixed;
+    top: ${(props) => props.theme.navbarHeight || '60px'};
+    left: 0;
+    height: calc(80% - ${(props) => props.theme.navbarHeight || '60px'});
+    width: 300px;
+    overflow-y: auto;
+    margin: 20px;
+  `,
+
+  // Élément de navigation dans la sidebar
+  DashboardNavItem: styled.li`
+    margin-bottom: 10px;
+    list-style: none;
+  `,
+
+  // Liens de navigation dans la sidebar
+  DashboardNavLink: styled(NavLink)`
+    display: flex;
+    align-items: center;
+    padding: 25px 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: ${(props) =>
+      props.className?.includes('active')
+        ? props.theme.colors.activeLinkText || '#ffffff'
+        : props.theme.colors.linkText || '#333'} !important;
+    background-color: ${(props) =>
+      props.className?.includes('active')
+        ? props.theme.colors.activeLinkBackground || '#d4af37'
+        : 'transparent'} !important;
+    border-radius: 15px;
+    text-decoration: none !important;
+    transition: background-color 0.4s ease, color 0.4s ease, transform 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid
+      ${(props) =>
+        props.className?.includes('active')
+          ? props.theme.colors.goldAccent || '#d4af37'
+          : 'transparent'};
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.navItemHoverBackground || '#f5f5f5'} !important;
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      border: 2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+    }
+
+    i {
+      margin-right: 20px;
+    }
+  `,
+
+  // Contenu principal du tableau de bord
+  DashboardContent: styled.div`
+    padding: 60px;
+    margin-left: 350px; /* Pour laisser de la place à la sidebar */
+    background: ${(props) => props.theme.colors.contentBackground || '#ffffff'};
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border: 3px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'}; /* Contour doré */
+  `,
+
+  // Conteneur pour les onglets
+  DashboardTabPane: styled.div`
+    padding: 50px;
+    background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border: 2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'}; /* Contour doré */
+  `,
+
+  // Carte principale
+  DashboardCard: styled.div`
+    background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+    border: 2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'}; /* Contour doré */
+  `,
+
+  // En-tête de la carte
+  DashboardCardHeader: styled.div`
+    padding: 40px;
+    background: ${(props) => props.theme.colors.cardHeaderBackground || '#d4af37'};
+    color: ${(props) => props.theme.colors.cardHeaderText || '#ffffff'};
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid ${(props) => props.theme.colors.goldAccent || '#b8860b'}; /* Liseré doré */
+  `,
+
+  // Corps de la carte
+  DashboardCardBody: styled.div`
+    padding: 40px;
+    color: ${(props) => props.theme.colors.cardBodyText || '#333'};
+    font-size: 1.1rem;
+    line-height: 1.8;
+  `,
 }

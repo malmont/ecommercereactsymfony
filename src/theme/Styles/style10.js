@@ -1057,5 +1057,115 @@ span {
   color: ${(props) => props.theme.colors.text || "#444"};
 }
 `,
+DashboardWrapper: styled.div`
+    background: ${(props) => props.theme.colors.dashboardBackground || '#ecf0f1'};
+    min-height: 80vh;
+    padding: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid ${(props) => props.theme.colors.primary || '#3498db'};
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  `,
+
+  // Sidebar pour les onglets
+  DashboardSidebar: styled.div`
+    background: ${(props) => props.theme.colors.sidebarBackground || '#ffffff'};
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: ${(props) => props.theme.navbarHeight || '80px'};
+    left: 0;
+    height: calc(100% - ${(props) => props.theme.navbarHeight || '80px'});
+    width: 320px;
+    overflow-y: auto;
+    border-right: 3px solid ${(props) => props.theme.colors.primary || '#3498db'};
+  `,
+
+  // Élément de navigation dans la sidebar
+  DashboardNavItem: styled.li`
+    margin-bottom: 35px;
+    list-style: none;
+  `,
+
+  // Liens de navigation dans la sidebar
+  DashboardNavLink: styled(NavLink)`
+    display: flex;
+    align-items: center;
+    padding: 25px 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: ${(props) =>
+      props.className?.includes('active')
+        ? props.theme.colors.activeLinkText || '#ffffff'
+        : props.theme.colors.linkText || '#34495e'} !important;
+    background-color: ${(props) =>
+      props.className?.includes('active')
+        ? props.theme.colors.activeLinkBackground || '#3498db'
+        : 'transparent'} !important;
+    border-radius: 50px;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.navItemHoverBackground || '#ecf0f1'} !important;
+      color: ${(props) => props.theme.colors.navItemHover || '#2c3e50'} !important;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    i {
+      margin-right: 20px;
+    }
+  `,
+
+  // Contenu principal du tableau de bord
+  DashboardContent: styled.div`
+    padding: 60px;
+    margin-left: 360px; /* Pour laisser de la place à la sidebar */
+    background: ${(props) => props.theme.colors.contentBackground || '#ffffff'};
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  `,
+
+  // Conteneur pour les onglets
+  DashboardTabPane: styled.div`
+    padding: 50px;
+    background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  `,
+
+  // Carte principale
+  DashboardCard: styled.div`
+    background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+    border: 2px solid ${(props) => props.theme.colors.primary || '#3498db'};
+  `,
+
+  // En-tête de la carte
+  DashboardCardHeader: styled.div`
+    padding: 45px;
+    background: ${(props) => props.theme.colors.cardHeaderBackground || '#3498db'};
+    color: ${(props) => props.theme.colors.cardHeaderText || '#ffffff'};
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  `,
+
+  // Corps de la carte
+  DashboardCardBody: styled.div`
+    padding: 45px;
+    color: ${(props) => props.theme.colors.cardBodyText || '#2c3e50'};
+    font-size: 1.1rem;
+    line-height: 1.8;
+  `,
 }
 

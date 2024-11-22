@@ -71,6 +71,8 @@ const AdminComponentSettings = () => {
     totalCardComponent,
     checkoutCardComponent,
     setCheckoutCardComponent,
+    accountDashboardComponent,
+    setAccountDashboardComponent,
   } = useAdminContext();
 
   // Configuration centralisée des sections
@@ -178,6 +180,7 @@ const AdminComponentSettings = () => {
       cartItemCardComponent,
       totalCardComponent,
       checkoutCardComponent,
+      accountDashboardComponent,
     };
 
     try {
@@ -194,6 +197,8 @@ const AdminComponentSettings = () => {
   const isDetailsProductCardComponent = location.pathname === "/DetailsProducts";
   const isCartItemCardComponent = location.pathname === "/cart";
   const isCheckoutPage = location.pathname === "/CheckoutPage";
+  const isAccountDashboardComponent = location.pathname === "/dashboard";
+
   return (
     <Wrapper>
       <h5>Paramètres composants</h5>
@@ -261,6 +266,16 @@ const AdminComponentSettings = () => {
           options={ComponentTypeCategoryCard}
         />
       )}
+
+      {isAccountDashboardComponent && (
+        <SettingCard
+          label="Choix du Dashboard"
+          value={accountDashboardComponent}
+          onChange={(event) => setAccountDashboardComponent(event.target.value)}
+          options={ComponentTypeCategoryCard}
+        />
+      )}
+
 
 
       {/* Paramètres des sections */}

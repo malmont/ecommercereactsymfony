@@ -863,18 +863,6 @@ img {
 }
 `,
 
-OrderSummaryTitle: styled.h3`
-font-size: 1.8rem;
-font-weight: bold;
-color: ${(props) => props.theme.colors.titleText || '#333'};
-margin: 20px 0;
-text-align: center;
-text-transform: uppercase;
-letter-spacing: 1.5px;
-border-bottom: 2px solid ${(props) => props.theme.colors.border || '#ccc'};
-padding-bottom: 10px;
-`,
-
 AddressContainer: styled.div`
 display: flex;
 gap: 15px;
@@ -952,5 +940,94 @@ img {
   margin-bottom: 10px;
 }
 `,
+DashboardWrapper: styled.div`
+background: ${(props) => props.theme.colors.contentBackground || '#1a1a1a'};
+min-height: 70vh;
+padding: 40px;
+`,
 
+// Sidebar pour les onglets
+DashboardSidebar: styled.div`
+background: ${(props) => props.theme.colors.sidebarBackground || '#333'};
+padding: 30px;
+border-radius: 15px;
+color: ${(props) => props.theme.colors.sidebarText || '#f0f0f0'};
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+`,
+
+// Élément de navigation dans la sidebar
+DashboardNavItem: styled.li`
+margin-bottom: 25px;
+list-style: none;
+`,
+
+// Liens de navigation dans la sidebar
+DashboardNavLink: styled(NavLink)`
+display: flex;
+align-items: center;
+padding: 18px 25px;
+font-size: 18px;
+font-weight: 600;
+color: ${(props) =>
+  props.className?.includes('active')
+    ? props.theme.colors.activeLinkText || '#ffffff'
+    : props.theme.colors.linkText || '#bfbfbf'} !important;
+background: ${(props) =>
+  props.className?.includes('active')
+    ? props.theme.colors.activeLinkBackground || '#007BFF'
+    : 'transparent'} !important;
+border-radius: 10px;
+text-decoration: none !important;
+transition: background 0.3s ease, color 0.3s ease;
+
+&:hover {
+  background: ${(props) => props.theme.colors.linkHoverBackground || '#444'} !important;
+  color: ${(props) => props.theme.colors.linkHoverText || '#ffffff'} !important;
+}
+
+i {
+  margin-right: 15px;
+}
+`,
+
+// Contenu principal du tableau de bord
+DashboardContent: styled.div`
+padding: 30px;
+background: ${(props) => props.theme.colors.contentBackground || '#1a1a1a'};
+border-radius: 15px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+margin-left: 40px;
+color: ${(props) => props.theme.colors.textColor || '#f0f0f0'};
+`,
+
+// Conteneur pour les onglets
+DashboardTabPane: styled.div`
+padding: 30px;
+background: ${(props) => props.theme.colors.cardBackground || '#262626'};
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+border-radius: 15px;
+`,
+
+// Carte principale
+DashboardCard: styled.div`
+background: ${(props) => props.theme.colors.cardBackground || '#262626'};
+border-radius: 15px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+color: ${(props) => props.theme.colors.cardText || '#f0f0f0'};
+`,
+
+// En-tête de la carte
+DashboardCardHeader: styled.div`
+padding: 25px;
+border-bottom: 1px solid ${(props) => props.theme.colors.border || '#404040'};
+background: ${(props) => props.theme.colors.cardHeaderBackground || '#007BFF'};
+color: ${(props) => props.theme.colors.cardHeaderText || '#ffffff'};
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+`,
+
+// Corps de la carte
+DashboardCardBody: styled.div`
+padding: 25px;
+`,
 }
