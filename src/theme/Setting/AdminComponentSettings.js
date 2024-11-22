@@ -69,6 +69,8 @@ const AdminComponentSettings = () => {
     cartItemCardComponent,
     setTotalCardComponent,
     totalCardComponent,
+    checkoutCardComponent,
+    setCheckoutCardComponent,
   } = useAdminContext();
 
   // Configuration centralisée des sections
@@ -175,6 +177,7 @@ const AdminComponentSettings = () => {
       detailsProductCardComponent,
       cartItemCardComponent,
       totalCardComponent,
+      checkoutCardComponent,
     };
 
     try {
@@ -246,6 +249,15 @@ const AdminComponentSettings = () => {
           label="Choix TotalCard"
           value={totalCardComponent}
           onChange={(event) => setTotalCardComponent(event.target.value)}
+          options={ComponentTypeCategoryCard}
+        />
+      )}
+
+      {(isCartItemCardComponent || isCheckoutPage) && (
+        <SettingCard
+          label="Choix CheckoutCard"
+          value={checkoutCardComponent}
+          onChange={(event) => setCheckoutCardComponent(event.target.value)}
           options={ComponentTypeCategoryCard}
         />
       )}

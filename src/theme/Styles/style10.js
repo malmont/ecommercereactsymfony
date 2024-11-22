@@ -829,7 +829,7 @@ CartItemContainer: styled.div`
 
 OrderSummaryContainer: styled.div`
 width: 100%;
-max-width: 450px;
+max-width: 550px;
 margin: 2rem auto;
 padding: 2rem;
 background: ${(props) => props.theme.colors.summaryBackground || '#ffffff'};
@@ -924,6 +924,137 @@ transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   background: ${(props) =>
     props.theme.colors.disabledBackground || '#bdc3c7'};
   cursor: not-allowed;
+}
+`,
+
+CarrierContainer: styled.div`
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+gap: 15px;
+padding: 20px;
+background: ${(props) => props.theme.colors.lightBackground || "#f7faff"};
+border-radius: 15px;
+box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+`,
+
+CarrierCard: styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 15px;
+background: ${(props) =>
+  props.isSelected
+    ? props.theme.colors.highlightBackground || "#eaf5ff"
+    : props.theme.colors.cardBackground || "#ffffff"};
+border: ${(props) =>
+  props.isSelected
+    ? `3px solid ${props.theme.colors.highlightBorder || "#3498db"}`
+    : `1px solid ${props.theme.colors.cardBorder || "#ccc"}`};
+border-radius: 20px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+cursor: pointer;
+transition: all 0.4s ease;
+
+&:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+span {
+  font-size: 0.9rem;
+  color: ${(props) => props.theme.colors.text || "#444"};
+}
+`,
+
+AddressContainer: styled.div`
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 15px;
+padding: 20px;
+background: ${(props) => props.theme.colors.lightBackground || "#fefefe"};
+border-radius: 15px;
+box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+`,
+
+AddressCard: styled.div`
+padding: 15px;
+background: ${(props) =>
+  props.isSelected
+    ? props.theme.colors.highlightBackground || "#eaf5ff"
+    : props.theme.colors.cardBackground || "#ffffff"};
+border: ${(props) =>
+  props.isSelected
+    ? `2px solid ${props.theme.colors.highlightBorder || "#3498db"}`
+    : `1px solid ${props.theme.colors.cardBorder || "#ccc"}`};
+border-radius: 15px;
+box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+cursor: pointer;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+&:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+p {
+  font-size: 0.95rem;
+  color: ${(props) => props.theme.colors.text || "#333"};
+  line-height: 1.4;
+}
+`,
+
+PaymentMethodContainer: styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+padding: 20px;
+background: ${(props) => props.theme.colors.lightBackground || "#f7f7f7"};
+border-radius: 15px;
+box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+`,
+
+PaymentMethodCard: styled.div`
+width: 100px;
+height: 100px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background: ${(props) =>
+  props.isSelected
+    ? props.theme.colors.highlightBackground || "#eaf5ff"
+    : props.theme.colors.cardBackground || "#ffffff"};
+border: ${(props) =>
+  props.isSelected
+    ? `3px solid ${props.theme.colors.highlightBorder || "#3498db"}`
+    : `1px solid ${props.theme.colors.cardBorder || "#ccc"}`};
+border-radius: 15px;
+box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+cursor: pointer;
+transition: all 0.4s ease;
+
+&:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+img {
+  width: 60px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+span {
+  font-size: 0.85rem;
+  color: ${(props) => props.theme.colors.text || "#444"};
 }
 `,
 }

@@ -818,5 +818,139 @@ CheckoutButton: styled.button`
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre accentuée au survol */
   }
 `,
+CarrierContainer: styled.div`
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+justify-content: center;
+padding: 20px;
+background: ${(props) => props.theme.colors.containerBackground || '#f9f9f9'};
+border-radius: 15px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+&:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+`,
+
+CarrierCard: styled.div`
+padding: 15px;
+border: ${(props) =>
+  props.isSelected
+    ? `2px solid ${props.theme.colors.selectedBorder || '#007BFF'}`
+    : `1px solid ${props.theme.colors.border || '#ccc'}`};
+border-radius: 12px;
+background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+box-shadow: ${(props) =>
+  props.isSelected
+    ? '0 4px 12px rgba(0, 123, 255, 0.2)'
+    : '0 2px 6px rgba(0, 0, 0, 0.1)'};
+cursor: pointer;
+text-align: center;
+transition: all 0.3s ease;
+
+&:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+img {
+  max-width: 80px;
+  max-height: 50px;
+  margin-bottom: 10px;
+}
+`,
+
+OrderSummaryTitle: styled.h3`
+font-size: 1.8rem;
+font-weight: bold;
+color: ${(props) => props.theme.colors.titleText || '#333'};
+margin: 20px 0;
+text-align: center;
+text-transform: uppercase;
+letter-spacing: 1.5px;
+border-bottom: 2px solid ${(props) => props.theme.colors.border || '#ccc'};
+padding-bottom: 10px;
+`,
+
+AddressContainer: styled.div`
+display: flex;
+gap: 15px;
+flex-wrap: wrap;
+justify-content: center;
+padding: 20px;
+background: ${(props) => props.theme.colors.containerBackground || '#ffffff'};
+border-radius: 10px;
+box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+`,
+
+AddressCard: styled.div`
+padding: 15px;
+border: ${(props) =>
+  props.isSelected
+    ? `2px solid ${props.theme.colors.selectedBorder || '#007BFF'}`
+    : `1px solid ${props.theme.colors.border || '#ccc'}`};
+border-radius: 8px;
+background-color: ${(props) => props.theme.colors.cardBackground || '#f9f9f9'};
+box-shadow: ${(props) =>
+  props.isSelected
+    ? '0 4px 12px rgba(0, 123, 255, 0.2)'
+    : '0 2px 6px rgba(0, 0, 0, 0.1)'};
+text-align: left;
+cursor: pointer;
+transition: all 0.3s ease;
+
+&:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: ${(props) => props.theme.colors.textColor || '#333'};
+}
+`,
+
+PaymentMethodContainer: styled.div`
+display: flex;
+gap: 15px;
+flex-wrap: wrap;
+justify-content: center;
+padding: 20px;
+background: ${(props) => props.theme.colors.containerBackground || '#ffffff'};
+border-radius: 15px;
+box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+`,
+
+PaymentMethodCard: styled.div`
+padding: 15px;
+border: ${(props) =>
+  props.isSelected
+    ? `2px solid ${props.theme.colors.selectedBorder || '#007BFF'}`
+    : `1px solid ${props.theme.colors.border || '#ccc'}`};
+border-radius: 12px;
+background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+box-shadow: ${(props) =>
+  props.isSelected
+    ? '0 4px 12px rgba(0, 123, 255, 0.2)'
+    : '0 2px 6px rgba(0, 0, 0, 0.1)'};
+text-align: center;
+cursor: pointer;
+transition: all 0.3s ease;
+
+&:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+img {
+  max-width: 60px;
+  max-height: 40px;
+  margin-bottom: 10px;
+}
+`,
 
 }

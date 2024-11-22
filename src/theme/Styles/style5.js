@@ -849,5 +849,146 @@ CheckoutButton: styled.button`
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
 `,
+CarrierContainer: styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 25px;
+  background: ${(props) =>
+    `linear-gradient(135deg, ${props.theme.colors.containerBackground || '#ffffff'}, ${props.theme.colors.secondaryBackground || '#f8f8f8'})`};
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+`,
+
+CarrierCard: styled.div`
+  padding: 15px;
+  border: ${(props) =>
+    props.isSelected
+      ? `3px dashed ${props.theme.colors.selectedBorder || '#007BFF'}`
+      : `2px solid ${props.theme.colors.border || '#ccc'}`};
+  border-radius: 6px;
+  background: ${(props) => props.theme.colors.cardBackground || '#f9f9f9'};
+  box-shadow: ${(props) =>
+    props.isSelected
+      ? '0 6px 15px rgba(0, 123, 255, 0.2)'
+      : '0 2px 8px rgba(0, 0, 0, 0.1)'};
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: ${(props) => props.theme.colors.hoverCardBackground || '#f1f1f1'};
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    max-width: 100px;
+    max-height: 60px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+`,
+
+// OrderSummaryTitle: styled.h2`
+//   font-size: 2rem;
+//   font-weight: 800;
+//   text-transform: uppercase;
+//   color: ${(props) => props.theme.colors.titleText || '#222'};
+//   text-align: center;
+//   margin-bottom: 15px;
+//   border-bottom: 3px solid ${(props) => props.theme.colors.primary || '#007BFF'};
+//   padding-bottom: 10px;
+//   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+// `,
+
+AddressContainer: styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  background: ${(props) => props.theme.colors.containerBackground || '#fefefe'};
+  border-radius: 12px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+  gap: 15px;
+`,
+
+AddressCard: styled.div`
+  padding: 20px;
+  border: ${(props) =>
+    props.isSelected
+      ? `3px solid ${props.theme.colors.primary || '#007BFF'}`
+      : `2px solid ${props.theme.colors.border || '#ddd'}`};
+  border-radius: 8px;
+  background: ${(props) =>
+    props.isSelected
+      ? props.theme.colors.selectedBackground || '#f0f8ff'
+      : props.theme.colors.cardBackground || '#ffffff'};
+  box-shadow: ${(props) =>
+    props.isSelected
+      ? '0 6px 10px rgba(0, 123, 255, 0.15)'
+      : '0 2px 6px rgba(0, 0, 0, 0.08)'};
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  p {
+    margin: 5px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: ${(props) => props.theme.colors.textColor || '#444'};
+  }
+`,
+
+PaymentMethodContainer: styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 25px;
+  background: ${(props) =>
+    `linear-gradient(135deg, ${props.theme.colors.containerBackground || '#ffffff'}, ${props.theme.colors.secondaryBackground || '#f9f9f9'})`};
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+`,
+
+PaymentMethodCard: styled.div`
+  padding: 15px;
+  border: ${(props) =>
+    props.isSelected
+      ? `3px dashed ${props.theme.colors.selectedBorder || '#007BFF'}`
+      : `1px solid ${props.theme.colors.border || '#ccc'}`};
+  border-radius: 10px;
+  background: ${(props) => props.theme.colors.cardBackground || '#f9f9f9'};
+  box-shadow: ${(props) =>
+    props.isSelected
+      ? '0 6px 12px rgba(0, 123, 255, 0.15)'
+      : '0 2px 6px rgba(0, 0, 0, 0.1)'};
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    background: ${(props) => props.theme.colors.hoverBackground || '#f1f1f1'};
+  }
+
+  img {
+    max-width: 80px;
+    max-height: 40px;
+    margin-bottom: 10px;
+  }
+`,
 
 }

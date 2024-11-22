@@ -833,7 +833,7 @@ CartItemContainer: styled.div`
 `,
 OrderSummaryContainer: styled.div`
 width: 100%;
-max-width: 400px;
+max-width: 700px;
 margin: 2rem auto;
 padding: 1.5rem;
 background: linear-gradient(
@@ -927,4 +927,138 @@ transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   );
 }
 `,
+CarrierContainer: styled.div`
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(
+      135deg,
+      ${(props) => props.theme.colors.gradientStart},
+      ${(props) => props.theme.colors.gradientEnd}
+    );
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  `,
+
+  CarrierCard: styled.div`
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: ${(props) => props.theme.colors.cardBackground};
+  border: ${(props) =>
+    props.isSelected
+      ? `3px solid ${props.theme.colors.selectedBorder || props.theme.colors.primary}`
+      : `2px solid ${props.theme.colors.cardBorder}`};
+  border-radius: 15px;
+  box-shadow: ${(props) =>
+    props.isSelected
+      ? '0 10px 25px rgba(0, 0, 255, 0.3)'
+      : '0 8px 20px rgba(0, 0, 0, 0.15)'};
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: ${(props) => props.theme.colors.hoverCardBackground};
+  }
+`,
+
+
+  AddressContainer: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: ${(props) => props.theme.colors.containerBackground};
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  `,
+
+  AddressCard: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: ${(props) => props.theme.colors.cardBackground};
+  border: ${(props) =>
+    props.isSelected
+      ? `3px solid ${props.theme.colors.selectedBorder || props.theme.colors.primary}`
+      : `2px solid ${props.theme.colors.cardBorder}`};
+  border-radius: 15px;
+  box-shadow: ${(props) =>
+    props.isSelected
+      ? '0 10px 25px rgba(0, 0, 255, 0.3)'
+      : '0 8px 20px rgba(0, 0, 0, 0.15)'};
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: ${(props) => props.theme.colors.hoverCardBackground};
+  }
+`,
+
+
+  PaymentMethodContainer: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: ${(props) => props.theme.colors.containerBackground};
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  `,
+
+  PaymentMethodCard: styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: ${(props) => props.theme.colors.cardBackground};
+  border: ${(props) =>
+    props.isSelected
+      ? `3px solid ${props.theme.colors.selectedBorder || props.theme.colors.primary}`
+      : `2px solid ${props.theme.colors.cardBorder}`};
+  border-radius: 15px;
+  box-shadow: ${(props) =>
+    props.isSelected
+      ? '0 10px 25px rgba(0, 0, 255, 0.3)'
+      : '0 8px 20px rgba(0, 0, 0, 0.15)'};
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: ${(props) => props.theme.colors.hoverCardBackground};
+  }
+`,
+
+  OrderSummaryTitle: styled.h2`
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: ${(props) => props.theme.colors.logoText};
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  `,
+
 }

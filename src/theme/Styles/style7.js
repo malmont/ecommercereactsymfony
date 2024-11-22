@@ -889,7 +889,7 @@ ContainerDetailsProduct: styled.div`
   `,
   OrderSummaryContainer: styled.div`
   width: 100%;
-  max-width: 400px;
+  max-width: 830px;
   margin: 2rem auto;
   padding: 1.5rem;
   background: ${(props) => props.theme.colors.cardBackground || '#f7f7f7'};
@@ -975,4 +975,125 @@ CheckoutButton: styled.button`
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
   }
 `,
+CarrierContainer: styled.div`
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+  padding: 1.5rem;
+  background: ${(props) =>
+    `linear-gradient(135deg, ${props.theme.colors.gradientStart}, ${props.theme.colors.gradientEnd})`};
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+`,
+CarrierCard: styled.div`
+  flex: 1;
+  max-width: 300px;
+  padding: 1rem;
+  background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+  border: ${(props) =>
+    props.isSelected
+      ? `3px solid ${props.theme.colors.selectedBorder || props.theme.colors.primary}`
+      : `2px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+  border-radius: 10px;
+  box-shadow: ${(props) =>
+    props.isSelected
+      ? '0 6px 15px rgba(0, 123, 255, 0.2)'
+      : '0 4px 10px rgba(0, 0, 0, 0.1)'};
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: ${(props) => props.theme.colors.hoverCardBackground || '#f9f9f9'};
+  }
+`,
+AddressContainer: styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 2rem;
+  background: ${(props) => props.theme.colors.containerBackground || '#ffffff'};
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+`,
+AddressCard: styled.div`
+  width: 100%;
+  max-width: 280px;
+  padding: 1.5rem;
+  background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+  border: ${(props) =>
+    props.isSelected
+      ? `3px solid ${props.theme.colors.selectedBorder || '#007BFF'}`
+      : `2px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+  border-radius: 10px;
+  box-shadow: ${(props) =>
+    props.isSelected
+      ? '0 8px 20px rgba(0, 0, 0, 0.2)'
+      : '0 4px 10px rgba(0, 0, 0, 0.1)'};
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+`,
+PaymentMethodContainer: styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 2rem;
+  background: ${(props) =>
+    `linear-gradient(145deg, ${props.theme.colors.gradientStart}, ${props.theme.colors.gradientEnd})`};
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+`,
+PaymentMethodCard: styled.div`
+  flex: 1;
+  max-width: 250px;
+  padding: 1rem;
+  background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+  border: ${(props) =>
+    props.isSelected
+      ? `3px dashed ${props.theme.colors.selectedBorder || '#007BFF'}`
+      : `2px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+  border-radius: 10px;
+  box-shadow: ${(props) =>
+    props.isSelected
+      ? '0 6px 15px rgba(0, 0, 0, 0.2)'
+      : '0 4px 10px rgba(0, 0, 0, 0.1)'};
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    background: ${(props) => props.theme.colors.hoverCardBackground || '#f9f9f9'};
+  }
+`,
+OrderSummaryTitle: styled.h2`
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: ${(props) => props.theme.colors.titleText || '#333'};
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+`,
+
+
 }

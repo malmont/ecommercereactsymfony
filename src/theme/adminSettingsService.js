@@ -17,7 +17,7 @@ export const saveAdminSettings = async (settings) => {
       styleChoice,
       themeChoice,
       section1Component,
-      typeComponentSection1, 
+      typeComponentSection1,
       selectTypeProductFetch,
       typeComponentSection2,
       section2Component,
@@ -40,9 +40,10 @@ export const saveAdminSettings = async (settings) => {
       typeCategoryCard,
       detailsProductCardComponent,
       cartItemCardComponent,
-      totalCardComponent
+      totalCardComponent,
+      checkoutCardComponent,
 
-     } = settings;
+    } = settings;
     const response = await fetch(`${API_BASE_URL}admin-settings`, {
       method: 'PUT',
       headers: {
@@ -76,7 +77,8 @@ export const saveAdminSettings = async (settings) => {
         typeCategoryCard,
         detailsProductCardComponent,
         cartItemCardComponent,
-        totalCardComponent
+        totalCardComponent,
+        checkoutCardComponent,
       }),
     });
 
