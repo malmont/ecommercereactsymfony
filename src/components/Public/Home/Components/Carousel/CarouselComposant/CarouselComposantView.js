@@ -58,7 +58,7 @@ const getResponsiveConfig = (typeComponentSection) => {
           superLargeDesktop: { breakpoint: { max: 4000, min: 1640 }, items: 6 },
           desktop: { breakpoint: { max: 1640, min: 1024 }, items: 5 },
           tablet: { breakpoint: { max: 1024, min: 657 }, items: 4 },
-          mobile: { breakpoint: { max: 657, min: 0 }, items: 2 },
+          mobile: { breakpoint: { max: 657, min: 0 }, items: 1 },
         };
         case "typeE":
         return {
@@ -111,7 +111,7 @@ const Wrapper = styled.div`
   margin-right: auto;
 
   @media (max-width: 655px) {
-    width: 70%;
+    width: 90%;
   }
 `;
 
