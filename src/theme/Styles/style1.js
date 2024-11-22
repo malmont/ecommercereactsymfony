@@ -702,5 +702,90 @@ PaymentMethodCard: styled.div`
     border: 2px solid ${(props) => props.theme.colors.highlight || '#007bff'};
   }
 `,
+DashboardWrapper: styled.div`
+background-color: ${(props) => props.theme.colors.contentBackground || '#f4f4f4'};
+min-height: 66vh;
+padding: 20px;
+margin-top: 90px;
+`,
+
+// Sidebar contenant les liens
+DashboardSidebar: styled.div`
+background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+padding: 20px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+`,
+
+// Élément de navigation dans la sidebar
+DashboardNavItem: styled.li`
+margin-bottom: 15px;
+`,
+
+// Liens de navigation
+DashboardNavLink: styled(NavLink)`
+display: flex;
+align-items: center;
+padding: 12px 15px;
+font-size: 16px;
+font-weight: 500;
+color: ${(props) =>
+  props.className?.includes('active')
+    ? props.theme.colors.buttonText || '#ffffff'
+    : props.theme.colors.textColor || '#333'} !important;
+background-color: ${(props) =>
+  props.className?.includes('active')
+    ? props.theme.colors.navItemActive || '#212529'
+    : props.theme.colors.navItemHoverBackground || '#f8f9fa'} !important;
+border-radius: 5px;
+text-decoration: none !important;
+border: 1px solid ${(props) => props.theme.colors.border || '#ddd'} !important;
+transition: background-color 0.3s ease, border-color 0.3s ease;
+
+&:hover {
+  background-color: ${(props) => props.theme.colors.navItemHover || '#212529'} !important;
+  color: ${(props) => props.theme.colors.buttonText || '#ffffff'} !important;
+  border-color: ${(props) => props.theme.colors.navItemHover || '#212529'} !important;
+}
+
+i {
+  margin-right: 10px;
+}
+`,
+
+// Contenu principal du tableau de bord
+DashboardContent: styled.div`
+padding: 20px;
+`,
+
+// Conteneur pour les onglets
+DashboardTabPane: styled.div`
+padding: 20px;
+background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+`,
+
+// Carte principale
+DashboardCard: styled.div`
+background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+`,
+
+// En-tête de la carte
+DashboardCardHeader: styled.div`
+padding: 20px;
+border-bottom: 1px solid ${(props) => props.theme.colors.border || '#f1f1f1'};
+background-color: ${(props) => props.theme.colors.navItemActive || '#212529'};
+color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+border-top-left-radius: 8px;
+border-top-right-radius: 8px;
+`,
+
+// Corps de la carte
+DashboardCardBody: styled.div`
+padding: 20px;
+`,
   }
 

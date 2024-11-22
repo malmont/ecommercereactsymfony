@@ -40,6 +40,7 @@ export const AdminProvider = ({ children }) => {
   const [cartItemCardComponent, setCartItemCardComponent] = useState('typeA');
   const [totalCardComponent, setTotalCardComponent] = useState('typeA');
   const [checkoutCardComponent, setCheckoutCardComponent] = useState('typeA');
+  const [accountDashboardComponent, setAccountDashboardComponent] = useState('typeA');
 
   const fetchAdminSettings = async () => {
     try {
@@ -76,6 +77,7 @@ export const AdminProvider = ({ children }) => {
         setCartItemCardComponent(settings.cartItemCardComponent || 'typeA');
         setTotalCardComponent(settings.totalCardComponent || 'typeA');
         setCheckoutCardComponent(settings.checkoutCardComponent || 'typeA');
+        setAccountDashboardComponent(settings.accountDashboardComponent || 'typeA');
 
       }
     } catch (error) {
@@ -166,6 +168,8 @@ export const AdminProvider = ({ children }) => {
     setTotalCardComponent,
     checkoutCardComponent,
     setCheckoutCardComponent,
+    accountDashboardComponent,
+    setAccountDashboardComponent,
   };
 
   return (

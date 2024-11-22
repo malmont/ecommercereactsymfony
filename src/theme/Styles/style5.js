@@ -990,5 +990,99 @@ PaymentMethodCard: styled.div`
     margin-bottom: 10px;
   }
 `,
+DashboardWrapper: styled.div`
+    background: ${(props) => props.theme.colors.contentBackground || '#fafafa'};
+    min-height: 80vh;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `,
 
+  // Sidebar pour les onglets
+  DashboardSidebar: styled.div`
+    background: ${(props) => props.theme.colors.sidebarBackground || '#ffffff'};
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: ${(props) => props.theme.navbarHeight || '90px'};
+    left: 0;
+    height: calc(100% - ${(props) => props.theme.navbarHeight || '90px'});
+    width: 250px;
+    overflow-y: auto;
+  `,
+
+  // Élément de navigation dans la sidebar
+  DashboardNavItem: styled.li`
+    margin-bottom: 30px;
+    list-style: none;
+  `,
+
+  // Liens de navigation dans la sidebar
+  DashboardNavLink: styled(NavLink)`
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color: ${(props) =>
+      props.className?.includes('active')
+        ? props.theme.colors.activeLinkText || '#ffffff'
+        : props.theme.colors.linkText || '#333'} !important;
+    background-color: ${(props) =>
+      props.className?.includes('active')
+        ? props.theme.colors.activeLinkBackground || '#007BFF'
+        : 'transparent'} !important;
+    border-radius: 10px;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.linkHoverBackground || '#f0f0f0'} !important;
+      color: ${(props) => props.theme.colors.linkHoverText || '#007BFF'} !important;
+    }
+
+    i {
+      margin-right: 15px;
+    }
+  `,
+
+  // Contenu principal du tableau de bord
+  DashboardContent: styled.div`
+    padding: 40px;
+    margin-left: 300px; /* Pour laisser de la place à la sidebar */
+    background: ${(props) => props.theme.colors.contentBackground || '#fafafa'};
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  `,
+
+  // Conteneur pour les onglets
+  DashboardTabPane: styled.div`
+    padding: 30px;
+    background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  `,
+
+  // Carte principale
+  DashboardCard: styled.div`
+    background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  `,
+
+  // En-tête de la carte
+  DashboardCardHeader: styled.div`
+    padding: 30px;
+    background: ${(props) => props.theme.colors.cardHeaderBackground || '#007BFF'};
+    color: ${(props) => props.theme.colors.cardHeaderText || '#ffffff'};
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  `,
+
+  // Corps de la carte
+  DashboardCardBody: styled.div`
+    padding: 30px;
+  `,
 }

@@ -1052,13 +1052,120 @@ CarrierContainer: styled.div`
   }
 `,
 
-  OrderSummaryTitle: styled.h2`
-    font-size: 1.75rem;
-    font-weight: bold;
-    color: ${(props) => props.theme.colors.logoText};
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-  `,
+DashboardWrapper: styled.div`
+background: linear-gradient(135deg, ${(props) => props.theme.colors.gradientStart}, ${(props) => props.theme.colors.gradientEnd});
+min-height: 80vh;
+padding: 60px;
+display: flex;
+flex-direction: column;
+align-items: center;
+animation: ${gradientAnimation} 15s ease infinite;
+`,
+
+// Sidebar pour les onglets
+DashboardSidebar: styled.div`
+background: ${(props) => props.theme.colors.sidebarBackground || '#ffffff'};
+padding: 40px;
+border-radius: 25px;
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+position: fixed;
+top: ${(props) => props.theme.navbarHeight || '110px'};
+left: 0;
+height: calc(100% - ${(props) => props.theme.navbarHeight || '110px'});
+width: 280px;
+overflow-y: auto;
+animation: ${gradientAnimation} 15s ease infinite;
+`,
+
+// Élément de navigation dans la sidebar
+DashboardNavItem: styled.li`
+margin-bottom: 35px;
+list-style: none;
+`,
+
+// Liens de navigation dans la sidebar
+DashboardNavLink: styled(NavLink)`
+display: flex;
+align-items: center;
+padding: 22px 28px;
+font-size: 22px;
+font-weight: bold;
+color: ${(props) =>
+  props.className?.includes('active')
+    ? props.theme.colors.activeLinkText || '#ffffff'
+    : props.theme.colors.linkText || '#333'} !important;
+background-color: ${(props) =>
+  props.className?.includes('active')
+    ? props.theme.colors.activeLinkBackground || '#007BFF'
+    : 'transparent'} !important;
+border-radius: 12px;
+text-decoration: none !important;
+transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
+position: relative;
+overflow: hidden;
+
+&::before {
+  content: '';
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.5s ease;
+}
+
+&:hover::before {
+  left: 0;
+}
+
+&:hover {
+  transform: translateX(10px);
+}
+
+i {
+  margin-right: 18px;
+}
+`,
+
+// Contenu principal du tableau de bord
+DashboardContent: styled.div`
+padding: 50px;
+margin-left: 320px; /* Pour laisser de la place à la sidebar */
+background: ${(props) => props.theme.colors.contentBackground || '#f0f0f0'};
+border-radius: 25px;
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+animation: ${gradientAnimation} 15s ease infinite;
+`,
+
+// Conteneur pour les onglets
+DashboardTabPane: styled.div`
+padding: 40px;
+background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+border-radius: 20px;
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+`,
+
+// Carte principale
+DashboardCard: styled.div`
+background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+border-radius: 20px;
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+`,
+
+// En-tête de la carte
+DashboardCardHeader: styled.div`
+padding: 35px;
+background: ${(props) => props.theme.colors.cardHeaderBackground || '#007BFF'};
+color: ${(props) => props.theme.colors.cardHeaderText || '#ffffff'};
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;
+text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+`,
+
+// Corps de la carte
+DashboardCardBody: styled.div`
+padding: 35px;
+`,
 
 }

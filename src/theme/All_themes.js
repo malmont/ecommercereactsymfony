@@ -67,6 +67,11 @@ export const themes = {
       sizeCircleBackground : '#dee2e6',
       sizeCircleText : '#000000',
       sizeCircleBorder : '#dee2e6',
+      sidebarBackground: '#f8f9fa',
+      sidebarText: '#000000',
+      linkHoverBackground: '#f8f9fa',
+      cardHeaderBackground  : '#ffffff',
+
 
       
     },
@@ -139,6 +144,10 @@ export const themes = {
       sizeCircleBackground : '#333333',
       sizeCircleText : '#ffffff',
       sizeCircleBorder : '#333333',
+      sidebarBackground: '#1e1e1e',
+      sidebarText: '#ffffff',
+      linkHoverBackground: '#1e1e1e',
+      cardHeaderBackground: '#333333',  
     },
   },
   custom: {
@@ -208,6 +217,10 @@ export const themes = {
       sizeCircleBackground : '#ff3366',
       sizeCircleText : '#fff',
       sizeCircleBorder : '#ff3366',
+      sidebarBackground: '#ff3366',
+      sidebarText: '#fff',
+      linkHoverBackground : '#ff3366',
+      cardHeaderBackground: '#ff3366',
     },
   },
   theme1: {
@@ -278,6 +291,10 @@ export const themes = {
       sizeCircleBackground : '#ffeb99',
       sizeCircleText : '#333',
       sizeCircleBorder : '#ffeb99',
+      sidebarBackground: '#ffeb99',
+      sidebarText: '#333',
+      linkHoverBackground : '#ffeb99',
+      cardHeaderBackground  : '#ffeb99',
     },
   },
   theme2: {
@@ -348,6 +365,10 @@ export const themes = {
       sizeCircleBackground : '#a5d6a7',
       sizeCircleText : '#ffffff',
       sizeCircleBorder : '#a5d6a7',
+      sidebarBackground: '#a5d6a7',
+      sidebarText: '#ffffff',
+      linkHoverBackground : '#a5d6a7',
+      cardHeaderBackground: '#a5d6a7',
     },
   },
   theme3: {
@@ -418,6 +439,10 @@ export const themes = {
       sizeCircleBackground : '#c5cae9',
       sizeCircleText : '#ffffff',
       sizeCircleBorder : '#c5cae9',
+      sidebarBackground: '#c5cae9',
+      sidebarText: '#ffffff', 
+      linkHoverBackground : '#c5cae9',  
+      cardHeaderBackground: '#c5cae9',
     },
   },
 };
