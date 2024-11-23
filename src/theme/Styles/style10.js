@@ -1167,5 +1167,107 @@ DashboardWrapper: styled.div`
     font-size: 1.1rem;
     line-height: 1.8;
   `,
+  TableWrapper: styled.div`
+  margin: 20px 0;
+  padding: 20px;
+  background: ${(props) => props.theme.colors.tableWrapperBackground || '#ecf0f1'};
+  border-radius: 15px;
+  border: 2px solid ${(props) => props.theme.colors.tableBorder || '#3498db'};
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+`,
+
+ResponsiveTable: styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  background: ${(props) => props.theme.colors.tableBackground || '#ffffff'};
+  border-radius: 10px;
+  overflow: hidden;
+
+  th,
+  td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid ${(props) => props.theme.colors.tableBorder || '#bdc3c7'};
+  }
+
+  th {
+    background: ${(props) => props.theme.colors.tableHeaderBackground || '#3498db'};
+    color: ${(props) => props.theme.colors.tableHeaderText || '#ffffff'};
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  td {
+    color: ${(props) => props.theme.colors.tableRowText || '#2c3e50'};
+    background: ${(props) => props.theme.colors.tableRowBackground || '#ecf0f1'};
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background: ${(props) => props.theme.colors.tableRowHoverBackground || '#dff9fb'};
+    }
+  }
+
+  @media (max-width: 768px) {
+    th {
+      display: none;
+    }
+
+    td {
+      display: block;
+      text-align: right;
+      position: relative;
+      padding-left: 50%;
+    }
+
+    td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 15px;
+      font-weight: bold;
+      color: ${(props) => props.theme.colors.textMuted || '#7f8c8d'};
+    }
+  }
+`,
+
+TableButton: styled.button`
+  padding: 12px 20px;
+  background: ${(props) => props.theme.colors.buttonBackground || '#e74c3c'};
+  color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background: ${(props) => props.theme.colors.buttonHover || '#c0392b'};
+    transform: translateY(-3px);
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+`,
+
+TableEmptyMessage: styled.p`
+  font-size: 1.2rem;
+  text-align: center;
+  color: ${(props) => props.theme.colors.emptyMessageText || '#2c3e50'};
+  background: ${(props) => props.theme.colors.emptyMessageBackground || '#f7f9f9'};
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#bdc3c7'};
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.4s ease-in-out;
+`,
+
 }
 

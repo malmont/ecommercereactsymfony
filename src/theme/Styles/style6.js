@@ -1167,5 +1167,120 @@ text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 DashboardCardBody: styled.div`
 padding: 35px;
 `,
+TableWrapper: styled.div`
+  overflow-x: auto;
+  margin: 20px 0;
+  padding: 20px;
+  background: linear-gradient(
+    135deg,
+    ${(props) => props.theme.colors.gradientStart},
+    ${(props) => props.theme.colors.gradientEnd}
+  );
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: ${gradientAnimation} 12s ease infinite;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+  }
+`,
+
+ResponsiveTable: styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+
+  th,
+  td {
+    padding: 15px 20px;
+    text-align: left;
+    border: 1px solid ${(props) => props.theme.colors.cardBorder};
+  }
+
+  th {
+    background: ${(props) => props.theme.colors.tableHeaderBackground};
+    color: ${(props) => props.theme.colors.tableHeaderText};
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  td {
+    background: ${(props) => props.theme.colors.cardBackground};
+    color: ${(props) => props.theme.colors.textColor};
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background: ${(props) =>
+        props.theme.colors.tableRowHoverBackground || '#f5f5f5'};
+    }
+  }
+
+  @media (max-width: 768px) {
+    th {
+      display: none;
+    }
+
+    td {
+      display: block;
+      text-align: right;
+      position: relative;
+      padding-left: 50%;
+    }
+
+    td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: ${(props) => props.theme.colors.textMuted};
+    }
+  }
+`,
+
+TableButton: styled.button`
+  padding: 12px 25px;
+  background: linear-gradient(
+    135deg,
+    ${(props) => props.theme.colors.buttonBackground},
+    ${(props) => props.theme.colors.buttonHover}
+  );
+  color: ${(props) => props.theme.colors.buttonText};
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    background: linear-gradient(
+      135deg,
+      ${(props) => props.theme.colors.buttonHover},
+      ${(props) => props.theme.colors.buttonBackground}
+    );
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`,
+
+TableEmptyMessage: styled.p`
+  font-size: 1.2rem;
+  text-align: center;
+  color: ${(props) => props.theme.colors.textColor};
+  background: ${(props) => props.theme.colors.cardBackground};
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  animation: ${shimmer} 1.5s infinite;
+`,
 
 }

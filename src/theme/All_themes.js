@@ -71,8 +71,11 @@ export const themes = {
       sidebarText: '#000000',
       linkHoverBackground: '#f8f9fa',
       cardHeaderBackground  : '#ffffff',
-
-
+      tableWrapperBackground: '#ffffff',
+      tableHeaderBackground: '#f8f9fa',
+      tableHeaderText: '#000000',
+      buttonHoverBackground: '#007bff',
+      emptyMessageBackground : '#ffffff',
       
     },
   },
@@ -148,6 +151,11 @@ export const themes = {
       sidebarText: '#ffffff',
       linkHoverBackground: '#1e1e1e',
       cardHeaderBackground: '#333333',  
+      tableWrapperBackground: '#333333',
+      tableHeaderBackground: '#1e1e1e',
+      tableHeaderText: '#ffffff',
+      buttonHoverBackground: '#333333',
+      emptyMessageBackground : '#333333',
     },
   },
   custom: {
@@ -221,6 +229,11 @@ export const themes = {
       sidebarText: '#fff',
       linkHoverBackground : '#ff3366',
       cardHeaderBackground: '#ff3366',
+      tableWrapperBackground: '#ff3366',
+      tableHeaderBackground: '#ff3366',
+      tableHeaderText: '#fff',
+      buttonHoverBackground: '#ff3366',
+      emptyMessageBackground : '#ff3366',
     },
   },
   theme1: {
@@ -295,6 +308,11 @@ export const themes = {
       sidebarText: '#333',
       linkHoverBackground : '#ffeb99',
       cardHeaderBackground  : '#ffeb99',
+      tableWrapperBackground: '#ffeb99',
+      tableHeaderBackground: '#ffeb99',
+      tableHeaderText: '#333',
+      buttonHoverBackground: '#ffeb99',
+      emptyMessageBackground : '#ffeb99',
     },
   },
   theme2: {
@@ -369,6 +387,11 @@ export const themes = {
       sidebarText: '#ffffff',
       linkHoverBackground : '#a5d6a7',
       cardHeaderBackground: '#a5d6a7',
+      tableWrapperBackground: '#a5d6a7',
+      tableHeaderBackground: '#a5d6a7',
+      tableHeaderText: '#ffffff',
+      buttonHoverBackground: '#a5d6a7',
+      emptyMessageBackground : '#a5d6a7',
     },
   },
   theme3: {
@@ -443,6 +466,11 @@ export const themes = {
       sidebarText: '#ffffff', 
       linkHoverBackground : '#c5cae9',  
       cardHeaderBackground: '#c5cae9',
+      tableWrapperBackground: '#c5cae9',
+      tableHeaderBackground: '#c5cae9',
+      tableHeaderText: '#ffffff',
+      buttonHoverBackground: '#c5cae9',
+      emptyMessageBackground : '#c5cae9',
     },
   },
 };

@@ -1085,4 +1085,106 @@ DashboardWrapper: styled.div`
   DashboardCardBody: styled.div`
     padding: 30px;
   `,
+  TableWrapper: styled.div`
+  overflow-x: auto;
+  margin-top: 20px;
+  padding: 20px;
+  background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+`,
+
+ResponsiveTable: styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+
+  th,
+  td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+  }
+
+  th {
+    background: ${(props) => props.theme.colors.tableHeaderBackground || '#007BFF'};
+    color: ${(props) => props.theme.colors.tableHeaderText || '#ffffff'};
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  td {
+    background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    color: ${(props) => props.theme.colors.textColor || '#333'};
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background: ${(props) =>
+        props.theme.colors.tableRowHoverBackground || '#f8f8f8'};
+    }
+  }
+
+  @media (max-width: 768px) {
+    th {
+      display: none;
+    }
+
+    td {
+      display: block;
+      text-align: right;
+      position: relative;
+      padding-left: 50%;
+    }
+
+    td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: ${(props) => props.theme.colors.textMuted || '#666'};
+    }
+  }
+`,
+
+TableButton: styled.button`
+  padding: 10px 20px;
+  background: ${(props) => props.theme.colors.buttonBackground || '#007BFF'};
+  color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background: ${(props) =>
+      props.theme.colors.buttonHoverBackground || '#0056b3'};
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`,
+
+TableEmptyMessage: styled.p`
+  font-size: 1rem;
+  text-align: center;
+  color: ${(props) => props.theme.colors.textColor || '#333'};
+  background: ${(props) => props.theme.colors.cardBackground || '#f9f9f9'};
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+`,
+
 }
