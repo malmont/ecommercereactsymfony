@@ -1095,4 +1095,106 @@ color: ${(props) => props.theme.colors.cardBodyText || '#333'};
 font-size: 1rem;
 line-height: 1.6;
 `,
+TableWrapper: styled.div`
+  overflow-x: auto;
+  margin: 20px 0;
+  padding: 20px;
+  background: ${(props) => props.theme.colors.tableWrapperBackground || '#ffffff'};
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  border: 2px dashed ${(props) => props.theme.colors.tableBorder || '#000000'};
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+`,
+
+ResponsiveTable: styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  background: ${(props) => props.theme.colors.tableBackground || '#f9f9f9'};
+  border-radius: 12px;
+  overflow: hidden;
+
+  th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid ${(props) => props.theme.colors.tableBorder || '#000000'};
+  }
+
+  th {
+    background: ${(props) => props.theme.colors.tableHeaderBackground || '#000000'};
+    color: ${(props) => props.theme.colors.tableHeaderText || '#ffffff'};
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  td {
+    background: ${(props) => props.theme.colors.tableRowBackground || '#ffffff'};
+    color: ${(props) => props.theme.colors.tableRowText || '#000000'};
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.tableRowHoverBackground || '#f5f5f5'};
+    }
+  }
+
+  @media (max-width: 768px) {
+    th {
+      display: none;
+    }
+
+    td {
+      display: block;
+      text-align: right;
+      position: relative;
+      padding-left: 50%;
+    }
+
+    td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: ${(props) => props.theme.colors.textMuted || '#999'};
+    }
+  }
+`,
+
+TableButton: styled.button`
+  padding: 10px 20px;
+  background: ${(props) => props.theme.colors.buttonBackground || '#000000'};
+  color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background: ${(props) => props.theme.colors.buttonHover || '#333333'};
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`,
+
+TableEmptyMessage: styled.p`
+  font-size: 1.2rem;
+  text-align: center;
+  color: ${(props) => props.theme.colors.emptyMessageText || '#000000'};
+  background: ${(props) => props.theme.colors.emptyMessageBackground || '#f9f9f9'};
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#000000'};
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+`,
+
 }

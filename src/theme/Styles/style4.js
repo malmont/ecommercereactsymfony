@@ -1030,4 +1030,109 @@ border-top-right-radius: 15px;
 DashboardCardBody: styled.div`
 padding: 25px;
 `,
+TableWrapper: styled.div`
+  overflow-x: auto;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 12px;
+  background: ${(props) =>
+    props.theme.colors.tableWrapperBackground || '#f9f9f9'};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+`,
+
+ResponsiveTable: styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+
+  th,
+  td {
+    padding: 10px;
+    border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+    text-align: left;
+  }
+
+  th {
+    background: ${(props) => props.theme.colors.tableHeaderBackground || '#007BFF'};
+    color: ${(props) => props.theme.colors.tableHeaderText || '#fff'};
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+  td {
+    background: ${(props) => props.theme.colors.tableRowBackground || '#fff'};
+    color: ${(props) => props.theme.colors.tableText || '#333'};
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background: ${(props) =>
+        props.theme.colors.tableRowHoverBackground || '#f1f1f1'};
+    }
+  }
+
+  @media (max-width: 768px) {
+    th {
+      display: none;
+    }
+
+    td {
+      display: block;
+      text-align: left;
+      padding-left: 50%;
+      position: relative;
+      border: none;
+      border-bottom: 1px solid ${(props) =>
+        props.theme.colors.border || '#ddd'};
+    }
+
+    td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: ${(props) => props.theme.colors.tableTextMuted || '#666'};
+    }
+  }
+`,
+
+TableButton: styled.button`
+  padding: 10px 15px;
+  border: 1px solid ${(props) => props.theme.colors.buttonBorder || '#007BFF'};
+  border-radius: 8px;
+  background: ${(props) =>
+    props.theme.colors.buttonBackground || '#007BFF'};
+  color: ${(props) => props.theme.colors.buttonText || '#fff'};
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background: ${(props) =>
+      props.theme.colors.buttonHoverBackground || '#0056b3'};
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`,
+
+TableEmptyMessage: styled.p`
+  font-size: 1rem;
+  color: ${(props) => props.theme.colors.emptyMessageText || '#333'};
+  text-align: center;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: ${(props) =>
+    props.theme.colors.emptyMessageBackground || '#f9f9f9'};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+`,
+
 }

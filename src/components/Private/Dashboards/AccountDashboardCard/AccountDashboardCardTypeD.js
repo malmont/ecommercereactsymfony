@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import OrderList from '../OrderList';
 import AddressList from '../AddressList';
 import AccountDetails from '../AccountDetails';
 import CarrierList from '../CarrierList';
 import { useDependencies } from '../../../../DependencyContext';
 import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
+import ContainerTypeOrderListCard from '../../../../theme/ThemeContainer/ContainerTypeOrderListCard';
 
 const AccountDashboardCardTypeD = () => {
   const { orderListViewModel, addressListViewModel, carrierListViewModel } = useDependencies();
@@ -85,7 +85,7 @@ const AccountDashboardCardTypeD = () => {
               </selectedStyle.DashboardCard>
             </selectedStyle.DashboardTabPane>
           )}
-          {activeTab === 'orders' && <OrderList viewModel={orderListViewModel} />}
+          {activeTab === 'orders' && <ContainerTypeOrderListCard viewModel={orderListViewModel} />}
           {activeTab === 'address' && <AddressList viewModel={addressListViewModel} />}
           {activeTab === 'carriers' && <CarrierList viewModel={carrierListViewModel} />}
           {activeTab === 'accountDetails' && <AccountDetails />}

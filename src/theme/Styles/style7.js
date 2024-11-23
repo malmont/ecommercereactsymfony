@@ -1191,5 +1191,105 @@ DashboardWrapper: styled.div`
     font-size: 1.1rem;
     line-height: 1.8;
   `,
+  TableWrapper: styled.div`
+  overflow-x: auto;
+  margin: 20px 0;
+  padding: 20px;
+  background: ${(props) => props.theme.colors.cardBackground};
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+`,
+
+ResponsiveTable: styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: ${(props) => props.theme.colors.cardBackground};
+
+  th,
+  td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid ${(props) => props.theme.colors.cardBorder};
+  }
+
+  th {
+    background: ${(props) => props.theme.colors.tableHeaderBackground};
+    color: ${(props) => props.theme.colors.tableHeaderText};
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  td {
+    background: ${(props) => props.theme.colors.cardBodyBackground};
+    color: ${(props) => props.theme.colors.textColor};
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.tableRowHoverBackground};
+    }
+  }
+
+  @media (max-width: 768px) {
+    th {
+      display: none;
+    }
+
+    td {
+      display: block;
+      text-align: right;
+      position: relative;
+      padding-left: 50%;
+    }
+
+    td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: ${(props) => props.theme.colors.textMuted};
+    }
+  }
+`,
+
+TableButton: styled.button`
+  padding: 10px 20px;
+  background: ${(props) => props.theme.colors.buttonBackground};
+  color: ${(props) => props.theme.colors.buttonText};
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    background: ${(props) => props.theme.colors.buttonHover};
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`,
+
+TableEmptyMessage: styled.p`
+  font-size: 1.1rem;
+  text-align: center;
+  color: ${(props) => props.theme.colors.textColor};
+  background: ${(props) => props.theme.colors.emptyMessageBackground};
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: ${shimmer} 1.8s infinite;
+`,
 
 }

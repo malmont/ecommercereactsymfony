@@ -791,5 +791,94 @@ border-top-right-radius: 8px;
 DashboardCardBody: styled.div`
 padding: 20px;
 `,
+
+TableWrapper: styled.div`
+  overflow-x: auto;
+  background-color: ${(props) => props.theme.colors.cardBackground };
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+`,
+
+ResponsiveTable: styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  th, td {
+    text-align: left;
+    padding: 12px;
+    border: 1px solid ${(props) => props.theme.colors.border };
+    color: ${(props) => props.theme.colors.textColor};
+  }
+
+  th {
+    background-color: ${(props) => props.theme.colors.tableHeaderBackground };
+    color: ${(props) => props.theme.colors.tableHeaderText};
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    thead {
+      display: none;
+    }
+
+    tr {
+      display: block;
+      margin-bottom: 10px;
+      border-bottom: 2px solid ${(props) => props.theme.colors.border};
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      text-align: left;
+      border: none;
+      border-bottom: 1px solid ${(props) => props.theme.colors.border };
+    }
+
+    td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      color: ${(props) => props.theme.colors.textColor};
+      flex-basis: 50%;
+      text-align: left;
+    }
+
+    td:last-child {
+      border-bottom: none;
+    }
+  }
+`,
+
+TableButton: styled.button`
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: ${(props) => props.theme.colors.buttonBackground };
+  color: ${(props) => props.theme.colors.buttonText };
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.buttonHover};
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+`,
+
+TableEmptyMessage: styled.p`
+  font-size: 16px;
+  color: ${(props) => props.theme.colors.textColor};
+  text-align: center;
+  margin-top: 20px;
+  background-color: ${(props) => props.theme.colors.emptyMessageBackground };
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid ${(props) => props.theme.colors.border };
+`
+
   }
 

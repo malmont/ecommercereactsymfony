@@ -43,6 +43,7 @@ export const saveAdminSettings = async (settings) => {
       totalCardComponent,
       checkoutCardComponent,
       accountDashboardComponent,
+      orderListCardComponent
      
 
     } = settings;
@@ -81,7 +82,8 @@ export const saveAdminSettings = async (settings) => {
         cartItemCardComponent,
         totalCardComponent,
         checkoutCardComponent,
-        accountDashboardComponent
+        accountDashboardComponent,
+        orderListCardComponent
       }),
     });
 
