@@ -896,7 +896,7 @@ AddNewAddressButton: styled.a`
   background-color: ${(props) => props.theme.colors.buttonBackground};
   color: ${(props) => props.theme.colors.text};
   height: 100px; 
-  padding: 0 20px; 
+  padding: 10 20px; 
   margin-bottom: 20px;
   text-align: center;
   text-decoration: none;
@@ -916,8 +916,6 @@ AddressCardList: styled.div`
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 100%;
-  max-width: 400px;
   height: 100px; 
 `,
 
@@ -937,6 +935,7 @@ Address: styled.address`
   color: ${(props) => props.theme.colors.text};
   line-height: 1.6;
   margin-bottom: 20px;
+  padding: 20px;
 `,
 ButtonGroup: styled.div`
   display: flex;
