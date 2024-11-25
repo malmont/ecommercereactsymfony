@@ -42,6 +42,7 @@ export const AdminProvider = ({ children }) => {
   const [checkoutCardComponent, setCheckoutCardComponent] = useState('typeA');
   const [accountDashboardComponent, setAccountDashboardComponent] = useState('typeA');
   const [orderListCardComponent, setOrderListCardComponent] = useState('typeA');
+  const [adressListCardComponent , setAdressListCardComponent] = useState('typeA');
 
   const fetchAdminSettings = async () => {
     try {
@@ -174,6 +175,8 @@ export const AdminProvider = ({ children }) => {
     setAccountDashboardComponent,
     orderListCardComponent,
     setOrderListCardComponent,
+    adressListCardComponent,
+    setAdressListCardComponent,
   };
 
   return (

@@ -75,6 +75,8 @@ const AdminComponentSettings = () => {
     setAccountDashboardComponent,
     orderListCardComponent,
     setOrderListCardComponent,
+    adressListCardComponent,
+    setAdressListCardComponent,
   } = useAdminContext();
 
   // Configuration centralisée des sections
@@ -184,6 +186,7 @@ const AdminComponentSettings = () => {
       checkoutCardComponent,
       accountDashboardComponent,
       orderListCardComponent,
+      adressListCardComponent
     };
 
     try {
@@ -278,8 +281,7 @@ const AdminComponentSettings = () => {
           options={ComponentTypeCategoryCard}
         />
       )}
-
-      {isAccountDashboardComponent && (
+       {isAccountDashboardComponent && (
         <SettingCard
           label=" liste commandes"
           value={orderListCardComponent}
@@ -288,6 +290,18 @@ const AdminComponentSettings = () => {
         />
       )}
 
+
+      {isAccountDashboardComponent && (
+        <SettingCard
+          label=" liste Orders"
+          value={adressListCardComponent}
+          onChange={(event) => setAdressListCardComponent(event.target.value)}
+          options={ComponentTypeCategoryCard}
+        />
+      )}
+      
+
+     
 
       {/* Paramètres des sections */}
       {isHomePage &&

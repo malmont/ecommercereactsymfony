@@ -6,7 +6,7 @@ import { useDependencies } from '../../../../DependencyContext';
 import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
 import ContainerTypeOrderListCard from '../../../../theme/ThemeContainer/ContainerTypeOrderListCard';
-import AddressListCardTypeA from '../AdressListCard/AddressListCardTypeA';
+import ContainerTypeAdressListCard from '../../../../theme/ThemeContainer/ContainerTypeAdressListCard'; 
 const AccountDashboardCardTypeA = () => {
   const { orderListViewModel, addressListViewModel, carrierListViewModel } = useDependencies();
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -59,7 +59,7 @@ const AccountDashboardCardTypeA = () => {
                 </selectedStyle.DashboardTabPane>
               )}
               {activeTab === 'orders' && <ContainerTypeOrderListCard viewModel={orderListViewModel} />}
-              {activeTab === 'address' && <AddressListCardTypeA viewModel={addressListViewModel} />}
+              {activeTab === 'address' && <ContainerTypeAdressListCard viewModel={addressListViewModel} />}
               {activeTab === 'carriers' && <CarrierList viewModel={carrierListViewModel} />}
               {activeTab === 'accountDetails' && <AccountDetails />}
             </selectedStyle.DashboardContent>

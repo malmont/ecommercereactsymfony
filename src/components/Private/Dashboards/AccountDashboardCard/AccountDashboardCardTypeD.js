@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AddressList from '../AddressList';
+import ContainerTypeAdressListCard from '../../../../theme/ThemeContainer/ContainerTypeAdressListCard'; 
 import AccountDetails from '../AccountDetails';
 import CarrierList from '../CarrierList';
 import { useDependencies } from '../../../../DependencyContext';
@@ -86,7 +86,7 @@ const AccountDashboardCardTypeD = () => {
             </selectedStyle.DashboardTabPane>
           )}
           {activeTab === 'orders' && <ContainerTypeOrderListCard viewModel={orderListViewModel} />}
-          {activeTab === 'address' && <AddressList viewModel={addressListViewModel} />}
+          {activeTab === 'address' && <ContainerTypeAdressListCard viewModel={addressListViewModel} />}
           {activeTab === 'carriers' && <CarrierList viewModel={carrierListViewModel} />}
           {activeTab === 'accountDetails' && <AccountDetails />}
         </selectedStyle.DashboardContent>
