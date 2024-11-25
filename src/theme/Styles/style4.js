@@ -1134,5 +1134,139 @@ TableEmptyMessage: styled.p`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
 `,
+AddressListWrapper: styled.div`
+display: flex;
+flex-wrap: wrap;
+gap: 15px;
+padding: 20px;
+background-color: ${(props) =>
+  props.theme.colors.wrapperBackground || '#f8f8f8'};
+border-radius: 12px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`,
 
+AddNewAddressButton: styled.button`
+background-color: ${(props) =>
+  props.theme.colors.primaryButtonBackground || '#007BFF'};
+color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+padding: 10px 15px;
+font-size: 1rem;
+font-weight: bold;
+border-radius: 8px;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.3s ease;
+
+&:hover {
+  background-color: ${(props) =>
+    props.theme.colors.primaryButtonHover || '#0056b3'};
+  transform: scale(1.05);
+}
+`,
+
+AddressCardList: styled.div`
+display: flex;
+flex-direction: column;
+background-color: ${(props) =>
+  props.theme.colors.cardBackground || '#ffffff'};
+border: 1px solid ${(props) => props.theme.colors.cardBorder || '#ddd'};
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+`,
+
+AddressCardHeader: styled.div`
+background-color: ${(props) =>
+  props.theme.colors.headerBackground || '#007BFF'};
+color: ${(props) => props.theme.colors.headerText || '#ffffff'};
+padding: 15px;
+font-size: 1.2rem;
+font-weight: bold;
+text-align: center;
+`,
+
+AddressCardBody: styled.div`
+padding: 15px;
+background-color: ${(props) =>
+  props.theme.colors.bodyBackground || '#f9f9f9'};
+color: ${(props) => props.theme.colors.textColor || '#333'};
+font-size: 1rem;
+line-height: 1.6;
+`,
+
+Address: styled.address`
+font-style: normal;
+color: ${(props) => props.theme.colors.addressText || '#495057'};
+`,
+
+ButtonGroup: styled.div`
+display: flex;
+justify-content: space-between;
+gap: 10px;
+margin-top: 15px;
+`,
+
+EditButton: styled.button`
+background-color: ${(props) =>
+  props.theme.colors.successButtonBackground || '#28a745'};
+color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+padding: 10px 15px;
+font-size: 0.9rem;
+font-weight: bold;
+border-radius: 8px;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.3s ease;
+
+&:hover {
+  background-color: ${(props) =>
+    props.theme.colors.successButtonHover || '#218838'};
+  transform: scale(1.05);
+}
+`,
+
+DeleteButton: styled.button`
+background-color: ${(props) =>
+  props.theme.colors.dangerButtonBackground || '#dc3545'};
+color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+padding: 10px 15px;
+font-size: 0.9rem;
+font-weight: bold;
+border-radius: 8px;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.3s ease;
+
+&:hover {
+  background-color: ${(props) =>
+    props.theme.colors.dangerButtonHover || '#c82333'};
+  transform: scale(1.05);
+}
+`,
+
+EmptyAddressMessage: styled.p`
+text-align: center;
+color: ${(props) => props.theme.colors.emptyText || '#6c757d'};
+font-size: 1rem;
+font-style: italic;
+padding: 20px;
+background-color: ${(props) =>
+  props.theme.colors.emptyBackground || '#f8f8f8'};
+border-radius: 8px;
+border: 1px dashed ${(props) => props.theme.colors.border || '#ddd'};
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`,
+
+LoadingMessage: styled.p`
+text-align: center;
+color: ${(props) => props.theme.colors.loadingText || '#495057'};
+font-size: 1rem;
+font-weight: bold;
+padding: 20px;
+background-color: ${(props) =>
+  props.theme.colors.loadingBackground || '#f9f9f9'};
+border-radius: 8px;
+border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`,
 }

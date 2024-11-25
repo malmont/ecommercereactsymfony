@@ -1291,5 +1291,148 @@ TableEmptyMessage: styled.p`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   animation: ${shimmer} 1.8s infinite;
 `,
+AddressListWrapper: styled.div`
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+padding: 2rem;
+background: linear-gradient(
+  145deg,
+  ${(props) => props.theme.colors.containerGradientStart || '#ffffff'},
+  ${(props) => props.theme.colors.containerGradientEnd || '#f7f7f7'}
+);
+border-radius: 20px;
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+&:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+`,
+
+AddNewAddressButton: styled.button`
+background: ${(props) => props.theme.colors.buttonBackground};
+color: ${(props) => props.theme.colors.buttonText};
+border: none;
+padding: 0.75rem 1.5rem;
+border-radius: 15px;
+font-weight: bold;
+font-size: 1rem;
+cursor: pointer;
+text-transform: uppercase;
+letter-spacing: 1px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+transition: transform 0.3s ease, background-color 0.3s ease;
+
+&:hover {
+  background: ${(props) => props.theme.colors.buttonHover || '#0056b3'};
+  transform: scale(1.05);
+}
+`,
+
+AddressCardList: styled.div`
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 1.5rem;
+padding: 1rem 0;
+`,
+
+AddressCardHeader: styled.div`
+background: ${(props) => props.theme.colors.cardHeaderBackground || '#007BFF'};
+color: ${(props) => props.theme.colors.cardHeaderText || '#ffffff'};
+font-size: 1.25rem;
+font-weight: bold;
+padding: 1rem;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+text-align: center;
+text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+`,
+
+AddressCardBody: styled.div`
+padding: 1.5rem;
+background: ${(props) => props.theme.colors.cardBodyBackground || '#f9f9f9'};
+color: ${(props) => props.theme.colors.cardBodyText || '#333'};
+border-radius: 0 0 15px 15px;
+box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+transition: background-color 0.3s ease;
+
+&:hover {
+  background: ${(props) => props.theme.colors.cardBodyHoverBackground || '#e6f7ff'};
+}
+`,
+
+Address: styled.p`
+margin: 0.5rem 0;
+font-size: 1rem;
+font-weight: 500;
+color: ${(props) => props.theme.colors.textColor || '#555'};
+`,
+
+ButtonGroup: styled.div`
+display: flex;
+gap: 0.75rem;
+margin-top: 1rem;
+justify-content: center;
+`,
+
+EditButton: styled.button`
+background: ${(props) => props.theme.colors.editButtonBackground || '#4caf50'};
+color: ${(props) => props.theme.colors.buttonText || '#fff'};
+border: none;
+padding: 0.5rem 1rem;
+border-radius: 10px;
+font-size: 0.9rem;
+font-weight: bold;
+cursor: pointer;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, background-color 0.3s ease;
+
+&:hover {
+  background: ${(props) => props.theme.colors.editButtonHover || '#388e3c'};
+  transform: scale(1.05);
+}
+`,
+
+DeleteButton: styled.button`
+background: ${(props) => props.theme.colors.deleteButtonBackground || '#f44336'};
+color: ${(props) => props.theme.colors.buttonText || '#fff'};
+border: none;
+padding: 0.5rem 1rem;
+border-radius: 10px;
+font-size: 0.9rem;
+font-weight: bold;
+cursor: pointer;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, background-color 0.3s ease;
+
+&:hover {
+  background: ${(props) => props.theme.colors.deleteButtonHover || '#d32f2f'};
+  transform: scale(1.05);
+}
+`,
+
+EmptyAddressMessage: styled.p`
+text-align: center;
+font-size: 1.2rem;
+font-weight: bold;
+color: ${(props) => props.theme.colors.textMuted || '#999'};
+padding: 1rem;
+border-radius: 10px;
+background: ${(props) => props.theme.colors.cardBackground || '#f4f4f4'};
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+animation: ${shimmer} 2s infinite;
+`,
+
+LoadingMessage: styled.div`
+text-align: center;
+font-size: 1rem;
+color: ${(props) => props.theme.colors.textMuted || '#777'};
+padding: 1rem;
+border-radius: 10px;
+background: ${(props) => props.theme.colors.cardBackground || '#fafafa'};
+animation: ${shimmer} 1.8s infinite;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`,
 }

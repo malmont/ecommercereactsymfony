@@ -76,6 +76,8 @@ export const themes = {
       tableHeaderText: '#000000',
       buttonHoverBackground: '#007bff',
       emptyMessageBackground : '#ffffff',
+      wrapperBackground : '#f8f9fa',
+      cardHeaderText: '#000000',
       
     },
   },
@@ -156,6 +158,8 @@ export const themes = {
       tableHeaderText: '#ffffff',
       buttonHoverBackground: '#333333',
       emptyMessageBackground : '#333333',
+      wrapperBackground : '#1e1e1e',
+      cardHeaderText  : '#ffffff',
     },
   },
   custom: {
@@ -234,6 +238,8 @@ export const themes = {
       tableHeaderText: '#fff',
       buttonHoverBackground: '#ff3366',
       emptyMessageBackground : '#ff3366',
+      wrapperBackground : '#ff3366',
+      cardHeaderText : '#fff',
     },
   },
   theme1: {
@@ -313,6 +319,8 @@ export const themes = {
       tableHeaderText: '#333',
       buttonHoverBackground: '#ffeb99',
       emptyMessageBackground : '#ffeb99',
+      wrapperBackground : '#ffeb99',
+      cardHeaderText : '#333',
     },
   },
   theme2: {
@@ -392,6 +400,8 @@ export const themes = {
       tableHeaderText: '#ffffff',
       buttonHoverBackground: '#a5d6a7',
       emptyMessageBackground : '#a5d6a7',
+      wrapperBackground : '#a5d6a7',
+      cardHeaderText : '#ffffff',
     },
   },
   theme3: {
@@ -471,6 +481,8 @@ export const themes = {
       tableHeaderText: '#ffffff',
       buttonHoverBackground: '#c5cae9',
       emptyMessageBackground : '#c5cae9',
+      wrapperBackground : '#c5cae9',
+      cardHeaderText : '#ffffff',
     },
   },
 };
