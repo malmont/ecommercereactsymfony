@@ -1282,5 +1282,140 @@ TableEmptyMessage: styled.p`
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   animation: ${shimmer} 1.5s infinite;
 `,
+AddressListWrapper: styled.div`
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+padding: 2rem;
+background: linear-gradient(
+  135deg,
+  ${(props) => props.theme.colors.gradientStart},
+  ${(props) => props.theme.colors.gradientEnd}
+);
+border-radius: 15px;
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+animation: ${gradientAnimation} 15s ease infinite;
+`,
 
+AddNewAddressButton: styled.button`
+background: ${(props) => props.theme.colors.buttonBackground};
+color: ${(props) => props.theme.colors.buttonText};
+border: none;
+padding: 0.75rem 1.5rem;
+border-radius: 20px;
+font-weight: bold;
+font-size: 1rem;
+cursor: pointer;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, background-color 0.3s ease;
+
+&:hover {
+  background: ${(props) => props.theme.colors.buttonHover};
+  transform: scale(1.05);
+}
+`,
+
+AddressCardList: styled.div`
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 1.5rem;
+`,
+
+AddressCardHeader: styled.div`
+background: ${(props) => props.theme.colors.cardHeaderBackground};
+color: ${(props) => props.theme.colors.cardHeaderText};
+font-size: 1.25rem;
+font-weight: bold;
+padding: 1rem;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+text-align: center;
+`,
+
+AddressCardBody: styled.div`
+padding: 1.5rem;
+background: ${(props) => props.theme.colors.cardBodyBackground};
+color: ${(props) => props.theme.colors.cardBodyText};
+border-radius: 0 0 15px 15px;
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+transition: background-color 0.3s ease;
+
+&:hover {
+  background: ${(props) => props.theme.colors.cardBodyHoverBackground};
+}
+`,
+
+Address: styled.p`
+margin: 0.5rem 0;
+font-size: 1rem;
+font-weight: 500;
+color: ${(props) => props.theme.colors.textColor};
+`,
+
+ButtonGroup: styled.div`
+display: flex;
+gap: 0.75rem;
+margin-top: 1rem;
+justify-content: center;
+`,
+
+EditButton: styled.button`
+background: ${(props) => props.theme.colors.editButtonBackground};
+color: ${(props) => props.theme.colors.buttonText};
+border: none;
+padding: 0.5rem 1rem;
+border-radius: 15px;
+font-size: 0.9rem;
+font-weight: bold;
+cursor: pointer;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+transition: background-color 0.3s ease, transform 0.3s ease;
+
+&:hover {
+  background: ${(props) => props.theme.colors.editButtonHover};
+  transform: scale(1.05);
+}
+`,
+
+DeleteButton: styled.button`
+background: ${(props) => props.theme.colors.deleteButtonBackground};
+color: ${(props) => props.theme.colors.buttonText};
+border: none;
+padding: 0.5rem 1rem;
+border-radius: 15px;
+font-size: 0.9rem;
+font-weight: bold;
+cursor: pointer;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+transition: background-color 0.3s ease, transform 0.3s ease;
+
+&:hover {
+  background: ${(props) => props.theme.colors.deleteButtonHover};
+  transform: scale(1.05);
+}
+`,
+
+EmptyAddressMessage: styled.p`
+text-align: center;
+font-size: 1.2rem;
+font-weight: bold;
+color: ${(props) => props.theme.colors.textMuted};
+background: ${(props) => props.theme.colors.cardBackground};
+padding: 1rem;
+border-radius: 15px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+animation: ${shimmer} 1.5s infinite;
+`,
+
+LoadingMessage: styled.div`
+text-align: center;
+font-size: 1rem;
+color: ${(props) => props.theme.colors.textMuted};
+padding: 1rem;
+border-radius: 15px;
+background: ${(props) => props.theme.colors.cardBackground};
+animation: ${shimmer} 1.5s infinite;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+`,
 }

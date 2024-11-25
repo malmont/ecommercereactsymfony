@@ -1230,5 +1230,146 @@ border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#d4af3
 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 animation: fadeIn 0.8s ease-in-out;
 `,
+AddressListWrapper: styled.div`
+    padding: 30px;
+    background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#d4af37'};
+  `,
 
+  AddNewAddressButton: styled.button`
+    width: 100%;
+    padding: 10px 20px;
+    background: ${(props) => props.theme.colors.buttonBackground || '#d4af37'};
+    color: ${(props) => props.theme.colors.buttonText || '#fff'};
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;    
+    &:hover {
+      background: ${(props) => props.theme.colors.buttonHover || '#e5c26b'};
+      transform: scale(1.05);
+    }
+  `,
+
+  AddressCardList: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: center;
+  `,
+
+  AddressCardHeader: styled.div`
+    background: ${(props) => props.theme.colors.cardHeaderBackground || '#d4af37'};
+    color: ${(props) => props.theme.colors.cardHeaderText || '#fff'};
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    
+  `,
+
+  AddressCardBody: styled.div`
+    padding: 15px;
+    color: ${(props) => props.theme.colors.cardBodyText || '#333'};
+    font-size: 1rem;
+    line-height: 1.5;
+    
+  `,
+
+  Address: styled.div`
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: ${(props) => props.theme.colors.cardBackground || '#fff'};
+    border: 1px solid ${(props) => props.theme.colors.cardBorder || '#ddd'};
+    border-radius: 15px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#d4af37'};
+    &:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transform: translateY(-3px);
+    }
+  `,
+
+  ButtonGroup: styled.div`
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 15px;
+    border-top: 1px solid ${(props) => props.theme.colors.cardBorder || '#ddd'};
+    background: ${(props) => props.theme.colors.cardBodyBackground || '#fafafa'};
+  `,
+
+  EditButton: styled.button`
+    padding: 8px 16px;
+    background: ${(props) => props.theme.colors.buttonBackground || '#007BFF'};
+    color: ${(props) => props.theme.colors.buttonText || '#fff'};
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background: ${(props) => props.theme.colors.buttonHover || '#0056b3'};
+      transform: scale(1.05);
+    }
+  `,
+
+  DeleteButton: styled.button`
+    padding: 8px 16px;
+    background: ${(props) => props.theme.colors.errorBackground || '#FF0000'};
+    color: ${(props) => props.theme.colors.errorText || '#fff'};
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background: ${(props) => props.theme.colors.errorHover || '#CC0000'};
+      transform: scale(1.05);
+    }
+  `,
+
+  EmptyAddressMessage: styled.p`
+    font-size: 1rem;
+    color: ${(props) => props.theme.colors.emptyMessageText || '#555'};
+    text-align: center;
+    padding: 20px;
+    background: ${(props) => props.theme.colors.emptyMessageBackground || '#f9f9f9'};
+    border-radius: 10px;
+    border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#ddd'};
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  `,
+
+  LoadingMessage: styled.div`
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: ${(props) => props.theme.colors.textPrimary || '#333'};
+    text-align: center;
+    padding: 20px;
+    background: ${(props) => props.theme.colors.loadingBackground || '#fff'};
+    border-radius: 10px;
+    border: 1px solid ${(props) => props.theme.colors.loadingBorder || '#ddd'};
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    animation: shimmer 2s infinite;
+  `,
 }

@@ -1116,7 +1116,137 @@ TableEmptyMessage: styled.div`
   font-weight: bold;
   border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#ddd'};
 `,
+AddressListWrapper: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(
+      135deg,
+      ${(props) => props.theme.colors.wrapperBackgroundStart || '#f5f5f5'},
+      ${(props) => props.theme.colors.wrapperBackgroundEnd || '#e0e0e0'}
+    );
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  `,
 
+  AddNewAddressButton: styled.a`
+    display: inline-block;
+    padding: 10px 20px;
+    height: 50px;
+    background: linear-gradient(
+      90deg,
+      ${(props) => props.theme.colors.buttonBackgroundStart || '#007bff'},
+      ${(props) => props.theme.colors.buttonBackgroundEnd || '#0056b3'}
+    );
+    color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      background: ${(props) => props.theme.colors.buttonHover || '#0056b3'};
+    }
+  `,
+
+  AddressCardList: styled.div`
+    background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    border: 1px solid ${(props) => props.theme.colors.cardBorder || '#ddd'};
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 400px;
+  `,
+
+  AddressCardHeader: styled.div`
+    background: ${(props) => props.theme.colors.cardHeaderBackground || '#007bff'};
+    color: ${(props) => props.theme.colors.cardHeaderText || '#ffffff'};
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid ${(props) => props.theme.colors.cardBorder || '#ddd'};
+  `,
+
+  AddressCardBody: styled.div`
+    padding: 20px;
+    background: ${(props) => props.theme.colors.cardBodyBackground || '#f9f9f9'};
+    font-size: 1rem;
+    color: ${(props) => props.theme.colors.textColor || '#333'};
+  `,
+
+  Address: styled.address`
+    font-style: normal;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: ${(props) => props.theme.colors.addressText || '#495057'};
+  `,
+
+  ButtonGroup: styled.div`
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+  `,
+
+  EditButton: styled.a`
+    background: ${(props) => props.theme.colors.successBackground || '#28a745'};
+    color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: ${(props) => props.theme.colors.successHover || '#218838'};
+      transform: scale(1.05);
+    }
+  `,
+
+  DeleteButton: styled.button`
+    background: ${(props) => props.theme.colors.dangerBackground || '#dc3545'};
+    color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: ${(props) => props.theme.colors.dangerHover || '#c82333'};
+      transform: scale(1.05);
+    }
+  `,
+
+  EmptyAddressMessage: styled.p`
+    text-align: center;
+    color: ${(props) => props.theme.colors.emptyMessageText || '#6c757d'};
+    font-style: italic;
+    padding: 25px;
+    background: ${(props) => props.theme.colors.emptyMessageBackground || '#f5f5f5'};
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  `,
+
+  LoadingMessage: styled.p`
+    text-align: center;
+    color: ${(props) => props.theme.colors.loadingText || '#495057'};
+    padding: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: ${(props) => props.theme.colors.loadingBackground || '#f9f9f9'};
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  `,
 }
 
 
