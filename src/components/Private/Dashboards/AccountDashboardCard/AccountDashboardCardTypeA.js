@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import AddressList from '../AddressList';
 import AccountDetails from '../AccountDetails';
-import CarrierList from '../CarrierList';
 import { useDependencies } from '../../../../DependencyContext';
 import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
 import ContainerTypeOrderListCard from '../../../../theme/ThemeContainer/ContainerTypeOrderListCard';
 import ContainerTypeAdressListCard from '../../../../theme/ThemeContainer/ContainerTypeAdressListCard'; 
+import ContainerTypeCarrierListCard from '../../../../theme/ThemeContainer/ContainerTypeCarrierListCard';
+
 const AccountDashboardCardTypeA = () => {
   const { orderListViewModel, addressListViewModel, carrierListViewModel } = useDependencies();
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -60,7 +60,7 @@ const AccountDashboardCardTypeA = () => {
               )}
               {activeTab === 'orders' && <ContainerTypeOrderListCard viewModel={orderListViewModel} />}
               {activeTab === 'address' && <ContainerTypeAdressListCard viewModel={addressListViewModel} />}
-              {activeTab === 'carriers' && <CarrierList viewModel={carrierListViewModel} />}
+              {activeTab === 'carriers' && <ContainerTypeCarrierListCard viewModel={carrierListViewModel} />}
               {activeTab === 'accountDetails' && <AccountDetails />}
             </selectedStyle.DashboardContent>
           </div>

@@ -1418,4 +1418,98 @@ background: ${(props) => props.theme.colors.cardBackground};
 animation: ${shimmer} 1.5s infinite;
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 `,
+NoCarrierMessage: styled.div`
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: ${(props) => props.theme.colors.textMuted};
+    background: ${(props) => props.theme.colors.cardBackground};
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    animation: ${shimmer} 1.5s infinite;
+  `,
+
+  // Image associée au transporteur
+  CarrierImage: styled.img`
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid ${(props) => props.theme.colors.cardBorder};
+    transition: transform 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      border-color: ${(props) => props.theme.colors.hoverBorder};
+    }
+  `,
+
+  // Table pour afficher les informations des transporteurs
+  CarrierTable: styled.table`
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+
+    th,
+    td {
+      padding: 12px 20px;
+      text-align: left;
+      border: 1px solid ${(props) => props.theme.colors.cardBorder};
+    }
+
+    th {
+      background: ${(props) => props.theme.colors.tableHeaderBackground};
+      color: ${(props) => props.theme.colors.tableHeaderText};
+      text-transform: uppercase;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    td {
+      background: ${(props) => props.theme.colors.cardBackground};
+      color: ${(props) => props.theme.colors.textColor};
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background: ${(props) => props.theme.colors.tableRowHoverBackground};
+      }
+    }
+  `,
+
+  // Conteneur pour la table des transporteurs
+  CarrierTableContainer: styled.div`
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: linear-gradient(
+      135deg,
+      ${(props) => props.theme.colors.gradientStart},
+      ${(props) => props.theme.colors.gradientEnd}
+    );
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    animation: ${gradientAnimation} 15s ease infinite;
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+  `,
+
+  // Wrapper principal pour l'affichage des transporteurs
+  CarrierWrapper: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: ${(props) => props.theme.colors.containerBackground};
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  `,
 }

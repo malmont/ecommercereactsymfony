@@ -1113,6 +1113,95 @@ font-size: 1.1rem;
 background: ${(props) => props.theme.colors.loadingBackground || '#f4f4f4'};
 border-radius: 10px;
 `,
+CarrierWrapper: styled.div`
+  padding: 20px;
+  background-color: ${(props) => props.theme.colors.wrapperBackground};
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+`,
+
+CarrierTableContainer: styled.div`
+  overflow-x: auto;
+  margin-top: 20px;
+  border-radius: 8px;
+  background-color: ${(props) => props.theme.colors.cardBackground};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+`,
+
+CarrierTable: styled.table`
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 12px;
+    border: 1px solid ${(props) => props.theme.colors.border};
+    text-align: left;
+    color: ${(props) => props.theme.colors.textColor};
+  }
+
+  th {
+    background-color: ${(props) => props.theme.colors.tableHeaderBackground};
+    color: ${(props) => props.theme.colors.tableHeaderText};
+    font-weight: bold;
+  }
+
+  td {
+    background-color: ${(props) => props.theme.colors.cardBodyBackground};
+  }
+
+  @media (max-width: 768px) {
+    thead {
+      display: none; /* Masquer l'en-tête */
+    }
+
+    tr {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid ${(props) => props.theme.colors.border};
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border: none;
+    }
+
+    td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      color: ${(props) => props.theme.colors.textMuted};
+    }
+
+    td:last-child {
+      border-bottom: none;
+    }
+  }
+`,
+
+CarrierImage: styled.img`
+  width: 60px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 8px; /* Ajout pour un effet arrondi */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+`,
+
+NoCarrierMessage: styled.p`
+  text-align: center;
+  font-size: 1rem;
+  color: ${(props) => props.theme.colors.textMuted || '#6c757d'};
+  background-color: ${(props) => props.theme.colors.emptyMessageBackground};
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid ${(props) => props.theme.colors.border};
+  font-style: italic;
+`,
 
 
 }

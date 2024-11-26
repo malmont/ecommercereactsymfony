@@ -77,6 +77,8 @@ const AdminComponentSettings = () => {
     setOrderListCardComponent,
     adressListCardComponent,
     setAdressListCardComponent,
+    carrierListCardComponent,
+    setCarrierListCardComponent
   } = useAdminContext();
 
   // Configuration centralisée des sections
@@ -186,7 +188,8 @@ const AdminComponentSettings = () => {
       checkoutCardComponent,
       accountDashboardComponent,
       orderListCardComponent,
-      adressListCardComponent
+      adressListCardComponent,
+      carrierListCardComponent
     };
 
     try {
@@ -300,7 +303,14 @@ const AdminComponentSettings = () => {
         />
       )}
       
-
+      {isAccountDashboardComponent && (
+        <SettingCard
+          label=" liste Carrier"
+          value={carrierListCardComponent}
+          onChange={(event) => setCarrierListCardComponent(event.target.value)}
+          options={ComponentTypeCategoryCard}
+        />
+      )}
      
 
       {/* Paramètres des sections */}

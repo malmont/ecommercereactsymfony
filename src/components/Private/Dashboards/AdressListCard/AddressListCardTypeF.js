@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { useDependencies } from '../../../../DependencyContext';
 import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
+
 const AddressListCardTypeF = observer(() => {
   const { addressListViewModel } = useDependencies();
   const { addresses, loading } = addressListViewModel;

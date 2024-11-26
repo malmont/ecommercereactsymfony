@@ -1337,4 +1337,87 @@ border-radius: 10px;
 box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 animation: shimmer 2s infinite;
 `,
+NoCarrierMessage: styled.p`
+  font-size: 1.2rem;
+  color: ${(props) => props.theme.colors.emptyMessageText };
+  text-align: center;
+  padding: 20px;
+  background: ${(props) => props.theme.colors.emptyMessageBackground };
+  border-radius: 10px;
+  border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder };
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 600px;
+`,
+
+CarrierImage: styled.img`
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid ${(props) => props.theme.colors.cardAccent };
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+`,
+
+CarrierTable: styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  background: ${(props) => props.theme.colors.tableBackground || '#ffffff'};
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid ${(props) => props.theme.colors.tableBorder };
+  }
+
+  th {
+    background: ${(props) => props.theme.colors.tableHeaderBackground };
+    color: ${(props) => props.theme.colors.tableHeaderText};
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  td {
+    background: ${(props) => props.theme.colors.tableRowBackground || '#fafafa'};
+    color: ${(props) => props.theme.colors.tableRowText || '#555'};
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.tableRowHoverBackground || '#f0f0f0'};
+    }
+  }
+`,
+
+CarrierTableContainer: styled.div`
+  overflow-x: auto;
+  padding: 20px;
+  background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid ${(props) => props.theme.colors.cardAccent};
+  margin: 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+`,
+
+CarrierWrapper: styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+`
+
 }
