@@ -1317,4 +1317,95 @@ AddressListWrapper: styled.div`
     border-radius: 8px;
     border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
   `,
+  NoCarrierMessage: styled.div`
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 20px;
+    color: ${(props) => props.theme.colors.emptyMessageText || '#6c757d'};
+    background-color: ${(props) =>
+      props.theme.colors.emptyMessageBackground || '#f8f9fa'};
+    border: 1px dashed ${(props) => props.theme.colors.border || '#ddd'};
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  `,
+
+  // Image associée au transporteur
+  CarrierImage: styled.img`
+    width: auto;
+    height: 80px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  `,
+
+  // Tableau contenant les informations des transporteurs
+  CarrierTable: styled.table`
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: ${(props) =>
+      props.theme.colors.tableBackground || '#ffffff'};
+    border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+    border-radius: 10px;
+
+    th,
+    td {
+      padding: 12px 15px;
+      text-align: left;
+      border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+    }
+
+    th {
+      background-color: ${(props) =>
+        props.theme.colors.tableHeaderBackground || '#007BFF'};
+      color: ${(props) => props.theme.colors.tableHeaderText || '#ffffff'};
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    td {
+      background-color: ${(props) =>
+        props.theme.colors.tableRowBackground || '#f9f9f9'};
+      color: ${(props) => props.theme.colors.tableText || '#333'};
+    }
+
+    tr:hover {
+      background-color: ${(props) =>
+        props.theme.colors.tableRowHoverBackground || '#f1f1f1'};
+    }
+  `,
+
+  // Conteneur pour le tableau
+  CarrierTableContainer: styled.div`
+    overflow-x: auto;
+    padding: 20px;
+    background-color: ${(props) =>
+      props.theme.colors.containerBackground || '#f8f9fa'};
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+  `,
+
+  // Wrapper global pour l'affichage des transporteurs
+  CarrierWrapper: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background: ${(props) =>
+      `linear-gradient(135deg, ${props.theme.colors.wrapperBackgroundStart || '#ffffff'}, ${props.theme.colors.wrapperBackgroundEnd || '#f8f8f8'})`};
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  `,
 }

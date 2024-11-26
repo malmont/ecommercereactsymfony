@@ -1247,6 +1247,98 @@ AddressListWrapper: styled.div`
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   `,
+  NoCarrierMessage: styled.div`
+  text-align: center;
+  font-size: 1.2rem;
+  color: ${(props) => props.theme.colors.emptyMessageText || '#6c757d'};
+  padding: 20px;
+  background: linear-gradient(
+    135deg,
+    ${(props) => props.theme.colors.emptyMessageBackgroundStart || '#f5f5f5'},
+    ${(props) => props.theme.colors.emptyMessageBackgroundEnd || '#e0e0e0'}
+  );
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#ddd'};
+  font-style: italic;
+`,
+
+CarrierImage: styled.img`
+  width: 80px;
+  height: auto;
+  border-radius: 10px;
+  margin-right: 15px;
+  border: 2px solid ${(props) => props.theme.colors.imageBorder || '#ccc'};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`,
+
+CarrierTableContainer: styled.div`
+  margin-top: 20px;
+  overflow-x: auto;
+  border-radius: 12px;
+  background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+`,
+
+CarrierTable: styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 1rem;
+
+  th {
+    background: ${(props) => props.theme.colors.tableHeaderBackground || '#007BFF'};
+    color: ${(props) => props.theme.colors.tableHeaderText || '#ffffff'};
+    padding: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 2px solid ${(props) => props.theme.colors.border || '#ccc'};
+  }
+
+  td {
+    background: ${(props) => props.theme.colors.tableRowBackground || '#f9f9f9'};
+    color: ${(props) => props.theme.colors.textColor || '#333'};
+    padding: 12px;
+    border-bottom: 1px solid ${(props) => props.theme.colors.border || '#ccc'};
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background: ${(props) => props.theme.colors.tableRowHoverBackground || '#f1f1f1'};
+    }
+  }
+
+  @media (max-width: 768px) {
+    th, td {
+      display: block;
+      text-align: left;
+      padding: 10px;
+    }
+
+    td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      color: ${(props) => props.theme.colors.textSecondaryColor || '#666'};
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+`,
+
+CarrierWrapper: styled.div`
+  padding: 20px;
+  background: ${(props) => props.theme.colors.wrapperBackground || '#f8f9fa'};
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  max-width: 100%;
+  margin: auto;
+`
+
 }
 
 

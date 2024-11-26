@@ -1269,4 +1269,92 @@ border-radius: 8px;
 border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `,
+NoCarrierMessage: styled.div`
+font-size: 1.2rem;
+font-weight: bold;
+text-align: center;
+color: ${(props) => props.theme.colors.emptyMessageText || '#6c757d'};
+padding: 20px;
+margin: 20px 0;
+background-color: ${(props) =>
+  props.theme.colors.emptyMessageBackground || '#f8f8f8'};
+border: 1px dashed ${(props) => props.theme.colors.border || '#ddd'};
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+`,
+
+// Image d'un transporteur
+CarrierImage: styled.img`
+max-width: 100px;
+height: auto;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+&:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+`,
+
+// Tableau des transporteurs
+CarrierTable: styled.table`
+width: 100%;
+border-collapse: collapse;
+margin: 20px 0;
+background-color: ${(props) =>
+  props.theme.colors.tableBackground || '#ffffff'};
+border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+border-radius: 12px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+th,
+td {
+  padding: 12px 15px;
+  border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+  text-align: left;
+  font-size: 1rem;
+}
+
+th {
+  background-color: ${(props) =>
+    props.theme.colors.tableHeaderBackground || '#007BFF'};
+  color: ${(props) => props.theme.colors.tableHeaderText || '#ffffff'};
+  font-weight: bold;
+}
+
+td {
+  background-color: ${(props) =>
+    props.theme.colors.tableRowBackground || '#f9f9f9'};
+  color: ${(props) => props.theme.colors.tableText || '#333'};
+}
+
+tr:hover {
+  background-color: ${(props) =>
+    props.theme.colors.tableRowHoverBackground || '#f1f1f1'};
+}
+`,
+
+// Conteneur pour le tableau des transporteurs
+CarrierTableContainer: styled.div`
+overflow-x: auto;
+margin-top: 20px;
+padding: 20px;
+background-color: ${(props) =>
+  props.theme.colors.containerBackground || '#f8f8f8'};
+border-radius: 15px;
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+`,
+
+// Wrapper pour les transporteurs
+CarrierWrapper: styled.div`
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+padding: 20px;
+background: ${(props) => props.theme.colors.wrapperBackground || '#ffffff'};
+border-radius: 15px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+`,
 }

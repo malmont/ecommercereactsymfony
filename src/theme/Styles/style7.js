@@ -1435,4 +1435,93 @@ background: ${(props) => props.theme.colors.cardBackground || '#fafafa'};
 animation: ${shimmer} 1.8s infinite;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `,
+NoCarrierMessage: styled.div`
+text-align: center;
+font-size: 1.2rem;
+font-weight: bold;
+color: ${(props) => props.theme.colors.textMuted || '#888'};
+background: ${(props) => props.theme.colors.emptyMessageBackground || '#f9f9f9'};
+padding: 1.5rem 2rem;
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+animation: ${shimmer} 1.8s infinite;
+`,
+
+// Image associée au transporteur
+CarrierImage: styled.img`
+width: 90px;
+height: 90px;
+border-radius: 50%;
+object-fit: cover;
+margin-right: 15px;
+border: 2px solid ${(props) => props.theme.colors.imageBorder || '#ddd'};
+transition: transform 0.3s ease, border-color 0.3s ease;
+
+&:hover {
+  transform: scale(1.1);
+  border-color: ${(props) => props.theme.colors.hoverBorder || '#007BFF'};
+}
+`,
+
+// Table des informations des transporteurs
+CarrierTable: styled.table`
+width: 100%;
+border-collapse: collapse;
+font-size: 1rem;
+margin-top: 1.5rem;
+
+th,
+td {
+  padding: 12px 18px;
+  text-align: left;
+  border: 1px solid ${(props) => props.theme.colors.tableBorder || '#ddd'};
+}
+
+th {
+  background: ${(props) => props.theme.colors.tableHeaderBackground || '#f4f4f4'};
+  color: ${(props) => props.theme.colors.tableHeaderText || '#333'};
+  font-weight: bold;
+}
+
+td {
+  background: ${(props) => props.theme.colors.tableCellBackground || '#fff'};
+  color: ${(props) => props.theme.colors.tableCellText || '#555'};
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) =>
+      props.theme.colors.tableCellHoverBackground || '#f9f9f9'};
+  }
+}
+`,
+
+// Conteneur pour la table des transporteurs
+CarrierTableContainer: styled.div`
+width: 100%;
+max-width: 1200px;
+margin: 2rem auto;
+padding: 2rem;
+background: ${(props) =>
+  `linear-gradient(145deg, ${props.theme.colors.gradientStart || '#e3f2fd'}, ${props.theme.colors.gradientEnd || '#bbdefb'})`};
+border-radius: 15px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+&:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+`,
+
+// Wrapper principal pour les cartes ou sections des transporteurs
+CarrierWrapper: styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+padding: 2rem;
+background: ${(props) => props.theme.colors.wrapperBackground || '#f4f4f4'};
+border-radius: 15px;
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+`,
 }
