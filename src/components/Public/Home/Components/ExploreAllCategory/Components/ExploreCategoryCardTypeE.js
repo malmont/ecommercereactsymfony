@@ -10,6 +10,11 @@ const HorizontalContainer = styled.div`
   justify-content: space-between;
   gap: 20px;
   padding: 20px;
+   @media (max-width: 768px) {
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 10px; 
+  }
 `;
 
 const TextSection = styled.div`

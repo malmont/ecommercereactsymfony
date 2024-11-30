@@ -249,12 +249,20 @@ height: 450px;
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
+ 
 `,
 
 RowExplore: styled.div`
-display: flex;
-gap: 15px;
-margin: 4px;
+ display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 4px;
+
+  @media (max-width: 768px) {
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 10px; 
+  }
 `,
 
 ColumnExplore: styled.div`

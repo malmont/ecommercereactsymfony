@@ -10,13 +10,23 @@ const OverlayContainer = styled.div`
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   @media (max-width: 668px) {
+   height: 665px;
+   margin-top: 20px;
+   
+  }
 `;
 
 const ImageBackground = styled.img`
   width: 260px;
-  height: 400px;
+  height: 420px;
   object-fit: cover;
   filter: brightness(70%); /* Assombrit l'image pour un meilleur contraste avec le texte */
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 420px;
+  }
+   
 `;
 
 const TextOverlay = styled.div`
@@ -27,8 +37,18 @@ const TextOverlay = styled.div`
   color: ${(props) => props.theme.colors.overlayText || "#ffffff"};
   text-align: center;
   padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.5); /* Superposition semi-transparente */
+  background: rgba(0, 0, 0, 0.5); 
   border-radius: 10px;
+
+  @media (max-width: 668px) {
+    position: relative; 
+    top: auto;
+    left: auto;
+    transform: none; 
+    margin: 15px;
+    background: rgba(0, 0, 0, 0.7); 
+    z-index: 10; 
+  }
 `;
 
 const OverlayTitle = styled.h3`
@@ -66,17 +86,28 @@ export default function ExploreCategoryCardTypeF({
 
   return (
     <selectedStyle.StandardCardExploreCard>
+        <HorizontalContainer>
       <OverlayContainer>
-        {/* Image en arrière-plan */}
         <ImageBackground src={image} alt={titre} />
-
-        {/* Texte centré sur l'image */}
         <TextOverlay>
           <OverlayTitle>{titre}</OverlayTitle>
           <OverlayDescription>{description}</OverlayDescription>
           <OverlayLink href={Liencategory}>En savoir plus</OverlayLink>
         </TextOverlay>
       </OverlayContainer>
+      </HorizontalContainer>
     </selectedStyle.StandardCardExploreCard>
   );
 }
+
+const HorizontalContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px; 
+  }
+`;
