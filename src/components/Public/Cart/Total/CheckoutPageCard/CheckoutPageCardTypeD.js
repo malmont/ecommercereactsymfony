@@ -22,22 +22,22 @@ const CheckoutPageCardTypeD = observer(({
             style={{
                 gap: '2rem',
                 padding: '2rem',
-                backgroundColor: '#f8f9fa',
+                backgroundColor: selectedStyle?.colors?.cardBackground || '#ffffff',
                 borderRadius: '16px',
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+                boxShadow: selectedStyle?.colors?.boxShadow || '0 4px 20px rgba(0, 0, 0, 0.15)',
             }}
         >
             {/* Select Carrier */}
             <div
                 style={{
-                    borderBottom: '2px solid #dee2e6',
+                    borderBottom: `2px solid ${selectedStyle?.colors?.border || '#dee2e6'}`,
                     paddingBottom: '1rem',
                 }}
             >
                 <h2
                     style={{
                         fontSize: '1.5rem',
-                        color: '#000',
+                        color: selectedStyle?.colors?.titleText || '#000000',
                         fontWeight: 'bold',
                         marginBottom: '1.5rem',
                     }}
@@ -46,9 +46,7 @@ const CheckoutPageCardTypeD = observer(({
                 </h2>
                 <selectedStyle.CarrierContainer
                     style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-                        gap: '1.5rem',
+                        display: 'flex', justifyContent: 'center', gap: '1rem'
                     }}
                 >
                     {carriers.map((carrier) => (
@@ -59,14 +57,16 @@ const CheckoutPageCardTypeD = observer(({
                             style={{
                                 cursor: 'pointer',
                                 padding: '1.2rem',
-                                border: `2px solid ${selectedCarrier?.id === carrier.id ? '#007bff' : '#dee2e6'}`,
+                                border: `2px solid ${selectedCarrier?.id === carrier.id 
+                                    ? selectedStyle?.colors?.navItemHover || '#007bff' 
+                                    : selectedStyle?.colors?.border || '#dee2e6'}`,
                                 borderRadius: '12px',
                                 background: selectedCarrier?.id === carrier.id
-                                    ? 'linear-gradient(135deg, #e3f2fd, #ffffff)'
-                                    : '#ffffff',
+                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(135deg, #e3f2fd, #ffffff)'
+                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
                                 transition: 'transform 0.3s ease, background 0.3s ease',
                                 boxShadow: selectedCarrier?.id === carrier.id
-                                    ? '0 4px 12px rgba(0, 0, 0, 0.2)'
+                                    ? selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
                                     : '0 2px 8px rgba(0, 0, 0, 0.1)',
                                 textAlign: 'center',
                                 position: 'relative',
@@ -78,13 +78,13 @@ const CheckoutPageCardTypeD = observer(({
                                         position: 'absolute',
                                         top: '-8px',
                                         right: '-8px',
-                                        backgroundColor: '#007bff',
-                                        color: '#ffffff',
+                                        backgroundColor: selectedStyle?.colors?.navItemHover || '#007bff',
+                                        color: selectedStyle?.colors?.cartCountText || '#ffffff',
                                         borderRadius: '50%',
                                         padding: '4px 8px',
                                         fontSize: '0.8rem',
                                         fontWeight: 'bold',
-                                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+                                        boxShadow: selectedStyle?.colors?.boxShadow || '0 2px 8px rgba(0, 0, 0, 0.2)',
                                     }}
                                 >
                                     ✓
@@ -104,7 +104,7 @@ const CheckoutPageCardTypeD = observer(({
                                 style={{
                                     fontSize: '1rem',
                                     fontWeight: '600',
-                                    color: '#000',
+                                    color: selectedStyle?.colors?.textColor || '#000000',
                                 }}
                             >
                                 {carrier.name}
@@ -117,14 +117,14 @@ const CheckoutPageCardTypeD = observer(({
             {/* Select Delivery Address */}
             <div
                 style={{
-                    borderBottom: '2px solid #dee2e6',
+                    borderBottom: `2px solid ${selectedStyle?.colors?.border || '#dee2e6'}`,
                     paddingBottom: '1rem',
                 }}
             >
                 <h2
                     style={{
                         fontSize: '1.5rem',
-                        color: '#000',
+                        color: selectedStyle?.colors?.titleText || '#000000',
                         fontWeight: 'bold',
                         marginBottom: '1.5rem',
                     }}
@@ -146,14 +146,16 @@ const CheckoutPageCardTypeD = observer(({
                             style={{
                                 cursor: 'pointer',
                                 padding: '1.5rem',
-                                border: `2px solid ${selectedAddress?.id === address.id ? '#007bff' : '#dee2e6'}`,
+                                border: `2px solid ${selectedAddress?.id === address.id 
+                                    ? selectedStyle?.colors?.navItemHover || '#007bff' 
+                                    : selectedStyle?.colors?.border || '#dee2e6'}`,
                                 borderRadius: '12px',
                                 background: selectedAddress?.id === address.id
-                                    ? 'linear-gradient(135deg, #e3f2fd, #ffffff)'
-                                    : '#ffffff',
+                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(135deg, #e3f2fd, #ffffff)'
+                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
                                 transition: 'transform 0.3s ease, background 0.3s ease',
                                 boxShadow: selectedAddress?.id === address.id
-                                    ? '0 4px 12px rgba(0, 0, 0, 0.2)'
+                                    ? selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
                                     : '0 2px 8px rgba(0, 0, 0, 0.1)',
                                 position: 'relative',
                             }}
@@ -164,13 +166,13 @@ const CheckoutPageCardTypeD = observer(({
                                         position: 'absolute',
                                         top: '-8px',
                                         right: '-8px',
-                                        backgroundColor: '#007bff',
-                                        color: '#ffffff',
+                                        backgroundColor: selectedStyle?.colors?.navItemHover || '#007bff',
+                                        color: selectedStyle?.colors?.cartCountText || '#ffffff',
                                         borderRadius: '50%',
                                         padding: '4px 8px',
                                         fontSize: '0.8rem',
                                         fontWeight: 'bold',
-                                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+                                        boxShadow: selectedStyle?.colors?.boxShadow || '0 2px 8px rgba(0, 0, 0, 0.2)',
                                     }}
                                 >
                                     ✓
@@ -181,7 +183,7 @@ const CheckoutPageCardTypeD = observer(({
                                     margin: 0,
                                     fontWeight: '600',
                                     fontSize: '1rem',
-                                    color: '#000',
+                                    color: selectedStyle?.colors?.textColor || '#000000',
                                     marginBottom: '0.5rem',
                                 }}
                             >
@@ -191,7 +193,7 @@ const CheckoutPageCardTypeD = observer(({
                                 style={{
                                     margin: 0,
                                     fontSize: '0.9rem',
-                                    color: '#555',
+                                    color: selectedStyle?.colors?.infoTextColor || '#555555',
                                 }}
                             >
                                 {address.addressLineOne}, {address.city}
@@ -206,7 +208,7 @@ const CheckoutPageCardTypeD = observer(({
                 <h2
                     style={{
                         fontSize: '1.5rem',
-                        color: '#000',
+                        color: selectedStyle?.colors?.titleText || '#000000',
                         fontWeight: 'bold',
                         marginBottom: '1.5rem',
                     }}
@@ -215,9 +217,7 @@ const CheckoutPageCardTypeD = observer(({
                 </h2>
                 <selectedStyle.PaymentMethodContainer
                     style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        gap: '1.5rem',
+                        display: 'flex', justifyContent: 'center', gap: '1rem'
                     }}
                 >
                     {paymentMethods.map((method) => (
@@ -229,14 +229,16 @@ const CheckoutPageCardTypeD = observer(({
                                 cursor: 'pointer',
                                 width: '100px',
                                 height: '100px',
-                                border: `2px solid ${selectedPaymentMethod?.id === method.id ? '#007bff' : '#dee2e6'}`,
+                                border: `2px solid ${selectedPaymentMethod?.id === method.id 
+                                    ? selectedStyle?.colors?.navItemHover || '#007bff' 
+                                    : selectedStyle?.colors?.border || '#dee2e6'}`,
                                 borderRadius: '50%',
                                 background: selectedPaymentMethod?.id === method.id
-                                    ? 'linear-gradient(135deg, #e3f2fd, #ffffff)'
-                                    : '#ffffff',
+                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(135deg, #e3f2fd, #ffffff)'
+                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
                                 transition: 'transform 0.3s ease, background 0.3s ease',
                                 boxShadow: selectedPaymentMethod?.id === method.id
-                                    ? '0 4px 12px rgba(0, 0, 0, 0.2)'
+                                    ? selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
                                     : '0 2px 8px rgba(0, 0, 0, 0.1)',
                                 position: 'relative',
                                 display: 'flex',
@@ -250,13 +252,13 @@ const CheckoutPageCardTypeD = observer(({
                                         position: 'absolute',
                                         top: '-8px',
                                         right: '-8px',
-                                        backgroundColor: '#007bff',
-                                        color: '#ffffff',
+                                        backgroundColor: selectedStyle?.colors?.navItemHover || '#007bff',
+                                        color: selectedStyle?.colors?.cartCountText || '#ffffff',
                                         borderRadius: '50%',
                                         padding: '4px 8px',
                                         fontSize: '0.8rem',
                                         fontWeight: 'bold',
-                                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+                                        boxShadow: selectedStyle?.colors?.boxShadow || '0 2px 8px rgba(0, 0, 0, 0.2)',
                                     }}
                                 >
                                     ✓

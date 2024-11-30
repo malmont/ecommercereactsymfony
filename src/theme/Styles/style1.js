@@ -146,7 +146,7 @@ export const style1 = {
     background-color: ${(props) => props.theme.colors.cardBackground};
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     height: 520px;
-    width: 260px;
+    width: 270px;
     margin-bottom: 5px;
   `,
 
@@ -159,14 +159,14 @@ export const style1 = {
 
   CardImage: styled.img`
     width: 100%;
-    height: 370px;
+    height: 365px;
   `,
 
   CardBody: styled.div`
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px;
     color: ${(props) => props.theme.colors.cardBodyText};
   `,
   DiscountBadge: styled.span`
@@ -360,6 +360,7 @@ PrincipalDetailsDetailProduct: styled.div`
 
 ColorSelectionDetailProduct: styled.div`
     margin: 20px 0;
+
 `,
 
 SizeSelectionDetailProduct: styled.div`
@@ -376,6 +377,7 @@ SizeOptionsDetailProduct: styled.div`
     display: flex;
     gap: 10px;
     margin-top: 10px;
+    
 `,
 
 InfoSelectionDetailProduct: styled.div`
@@ -464,7 +466,7 @@ CartItemInfo: styled.div`
 CartItemImage: styled.img`
   object-fit: contain;
   width: 180px;
-  height: 180px;
+  height:230px;
 `,
 
 CartItemTitle: styled.p`
@@ -563,6 +565,11 @@ OrderSummaryContainer: styled.div`
     border-radius: 10px;
     background-color: ${(props) => props.theme.colors.cardBackground || '#fff'};
     margin-top: 20px;
+  //    @media (max-width: 1000px) {
+  //    padding: 10px;
+  //   width: 250px;
+  // }
+    
   `,
   OrderSummaryTitle: styled.h4`
     font-size: 1.5rem;

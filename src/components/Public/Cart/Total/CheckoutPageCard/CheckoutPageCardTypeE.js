@@ -22,9 +22,9 @@ const CheckoutPageCardTypeE = observer(({
             style={{
                 gap: '2rem',
                 padding: '2rem',
-                backgroundColor: '#f5f7fa',
+                backgroundColor: selectedStyle?.colors?.cardBackground,
                 borderRadius: '20px',
-                boxShadow: '0 6px 15px rgba(0, 0, 0, 0.1)',
+                boxShadow: selectedStyle?.colors?.boxShadow || '0 6px 15px rgba(0, 0, 0, 0.1)',
             }}
         >
             {/* Select Carrier */}
@@ -32,7 +32,7 @@ const CheckoutPageCardTypeE = observer(({
                 <h2
                     style={{
                         fontSize: '1.6rem',
-                        color: '#333',
+                        color: selectedStyle?.colors?.textColor ,
                         fontWeight: 'bold',
                         marginBottom: '1rem',
                     }}
@@ -56,14 +56,18 @@ const CheckoutPageCardTypeE = observer(({
                                 cursor: 'pointer',
                                 flex: '0 0 200px',
                                 padding: '1.5rem',
-                                border: `2px solid ${selectedCarrier?.id === carrier.id ? '#007bff' : '#dee2e6'}`,
+                                border: `2px solid ${
+                                    selectedCarrier?.id === carrier.id
+                                        ? selectedStyle?.colors?.navItemHover
+                                        : selectedStyle?.colors?.border 
+                                }`,
                                 borderRadius: '16px',
                                 background: selectedCarrier?.id === carrier.id
-                                    ? 'linear-gradient(135deg, #e3f2fd, #ffffff)'
-                                    : '#ffffff',
+                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(135deg, #e3f2fd, #ffffff)'
+                                    : selectedStyle?.colors?.cardBackground ,
                                 transition: 'transform 0.3s ease, background 0.3s ease',
                                 boxShadow: selectedCarrier?.id === carrier.id
-                                    ? '0 4px 12px rgba(0, 0, 0, 0.2)'
+                                    ? selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
                                     : '0 2px 6px rgba(0, 0, 0, 0.1)',
                                 position: 'relative',
                                 display: 'flex',
@@ -77,13 +81,13 @@ const CheckoutPageCardTypeE = observer(({
                                         position: 'absolute',
                                         top: '-8px',
                                         right: '-8px',
-                                        backgroundColor: '#007bff',
-                                        color: '#ffffff',
+                                        backgroundColor: selectedStyle?.colors?.navItemHover ,
+                                        color: selectedStyle?.colors?.cartCountText,
                                         borderRadius: '50%',
                                         padding: '4px 8px',
                                         fontSize: '0.8rem',
                                         fontWeight: 'bold',
-                                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+                                        boxShadow: selectedStyle?.colors?.boxShadow || '0 2px 8px rgba(0, 0, 0, 0.2)',
                                     }}
                                 >
                                     ✓
@@ -103,7 +107,7 @@ const CheckoutPageCardTypeE = observer(({
                                 style={{
                                     fontSize: '1.1rem',
                                     fontWeight: '600',
-                                    color: '#333',
+                                    color: selectedStyle?.colors?.textColor ,
                                     textAlign: 'center',
                                 }}
                             >
@@ -119,7 +123,7 @@ const CheckoutPageCardTypeE = observer(({
                 <h2
                     style={{
                         fontSize: '1.6rem',
-                        color: '#333',
+                        color: selectedStyle?.colors?.textColor ,
                         fontWeight: 'bold',
                         marginBottom: '1rem',
                     }}
@@ -141,13 +145,17 @@ const CheckoutPageCardTypeE = observer(({
                             style={{
                                 cursor: 'pointer',
                                 padding: '1.5rem',
-                                border: `2px solid ${selectedAddress?.id === address.id ? '#28a745' : '#dee2e6'}`,
+                                border: `2px solid ${
+                                    selectedAddress?.id === address.id
+                                        ? selectedStyle?.colors?.navItemHover 
+                                        : selectedStyle?.colors?.border 
+                                }`,
                                 borderRadius: '12px',
                                 background: selectedAddress?.id === address.id
-                                    ? 'linear-gradient(135deg, #e6ffe8, #ffffff)'
-                                    : '#ffffff',
+                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(135deg, #e6ffe8, #ffffff)'
+                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
                                 boxShadow: selectedAddress?.id === address.id
-                                    ? '0 4px 12px rgba(0, 0, 0, 0.2)'
+                                    ? selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
                                     : '0 2px 6px rgba(0, 0, 0, 0.1)',
                                 position: 'relative',
                                 transition: 'background 0.3s ease, box-shadow 0.3s ease',
@@ -159,13 +167,13 @@ const CheckoutPageCardTypeE = observer(({
                                         position: 'absolute',
                                         top: '-8px',
                                         right: '-8px',
-                                        backgroundColor: '#28a745',
-                                        color: '#ffffff',
+                                        backgroundColor: selectedStyle?.colors?.navItemHover ,
+                                        color: selectedStyle?.colors?.cartCountText ,
                                         borderRadius: '50%',
                                         padding: '4px 8px',
                                         fontSize: '0.8rem',
                                         fontWeight: 'bold',
-                                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+                                        boxShadow: selectedStyle?.colors?.boxShadow || '0 2px 8px rgba(0, 0, 0, 0.2)',
                                     }}
                                 >
                                     ✓
@@ -176,7 +184,7 @@ const CheckoutPageCardTypeE = observer(({
                                     margin: 0,
                                     fontWeight: '600',
                                     fontSize: '1rem',
-                                    color: '#333',
+                                    color: selectedStyle?.colors?.textColor ,
                                     marginBottom: '0.5rem',
                                 }}
                             >
@@ -186,7 +194,7 @@ const CheckoutPageCardTypeE = observer(({
                                 style={{
                                     margin: 0,
                                     fontSize: '0.9rem',
-                                    color: '#555',
+                                    color: selectedStyle?.colors?.infoTextColor ,
                                 }}
                             >
                                 {address.addressLineOne}, {address.city}
@@ -201,7 +209,7 @@ const CheckoutPageCardTypeE = observer(({
                 <h2
                     style={{
                         fontSize: '1.6rem',
-                        color: '#333',
+                        color: selectedStyle?.colors?.textColor ,
                         fontWeight: 'bold',
                         marginBottom: '1rem',
                     }}
@@ -224,13 +232,17 @@ const CheckoutPageCardTypeE = observer(({
                                 cursor: 'pointer',
                                 width: '100px',
                                 height: '100px',
-                                border: `2px solid ${selectedPaymentMethod?.id === method.id ? '#ffc107' : '#dee2e6'}`,
+                                border: `2px solid ${
+                                    selectedPaymentMethod?.id === method.id
+                                        ? selectedStyle?.colors?.goldAccent 
+                                        : selectedStyle?.colors?.border 
+                                }`,
                                 borderRadius: '50%',
                                 background: selectedPaymentMethod?.id === method.id
-                                    ? 'linear-gradient(135deg, #fff9e6, #ffffff)'
-                                    : '#ffffff',
+                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(135deg, #fff9e6, #ffffff)'
+                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
                                 boxShadow: selectedPaymentMethod?.id === method.id
-                                    ? '0 4px 12px rgba(0, 0, 0, 0.2)'
+                                    ? selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
                                     : '0 2px 6px rgba(0, 0, 0, 0.1)',
                                 position: 'relative',
                                 display: 'flex',
@@ -245,13 +257,13 @@ const CheckoutPageCardTypeE = observer(({
                                         position: 'absolute',
                                         top: '-8px',
                                         right: '-8px',
-                                        backgroundColor: '#ffc107',
-                                        color: '#ffffff',
+                                        backgroundColor: selectedStyle?.colors?.goldAccent ,
+                                        color: selectedStyle?.colors?.cartCountText ,
                                         borderRadius: '50%',
                                         padding: '4px 8px',
                                         fontSize: '0.8rem',
                                         fontWeight: 'bold',
-                                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+                                        boxShadow: selectedStyle?.colors?.boxShadow || '0 2px 8px rgba(0, 0, 0, 0.2)',
                                     }}
                                 >
                                     ✓

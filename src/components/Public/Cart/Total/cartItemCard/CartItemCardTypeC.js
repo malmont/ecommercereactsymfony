@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../../DependencyContext';
 import { styles } from '../../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../../theme/AdminContext';
+import styled from 'styled-components';
 
 const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, color, size, colorHex, variantId, showButtons }) => {
   const { cartViewModel } = useDependencies();
@@ -10,30 +11,18 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
   const selectedStyle = styles[styleChoice];
 
   return (
-    <selectedStyle.CartItemContainer
-      style={{
-        display: "grid",
-        gridTemplateColumns: "80px auto auto",
-        gap: "15px",
-        padding: "20px",
-        border: `1px solid ${(props) => props.theme.colors.cartItemBorder}`,
-        borderRadius: "8px",
-        background: `${(props) => props.theme.colors.cardBackground}`,
-      }}
-    >
-
+    <CartItemContainer >
       <selectedStyle.CartItemImage
         src={image}
         alt="item"
         style={{
-          width: "80px",
-          height: "160px",
+          width: "200px",
+          height: "280px", // Adjusted to be square
           borderRadius: "8px",
           objectFit: "cover",
           border: `1px solid ${(props) => props.theme.colors.cartItemImageBorder}`,
         }}
       />
-
 
       <selectedStyle.CartItemInfo
         style={{
@@ -111,26 +100,21 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
         style={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "flex-end",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
           gap: "10px",
         }}
       >
         {showButtons ? (
           <>
-            <selectedStyle.CartItemButton
-              onClick={() => cartViewModel.removeItem(variantId)}
+            <selectedStyle.CartItemIncrDec
               style={{
-                background: `${(props) => props.theme.colors.cartItemButtonBackground}`,
-                color: `${(props) => props.theme.colors.cartItemButtonHover}`,
-                padding: "8px 12px",
-                fontSize: "0.9rem",
-                borderRadius: "4px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "10px",
               }}
             >
-              Supprimer
-            </selectedStyle.CartItemButton>
-            <selectedStyle.CartItemIncrDec style={{ display: "flex", alignItems: "center", gap: "15px" }}>
               <selectedStyle.IncrDecButton
                 onClick={() => cartViewModel.decrementQuantity(variantId)}
                 style={{
@@ -143,7 +127,7 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
               >
                 -
               </selectedStyle.IncrDecButton>
-              <p style={{ fontWeight: "bold", fontSize: "1rem" }}>{quantity}</p>
+              <p style={{ fontWeight: "bold", fontSize: "1rem", margin: "0 5px" }}>{quantity}</p>
               <selectedStyle.IncrDecButton
                 onClick={() => cartViewModel.incrementQuantity(variantId)}
                 style={{
@@ -157,6 +141,18 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
                 +
               </selectedStyle.IncrDecButton>
             </selectedStyle.CartItemIncrDec>
+            <selectedStyle.CartItemButton
+              onClick={() => cartViewModel.removeItem(variantId)}
+              style={{
+                background: `${(props) => props.theme.colors.cartItemButtonBackground}`,
+                color: `${(props) => props.theme.colors.cartItemButtonHover}`,
+                padding: "8px 12px",
+                fontSize: "0.9rem",
+                borderRadius: "4px",
+              }}
+            >
+              Supprimer
+            </selectedStyle.CartItemButton>
           </>
         ) : (
           <selectedStyle.CartItemQuantity
@@ -169,8 +165,25 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
           </selectedStyle.CartItemQuantity>
         )}
       </div>
-    </selectedStyle.CartItemContainer>
+    </CartItemContainer>
   );
 });
 
 export default CartItemCardTypeC;
+
+const CartItemContainer = styled.div`
+  display: grid;
+  grid-template-columns: 150px auto 100px;
+  gap: 15px;
+  padding: 20px;
+  
+  border-radius: 8px;
+  background: ${(props) => props.theme.colors.cardBackground};
+  align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+`;

@@ -43,8 +43,9 @@ const getResponsiveConfig = (typeComponentSection) => {
       return {
         superLargeDesktop: { breakpoint: { max: 4000, min: 1640 }, items: 6 },
         desktop: { breakpoint: { max: 1640, min: 1024 }, items: 5 },
-        tablet: { breakpoint: { max: 1024, min: 657 }, items: 4 },
-        mobile: { breakpoint: { max: 657, min: 0 }, items: 2 },
+        tablet: { breakpoint: { max: 1330, min: 657 }, items: 4 },
+        tablet2: { breakpoint: { max: 930, min: 657 }, items: 3 },
+        mobile: { breakpoint: { max: 657, min: 0 }, items: 1 },
       };
       case "typeC":
         return {
