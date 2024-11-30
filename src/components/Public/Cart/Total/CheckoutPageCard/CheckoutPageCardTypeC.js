@@ -22,22 +22,22 @@ const CheckoutPageCardTypeC = observer(({
             style={{
                 gap: '2rem',
                 padding: '2rem',
-                backgroundColor: '#f8f9fa',
+                backgroundColor: selectedStyle?.colors?.cardBackground || '#ffffff',
                 borderRadius: '12px',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                boxShadow: selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.1)',
             }}
         >
             {/* Select Carrier */}
             <div
                 style={{
-                    borderBottom: '2px solid #dee2e6',
+                    borderBottom: `2px solid ${selectedStyle?.colors?.border || '#dee2e6'}`,
                     paddingBottom: '1rem',
                 }}
             >
                 <h2
                     style={{
                         fontSize: '1.5rem',
-                        color: '#000',
+                        color: selectedStyle?.colors?.titleText || '#000000',
                         fontWeight: 'bold',
                         marginBottom: '1.5rem',
                     }}
@@ -46,9 +46,7 @@ const CheckoutPageCardTypeC = observer(({
                 </h2>
                 <selectedStyle.CarrierContainer
                     style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-                        gap: '1.5rem',
+                        display: 'flex', justifyContent: 'center', gap: '1rem'
                     }}
                 >
                     {carriers.map((carrier) => (
@@ -59,12 +57,16 @@ const CheckoutPageCardTypeC = observer(({
                             style={{
                                 cursor: 'pointer',
                                 padding: '1.2rem',
-                                border: `2px solid ${selectedCarrier?.id === carrier.id ? '#007bff' : '#dee2e6'}`,
+                                border: `2px solid ${selectedCarrier?.id === carrier.id 
+                                    ? selectedStyle?.colors?.navItemHover
+                                    : selectedStyle?.colors?.border}`,
                                 borderRadius: '10px',
-                                backgroundColor: selectedCarrier?.id === carrier.id ? '#e3f2fd' : '#ffffff',
+                                backgroundColor: selectedCarrier?.id === carrier.id 
+                                    ? selectedStyle?.colors?.hoverCardBackground || '#e3f2fd' 
+                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
                                 transition: 'transform 0.3s ease, background-color 0.3s ease',
                                 boxShadow: selectedCarrier?.id === carrier.id
-                                    ? '0 4px 12px rgba(0, 0, 0, 0.2)'
+                                    ? selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
                                     : '0 2px 8px rgba(0, 0, 0, 0.1)',
                                 textAlign: 'center',
                             }}
@@ -83,7 +85,7 @@ const CheckoutPageCardTypeC = observer(({
                                 style={{
                                     fontSize: '1rem',
                                     fontWeight: '600',
-                                    color: '#000',
+                                    color: selectedStyle?.colors?.textColor || '#000000',
                                 }}
                             >
                                 {carrier.name}
@@ -96,14 +98,14 @@ const CheckoutPageCardTypeC = observer(({
             {/* Select Delivery Address */}
             <div
                 style={{
-                    borderBottom: '2px solid #dee2e6',
+                    borderBottom: `2px solid ${selectedStyle?.colors?.border || '#dee2e6'}`,
                     paddingBottom: '1rem',
                 }}
             >
                 <h2
                     style={{
                         fontSize: '1.5rem',
-                        color: '#000',
+                        color: selectedStyle?.colors?.titleText || '#000000',
                         fontWeight: 'bold',
                         marginBottom: '1.5rem',
                     }}
@@ -125,12 +127,16 @@ const CheckoutPageCardTypeC = observer(({
                             style={{
                                 cursor: 'pointer',
                                 padding: '1.2rem',
-                                border: `2px solid ${selectedAddress?.id === address.id ? '#007bff' : '#dee2e6'}`,
+                                border: `2px solid ${selectedAddress?.id === address.id 
+                                    ? selectedStyle?.colors?.navItemHover || '#007bff' 
+                                    : selectedStyle?.colors?.border || '#dee2e6'}`,
                                 borderRadius: '10px',
-                                backgroundColor: selectedAddress?.id === address.id ? '#e3f2fd' : '#ffffff',
+                                backgroundColor: selectedAddress?.id === address.id 
+                                    ? selectedStyle?.colors?.hoverCardBackground || '#e3f2fd' 
+                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
                                 transition: 'transform 0.3s ease, background-color 0.3s ease',
                                 boxShadow: selectedAddress?.id === address.id
-                                    ? '0 4px 12px rgba(0, 0, 0, 0.2)'
+                                    ? selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
                                     : '0 2px 8px rgba(0, 0, 0, 0.1)',
                             }}
                         >
@@ -139,7 +145,7 @@ const CheckoutPageCardTypeC = observer(({
                                     margin: 0,
                                     fontWeight: '600',
                                     fontSize: '1rem',
-                                    color: '#000',
+                                    color: selectedStyle?.colors?.textColor || '#000000',
                                     marginBottom: '0.5rem',
                                 }}
                             >
@@ -149,7 +155,7 @@ const CheckoutPageCardTypeC = observer(({
                                 style={{
                                     margin: 0,
                                     fontSize: '0.9rem',
-                                    color: '#555',
+                                    color: selectedStyle?.colors?.infoTextColor || '#555555',
                                 }}
                             >
                                 {address.addressLineOne}, {address.city}
@@ -164,7 +170,7 @@ const CheckoutPageCardTypeC = observer(({
                 <h2
                     style={{
                         fontSize: '1.5rem',
-                        color: '#000',
+                        color: selectedStyle?.colors?.titleText || '#000000',
                         fontWeight: 'bold',
                         marginBottom: '1.5rem',
                     }}
@@ -173,9 +179,7 @@ const CheckoutPageCardTypeC = observer(({
                 </h2>
                 <selectedStyle.PaymentMethodContainer
                     style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        gap: '1.5rem',
+                        display: 'flex', justifyContent: 'center', gap: '1rem'
                     }}
                 >
                     {paymentMethods.map((method) => (
@@ -187,12 +191,16 @@ const CheckoutPageCardTypeC = observer(({
                                 cursor: 'pointer',
                                 width: '100px',
                                 height: '100px',
-                                border: `2px solid ${selectedPaymentMethod?.id === method.id ? '#007bff' : '#dee2e6'}`,
+                                border: `2px solid ${selectedPaymentMethod?.id === method.id 
+                                    ? selectedStyle?.colors?.navItemHover || '#007bff' 
+                                    : selectedStyle?.colors?.border || '#dee2e6'}`,
                                 borderRadius: '50%',
-                                backgroundColor: selectedPaymentMethod?.id === method.id ? '#e3f2fd' : '#ffffff',
+                                backgroundColor: selectedPaymentMethod?.id === method.id 
+                                    ? selectedStyle?.colors?.hoverCardBackground || '#e3f2fd' 
+                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
                                 transition: 'transform 0.3s ease, background-color 0.3s ease',
                                 boxShadow: selectedPaymentMethod?.id === method.id
-                                    ? '0 4px 12px rgba(0, 0, 0, 0.2)'
+                                    ? selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
                                     : '0 2px 8px rgba(0, 0, 0, 0.1)',
                                 display: 'flex',
                                 alignItems: 'center',

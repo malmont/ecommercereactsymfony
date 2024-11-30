@@ -19,9 +19,9 @@ const CartItemCardTypeA = observer(({ id, image, title, price, quantity = 0, col
             {colorHex && <selectedStyle.ColorCircle color={colorHex} />}
             {size && <selectedStyle.SizeCircle>{size.charAt(0)}</selectedStyle.SizeCircle>}
           </selectedStyle.CartItemVariantInfo>
-
+          <div className='mt-3'></div>
           <selectedStyle.CartItemPrice>
-            <strong>{(price / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</strong>
+            <strong >{(price / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</strong>
           </selectedStyle.CartItemPrice>
 
           {showButtons ? (

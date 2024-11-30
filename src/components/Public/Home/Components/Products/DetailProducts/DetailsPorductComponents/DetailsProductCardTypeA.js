@@ -23,7 +23,7 @@ const DetailsProductCardTypeA = ({
             />
           </div>
           <div className="col-md-6">
-            <h1>{category.name}</h1>
+            <h2>{category.name}</h2>
             <h2>
               {(category.price / 100).toLocaleString("en-US", {
                 style: "currency",
@@ -31,7 +31,7 @@ const DetailsProductCardTypeA = ({
               })}
             </h2>
             <selectedStyle.ColorSelectionDetailProduct>
-              <h4>Sélectionnez une couleur :</h4>
+              <h5>Sélectionnez  </h5>
               <selectedStyle.ColorOptionsDetailProduct>
                 {uniqueColors.map((color) => (
                   <selectedStyle.ColorButton
@@ -45,7 +45,7 @@ const DetailsProductCardTypeA = ({
             </selectedStyle.ColorSelectionDetailProduct>
             {viewModel.selectedColor && (
               <selectedStyle.SizeSelectionDetailProduct>
-                <h4>Sélectionnez une taille :</h4>
+                <h5>Sélectionnez  </h5>
                 <selectedStyle.SizeOptionsDetailProduct>
                   {viewModel
                     .getAvailableSizes(category.variants, viewModel.selectedColor)

@@ -53,7 +53,7 @@ const CheckoutPage = observer(() => {
     <Wrapper>
       <div className="cart card">
         <div className="cart__left">
-          <div className="card-header row justify-content-between">
+          <div className=" row justify-content-between">
             <div className="col col">
               <h3>Checkout</h3>
               {checkoutViewModel.cart?.map((item) => (
@@ -98,9 +98,8 @@ const CheckoutPage = observer(() => {
 const Wrapper = styled.div`
   .cart {
     display: flex;
-    margin: 30px auto;
+    margin: 30px 10px;
     height: max-content;
-    padding: 20px 20px 0 20px;
     gap: 20px;
     flex: 1;
   }

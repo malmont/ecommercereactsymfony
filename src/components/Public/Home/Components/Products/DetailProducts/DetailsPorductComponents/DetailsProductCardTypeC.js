@@ -16,7 +16,7 @@ const DetailsProductCardTypeC = ({
     <selectedStyle.ContainerDetailsProduct
       style={{
         display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr", // Trois colonnes : image, contenu principal, avantages
+        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", // Adapte les colonnes selon la largeur
         gap: "20px",
         padding: "20px",
       }}
@@ -36,7 +36,7 @@ const DetailsProductCardTypeC = ({
 
       {/* Colonne 2 : Détails du produit */}
       <div>
-        <h1 style={{ fontSize: "1.8rem", marginBottom: "10px" }}>{category.name}</h1>
+        <h2 style={{ fontSize: "1.8rem", marginBottom: "10px" }}>{category.name}</h2>
         <h2
           style={{
             fontSize: "1.5rem",
@@ -52,7 +52,7 @@ const DetailsProductCardTypeC = ({
 
         {/* Sélection des couleurs */}
         <div style={{ marginBottom: "20px" }}>
-          <h4>Sélectionnez une couleur :</h4>
+          <h5>Sélectionnez</h5>
           <selectedStyle.ColorOptionsDetailProduct style={{ display: "flex", gap: "10px" }}>
             {uniqueColors.map((color) => (
               <selectedStyle.ColorButton
@@ -73,7 +73,7 @@ const DetailsProductCardTypeC = ({
         {/* Sélection des tailles */}
         {viewModel.selectedColor && (
           <div style={{ marginBottom: "20px" }}>
-            <h4>Sélectionnez une taille :</h4>
+            <h5>Sélectionnez</h5>
             <selectedStyle.SizeOptionsDetailProduct style={{ display: "flex", gap: "10px" }}>
               {viewModel
                 .getAvailableSizes(category.variants, viewModel.selectedColor)
@@ -116,7 +116,7 @@ const DetailsProductCardTypeC = ({
           onClick={handleAddToCart}
           disabled={!viewModel.selectedSize || !viewModel.selectedColor}
           style={{
-            width: "50%",
+            width: "100%",
             padding: "10px",
             borderRadius: "8px",
             backgroundColor: "#007bff",
@@ -129,13 +129,15 @@ const DetailsProductCardTypeC = ({
           Ajouter au panier
         </button>
       </div>
+
+      {/* Colonne 3 : Avantages */}
       <selectedStyle.FeatureDetailProduct
         style={{
           display: "flex",
-          flexDirection: "column",
-          alignItems: "normal", 
+          flexWrap: "wrap",
+          justifyContent: "center",
           gap: "15px",
-          width: "60%",
+          padding: "10px",
         }}
       >
         <selectedStyle.ObjectFeatureDetailProduct>

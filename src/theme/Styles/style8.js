@@ -768,6 +768,8 @@ border-radius: 5px;
 object-fit: cover;
 box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 margin-right: 10px;
+border: 2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+
 `,
 
 CartItemInfo: styled.div`
@@ -804,6 +806,8 @@ padding: 15px;
 border-radius: 10px;
 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 margin: 20px;
+
+
 `,
 OrderSummaryContainer: styled.div`
     width: 100%;

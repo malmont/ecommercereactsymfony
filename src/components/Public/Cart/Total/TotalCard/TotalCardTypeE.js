@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../../DependencyContext';
 import { styles } from '../../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../../theme/AdminContext';
+import styled from 'styled-components';
 
 const TotalCardTypeE = observer(({ handleCheckout, buttonLabel = 'Place Order' }) => {
   const { cartViewModel } = useDependencies();
@@ -10,82 +11,104 @@ const TotalCardTypeE = observer(({ handleCheckout, buttonLabel = 'Place Order' }
   const selectedStyle = styles[styleChoice];
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: '50%',
-        width: '350px',
-        height: '350px',
-        background: `${(props) => props.theme.colors.cardBackground || '#f4f4f4'}`,
-        boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)',
-        padding: '1rem',
-        margin: '2rem auto',
-        position: 'relative',
-      }}
-    >
-      {/* Circular Text Items */}
-      <div style={{ position: 'absolute', top: '20px', textAlign: 'center' }}>
-        <selectedStyle.OrderSummaryText style={{ fontSize: '1rem' }}>
-          Subtotal:
-        </selectedStyle.OrderSummaryText>
-        <selectedStyle.OrderSummaryHighlight style={{ fontSize: '1.2rem' }}>
+    <OrderSummaryContainer>
+      <PositionedText top="20px" textAlign="center">
+        <selectedStyle.OrderSummaryText>Subtotal:</selectedStyle.OrderSummaryText>
+        <selectedStyle.OrderSummaryHighlight>
           {((cartViewModel.totalPrice) / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
         </selectedStyle.OrderSummaryHighlight>
-      </div>
+      </PositionedText>
 
-      <div style={{ position: 'absolute', left: '20px', textAlign: 'center' }}>
-        <selectedStyle.OrderSummaryText style={{ fontSize: '1rem' }}>
-          Tax:
-        </selectedStyle.OrderSummaryText>
-        <selectedStyle.OrderSummaryHighlight style={{ fontSize: '1.2rem' }}>
+      <PositionedText left="20px" textAlign="center">
+        <selectedStyle.OrderSummaryText>Tax:</selectedStyle.OrderSummaryText>
+        <selectedStyle.OrderSummaryHighlight>
           {((cartViewModel.totalPrice * 0.2) / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
         </selectedStyle.OrderSummaryHighlight>
-      </div>
+      </PositionedText>
 
-      <div style={{ position: 'absolute', right: '20px', textAlign: 'center' }}>
-        <selectedStyle.OrderSummaryText style={{ fontSize: '1rem' }}>
-          Shipping:
-        </selectedStyle.OrderSummaryText>
-        <selectedStyle.OrderSummaryHighlight style={{ fontSize: '1.2rem' }}>
-          Free
-        </selectedStyle.OrderSummaryHighlight>
-      </div>
+      <PositionedText right="20px" textAlign="center">
+        <selectedStyle.OrderSummaryText>Shipping:</selectedStyle.OrderSummaryText>
+        <selectedStyle.OrderSummaryHighlight>Free</selectedStyle.OrderSummaryHighlight>
+      </PositionedText>
 
-      <div style={{ position: 'absolute', bottom: '20px', textAlign: 'center' }}>
-        <selectedStyle.OrderSummaryText style={{ fontSize: '1rem' }}>
-          Total:
-        </selectedStyle.OrderSummaryText>
-        <selectedStyle.OrderSummaryHighlight style={{ fontSize: '1.4rem' }}>
+      <PositionedText bottom="20px" textAlign="center">
+        <selectedStyle.OrderSummaryText>Total:</selectedStyle.OrderSummaryText>
+        <selectedStyle.OrderSummaryHighlight>
           {((cartViewModel.totalPriceWithTax) / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
         </selectedStyle.OrderSummaryHighlight>
-      </div>
+      </PositionedText>
 
-      {/* Central Checkout Button */}
-      <selectedStyle.CheckoutButton
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          padding: '1rem 2rem',
-          fontSize: '1.2rem',
-          fontWeight: 'bold',
-          borderRadius: '25px',
-          background: `linear-gradient(135deg, ${(props) => props.theme.colors.goldAccent || '#d4af37'}, ${(props) => props.theme.colors.buttonBackground || '#ffd700'})`,
-          color: `${(props) => props.theme.colors.buttonText || '#fff'}`,
-          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
-          cursor: 'pointer',
-          transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-        }}
-        onClick={handleCheckout}
-      >
+      <CheckoutButton onClick={handleCheckout}>
         {buttonLabel}
-      </selectedStyle.CheckoutButton>
-    </div>
+      </CheckoutButton>
+    </OrderSummaryContainer>
   );
 });
 
 export default TotalCardTypeE;
+
+const OrderSummaryContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 350px;
+  height: 350px;
+  background: ${(props) => props.theme.colors.cardBackground};
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 2rem auto;
+  position: relative;
+
+  @media (max-width: 768px) {
+    width: 250px;
+    height: 250px;
+  }
+
+  @media (max-width: 480px) {
+    width: 250px;
+    height: 250px;
+
+  }
+`;
+
+const PositionedText = styled.div`
+  position: absolute;
+  top: ${(props) => props.top || 'unset'};
+  left: ${(props) => props.left || 'unset'};
+  right: ${(props) => props.right || 'unset'};
+  bottom: ${(props) => props.bottom || 'unset'};
+  text-align: ${(props) => props.textAlign || 'unset'};
+`;
+
+const CheckoutButton = styled.button`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 25px;
+  background: linear-gradient(135deg, ${(props) => props.theme.colors.buttonHover }, ${(props) => props.theme.colors.buttonBackground});
+  color: ${(props) => props.theme.colors.buttonText || '#fff'};
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.7rem;
+    padding: 0.7rem 0.6rem;
+  }
+`;

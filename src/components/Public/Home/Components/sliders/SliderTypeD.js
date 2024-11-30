@@ -131,22 +131,22 @@ const Content = styled.div`
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 20px;
-    color: ${(props) => props.theme.colors.titleText || "#ffcc00"};
+    color: ${(props) => props.theme.colors.titleText };
   }
 
   .description {
     font-size: 1.2rem;
     line-height: 1.8;
     margin-bottom: 30px;
-    color: ${(props) => props.theme.colors.descriptionText || "#ffffff"};
+    color: ${(props) => props.theme.colors.descriptionText };
   }
 `;
 
 const StyledButton = styled.a`
   display: inline-block;
   padding: 12px 30px;
-  background-color: ${(props) => props.theme.colors.buttonBackground || "#ff6f61"};
-  color: ${(props) => props.theme.colors.buttonText || "#ffffff"};
+  background-color: ${(props) => props.theme.colors.buttonBackground };
+  color: ${(props) => props.theme.colors.buttonText };
   text-decoration: none;
   font-size: 1.2rem;
   border-radius: 30px;
@@ -155,7 +155,7 @@ const StyledButton = styled.a`
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.buttonHover || "#ff3b30"};
+    background-color: ${(props) => props.theme.colors.buttonHover };
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   }

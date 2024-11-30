@@ -22,9 +22,9 @@ const CheckoutPageCardTypeF = observer(({
             style={{
                 gap: '2rem',
                 padding: '2rem',
-                backgroundColor: '#f5f7fa',
+                backgroundColor: selectedStyle?.colors?.cardBackground ,
                 borderRadius: '20px',
-                boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
+                boxShadow: selectedStyle?.colors?.boxShadow || '0 8px 20px rgba(0, 0, 0, 0.1)',
             }}
         >
             {/* Select Carrier */}
@@ -32,7 +32,7 @@ const CheckoutPageCardTypeF = observer(({
                 <h2
                     style={{
                         fontSize: '1.8rem',
-                        color: '#333',
+                        color: selectedStyle?.colors?.textColor ,
                         fontWeight: 'bold',
                         marginBottom: '1.5rem',
                         textAlign: 'center',
@@ -42,9 +42,7 @@ const CheckoutPageCardTypeF = observer(({
                 </h2>
                 <selectedStyle.CarrierContainer
                     style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-                        gap: '1.5rem',
+                          display: 'flex', justifyContent: 'center', gap: '1rem'
                     }}
                 >
                     {carriers.map((carrier) => (
@@ -57,11 +55,15 @@ const CheckoutPageCardTypeF = observer(({
                                 padding: '1.5rem',
                                 borderRadius: '16px',
                                 background: selectedCarrier?.id === carrier.id
-                                    ? 'linear-gradient(145deg, #d6eaff, #ffffff)'
-                                    : '#ffffff',
-                                border: `2px solid ${selectedCarrier?.id === carrier.id ? '#007bff' : '#dee2e6'}`,
+                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(145deg, #d6eaff, #ffffff)'
+                                    : selectedStyle?.colors?.cardBackground ,
+                                border: `2px solid ${
+                                    selectedCarrier?.id === carrier.id
+                                        ? selectedStyle?.colors?.navItemHover
+                                        : selectedStyle?.colors?.border
+                                }`,
                                 boxShadow: selectedCarrier?.id === carrier.id
-                                    ? '0 10px 25px rgba(0, 0, 0, 0.2)'
+                                    ? selectedStyle?.colors?.boxShadow || '0 10px 25px rgba(0, 0, 0, 0.2)'
                                     : '0 4px 10px rgba(0, 0, 0, 0.1)',
                                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                                 transform: selectedCarrier?.id === carrier.id ? 'translateY(-5px)' : 'translateY(0)',
@@ -76,13 +78,13 @@ const CheckoutPageCardTypeF = observer(({
                                         top: '50%',
                                         left: '50%',
                                         transform: 'translate(-50%, -50%)',
-                                        backgroundColor: '#007bff',
-                                        color: '#ffffff',
+                                        backgroundColor: selectedStyle?.colors?.navItemHover ,
+                                        color: selectedStyle?.colors?.cartCountText ,
                                         borderRadius: '50%',
                                         padding: '12px',
                                         fontSize: '1rem',
                                         fontWeight: 'bold',
-                                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+                                        boxShadow: selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)',
                                         zIndex: 1,
                                     }}
                                 >
@@ -103,7 +105,7 @@ const CheckoutPageCardTypeF = observer(({
                                 style={{
                                     fontSize: '1.2rem',
                                     fontWeight: '600',
-                                    color: '#333',
+                                    color: selectedStyle?.colors?.textColor ,
                                     zIndex: 0,
                                 }}
                             >
@@ -119,7 +121,7 @@ const CheckoutPageCardTypeF = observer(({
                 <h2
                     style={{
                         fontSize: '1.8rem',
-                        color: '#333',
+                        color: selectedStyle?.colors?.textColor,
                         fontWeight: 'bold',
                         marginBottom: '1.5rem',
                         textAlign: 'center',
@@ -144,11 +146,15 @@ const CheckoutPageCardTypeF = observer(({
                                 padding: '1.8rem',
                                 borderRadius: '24px',
                                 background: selectedAddress?.id === address.id
-                                    ? 'linear-gradient(145deg, #e8ffe8, #ffffff)'
-                                    : '#ffffff',
-                                border: `2px solid ${selectedAddress?.id === address.id ? '#28a745' : '#dee2e6'}`,
+                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(145deg, #e8ffe8, #ffffff)'
+                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
+                                border: `2px solid ${
+                                    selectedAddress?.id === address.id
+                                        ? selectedStyle?.colors?.navItemHover
+                                        : selectedStyle?.colors?.border
+                                }`,
                                 boxShadow: selectedAddress?.id === address.id
-                                    ? '0 10px 25px rgba(0, 0, 0, 0.2)'
+                                    ? selectedStyle?.colors?.boxShadow || '0 10px 25px rgba(0, 0, 0, 0.2)'
                                     : '0 4px 10px rgba(0, 0, 0, 0.1)',
                                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                                 transform: selectedAddress?.id === address.id ? 'translateY(-5px)' : 'translateY(0)',
@@ -162,13 +168,13 @@ const CheckoutPageCardTypeF = observer(({
                                         top: '50%',
                                         left: '50%',
                                         transform: 'translate(-50%, -50%)',
-                                        backgroundColor: '#28a745',
-                                        color: '#ffffff',
+                                        backgroundColor: selectedStyle?.colors?.navItemHover ,
+                                        color: selectedStyle?.colors?.cartCountText ,
                                         borderRadius: '50%',
                                         padding: '12px',
                                         fontSize: '1rem',
                                         fontWeight: 'bold',
-                                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+                                        boxShadow: selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)',
                                         zIndex: 1,
                                     }}
                                 >
@@ -180,7 +186,7 @@ const CheckoutPageCardTypeF = observer(({
                                     margin: 0,
                                     fontWeight: '600',
                                     fontSize: '1.2rem',
-                                    color: '#333',
+                                    color: selectedStyle?.colors?.textColor ,
                                     marginBottom: '0.5rem',
                                     zIndex: 0,
                                 }}
@@ -191,7 +197,7 @@ const CheckoutPageCardTypeF = observer(({
                                 style={{
                                     margin: 0,
                                     fontSize: '1rem',
-                                    color: '#555',
+                                    color: selectedStyle?.colors?.infoTextColor,
                                     zIndex: 0,
                                 }}
                             >
@@ -207,7 +213,7 @@ const CheckoutPageCardTypeF = observer(({
                 <h2
                     style={{
                         fontSize: '1.8rem',
-                        color: '#333',
+                        color: selectedStyle?.colors?.textColor,
                         fontWeight: 'bold',
                         marginBottom: '1.5rem',
                         textAlign: 'center',
@@ -233,11 +239,15 @@ const CheckoutPageCardTypeF = observer(({
                                 height: '120px',
                                 borderRadius: '50%',
                                 background: selectedPaymentMethod?.id === method.id
-                                    ? 'linear-gradient(145deg, #fffbe6, #ffffff)'
-                                    : '#ffffff',
-                                border: `2px solid ${selectedPaymentMethod?.id === method.id ? '#ffc107' : '#dee2e6'}`,
+                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(145deg, #fffbe6, #ffffff)'
+                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
+                                border: `2px solid ${
+                                    selectedPaymentMethod?.id === method.id
+                                        ? selectedStyle?.colors?.navItemHover 
+                                        : selectedStyle?.colors?.border 
+                                }`,
                                 boxShadow: selectedPaymentMethod?.id === method.id
-                                    ? '0 10px 25px rgba(0, 0, 0, 0.2)'
+                                    ? selectedStyle?.colors?.boxShadow || '0 10px 25px rgba(0, 0, 0, 0.2)'
                                     : '0 4px 10px rgba(0, 0, 0, 0.1)',
                                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                                 transform: selectedPaymentMethod?.id === method.id ? 'translateY(-5px)' : 'translateY(0)',
@@ -254,13 +264,13 @@ const CheckoutPageCardTypeF = observer(({
                                         top: '50%',
                                         left: '50%',
                                         transform: 'translate(-50%, -50%)',
-                                        backgroundColor: '#ffc107',
-                                        color: '#ffffff',
+                                        backgroundColor: selectedStyle?.colors?.navItemHover ,
+                                        color: selectedStyle?.colors?.cartCountText ,
                                         borderRadius: '50%',
                                         padding: '12px',
                                         fontSize: '1rem',
                                         fontWeight: 'bold',
-                                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+                                        boxShadow: selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)',
                                         zIndex: 1,
                                     }}
                                 >

@@ -94,33 +94,33 @@ const SliderWrapper = styled.div`
     .subtitle {
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
-      color: ${(props) => props.theme.colors.subtitleText || "#ffcc00"};
+      color: ${(props) => props.theme.colors.subtitleText };
     }
 
     .title {
       font-size: 3rem;
       margin-bottom: 1rem;
-      color: ${(props) => props.theme.colors.titleText || "#ffffff"};
+      color: ${(props) => props.theme.colors.titleText };
     }
 
     .message {
       font-size: 1rem;
       margin-bottom: 1.5rem;
-      color: ${(props) => props.theme.colors.messageText || "#f5f5f5"};
+      color: ${(props) => props.theme.colors.messageText};
     }
 
     .btn {
       padding: 10px 20px;
       border-radius: 50px;
-      background: ${(props) => props.theme.colors.buttonBackground || "#007bff"};
-      color: ${(props) => props.theme.colors.buttonText || "#ffffff"};
+      background: ${(props) => props.theme.colors.buttonBackground };
+      color: ${(props) => props.theme.colors.buttonText };
       text-decoration: none;
       font-size: 1rem;
       font-weight: bold;
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        background: ${(props) => props.theme.colors.buttonHover || "#0056b3"};
+        background: ${(props) => props.theme.colors.buttonHover };
         transform: scale(1.05);
       }
     }
@@ -139,8 +139,8 @@ const StyledButton = styled.a`
   display: inline-block;
   padding: 10px 20px;
   border-radius: 50px;
-  background: ${(props) => props.theme.colors.buttonBackground || "#007bff"};
-  color: ${(props) => props.theme.colors.buttonText || "#ffffff"};
+  background: ${(props) => props.theme.colors.buttonBackground };
+  color: ${(props) => props.theme.colors.buttonText };
   text-decoration: none;
   font-size: 1rem;
   font-weight: bold;
@@ -150,7 +150,7 @@ const StyledButton = styled.a`
   overflow: hidden; /* Évite que le texte dépasse */
 
   &:hover {
-    background: ${(props) => props.theme.colors.buttonHover || "#0056b3"};
+    background: ${(props) => props.theme.colors.buttonHover };
     transform: scale(1.05);
   }
 

@@ -54,11 +54,13 @@ const renderer = ({ hours, minutes, seconds }, selectedStyle) => {
 };
 
 const CardImage= styled.img`
-  height: 220px;
-  width: 210px;
+  height: 240px;
+  width: 180px;
   cursor: pointer;
   padding-top: 10px;
-  border-radius: 30%;
+  margin: auto;
+  border-radius: 20%;
+  margin-bottom: 20px;
 `;
 const CardContainer= styled.div`
 display: flex;
@@ -66,9 +68,10 @@ flex-direction: column;
 justify-content: space-between;
 background-color: ${(props) => props.theme.colors.cardBackground};
 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-height: 440px;
-width: 250px;
+height: 410px;
+width: 260px;
 padding-bottom: 10px;
+margin: 10px;
 `;
 
 

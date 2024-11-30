@@ -55,7 +55,7 @@ const CartView = observer(() => {
               ))}
             </div>
             <div className="col-12 col-md-4 row align-items-end">
-            <ContainerTypeTotalCard handleCheckout={handleCheckout} buttonLabel="Proceed to checkOut" />
+            <ContainerTypeTotalCard handleCheckout={handleCheckout} buttonLabel="CheckOut" />
             </div>
           </div>
         </div>
@@ -67,15 +67,15 @@ const CartView = observer(() => {
 const Wrapper = styled.div`
 .cart {
   display: flex;
-  margin: 30px auto;
+  margin: 10px auto;
   height: max-content;
-  padding: 20px 20px 0 20px;
+  padding: 10px 5px 10px 5px;
   gap: 20px;
   flex: 1;
 }
 
 .cart__left {
-  padding: 20px;
+  padding: 10px;
   width: 100%;
   background-color: white;
 }

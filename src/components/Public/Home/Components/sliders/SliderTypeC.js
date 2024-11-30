@@ -139,8 +139,8 @@ const Content = styled.div`
 const StyledButton = styled.a`
   display: inline-block;
   padding: 10px 25px;
-  background-color: ${(props) => props.theme.colors.buttonBackground || "#ff6f61"};
-  color: ${(props) => props.theme.colors.buttonText || "#ffffff"};
+  background-color: ${(props) => props.theme.colors.buttonBackground};
+  color: ${(props) => props.theme.colors.buttonText };
   text-decoration: none;
   font-size: 1rem;
   border-radius: 50px;
@@ -149,7 +149,7 @@ const StyledButton = styled.a`
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.buttonHover || "#ff3b30"};
+    background-color: ${(props) => props.theme.colors.buttonHover };
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   }

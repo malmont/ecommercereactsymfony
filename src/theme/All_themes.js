@@ -78,6 +78,9 @@ export const themes = {
       emptyMessageBackground : '#ffffff',
       wrapperBackground : '#f8f9fa',
       cardHeaderText: '#000000',
+      subtitleText : '#ffcc00',
+      goldAccent: '#d4af37',
+      boxShadow  : '0 4px 12px rgba(0, 0, 0, 0.1)',
       
     },
   },
@@ -160,6 +163,9 @@ export const themes = {
       emptyMessageBackground : '#333333',
       wrapperBackground : '#1e1e1e',
       cardHeaderText  : '#ffffff',
+      subtitleText : '#ffcc00',
+      goldAccent: '#d4af37',
+      boxShadow  : '0 4px 12px rgba(0, 0, 0, 0.1)',
     },
   },
   custom: {
@@ -240,6 +246,9 @@ export const themes = {
       emptyMessageBackground : '#ff3366',
       wrapperBackground : '#ff3366',
       cardHeaderText : '#fff',
+      subtitleText : '#ffcc00',
+      goldAccent: '#d4af37',
+      boxShadow  : '0 4px 12px rgba(0, 0, 0, 0.1)',
     },
   },
   theme1: {
@@ -321,6 +330,9 @@ export const themes = {
       emptyMessageBackground : '#ffeb99',
       wrapperBackground : '#ffeb99',
       cardHeaderText : '#333',
+      subtitleText : '#ffcc00',
+      goldAccent: '#d4af37',
+      boxShadow  : '0 4px 12px rgba(0, 0, 0, 0.1)',
     },
   },
   theme2: {
@@ -402,6 +414,9 @@ export const themes = {
       emptyMessageBackground : '#a5d6a7',
       wrapperBackground : '#a5d6a7',
       cardHeaderText : '#ffffff',
+      subtitleText : '#ffcc00',
+      goldAccent: '#d4af37',
+      boxShadow  : '0 4px 12px rgba(0, 0, 0, 0.1)',
     },
   },
   theme3: {
@@ -483,6 +498,9 @@ export const themes = {
       emptyMessageBackground : '#c5cae9',
       wrapperBackground : '#c5cae9',
       cardHeaderText : '#ffffff',
+      subtitleText : '#ffcc00',
+      goldAccent: '#d4af37',
+      boxShadow  : '0 4px 12px rgba(0, 0, 0, 0.1)',
     },
   },
 };

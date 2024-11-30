@@ -267,7 +267,7 @@ const AdminComponentSettings = () => {
         />
       )}
 
-      {(isCartItemCardComponent || isCheckoutPage) && (
+      { isCheckoutPage && (
         <SettingCard
           label="Choix CheckoutCard"
           value={checkoutCardComponent}

@@ -17,6 +17,7 @@ const DetailsProductCardTypeF = ({
       style={{
         display: "flex",
         flexDirection: "row",
+        flexWrap: "wrap",
         gap: "20px",
         padding: "20px",
         backgroundColor: "#ffffff",
@@ -26,8 +27,14 @@ const DetailsProductCardTypeF = ({
         margin: "auto",
       }}
     >
-      {/* Colonne gauche : Image */}
-      <div style={{ flex: "1", textAlign: "center" }}>
+      {/* Left Column: Image */}
+      <div
+        style={{
+          flex: "1",
+          textAlign: "center",
+          minWidth: "300px",
+        }}
+      >
         <selectedStyle.ImageEncadrement
           src={category.image}
           alt={category.name}
@@ -35,19 +42,37 @@ const DetailsProductCardTypeF = ({
             width: "100%",
             maxWidth: "400px",
             borderRadius: "10px",
+            objectFit: "cover",
           }}
         />
       </div>
 
-      {/* Colonne droite : Détails */}
-      <div style={{ flex: "2", display: "flex", flexDirection: "column", gap: "20px" }}>
+      {/* Right Column: Details */}
+      <div
+        style={{
+          flex: "2",
+          display: "flex",
+          flexDirection: "column",
+          gap: "20px",
+          minWidth: "300px",
+        }}
+      >
         <div>
-          <h1 style={{ fontSize: "1.8rem", marginBottom: "10px" }}>{category.name}</h1>
+          <h1
+            style={{
+              fontSize: "1.8rem",
+              marginBottom: "10px",
+              textAlign: "center",
+            }}
+          >
+            {category.name}
+          </h1>
           <h2
             style={{
               fontSize: "1.5rem",
               color: "#007bff",
               marginBottom: "20px",
+              textAlign: "center",
             }}
           >
             {(category.price / 100).toLocaleString("en-US", {
@@ -57,13 +82,14 @@ const DetailsProductCardTypeF = ({
           </h2>
         </div>
 
-        {/* Sélection des couleurs */}
+        {/* Color Selection */}
         <div>
           <h4>Sélectionnez une couleur :</h4>
           <selectedStyle.ColorOptionsDetailProduct
             style={{
               display: "flex",
               gap: "10px",
+              justifyContent: "center",
             }}
           >
             {uniqueColors.map((color) => (
@@ -83,7 +109,7 @@ const DetailsProductCardTypeF = ({
           </selectedStyle.ColorOptionsDetailProduct>
         </div>
 
-        {/* Sélection des tailles */}
+        {/* Size Selection */}
         {viewModel.selectedColor && (
           <div>
             <h4>Sélectionnez une taille :</h4>
@@ -91,6 +117,7 @@ const DetailsProductCardTypeF = ({
               style={{
                 display: "flex",
                 gap: "10px",
+                justifyContent: "center",
               }}
             >
               {viewModel
@@ -118,40 +145,43 @@ const DetailsProductCardTypeF = ({
           </div>
         )}
 
-        {/* Stock disponible */}
+        {/* Stock Availability */}
         {viewModel.selectedSize && viewModel.selectedColor && (
           <selectedStyle.InfoSelectionDetailProduct>
-            <p>
+            <p style={{ textAlign: "center" }}>
               Stock disponible :{" "}
               <strong>{viewModel.availableStock ?? "Indisponible"}</strong>
             </p>
           </selectedStyle.InfoSelectionDetailProduct>
         )}
 
-        {/* Bouton Ajouter au panier */}
-        <button
-          className="btn btn-primary"
-          onClick={handleAddToCart}
-          disabled={!viewModel.selectedSize || !viewModel.selectedColor}
-          style={{
-            width: "100%",
-            maxWidth: "250px",
-            padding: "10px",
-            borderRadius: "8px",
-            backgroundColor: "#007bff",
-            color: "#fff",
-            fontSize: "1rem",
-            border: "none",
-          }}
-        >
-          Ajouter au panier
-        </button>
+        {/* Add to Cart Button */}
+        <div style={{ textAlign: "center" }}>
+          <button
+            className="btn btn-primary"
+            onClick={handleAddToCart}
+            disabled={!viewModel.selectedSize || !viewModel.selectedColor}
+            style={{
+              width: "100%",
+              maxWidth: "250px",
+              padding: "10px",
+              borderRadius: "8px",
+              backgroundColor: "#007bff",
+              color: "#fff",
+              fontSize: "1rem",
+              border: "none",
+            }}
+          >
+            Ajouter au panier
+          </button>
+        </div>
 
-        {/* Avantages sous forme de badges */}
+        {/* Features */}
         <div
           style={{
             display: "flex",
-            justifyContent: "flex-start",
+            flexWrap: "wrap",
+            justifyContent: "space-around",
             alignItems: "center",
             gap: "15px",
             marginTop: "20px",

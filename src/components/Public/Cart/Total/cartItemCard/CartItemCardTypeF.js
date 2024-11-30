@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../../DependencyContext';
 import { styles } from '../../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../../theme/AdminContext';
+import styled from 'styled-components';
 
 const CartItemCardTypeF = observer(({ id, image, title, price, quantity = 0, color, size, colorHex, variantId, showButtons }) => {
   const { cartViewModel } = useDependencies();
@@ -10,19 +11,7 @@ const CartItemCardTypeF = observer(({ id, image, title, price, quantity = 0, col
   const selectedStyle = styles[styleChoice];
 
   return (
-    <selectedStyle.CartItemContainer
-      style={{
-        display: "grid",
-        width: "80%",
-        gridTemplateColumns: "150px 1fr",
-        gap: "15px",
-        padding: "15px",
-        border: `1px solid ${selectedStyle?.colors?.cartItemBorder || '#dee2e6'}`,
-        borderRadius: "10px",
-        background: `${selectedStyle?.colors?.cardBackground || '#ffffff'}`,
-        alignItems: "center",
-      }}
-    >
+    <CartItemContainer>
       {/* Image */}
       <selectedStyle.CartItemImage
         src={image}
@@ -31,8 +20,9 @@ const CartItemCardTypeF = observer(({ id, image, title, price, quantity = 0, col
           width: "100%",
           height: "230px",
           objectFit: "cover",
-          borderRadius: "8px",
           border: `1px solid ${selectedStyle?.colors?.cartItemImageBorder || '#dee2e6'}`,
+          borderRadius: "8px",
+          margin: "0 auto",
         }}
       />
 
@@ -55,7 +45,7 @@ const CartItemCardTypeF = observer(({ id, image, title, price, quantity = 0, col
           {title}
         </selectedStyle.CartItemTitle>
 
-        {/* Variant Info */}
+    
         <selectedStyle.CartItemVariantInfo
           style={{
             display: "flex",
@@ -86,7 +76,7 @@ const CartItemCardTypeF = observer(({ id, image, title, price, quantity = 0, col
                 borderRadius: "4px",
               }}
             >
-                {size.charAt(0)}
+              {size.charAt(0)}
             </selectedStyle.SizeCircle>
           )}
         </selectedStyle.CartItemVariantInfo>
@@ -167,8 +157,28 @@ const CartItemCardTypeF = observer(({ id, image, title, price, quantity = 0, col
           )}
         </div>
       </selectedStyle.CartItemInfo>
-    </selectedStyle.CartItemContainer>
+    </CartItemContainer>
   );
 });
 
 export default CartItemCardTypeF;
+
+const CartItemContainer = styled.div`
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  background: #ffffff;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 5px 10px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+    margin: 5px 0px;
+  }
+`;
