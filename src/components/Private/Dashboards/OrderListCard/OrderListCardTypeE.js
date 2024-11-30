@@ -18,9 +18,9 @@ const OrderListCardTypeE = ({ viewModel }) => {
     <selectedStyle.TableWrapper
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))",
         gap: "20px",
-        padding: "20px",
+        padding: "2px",
         background: "#f8f9fa",
         borderRadius: "12px",
       }}

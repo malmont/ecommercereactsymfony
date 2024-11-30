@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import ContainerTypeAdressListCard from '../../../../theme/ThemeContainer/ContainerTypeAdressListCard'; 
+import ContainerTypeAdressListCard from '../../../../theme/ThemeContainer/ContainerTypeAdressListCard';
 import AccountDetails from '../AccountDetails';
 import ContainerTypeCarrierListCard from '../../../../theme/ThemeContainer/ContainerTypeCarrierListCard';
 import { useDependencies } from '../../../../DependencyContext';
 import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
 import ContainerTypeOrderListCard from '../../../../theme/ThemeContainer/ContainerTypeOrderListCard';
+import styled from 'styled-components';
 
 const AccountDashboardCardTypeF = () => {
   const { orderListViewModel, addressListViewModel, carrierListViewModel } = useDependencies();
@@ -23,84 +24,44 @@ const AccountDashboardCardTypeF = () => {
 
   return (
     <selectedStyle.DashboardWrapper>
-      <div style={{ display: "flex", height: "100vh" }}>
+      <DashboardContainer>
         {/* Sidebar */}
-        <selectedStyle.DashboardSidebar
-          style={{
-            width: "250px",
-            backgroundColor: "#343a40",
-            color: "#fff",
-            display: "flex",
-            flexDirection: "column",
-            padding: "20px",
-            boxShadow: "2px 0 6px rgba(0, 0, 0, 0.1)",
-          }}
-        >
-          <h3 style={{ marginBottom: "20px", fontWeight: "bold", fontSize: "18px" }}>
-            Account Menu
-          </h3>
-          <ul style={{ listStyle: "none", padding: "0" }}>
+        <selectedStyle.DashboardSidebar>
+          <SidebarHeader>Account Menu</SidebarHeader>
+          <SidebarNav>
             {tabs.map((item, index) => (
               <selectedStyle.DashboardNavItem
-                key={index}
-                onClick={() => setActiveTab(item.tab)}
-                style={{
-                  padding: "10px 15px",
-                  cursor: "pointer",
-                  borderRadius: "8px",
-                  backgroundColor: activeTab === item.tab ? "#007bff" : "transparent",
-                  color: activeTab === item.tab ? "#fff" : "#adb5bd",
-                  fontWeight: activeTab === item.tab ? "bold" : "normal",
-                  transition: "background-color 0.3s ease",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                }}
-              >
+              key={index}
+              onClick={() => setActiveTab(item.tab)}
+              style={{
+                padding: "10px 15px",
+                cursor: "pointer",
+                borderRadius: "8px",
+                backgroundColor: activeTab === item.tab ? "#007bff" : "transparent",
+                color: activeTab === item.tab ? "#fff" : "#adb5bd",
+                fontWeight: activeTab === item.tab ? "bold" : "normal",
+                transition: "background-color 0.3s ease",
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+              }}
+            >
                 <i className={item.icon}></i>
                 {item.label}
               </selectedStyle.DashboardNavItem>
             ))}
-          </ul>
+          </SidebarNav>
         </selectedStyle.DashboardSidebar>
 
         {/* Main Content */}
-        <div
-          style={{
-            flex: 1,
-            backgroundColor: "#f8f9fa",
-            padding: "30px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "20px",
-          }}
-        >
+        <MainContent>
           {/* Header Section */}
-          <div
-            style={{
-              backgroundColor: "#ffffff",
-              padding: "20px",
-              borderRadius: "8px",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
+          <Header>
             <h3>{tabs.find((tab) => tab.tab === activeTab)?.label}</h3>
-          </div>
+          </Header>
 
           {/* Content Section */}
-          <div
-            style={{
-              flex: 1,
-              backgroundColor: "#ffffff",
-              padding: "20px",
-              borderRadius: "8px",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              overflowY: "auto",
-            }}
-          >
+          <Content>
             {activeTab === 'dashboard' && (
               <selectedStyle.DashboardTabPane>
                 <selectedStyle.DashboardCard>
@@ -120,11 +81,65 @@ const AccountDashboardCardTypeF = () => {
             {activeTab === 'address' && <ContainerTypeAdressListCard viewModel={addressListViewModel} />}
             {activeTab === 'carriers' && <ContainerTypeCarrierListCard viewModel={carrierListViewModel} />}
             {activeTab === 'accountDetails' && <AccountDetails />}
-          </div>
-        </div>
-      </div>
+          </Content>
+        </MainContent>
+      </DashboardContainer>
     </selectedStyle.DashboardWrapper>
   );
 };
 
 export default AccountDashboardCardTypeF;
+
+const DashboardContainer = styled.div`
+  display: flex;
+  padding: 20px;
+  Gap: 20px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0;
+  }
+`;
+
+const SidebarHeader = styled.h3`
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px;
+
+`;
+
+const SidebarNav = styled.ul`
+  list-style: none;
+  padding: 0;
+  
+`;
+
+const MainContent = styled.div`
+  flex: 1;
+  background-color: #f8f9fa;
+  marrgin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+const Header = styled.div`
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+const Content = styled.div`
+  flex: 1;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+`;

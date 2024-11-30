@@ -10,7 +10,8 @@ const NavbarContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 10px;
+  height: 55px;
 `;
 
 const RightSection = styled.div`

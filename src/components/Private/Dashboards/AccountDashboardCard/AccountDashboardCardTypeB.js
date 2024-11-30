@@ -59,10 +59,10 @@ const AccountDashboardCardTypeB = () => {
                 ))}
               </ul>
             </selectedStyle.DashboardSidebar>
-
+           
             {/* Main Content */}
             <selectedStyle.DashboardContent
-              className="col-lg-9 col-md-8"
+              className="col-lg-9 col-md-8 mt-3"
               style={{
                 padding: "20px",
                 backgroundColor: "#ffffff", // White background for clarity
@@ -71,7 +71,7 @@ const AccountDashboardCardTypeB = () => {
               }}
             >
               {activeTab === 'dashboard' && (
-                <selectedStyle.DashboardTabPane>
+                <selectedStyle.DashboardTabPane >
                   <selectedStyle.DashboardCard
                     style={{
                       border: "1px solid #dee2e6",
@@ -96,6 +96,7 @@ const AccountDashboardCardTypeB = () => {
                   </selectedStyle.DashboardCard>
                 </selectedStyle.DashboardTabPane>
               )}
+           
               {activeTab === 'orders' && <ContainerTypeOrderListCard viewModel={orderListViewModel} />}
               {activeTab === 'address' && <ContainerTypeAdressListCard viewModel={addressListViewModel} />}
               {activeTab === 'carriers' && <ContainerTypeCarrierListCard viewModel={carrierListViewModel} />}
