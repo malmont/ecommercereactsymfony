@@ -19,8 +19,8 @@ const selectedStyle = styles[styleChoice];
   
             <div>
                 {orders.length > 0 ? (
-                    <selectedStyle.ResponsiveTable>
-                        <thead>
+                    <selectedStyle.ResponsiveTable >
+                        <thead >
                             <tr>
                                 <th>Order</th>
                                 <th>Date</th>

@@ -21,12 +21,11 @@ const AddressListCardTypeC = observer(() => {
     <selectedStyle.AddressListWrapper
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-        gap: '30px',
-        padding: '30px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
+        gap: '20px',
+  
         background: `${(props) => props.theme.colors.wrapperBackground}`,
         borderRadius: '20px',
-        boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
       }}
     >
       <selectedStyle.AddNewAddressButton

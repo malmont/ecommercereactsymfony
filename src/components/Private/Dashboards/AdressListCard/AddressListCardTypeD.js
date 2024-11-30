@@ -33,18 +33,18 @@ const AddressListCardTypeD = observer(() => {
         flexDirection: 'column',
         alignItems: 'center',
         gap: '30px',
-        padding: '30px',
         background: `${(props) =>
           props.theme.colors.wrapperBackground || '#f8f9fa'}`,
         borderRadius: '20px',
         overflow: 'hidden',
+        marginTop: '40px',
       }}
     >
       <selectedStyle.AddNewAddressButton
         href="/address/new"
         style={{
-          position: 'absolute',
-          top: '-20px',
+          
+          top: '-10px',
           right: '20px',
           background: `linear-gradient(to right, ${(props) =>
             props.theme.colors.buttonBackground}, ${(props) =>

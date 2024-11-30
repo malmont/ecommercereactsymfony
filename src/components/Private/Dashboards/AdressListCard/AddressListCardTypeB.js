@@ -27,10 +27,8 @@ const AddressListCardTypeB = observer(() => {
     <selectedStyle.AddressListWrapper
       style={{
         background: `${(props) => props.theme.colors.wrapperBackground}`,
-        padding: '50px',
-        border: `4px solid ${(props) => props.theme.colors.border}`,
+        border: `1px solid ${(props) => props.theme.colors.border}`,
         borderRadius: '20px',
-        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
       }}
     >
       <selectedStyle.AddNewAddressButton

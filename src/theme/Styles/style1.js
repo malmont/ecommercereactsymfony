@@ -7,18 +7,20 @@ export const style1 = {
     TopNavbar: styled.div`
       background: ${(props) => props.theme.colors.TopNavbarBackground};
       padding: 15px;
+      
     `,
+    
 
     NavbarContainer: styled.nav`
       background: ${(props) => props.theme.colors.navbarContainerBackground};
-      padding: 0.75rem 2rem;
+      padding: 0.75rem 0.5rem;
       position: fixed;
       width: 100%;
       top: 0;
       left: 0;
       z-index: 1000;
       transition: all 0.3s ease;
-     
+     height: ${(props) => props.theme.navbarHeight || '90px'};
     `,
 
     NavbarContent: styled.div`
@@ -26,13 +28,15 @@ export const style1 = {
       justify-content: space-between;
       align-items: center;
       padding: 0 20px;
+      
     `,
 
     Logo: styled(NavLink)`
-      font-size: 1.5rem;
+      font-size: 1rem;
       font-weight: bold;
       color: ${(props) => props.theme.colors.logoText};
       text-decoration: none;
+      height:5px;
     `,
 
     NavLinks: styled.ul`
@@ -658,7 +662,6 @@ AddressCard: styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 200px;
   padding: 10px;
   border: ${(props) =>
     props.isSelected
@@ -726,6 +729,7 @@ background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
 padding: 20px;
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 border-radius: 8px;
+
 `,
 
 // Élément de navigation dans la sidebar
@@ -767,11 +771,14 @@ i {
 // Contenu principal du tableau de bord
 DashboardContent: styled.div`
 padding: 20px;
+ @media (max-width: 1000px) {
+    padding: 1px;
+  }
 `,
 
 // Conteneur pour les onglets
 DashboardTabPane: styled.div`
-padding: 20px;
+padding: 5px;
 background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 border-radius: 8px;
@@ -834,6 +841,7 @@ ResponsiveTable: styled.table`
       display: block;
       margin-bottom: 10px;
       border-bottom: 2px solid ${(props) => props.theme.colors.border};
+      
     }
 
     td {
@@ -891,7 +899,7 @@ AddressListWrapper: styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 20px;
+  padding-top :15px;
   background-color: ${(props) => props.theme.colors.wrapperBackground};
   border-radius: 12px;
 `,
@@ -902,8 +910,8 @@ AddNewAddressButton: styled.a`
   justify-content: center;
   background-color: ${(props) => props.theme.colors.buttonBackground};
   color: ${(props) => props.theme.colors.text};
-  height: 100px; 
-  padding: 10 20px; 
+  height: 90px; 
+  padding: 10px 20px; 
   margin-bottom: 20px;
   text-align: center;
   text-decoration: none;
@@ -929,7 +937,7 @@ AddressCardList: styled.div`
 AddressCardHeader: styled.div`
   background: ${(props) => props.theme.colors.cardHeaderBackground };
   color: ${(props) => props.theme.colors.cardHeaderText };
-  padding: 15px;
+  padding: 5px;
   font-weight: bold;
   font-size: 1.2rem;
   border-bottom: 1px solid ${(props) => props.theme.colors.differentCardBorder };
@@ -1001,60 +1009,63 @@ margin-top: 20px;
 `,
 
 CarrierTable: styled.table`
-width: 100%;
-border-collapse: collapse;
-text-align: left;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
 
-th, td {
-  padding: 12px;
-  border: 1px solid ${(props) => props.theme.colors.border};
-}
-
-th {
-  background-color: ${(props) => props.theme.colors.tableHeaderBackground};
-  color: ${(props) => props.theme.colors.tableHeaderText};
-  font-weight: bold;
-}
-
-td {
-  color: ${(props) => props.theme.colors.textColor};
-  background-color: ${(props) => props.theme.colors.cardBackground};
-}
-
-/* Styles pour les petits écrans */
-@media (max-width: 768px) {
-  thead {
-    display: none; /* Masquer l'en-tête */
+  th,
+  td {
+    padding: 12px;
+    border: 1px solid ${(props) => props.theme.colors.border};
   }
 
-  tr {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid ${(props) => props.theme.colors.border};
-    margin-bottom: 10px;
+  th {
+    background-color: ${(props) => props.theme.colors.tableHeaderBackground};
+    color: ${(props) => props.theme.colors.tableHeaderText};
+    font-weight: bold;
   }
 
   td {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border: none;
-    border-bottom: 1px solid ${(props) => props.theme.colors.border};
+    color: ${(props) => props.theme.colors.textColor};
+    background-color: ${(props) => props.theme.colors.cardBackground};
   }
 
-  td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    flex-basis: 50%;
-    color: ${(props) => props.theme.colors.textMuted};
-  }
+  /* Styles pour les petits écrans */
+  @media (max-width: 768px) {
+    thead {
+      display: none; /* Masquer l'en-tête */
+    }
 
-  td:last-child {
-    border-bottom: none;
+    tr {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid ${(props) => props.theme.colors.border};
+      margin-bottom: 10px;
+    }
+
+    td {
+      display: flex;
+      justify-content: flex-start; /* Alignement au début */
+      align-items: flex-start;
+      padding: 10px;
+      border: none;
+      border-bottom: 1px solid ${(props) => props.theme.colors.border};
+    }
+
+    td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      flex-basis: 0px; /* Ajuste la largeur de la description */
+      color: ${(props) => props.theme.colors.textMuted};
+      text-align: left; /* Alignement au début */
+      margin-right: 10px; /* Espacement entre l'étiquette et la valeur */
+    }
+
+    td:last-child {
+      border-bottom: none;
+    }
   }
-}
 `,
-
 CarrierImage: styled.img`
 width: 50px;
 height: auto;

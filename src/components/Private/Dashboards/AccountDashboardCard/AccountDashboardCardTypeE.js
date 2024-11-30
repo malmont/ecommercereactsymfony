@@ -24,7 +24,7 @@ const AccountDashboardCardTypeE = () => {
 
   return (
     <selectedStyle.DashboardWrapper>
-      <div className="section" style={{ padding: "30px" }}>
+      <div className="section" style={{ padding: "5px" }}>
         {/* Grille des onglets */}
         <div
           style={{

@@ -16,7 +16,6 @@ const AddressListCardTypeE = observer(() => {
           fontSize: '1.5rem',
           color: `${(props) => props.theme.colors.textColor}`,
           textAlign: 'center',
-          margin: '30px 0',
           animation: 'fadeIn 0.5s ease-in-out',
         }}
       >
@@ -29,9 +28,8 @@ const AddressListCardTypeE = observer(() => {
     <selectedStyle.AddressListWrapper
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
         gap: '20px',
-        padding: '30px',
         background: `${(props) => props.theme.colors.wrapperBackground}`,
         borderRadius: '20px',
         boxShadow: '0 5px 15px rgba(0, 0, 0, 0.1)',

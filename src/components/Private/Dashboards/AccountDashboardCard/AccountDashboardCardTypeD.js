@@ -6,6 +6,7 @@ import { useDependencies } from '../../../../DependencyContext';
 import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
 import ContainerTypeOrderListCard from '../../../../theme/ThemeContainer/ContainerTypeOrderListCard';
+import styled from 'styled-components';
 
 const AccountDashboardCardTypeD = () => {
   const { orderListViewModel, addressListViewModel, carrierListViewModel } = useDependencies();
@@ -15,16 +16,16 @@ const AccountDashboardCardTypeD = () => {
 
   return (
     <selectedStyle.DashboardWrapper>
-      <div className="section" style={{ display: 'flex', height: '100vh' }}>
+     <DashboardSection>
         {/* Sidebar */}
         <selectedStyle.DashboardSidebar
           className="col-lg-2 col-md-4"
           style={{
-            backgroundColor: "#343a40",
             color: "#fff",
             padding: "20px",
             display: "flex",
             flexDirection: "column",
+            marginTop: "30px",
           }}
         >
           <ul className="nav nav-tabs flex-column" role="tablist">
@@ -62,7 +63,7 @@ const AccountDashboardCardTypeD = () => {
         </selectedStyle.DashboardSidebar>
 
         {/* Main Content */}
-        <selectedStyle.DashboardContent className="col-lg-9 col-md-8" style={{ padding: "30px" }}>
+        <selectedStyle.DashboardContent className="col-lg-7 col-md-8" style={{ padding: "5px" }}>
           {activeTab === 'dashboard' && (
             <selectedStyle.DashboardTabPane>
               <selectedStyle.DashboardCard
@@ -90,9 +91,18 @@ const AccountDashboardCardTypeD = () => {
           {activeTab === 'carriers' && <ContainerTypeCarrierListCard viewModel={carrierListViewModel} />}
           {activeTab === 'accountDetails' && <AccountDetails />}
         </selectedStyle.DashboardContent>
-      </div>
+        </DashboardSection>
     </selectedStyle.DashboardWrapper>
   );
 };
 
 export default AccountDashboardCardTypeD;
+
+const DashboardSection = styled.div`
+  display: flex;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+   
+  }
+`;
