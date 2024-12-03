@@ -149,6 +149,7 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
                 padding: "8px 12px",
                 fontSize: "0.9rem",
                 borderRadius: "4px",
+                width: "100px",
               }}
             >
               Supprimer

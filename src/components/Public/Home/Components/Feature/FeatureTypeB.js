@@ -11,9 +11,12 @@ const StyledRow = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 150px; /* Espacement horizontal et vertical entre les cartes */
+  gap: 150px; 
   text-align: center;
-  margin: 20px 0; /* Espacement autour de la rangée */
+  margin: 20px 0; 
+   @media screen and (max-width: 800px) {
+    gap: 30px;
+  }
 `;
 
 const StyledFeatureCard = styled.div`

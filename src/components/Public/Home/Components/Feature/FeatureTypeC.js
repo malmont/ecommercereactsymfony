@@ -14,6 +14,9 @@ const StyledRow = styled.div`
   gap: 300px; /* Espacement horizontal et vertical entre les cartes */
   text-align: center;
   margin: 20px 0; 
+   @media screen and (max-width: 800px) {
+    gap: 30px;
+  }
 `;
 
 const StyledFeatureCard = styled.div`

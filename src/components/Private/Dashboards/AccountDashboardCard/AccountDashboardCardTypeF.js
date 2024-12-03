@@ -7,13 +7,14 @@ import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
 import ContainerTypeOrderListCard from '../../../../theme/ThemeContainer/ContainerTypeOrderListCard';
 import styled from 'styled-components';
+import { useTheme } from 'styled-components';
 
 const AccountDashboardCardTypeF = () => {
   const { orderListViewModel, addressListViewModel, carrierListViewModel } = useDependencies();
   const [activeTab, setActiveTab] = useState('dashboard');
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
-
+  const theme = useTheme();
   const tabs = [
     { tab: 'dashboard', label: 'Dashboard', icon: 'ti-layout-grid2' },
     { tab: 'orders', label: 'Orders', icon: 'ti-shopping-cart-full' },
@@ -37,7 +38,7 @@ const AccountDashboardCardTypeF = () => {
                 padding: "10px 15px",
                 cursor: "pointer",
                 borderRadius: "8px",
-                backgroundColor: activeTab === item.tab ? "#007bff" : "transparent",
+                backgroundColor: activeTab === item.tab ? theme.colors.buttonBackground : "transparent",
                 color: activeTab === item.tab ? "#fff" : "#adb5bd",
                 fontWeight: activeTab === item.tab ? "bold" : "normal",
                 transition: "background-color 0.3s ease",

@@ -15,6 +15,11 @@ const CardContainer = styled.div`
   padding: 20px;
   border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
   overflow: hidden;
+  @media (max-width: 768px) {
+
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
 const IconSection = styled.div`
@@ -40,13 +45,17 @@ const ContentSection = styled.div`
 `;
 
 const InputContainer = styled.div`
-  display: flex;
+  display: flex
+  flex-direction: column;
   align-items: center;
   border: 1px solid ${(props) => props.theme.colors.inputBorder || "#ccc"};
   border-radius: 10px;
   overflow: hidden;
   background-color: ${(props) => props.theme.colors.inputBackground || "#fff"};
   margin-top: 15px;
+  width: 100%;
+  height: 100px;
+  padding: 4px;
 `;
 
 const InputField = styled.input`
@@ -57,6 +66,7 @@ const InputField = styled.input`
   outline: none;
   color: ${(props) => props.theme.colors.inputText || "#333"};
   background: none;
+  width: 100%;
 `;
 
 const SubmitButton = styled.button`
@@ -67,6 +77,7 @@ const SubmitButton = styled.button`
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
+  width: 100%;
 
   &:hover {
     background-color: ${(props) => props.theme.colors.buttonHover || "#0056b3"};

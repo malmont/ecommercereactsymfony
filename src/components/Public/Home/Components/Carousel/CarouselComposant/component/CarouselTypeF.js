@@ -9,7 +9,7 @@ const CarouselTypeF = ({ category }) => {
   const selectedStyle = styles[styleChoice];
 
   return (
-    <selectedStyle.CardContainer>
+    <selectedStyle.CardContainer className='p-2'>
       <selectedStyle.CardBody>
         <h6 className="card-title">
           {category.name.length > 10 ? `${category.name.slice(0, 17)}...` : category.name}
@@ -30,17 +30,16 @@ const CarouselTypeF = ({ category }) => {
       </div>
 
 
-      <selectedStyle.CardBody>
-        <div className="row">
+    
           <selectedStyle.ColorText>New Arrival.</selectedStyle.ColorText>
-          <selectedStyle.NavButton>
+          <selectedStyle.CartItemButton >
             {(category.price / 100).toLocaleString('en-US', {
               style: 'currency',
               currency: 'USD',
             })}
-          </selectedStyle.NavButton>
-        </div>
-      </selectedStyle.CardBody>
+          </selectedStyle.CartItemButton>
+        <div className="m-4"></div>
+
     </selectedStyle.CardContainer>
   );
 };

@@ -11,7 +11,8 @@ const NavbarContent = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
-  height: 55px;
+  height: 65px;
+  border-radius: 10px;
 `;
 
 const RightSection = styled.div`
@@ -37,8 +38,8 @@ const CartPreview = styled.div`
   visibility: hidden;
   position: absolute;
   top: 100%;
-  right: 0;
-  background-color: white;
+  right: 190px;
+  background-color: transparent;
   width: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 10;

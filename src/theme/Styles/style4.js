@@ -161,6 +161,7 @@ width: 280px;
 border-radius: 8px;
 overflow: hidden;
 margin: 10px;
+border-radius: 10px;
 `,
 
 CardProperty: styled.div`

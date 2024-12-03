@@ -46,6 +46,7 @@ const InputField = styled.input`
   outline: none;
   color: ${(props) => props.theme.colors.inputText || "#333"};
   background: none;
+  width: 100%;
 `;
 
 const SubmitButton = styled.button`

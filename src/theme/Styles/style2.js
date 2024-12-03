@@ -2,17 +2,19 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const style2 = {
-  navbarHeight: '30px',
+  navbarHeight: '0px',
 
   TopNavbar: styled.div`
   background: ${(props) => props.theme.colors.TopNavbarBackground};
-  padding: 15px;
+  padding: 10px;
+  border-radius: 10px;
 `,
 
   NavbarContainer: styled.nav`
   background: ${(props) => props.theme.colors.navbarContainerBackground};
   color: ${(props) => props.theme.colors.textColor};
   padding: 1rem;
+  
 `,
 
   NavbarContent: styled.div`
@@ -26,6 +28,7 @@ export const style2 = {
   font-weight: bold;
   color: ${(props) => props.theme.colors.logoColor};
   text-decoration: none;
+  height: 10px;
 `,
 
   NavLinks: styled.div`
@@ -138,9 +141,14 @@ flex-direction: column;
 justify-content: space-between;
 background-color: ${(props) => props.theme.colors.cardBackground};
 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-height: 490px;
-width: 250px;
+border-radius: 10px;
+width: 90%;
 margin-bottom: 10px;
+
+@media screen and (max-width: 800px) {
+      width: 100%;
+      height: 100%;
+    }
 `,
 
 CardProperty: styled.div`
@@ -151,11 +159,12 @@ justify-content: space-between;
 `,
 
 CardImage: styled.img`
-height: 330px;
+height: 332px;
 width: 210px;
 cursor: pointer;
-padding-top: 10px;
-border-radius: 30%;
+border-radius: 10%;
+padding : 5px;
+margin: 5px;
 `,
 
 CardBody: styled.div`
@@ -196,7 +205,7 @@ display: flex;
 flex-wrap: wrap; /* Permet aux cartes de s'adapter à plusieurs lignes */
 justify-content: space-around; /* Espacement uniforme entre les cartes */
 align-items: center;
-padding: 30px;
+padding: 5px;
 background-color: ${(props) => props.theme.colors.featureBackground || "#f4f4f4"};
 border-radius: 15px; /* Ajout d'une bordure arrondie */
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
@@ -207,8 +216,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-padding: 25px;
-margin: 15px;
+padding: 15px;
+margin: 5px;
 background-color: ${(props) => props.theme.colors.cardBackground || "#fff"};
 border: 2px solid ${(props) => props.theme.colors.border || "#ccc"};
 border-radius: 12px; /* Bordures arrondies */
@@ -269,6 +278,9 @@ display: flex;
 gap: 10px;
 margin: 10px 0;
 flex-wrap: wrap;
+ @media screen and (max-width: 800px) {
+  flex-direction: column;
+  }
 `,
 
 ColumnExplore: styled.div`
@@ -317,6 +329,9 @@ height: 305px;
 overflow: hidden;
 border-radius: 10px 10px 0 0;
 background-color: ${(props) => props.theme.colors.imageWrapperBackground || "#f0f0f0"};
+ @media (max-width: 768px) {
+    width: 100%;
+  }
 `,
 
 ImageWrapperExploreStandart: styled.div`
@@ -325,6 +340,9 @@ height: 360px;
 overflow: hidden;
 border-radius: 10px 10px 0 0;
 background-color: ${(props) => props.theme.colors.imageWrapperBackground || "#f0f0f0"};
+ @media (max-width: 768px) {
+    width: 100%;
+  }
 `,
 
 CardImageExploreStandart: styled.img`
@@ -347,6 +365,7 @@ font-size: 1.5rem;
 font-weight: bold;
 color: ${(props) => props.theme.colors.titleText};
 margin-bottom: 10px;
+padding:15px;
 `,
 
 DescriptionExplore: styled.p`
@@ -354,7 +373,6 @@ font-size: 1rem;
 line-height: 1.5;
 color: ${(props) => props.theme.colors.descriptionText};
 margin-bottom: 15px;
-max-height: 60px; /* Limite la hauteur de la description */
 overflow: hidden;
 text-overflow: ellipsis;
 `,
@@ -376,6 +394,7 @@ display: flex;
 flex-wrap: wrap;
 align-items: center;
 max-width: 700px;
+padding:10px;
 margin: 20px auto;
 background-color: ${(props) => props.theme.colors.cardBackground || "#f9f9f9"};
 border-radius: 15px;
@@ -512,9 +531,9 @@ CartItemContainer: styled.div`
   margin-bottom: 20px;
   background-color: ${(props) => props.theme.colors.cartItemContainerBackground || "#f9f9f9"};
   border-radius: 10px;
-  padding: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 80%;
+  padding: 10px;
+
 `,
 
 CartItem: styled.div`
@@ -640,6 +659,8 @@ OrderSummaryContainer: styled.div`
   max-width: 600px;
   margin: 0 auto;
   margin-top: 30px;
+  width: 110%;
+  
 `,
 
 OrderSummaryTitle: styled.h4`
@@ -706,7 +727,6 @@ CarrierContainer: styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 120px;
     padding: 12px;
     border: ${(props) =>
       props.isSelected
@@ -721,7 +741,7 @@ CarrierContainer: styled.div`
     transition: all 0.3s ease;
 
     img {
-      width: 60px;
+      width: 40px;
       height: auto;
       margin-bottom: 8px;
     }
@@ -745,7 +765,6 @@ CarrierContainer: styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 220px;
     padding: 15px;
     border: ${(props) =>
       props.isSelected
@@ -889,7 +908,6 @@ CarrierContainer: styled.div`
   TableWrapper: styled.div`
   overflow-x: auto;
   margin-top: 25px;
-  padding: 20px;
   border-radius: 15px;
   background-color: ${(props) => props.theme.colors.tableWrapperBackground || '#f4f4f8'};
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -1002,7 +1020,7 @@ AddressListWrapper: styled.div`
 display: flex;
 flex-wrap: wrap;
 gap: 20px;
-padding: 20px;
+padding: 10px;
 background: ${(props) => props.theme.colors.wrapperBackground || '#f4f4f4'};
 border-radius: 10px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -1033,7 +1051,7 @@ border: 1px solid ${(props) => props.theme.colors.cardBorder || '#ddd'};
 border-radius: 10px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 width: 100%;
-max-width: 350px;
+
 `,
 
 AddressCardHeader: styled.div`
@@ -1114,7 +1132,7 @@ background: ${(props) => props.theme.colors.loadingBackground || '#f4f4f4'};
 border-radius: 10px;
 `,
 CarrierWrapper: styled.div`
-  padding: 20px;
+
   background-color: ${(props) => props.theme.colors.wrapperBackground};
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -1127,12 +1145,13 @@ CarrierTableContainer: styled.div`
   border-radius: 8px;
   background-color: ${(props) => props.theme.colors.cardBackground};
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  padding: 5px;
 `,
 
 CarrierTable: styled.table`
   width: 100%;
   border-collapse: collapse;
+  text-align: left;
 
   th,
   td {
@@ -1162,12 +1181,12 @@ CarrierTable: styled.table`
       flex-direction: column;
       border-bottom: 1px solid ${(props) => props.theme.colors.border};
       margin-bottom: 10px;
-      padding: 10px;
+   
     }
 
     td {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       padding: 10px;
       border: none;
     }
@@ -1185,7 +1204,7 @@ CarrierTable: styled.table`
 `,
 
 CarrierImage: styled.img`
-  width: 60px;
+  width: 80px;
   height: auto;
   margin-right: 10px;
   border-radius: 8px; /* Ajout pour un effet arrondi */

@@ -23,7 +23,7 @@ export default function ExploreCategoryCardTypeF({
   return (
     <selectedStyle.StandardCardExploreCard>
       {/* Image Full-Width */}
-      <selectedStyle.ImageWrapperExploreStandart>
+      <selectedStyle.ImageWrapperExploreStandart className='mt-2 mt-md-0'>
         <selectedStyle.CardImageExploreStandart src={image} alt={titre} />
       </selectedStyle.ImageWrapperExploreStandart>
 

@@ -34,6 +34,7 @@ const InputContainer = styled.div`
   overflow: hidden;
   background-color: ${(props) => props.theme.colors.inputBackground || "#fff"};
   margin-top: 20px;
+  width: 100%;
 `;
 
 const InputField = styled.input`
@@ -44,6 +45,7 @@ const InputField = styled.input`
   outline: none;
   color: ${(props) => props.theme.colors.inputText || "#333"};
   background: none;
+  width: 100%;
 `;
 
 const SubmitButton = styled.button`
