@@ -8,7 +8,7 @@ export const themes = {
       navItemHover: '#007bff',  
       navItemActive: '#0056b3', 
       navButtonText: '#007bff',  
-      buttonBackground: '#e9ecef',  
+      buttonBackground: '#007bff',  
       buttonHover: '#007bff', 
       mobileMenuButton: '#007bff',  
       mobileMenuBackground: '#f8f9fa', 
@@ -503,4 +503,132 @@ export const themes = {
       boxShadow  : '0 4px 12px rgba(0, 0, 0, 0.1)',
     },
   },
+  theme4: {
+    colors: {
+      navbarBackground: '#393C49',  // Arrière-plan de la barre de navigation
+      logoText: '#FFFFFF',          // Texte du logo
+      navLinksBackground: '#393C49',
+      navItemText: '#FFFFFF',
+      navItemHover: '#EA7C69',
+      navItemActive: '#EA7C69',
+      navButtonText: '#FFFFFF',
+      buttonBackground: '#EA7C69',  // Couleur des boutons
+      buttonHover: '#FFFFFF',
+      mobileMenuButton: '#FFFFFF',
+      mobileMenuBackground: '#393C49',
+      mobileNavItemText: '#FFFFFF',
+      cartIcon: '#FFFFFF',
+      cartCountBackground: '#EA7C69',
+      cartCountText: '#FFFFFF',
+      selectBackground: '#1F1D2B',
+      selectText: '#FFFFFF',
+      navItemHoverBackground: '#1F1D2B',
+      selectBorder: '#EA7C69',
+      selectHover: '#EA7C69',
+      cartIconColor: '#FFFFFF',
+      cartIconHover: '#EA7C69',
+      TopNavbarBackground: '#1F1D2B',
+      navbarContainerBackground: '#393C49',
+      navLinkText: '#FFFFFF',
+      cardBackground: '#FFFFFF',
+      cardPropertyBackground: '#FFFFFF',
+      cardBodyText: '#393C49',
+      colorText: '#393C49',
+      discountBadgeBackground: '#EA7C69',
+      discountBadgeText: '#FFFFFF',
+      countdownText: '#393C49',
+      countdownBackground: '#FFFFFF',
+      featureBackground: '#1F1D2B',
+      cardText: '#393C49',
+      border: '#393C49',
+      cardBodyBackground: '#FFFFFF',
+      differentCardBorder: '#1F1D2B',
+      linkHoverText: '#EA7C69',
+      differentCardBackground: '#FFFFFF',
+      contentBackground: '#FFFFFF',
+      differentCardText: '#393C49',
+      titleText: '#EA7C69',
+      descriptionText: '#393C49',
+      iconBackground: '#393C49',
+      imageWrapperBackground: '#FFFFFF',
+      imageBackground: '#FFFFFF',
+      linkText: '#EA7C69',
+      containerBackground: '#FFFFFF',
+      principalDetailsBackground: '#FFFFFF',
+      textColor: '#393C49',
+      hoverCardBackground: '#1F1D2B',
+      infoTextColor: '#393C49',
+      cartItemBorder: '#1F1D2B',
+      cartItemImageBorder: '#1F1D2B',
+      cartItemTitle: '#393C49',
+      cartItemPrice: '#28A745',     // Vert pour les prix
+      incrDecButtonBackground: '#EA7C69',
+      incrDecButtonHoverText: '#FFFFFF',
+      cartItemButtonBackground: '#393C49',
+      cartItemButtonHover: '#EA7C69',
+      cartItemQuantityText: '#393C49',
+      colorCircleBorder: '#393C49',
+      sizeCircleBackground: '#393C49',
+      sizeCircleText: '#FFFFFF',
+      sizeCircleBorder: '#393C49',
+      sidebarBackground: '#1F1D2B',
+      sidebarText: '#FFFFFF',
+      linkHoverBackground: '#EA7C69',
+      cardHeaderBackground: '#393C49',
+      tableWrapperBackground: '#FFFFFF',
+      tableHeaderBackground: '#393C49',
+      tableHeaderText: '#FFFFFF',
+      buttonHoverBackground: '#FFFFFF',
+      emptyMessageBackground: '#FFFFFF',
+      wrapperBackground: '#FFFFFF',
+      cardHeaderText: '#393C49',
+      subtitleText: '#EA7C69',
+      goldAccent: '#28A745',        // Vert pour les accents dorés
+      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+    },
+  },
+
+  theme5: {
+    colors: {
+      // Arrière-plans
+      background: '#1F1D2B',            // Arrière-plan principal
+      navbarBackground: '#393C49',      // Barre de navigation
+      cardBackground: '#393C49',        // Cartes et éléments
+      sidebarBackground: '#1F1D2B',     // Barre latérale
+      contentBackground: '#1F1D2B',     // Contenu principal
+      hoverCardBackground: '#393C49',   // Cartes au survol
+      modalBackground: '#393C49',       // Fenêtres modales
+      primaryText: '#FFFFFF',           // Texte principal
+      secondaryText: '#EA7C69',         // Texte secondaire ou accentué
+      navItemText: '#FFFFFF',           // Éléments de navigation
+      navItemHoverText: '#EA7C69',      // Éléments de navigation au survol
+      linkText: '#EA7C69',              // Liens
+      descriptionText: '#FFFFFF',       // Descriptions
+      priceText: '#28A745',             // Prix (vert)
+      buttonBackground: '#EA7C69',      // Arrière-plan des boutons
+      buttonText: '#FFFFFF',            // Texte des boutons
+      buttonHoverBackground: '#FFFFFF', // Arrière-plan au survol
+      buttonHoverText: '#EA7C69',       // Texte au survol
+      borderColor: '#393C49',           // Couleur des bordures
+      dividerColor: '#393C49',          // Séparateurs
+      iconColor: '#FFFFFF',             // Couleur des icônes
+      iconHoverColor: '#EA7C69',        // Couleur des icônes au survol
+      cartIconColor: '#FFFFFF',         // Icône du panier
+      cartIconHoverColor: '#EA7C69',    // Icône du panier au survol
+      cartCountBackground: '#EA7C69',   // Arrière-plan du compteur du panier
+      cartCountText: '#FFFFFF',         // Texte du compteur du panier
+      discountBadgeBackground: '#EA7C69', // Badge de réduction
+      discountBadgeText: '#FFFFFF',     // Texte du badge de réduction
+      inputBackground: '#393C49',       // Champs de saisie
+      inputText: '#FFFFFF',             // Texte des champs
+      inputBorder: '#EA7C69',           // Bordure des champs
+      selectBackground: '#393C49',      // Sélecteurs
+      selectText: '#FFFFFF',            // Texte des sélecteurs
+      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)', // Ombres
+      scrollBarBackground: '#393C49',  
+      scrollBarThumb: '#EA7C69',       
+    },
+  },
+  
+  
 };

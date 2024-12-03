@@ -106,13 +106,13 @@ const CarouselComposantView = observer(({ typeComponentSection, selectTypeProduc
 });
 
 const Wrapper = styled.div`
-  width: 90%;
+  width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
 
   @media (max-width: 655px) {
-    width: 90%;
+    width: 100%;
   }
 `;
 

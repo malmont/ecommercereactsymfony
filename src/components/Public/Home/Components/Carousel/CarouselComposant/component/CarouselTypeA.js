@@ -69,7 +69,7 @@ justify-content: space-between;
 background-color: ${(props) => props.theme.colors.cardBackground};
 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 height: 410px;
-width: 260px;
+width: 280px;
 padding-bottom: 10px;
 margin: 10px;
 `;

@@ -24,6 +24,7 @@ const TotalCardTypeF = observer(({ handleCheckout, buttonLabel = 'Checkout Now' 
         maxWidth: '900px',
         margin: '2rem auto',
         gap: '1rem',
+        width: '110%',
       }}
     >
       {/* Left Section: Summary Details */}
@@ -99,7 +100,7 @@ const TotalCardTypeF = observer(({ handleCheckout, buttonLabel = 'Checkout Now' 
       <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <selectedStyle.CheckoutButton
           style={{
-            padding: '1.5rem',
+            padding: '0.5rem',
             fontSize: '1.4rem',
             fontWeight: 'bold',
             borderRadius: '50px',

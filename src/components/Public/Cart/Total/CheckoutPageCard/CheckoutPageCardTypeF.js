@@ -25,6 +25,7 @@ const CheckoutPageCardTypeF = observer(({
                 backgroundColor: selectedStyle?.colors?.cardBackground ,
                 borderRadius: '20px',
                 boxShadow: selectedStyle?.colors?.boxShadow || '0 8px 20px rgba(0, 0, 0, 0.1)',
+                width: '100%',
             }}
         >
             {/* Select Carrier */}
@@ -95,10 +96,10 @@ const CheckoutPageCardTypeF = observer(({
                                 src={carrier.photo}
                                 alt={carrier.name}
                                 style={{
-                                    width: '90px',
-                                    height: '60px',
+                                    width: '50px',
+                                    height: '50px',
                                     objectFit: 'contain',
-                                    marginBottom: '1rem',
+                                   
                                 }}
                             />
                             <p
@@ -109,7 +110,7 @@ const CheckoutPageCardTypeF = observer(({
                                     zIndex: 0,
                                 }}
                             >
-                                {carrier.name}
+                           
                             </p>
                         </selectedStyle.CarrierCard>
                     ))}

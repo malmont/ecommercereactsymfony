@@ -85,7 +85,7 @@ export default function ExploreCategoryCardTypeF({
   const selectedStyle = styles[styleChoice];
 
   return (
-    <selectedStyle.StandardCardExploreCard>
+    <selectedStyle.StandardCardExploreCard className='mt-2 mt-md-0'>
         <HorizontalContainer>
       <OverlayContainer>
         <ImageBackground src={image} alt={titre} />

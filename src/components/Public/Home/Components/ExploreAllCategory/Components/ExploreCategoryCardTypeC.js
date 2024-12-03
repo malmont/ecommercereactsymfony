@@ -32,7 +32,7 @@ export default function ExploreCategoryCardTypeC({
 
   if (isDifferent) {
     return (
-      <selectedStyle.StandardCardExploreCard>
+      <selectedStyle.StandardCardExploreCard className='mt-2 mt-md-0'>
       <selectedStyle.RowExplore>
         <selectedStyle.ColumnExplore>
           <selectedStyle.ImageWrapperExploreStandart>

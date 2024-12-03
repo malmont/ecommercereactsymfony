@@ -42,7 +42,7 @@ export default function ExploreCategoryCardTypeE({
   const selectedStyle = styles[styleChoice];
 
   return (
-    <selectedStyle.StandardCardExploreCard>
+    <selectedStyle.StandardCardExploreCard className='mt-2 mt-md-0'>
       <HorizontalContainer>
         {/* Texte à gauche */}
         <TextSection>

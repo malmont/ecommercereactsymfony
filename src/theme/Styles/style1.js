@@ -149,9 +149,14 @@ export const style1 = {
     justify-content: space-between;
     background-color: ${(props) => props.theme.colors.cardBackground};
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    height: 520px;
-    width: 270px;
+    height: 540px;
+    width: 90%;
+    border-radius: 10px;
     margin-bottom: 5px;
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      height: 100%;
+    }
   `,
 
   CardProperty: styled.div`
@@ -162,8 +167,8 @@ export const style1 = {
   `,
 
   CardImage: styled.img`
-    width: 100%;
-    height: 365px;
+    width: 300px;
+    height: 405px;
   `,
 
   CardBody: styled.div`
@@ -249,19 +254,19 @@ height: 450px;
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
- 
+ @media screen and (max-width: 800px) {
+height: 100%;
+  
+  }
 `,
 
 RowExplore: styled.div`
  display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
   margin: 4px;
-
-  @media (max-width: 768px) {
-    flex-direction: column; 
-    align-items: flex-start; 
-    gap: 10px; 
+  @media screen and (max-width: 800px) {
+  flex-direction: column;
   }
 `,
 
@@ -269,6 +274,7 @@ ColumnExplore: styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  
 `,
 
 CardBodyExplore: styled.div`
@@ -297,6 +303,7 @@ background-color: ${(props) =>
 color: ${(props) => props.theme.colors.differentCardText };
 border: 1px solid ${(props) =>
   props.theme.colors.differentCardBorder };
+
 `,
 
 DetailsExplore: styled.div`
@@ -335,6 +342,7 @@ ImageWrapperExploreStandart: styled.div`
   height: 500px;
   overflow: hidden;
   border-radius: 10px 10px 0 0;
+  
 `, 
 CardImageExploreStandart: styled.img`
   width: 300px;
@@ -577,6 +585,7 @@ OrderSummaryContainer: styled.div`
     border-radius: 10px;
     background-color: ${(props) => props.theme.colors.cardBackground || '#fff'};
     margin-top: 20px;
+    width: 110%;
   //    @media (max-width: 1000px) {
   //    padding: 10px;
   //   width: 250px;
@@ -1011,8 +1020,9 @@ CarrierWrapper: styled.div`
   background-color: ${(props) => props.theme.colors.wrapperBackground};
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`,CarrierTableContainer: styled.div`
-overflow-x: auto; /* Ajout du scroll horizontal */
+`
+,CarrierTableContainer: styled.div`
+overflow-x: auto;
 margin-top: 20px;
 `,
 

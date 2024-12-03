@@ -14,6 +14,9 @@ const StyledRow = styled.div`
   gap: 200px; 
   text-align: center;
   margin: 10px 0; 
+   @media screen and (max-width: 800px) {
+    gap: 30px;
+  }
 `;
 
 const StyledFeatureCard = styled.div`

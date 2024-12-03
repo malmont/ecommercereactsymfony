@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
-import ResumeTotal from './ResumeTotalView';
-import CartItemView from '../Total/CartItemView';
+import ContainerTypeTotalCard from '../../../../theme/ThemeContainer/ContainerTypeTotalCard';
 import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../DependencyContext';
+import ContainerTypeCartItemCard from '../../../../theme/ThemeContainer/ContainerTypeCartItemCard';
 
 const ResumeCartView = observer(() => {
   const { cartViewModel } = useDependencies();
@@ -15,7 +15,7 @@ const ResumeCartView = observer(() => {
           <div>
             <h5>Shopping Cart</h5>
             {cartViewModel.cart?.map((item) => (
-              <CartItemView
+              <ContainerTypeCartItemCard
                 key={item.id}
                 id={item.id}
                 image={item.image}
@@ -26,7 +26,7 @@ const ResumeCartView = observer(() => {
             ))}
           </div>
           <div className="cart__rih">
-            <ResumeTotal />
+            <ContainerTypeTotalCard />
           </div>
         </div>
       </div>
@@ -37,11 +37,12 @@ const ResumeCartView = observer(() => {
 const Wrapper = styled.div`
 .cart {
   display: flex;
-  margin: 30px auto;
+  margin: 20px ;
   height: max-content;
-  padding: 20px 20px 0 20px;
+  padding: 10px 10px 0 10px;
   gap: 20px;
   flex: 1;
+  width: 500px;
 }
 
 .cart__left {
@@ -65,13 +66,10 @@ const Wrapper = styled.div`
 
 @media(max-width: 800px) {
   .cart {
-    flex-direction: column-reverse;
-    margin: unset;
+    display: none;
   }
 
-  .cart__left {
-    width: calc(100% - 40px);
-  }
+  
 }
 `;
 

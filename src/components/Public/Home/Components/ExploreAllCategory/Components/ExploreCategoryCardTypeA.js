@@ -14,7 +14,7 @@ export default function ExploreCategoryCardTypeA({
 
   if (isDifferent) {
     return (
-      <selectedStyle.DifferentCardExploreCard>
+      <selectedStyle.DifferentCardExploreCard className='mt-3 mt-md-0'>
         <selectedStyle.ContentExplore>
           <selectedStyle.ImageWrapperExploreDifferent>
             <selectedStyle.CardImageExploreDifferent src={image} alt="" />

@@ -14,7 +14,10 @@ const StyledRow = styled.div`
   flex-wrap: wrap;
   gap: 200px; /* Espacement horizontal */
   text-align: center;
-  margin: 10px 0; /* Espacement vertical autour de la rangée */
+  margin: 10px 0; 
+   @media screen and (max-width: 800px) {
+    gap: 30px;
+  }
 `;
 
 const StyledFeatureCard = styled.div`
@@ -22,7 +25,10 @@ const StyledFeatureCard = styled.div`
 `;
 
 const LowerFeatureCard = styled(StyledFeatureCard)`
-  margin-top: 120px; /* Décale cette carte vers le bas */
+  margin-top: 120px;
+    @media screen and (max-width: 800px) {
+     margin-top:0px;
+  }
 `;
 
 const FeatureTypeF = () => {

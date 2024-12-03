@@ -14,6 +14,7 @@ const TotalCardTypeB = observer(({ handleCheckout, buttonLabel = 'Pay Now' }) =>
       style={{
         maxWidth: '500px',
         boxShadow: '0 6px 15px rgba(0, 0, 0, 0.1)',
+        width: '110%',
       }}
     >
       {/* Title */}
