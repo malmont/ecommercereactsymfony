@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import { styles } from '../../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../../theme/AdminContext';
 import styled from 'styled-components';
+import { useTheme } from 'styled-components';
 
 const Section = styled.div`
   border-bottom: 2px solid ${(props) => props.theme.colors.border};
@@ -36,7 +37,7 @@ const CheckoutPageCardTypeC = observer(({
 }) => {
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
-
+  const theme = useTheme();
   return (
     <selectedStyle.OrderSummaryContainer>
       {/* Sélectionner le transporteur */}
@@ -52,15 +53,15 @@ const CheckoutPageCardTypeC = observer(({
                 cursor: 'pointer',
                 padding: '1.2rem',
                 border: `2px solid ${selectedCarrier?.id === carrier.id
-                  ? selectedStyle?.colors?.navItemHover
-                  : selectedStyle?.colors?.border}`,
+                  ? theme?.colors?.navItemHover
+                  : theme?.colors?.border}`,
                 borderRadius: '10px',
                 backgroundColor: selectedCarrier?.id === carrier.id
-                  ? selectedStyle?.colors?.hoverCardBackground
-                  : selectedStyle?.colors?.cardBackground,
+                  ? theme?.colors?.hoverCardBackground
+                  : theme?.colors?.cardBackground,
                 transition: 'transform 0.3s ease, background-color 0.3s ease',
                 boxShadow: selectedCarrier?.id === carrier.id
-                  ? selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
+                  ? theme?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
                   : '0 2px 8px rgba(0, 0, 0, 0.1)',
                 textAlign: 'center',
                 width: '80px',
@@ -98,7 +99,7 @@ const CheckoutPageCardTypeC = observer(({
                 margin: 0,
                 fontWeight: '600',
                 fontSize: '1rem',
-                color: selectedStyle?.colors?.textColor,
+                color:selectedAddress?.id === address.id? theme?.colors?.hoverText: theme?.colors?.textColor,
                 marginBottom: '0.5rem',
               }}>
                 {address.fullname}
@@ -106,7 +107,7 @@ const CheckoutPageCardTypeC = observer(({
               <p style={{
                 margin: 0,
                 fontSize: '0.9rem',
-                color: selectedStyle?.colors?.infoTextColor,
+                color:selectedAddress?.id === address.id? theme?.colors?.hoverText: theme?.colors?.textColor,
               }}>
                 {address.addressLineOne}, {address.city}
               </p>
@@ -129,15 +130,15 @@ const CheckoutPageCardTypeC = observer(({
                 width: '80px',
                 height: '80px',
                 border: `2px solid ${selectedPaymentMethod?.id === method.id
-                  ? selectedStyle?.colors?.navItemHover
-                  : selectedStyle?.colors?.border}`,
+                  ? theme?.colors?.navItemHover
+                  : theme?.colors?.border}`,
                 borderRadius: '50%',
                 backgroundColor: selectedPaymentMethod?.id === method.id
-                  ? selectedStyle?.colors?.hoverCardBackground
-                  : selectedStyle?.colors?.cardBackground,
+                  ? theme?.colors?.hoverCardBackground
+                  : theme?.colors?.cardBackground,
                 transition: 'transform 0.3s ease, background-color 0.3s ease',
                 boxShadow: selectedPaymentMethod?.id === method.id
-                  ? selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
+                  ? theme?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
                   : '0 2px 8px rgba(0, 0, 0, 0.1)',
                 display: 'flex',
                 alignItems: 'center',

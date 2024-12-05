@@ -14,7 +14,7 @@ export const style3= {
   background: ${(props) => props.theme.colors.navbarContainerBackground};
   color: ${(props) => props.theme.colors.logoText};
   padding: 1rem;
-   border-radius: 10px;
+  border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
    @media (max-width: 768px) {
     height: 120px;
@@ -35,6 +35,9 @@ export const style3= {
   color: ${(props) => props.theme.colors.logoText};
   text-decoration: none;
   height: 10px;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  } 
 `,
 
   NavLinks: styled.div`
@@ -94,7 +97,7 @@ background: ${(props) => props.theme.colors.navLinksBackground};
   background: none;
   border: none;
   color: ${(props) => props.theme.colors.mobileMenuButton};
-  font-size: 1.5rem;
+  font-size: 1rem;
   cursor: pointer;
   @media (max-width: 768px) {
     display: block;
@@ -233,10 +236,11 @@ FeatureWrapper: styled.div`
   flex-wrap: wrap; /* Permet un alignement flexible des cartes */
   justify-content: space-evenly; 
   align-items: center;
-  padding: 30px;
+  padding: 10px;
   background-color: ${(props) => props.theme.colors.featureBackground};
-  border-radius: 20px; /* Coins arrondis pour un aspect élégant */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 
 `,
 
@@ -969,7 +973,7 @@ CarrierContainer: styled.div`
   DashboardWrapper: styled.div`
   background-color: ${(props) => props.theme.colors.contentBackground };
   min-height: 70vh;
-  padding: 20px;
+  padding: 10px;
 `,
 
 // Sidebar pour les onglets
@@ -1018,19 +1022,21 @@ DashboardNavLink: styled(NavLink)`
 
 // Contenu principal du tableau de bord
 DashboardContent: styled.div`
-  padding: 30px;
+  padding: 10px;
   background-color: ${(props) => props.theme.colors.contentBackground};
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  margin-left: 30px;
+  margin-top: 10px;
+  
 `,
 
 // Conteneur pour les onglets
 DashboardTabPane: styled.div`
-  padding: 30px;
+  padding: 10px;
   background-color: ${(props) => props.theme.colors.cardBackground};
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
+  color: ${(props) => props.theme.colors.cardText};
 `,
 
 // Carte principale
@@ -1045,7 +1051,7 @@ DashboardCardHeader: styled.div`
   padding: 25px;
   border-bottom: 1px solid ${(props) => props.theme.colors.border };
   background-color: ${(props) => props.theme.colors.cardHeaderBackground };
-  color: ${(props) => props.theme.colors.cardHeaderText};
+  color: ${(props) => props.theme.colors.sidebarText};
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 `,
@@ -1057,7 +1063,7 @@ DashboardCardBody: styled.div`
 TableWrapper: styled.div`
   overflow-x: auto;
   margin-top: 30px;
-  padding: 20px;
+  padding: 5px;
   border-radius: 12px;
   background: linear-gradient(
     135deg,
@@ -1066,6 +1072,10 @@ TableWrapper: styled.div`
   );
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   border: 1px solid ${(props) => props.theme.colors.border};
+  @media (max-width: 768px) {
+  width: 100%;
+  }  
+
 `,
 
 ResponsiveTable: styled.table`
@@ -1101,6 +1111,9 @@ ResponsiveTable: styled.table`
   }
 
   @media (max-width: 768px) {
+  thead {
+      display: none;
+    }
     th, td {
       display: block;
       text-align: left;
@@ -1113,6 +1126,10 @@ ResponsiveTable: styled.table`
       color: ${(props) => props.theme.colors.tableText };
       display: inline-block;
       margin-right: 10px;
+      
+    }
+       td:last-child {
+      margin-bottom: 10px;
     }
   }
 `,
@@ -1211,6 +1228,7 @@ AddressListWrapper: styled.div`
     font-weight: bold;
     text-align: center;
     border-bottom: 1px solid ${(props) => props.theme.colors.cardBorder };
+    border-radius: 5px ;
   `,
 
   AddressCardBody: styled.div`
@@ -1354,6 +1372,10 @@ CarrierTable: styled.table`
   }
 
   @media (max-width: 768px) {
+    thead {
+      display: none;
+    }
+
     th, td {
       display: block;
       text-align: left;
@@ -1367,6 +1389,9 @@ CarrierTable: styled.table`
       display: inline-block;
       margin-right: 10px;
     }
+      td:last-child {
+      margin-bottom: 5px;
+  }
   }
 `,
 

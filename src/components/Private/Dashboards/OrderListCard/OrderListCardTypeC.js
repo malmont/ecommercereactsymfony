@@ -86,6 +86,9 @@ const OrderCard = styled.div`
     justify-content: space-between;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 const OrderDetails = styled.div`

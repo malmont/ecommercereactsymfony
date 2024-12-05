@@ -4,12 +4,13 @@ import { useDependencies } from '../../../../../DependencyContext';
 import { styles } from '../../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../../theme/AdminContext';
 import styled from 'styled-components';
+import { useTheme } from 'styled-components';
 
 const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, color, size, colorHex, variantId, showButtons }) => {
   const { cartViewModel } = useDependencies();
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
-
+  const theme = useTheme();
   return (
     <CartItemContainer >
       <selectedStyle.CartItemImage
@@ -20,7 +21,7 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
           height: "280px", // Adjusted to be square
           borderRadius: "8px",
           objectFit: "cover",
-          border: `1px solid ${(props) => props.theme.colors.cartItemImageBorder}`,
+          border: `1px solid ${theme.colors.cartItemImageBorder}`,
         }}
       />
 
@@ -38,7 +39,7 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
           style={{
             fontSize: "1.1rem",
             fontWeight: "bold",
-            color: `${(props) => props.theme.colors.cartItemTitle}`,
+            color: `${theme.colors.cartItemTitle}`,
           }}
         >
           {title}
@@ -59,7 +60,7 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
                 width: "18px",
                 height: "18px",
                 borderRadius: "50%",
-                border: `1px solid ${(props) => props.theme.colors.colorCircleBorder}`,
+                border: `1px solid ${theme.colors.colorCircleBorder}`,
               }}
             />
           )}
@@ -70,9 +71,9 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                background: `${(props) => props.theme.colors.sizeCircleBackground}`,
-                color: `${(props) => props.theme.colors.sizeCircleText}`,
-                border: `1px solid ${(props) => props.theme.colors.sizeCircleBorder}`,
+                background: `${theme.colors.sizeCircleBackground}`,
+                color: `${theme.colors.sizeCircleText}`,
+                border: `1px solid ${theme.colors.sizeCircleBorder}`,
                 fontSize: "0.8rem",
                 fontWeight: "bold",
                 borderRadius: "4px",
@@ -88,7 +89,7 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
           style={{
             fontSize: "1rem",
             fontWeight: "bold",
-            color: `${(props) => props.theme.colors.cartItemPrice}`,
+            color: `${theme.colors.cartItemPrice}`,
           }}
         >
           {(price / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
@@ -118,8 +119,8 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
               <selectedStyle.IncrDecButton
                 onClick={() => cartViewModel.decrementQuantity(variantId)}
                 style={{
-                  background: `${(props) => props.theme.colors.incrDecButtonBackground}`,
-                  color: `${(props) => props.theme.colors.incrDecButtonHoverText}`,
+                  background: `${theme.colors.incrDecButtonBackground}`,
+                  color: `${theme.colors.incrDecButtonHoverText}`,
                   padding: "6px 10px",
                   fontSize: "1rem",
                   borderRadius: "4px",
@@ -131,8 +132,8 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
               <selectedStyle.IncrDecButton
                 onClick={() => cartViewModel.incrementQuantity(variantId)}
                 style={{
-                  background: `${(props) => props.theme.colors.incrDecButtonBackground}`,
-                  color: `${(props) => props.theme.colors.incrDecButtonHoverText}`,
+                  background: `${theme.colors.incrDecButtonBackground}`,
+                  color: `${theme.colors.incrDecButtonHoverText}`,
                   padding: "6px 10px",
                   fontSize: "1rem",
                   borderRadius: "4px",
@@ -144,8 +145,8 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
             <selectedStyle.CartItemButton
               onClick={() => cartViewModel.removeItem(variantId)}
               style={{
-                background: `${(props) => props.theme.colors.cartItemButtonBackground}`,
-                color: `${(props) => props.theme.colors.cartItemButtonHover}`,
+                background: `${theme.colors.cartItemButtonBackground}`,
+                color: `${theme.colors.cartItemButtonHover}`,
                 padding: "8px 12px",
                 fontSize: "0.9rem",
                 borderRadius: "4px",
@@ -159,7 +160,7 @@ const CartItemCardTypeC = observer(({ id, image, title, price, quantity = 0, col
           <selectedStyle.CartItemQuantity
             style={{
               fontSize: "0.9rem",
-              color: `${(props) => props.theme.colors.cartItemQuantityText}`,
+              color: `${theme.colors.cartItemQuantityText}`,
             }}
           >
             Nombre d'items: {quantity}

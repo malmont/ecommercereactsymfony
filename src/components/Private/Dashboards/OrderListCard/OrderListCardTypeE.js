@@ -3,13 +3,14 @@ import { observer } from "mobx-react-lite";
 import { styles } from "../../../../theme/AllStyles";
 import { useAdminContext } from "../../../../theme/AdminContext";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from 'styled-components';
 
 const OrderListCardTypeE = ({ viewModel }) => {
   const { orders, loading } = viewModel;
   const navigate = useNavigate();
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
-
+  const theme = useTheme();
   if (loading) {
     return <p>Loading orders...</p>;
   }
@@ -21,7 +22,7 @@ const OrderListCardTypeE = ({ viewModel }) => {
         gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))",
         gap: "20px",
         padding: "2px",
-        background: "#f8f9fa",
+        background: theme.colors.objectBackground,
         borderRadius: "12px",
       }}
     >
@@ -57,7 +58,7 @@ const OrderListCardTypeE = ({ viewModel }) => {
             <div
               style={{
                 marginBottom: "10px",
-                color: "#6c757d",
+                color: theme.colors.textColor,
                 fontSize: "0.9rem",
               }}
             >
@@ -66,7 +67,7 @@ const OrderListCardTypeE = ({ viewModel }) => {
             <div
               style={{
                 marginBottom: "10px",
-                color: "#28a745",
+                color: theme.colors.successBackground,
                 fontWeight: "bold",
               }}
             >
@@ -76,14 +77,14 @@ const OrderListCardTypeE = ({ viewModel }) => {
               style={{
                 marginBottom: "15px",
                 fontWeight: "bold",
-                color: "#2c3e50",
+                color: theme.colors.textColor,
               }}
             >
               Total: ${(order.totalAmount / 100).toFixed(2)}
             </div>
             <selectedStyle.TableButton
               style={{
-                background: "#007bff",
+                background: theme.colors.buttonBackground,
                 color: "#ffffff",
                 padding: "10px 20px",
                 border: "none",

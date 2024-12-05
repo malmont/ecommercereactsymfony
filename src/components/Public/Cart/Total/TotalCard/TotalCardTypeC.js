@@ -3,12 +3,13 @@ import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../../DependencyContext';
 import { styles } from '../../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../../theme/AdminContext';
+import { useTheme } from 'styled-components';
 
 const TotalCardTypeC = observer(({ handleCheckout, buttonLabel = 'Confirm Order' }) => {
   const { cartViewModel } = useDependencies();
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
-
+  const theme = useTheme();
   return (
     <selectedStyle.OrderSummaryContainer
       style={{
@@ -66,7 +67,7 @@ const TotalCardTypeC = observer(({ handleCheckout, buttonLabel = 'Confirm Order'
           fontSize: '1.5rem',
           fontWeight: 'bold',
           padding: '1rem 0',
-          background: `${(props) => props.theme.colors.highlightBackground}`,
+          background: `${theme.colors.highlightBackground}`,
           borderRadius: '10px',
         }}
       >
@@ -85,7 +86,7 @@ const TotalCardTypeC = observer(({ handleCheckout, buttonLabel = 'Confirm Order'
           fontSize: '1rem',
           fontWeight: 'bold',
           borderRadius: '15px',
-          background: `linear-gradient(90deg, ${(props) => props.theme.colors.buttonBackground}, ${(props) => props.theme.colors.goldAccent})`,
+          background: `linear-gradient(90deg, ${theme.colors.buttonBackground}, ${theme.colors.goldAccent})`,
           transition: 'transform 0.3s ease, background-color 0.3s ease',
         }}
         onClick={handleCheckout}

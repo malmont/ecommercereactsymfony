@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../../DependencyContext';
 import { styles } from '../../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../../theme/AdminContext';
-
+import { useTheme } from 'styled-components';
 
 const CartItemCardTypeD = observer(
   ({
@@ -21,7 +21,7 @@ const CartItemCardTypeD = observer(
     const { cartViewModel } = useDependencies();
     const { styleChoice } = useAdminContext();
     const selectedStyle = styles[styleChoice];
-
+    const theme = useTheme();
     return (
       <selectedStyle.CartItemContainer
         style={{
@@ -31,7 +31,7 @@ const CartItemCardTypeD = observer(
           padding: "10px",
           border: "1px solid #ddd",
           borderRadius: "12px",
-          background: `${(props) => props.theme.colors.cardBackground}`,
+          background: `${theme.colors.cardBackground}`,
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
           transition: "transform 0.2s, box-shadow 0.2s",
         }}
@@ -46,7 +46,7 @@ const CartItemCardTypeD = observer(
             height: "auto",
             borderRadius: "12px",
             objectFit: "cover",
-            border: `1px solid ${selectedStyle?.colors?.cartItemImageBorder || '#dee2e6'}`,
+            border: `1px solid ${theme?.colors?.cartItemImageBorder}`,
             margin: "0 auto",
           }}
         />
@@ -66,7 +66,7 @@ const CartItemCardTypeD = observer(
             style={{
               fontSize: "1.4rem",
               fontWeight: "bold",
-              color: `${(props) => props.theme.colors.cartItemTitle}`,
+              color: `${theme.colors.cartItemTitle}`,
             }}
           >
             {title}
@@ -96,8 +96,8 @@ const CartItemCardTypeD = observer(
               <selectedStyle.SizeCircle
                 style={{
                   padding: "5px",
-                  background: `${(props) => props.theme.colors.sizeCircleBackground}`,
-                  color: `${(props) => props.theme.colors.sizeCircleText}`,
+                  background: `${theme.colors.sizeCircleBackground}`,
+                  color: `${theme.colors.sizeCircleText}`,
                   border: "1px solid #ccc",
                   fontSize: "0.9rem",
                   fontWeight: "bold",
@@ -114,7 +114,7 @@ const CartItemCardTypeD = observer(
             style={{
               fontSize: "1.2rem",
               fontWeight: "bold",
-              color: `${(props) => props.theme.colors.cartItemPrice}`,
+              color: `${theme.colors.cartItemPrice}`,
             }}
           >
             {(price / 100).toLocaleString("en-US", {
@@ -147,8 +147,8 @@ const CartItemCardTypeD = observer(
                 <selectedStyle.IncrDecButton
                   onClick={() => cartViewModel.decrementQuantity(variantId)}
                   style={{
-                    background: `${(props) => props.theme.colors.incrDecButtonBackground}`,
-                    color: `${(props) => props.theme.colors.incrDecButtonHoverText}`,
+                    background: `${theme.colors.incrDecButtonBackground}`,
+                    color: `${theme.colors.incrDecButtonHoverText}`,
                     padding: "8px 12px",
                     fontSize: "1rem",
                     borderRadius: "8px",
@@ -162,8 +162,8 @@ const CartItemCardTypeD = observer(
                 <selectedStyle.IncrDecButton
                   onClick={() => cartViewModel.incrementQuantity(variantId)}
                   style={{
-                    background: `${(props) => props.theme.colors.incrDecButtonBackground}`,
-                    color: `${(props) => props.theme.colors.incrDecButtonHoverText}`,
+                    background: `${theme.colors.incrDecButtonBackground}`,
+                    color: `${theme.colors.incrDecButtonHoverText}`,
                     padding: "8px 12px",
                     fontSize: "1rem",
                     borderRadius: "8px",
@@ -177,8 +177,8 @@ const CartItemCardTypeD = observer(
               <selectedStyle.CartItemButton
                 onClick={() => cartViewModel.removeItem(variantId)}
                 style={{
-                  background: `${(props) => props.theme.colors.cartItemButtonBackground}`,
-                  color: `${(props) => props.theme.colors.cartItemButtonHover}`,
+                  background: `${theme.colors.cartItemButtonBackground}`,
+                  color: `${theme.colors.cartItemButtonHover}`,
                   padding: "10px 15px",
                   fontSize: "0.9rem",
                   borderRadius: "8px",
@@ -192,7 +192,7 @@ const CartItemCardTypeD = observer(
             <p
               style={{
                 fontSize: "1rem",
-                color: `${(props) => props.theme.colors.cartItemQuantityText}`,
+                color: `${theme.colors.cartItemQuantityText}`,
               }}
             >
               Nombre d'items : {quantity}

@@ -85,7 +85,7 @@ const CheckoutPage = observer(() => {
                 selectPaymentMethod={(id) => checkoutViewModel.selectPaymentMethod(id)}
               />
                <div className="mt-4"/>
-              <ContainerTypeTotalCard handleCheckout={handleProceedToPayment} buttonLabel="Confirm and Proceed" />
+              <ContainerTypeTotalCard handleCheckout={handleProceedToPayment} buttonLabel="Proceed" />
             </div>
           </div>
         </div>

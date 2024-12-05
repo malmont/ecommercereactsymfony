@@ -12,7 +12,6 @@ const CarrierListCardTypeF = ({ viewModel }) => {
     return (
       <selectedStyle.NoCarrierMessage
         style={{
-          padding: "20px",
           backgroundColor: `${(props) => props.theme.colors.cardBackground}`,
           color: `${(props) => props.theme.colors.textColor}`,
           borderRadius: "10px",
@@ -32,7 +31,6 @@ const CarrierListCardTypeF = ({ viewModel }) => {
         display: "flex",
         flexDirection: "column",
         gap: "15px",
-        padding: "30px",
         backgroundColor: `${(props) => props.theme.colors.wrapperBackground}`,
         borderRadius: "20px",
         border: `2px solid ${(props) => props.theme.colors.border}`,
@@ -41,7 +39,7 @@ const CarrierListCardTypeF = ({ viewModel }) => {
     >
       <h2
         style={{
-          fontSize: "1.8rem",
+          fontSize: "1.rem",
           color: `${(props) => props.theme.colors.titleText}`,
           textAlign: "center",
           marginBottom: "20px",
@@ -54,7 +52,7 @@ const CarrierListCardTypeF = ({ viewModel }) => {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
             gap: "20px",
           }}
         >

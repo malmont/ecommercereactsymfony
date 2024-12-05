@@ -6,13 +6,14 @@ import { useDependencies } from '../../../../DependencyContext';
 import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
 import ContainerTypeOrderListCard from '../../../../theme/ThemeContainer/ContainerTypeOrderListCard';
+import { useTheme } from 'styled-components';
 
 const AccountDashboardCardTypeC = () => {
   const { orderListViewModel, addressListViewModel, carrierListViewModel } = useDependencies();
   const [activeTab, setActiveTab] = useState('dashboard');
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
-
+  const theme = useTheme();
   const tabs = [
     { tab: 'dashboard', label: 'Dashboard', icon: 'ti-layout-grid2' },
     { tab: 'orders', label: 'Orders', icon: 'ti-shopping-cart-full' },
@@ -40,8 +41,8 @@ const AccountDashboardCardTypeC = () => {
                 onClick={() => setActiveTab(item.tab)}
                 style={{
                   cursor: "pointer",
-                  backgroundColor: activeTab === item.tab ? "#007bff" : "#ffffff",
-                  color: activeTab === item.tab ? "#ffffff" : "#000000",
+                  backgroundColor: activeTab === item.tab ? theme.colors.buttonBackground : "transparent",
+                  color:  activeTab === item.tab ? theme.colors.tableText : theme.colors.buttonBackground,
                   border: "1px solid #dee2e6",
                   borderRadius: "12px",
                   padding: "20px",
@@ -72,7 +73,7 @@ const AccountDashboardCardTypeC = () => {
                 <selectedStyle.DashboardCard>
                   <selectedStyle.DashboardCardHeader
                     style={{
-                      backgroundColor: "#007bff",
+                      backgroundColor: theme.colors.buttonBackground,
                       color: "#ffffff",
                       padding: "15px",
                       borderRadius: "12px 12px 0 0",

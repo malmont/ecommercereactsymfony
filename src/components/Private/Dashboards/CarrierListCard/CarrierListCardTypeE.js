@@ -2,19 +2,20 @@ import React from 'react';
 import { observer } from "mobx-react-lite";
 import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
+import { useTheme } from 'styled-components';
 
 const CarrierListCardTypeE = ({ viewModel }) => {
   const { carriers, loading } = viewModel;
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
-
+  const theme = useTheme();
   if (loading) {
     return (
       <selectedStyle.NoCarrierMessage
         style={{
           padding: "25px",
-          backgroundColor: `${(props) => props.theme.colors.cardBackground}`,
-          color: `${(props) => props.theme.colors.linkHoverText}`,
+          backgroundColor: `${theme.colors.cardBackground}`,
+          color: `${theme.colors.linkHoverText}`,
           borderRadius: "15px",
           textAlign: "center",
           fontSize: "1.2rem",
@@ -36,7 +37,7 @@ const CarrierListCardTypeE = ({ viewModel }) => {
         alignItems: "center",
         gap: "20px",
         padding: "30px",
-        backgroundColor: `${(props) => props.theme.colors.wrapperBackground}`,
+        backgroundColor: `${theme.colors.wrapperBackground}`,
         borderRadius: "20px",
         boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
         overflow: "hidden",
@@ -47,7 +48,7 @@ const CarrierListCardTypeE = ({ viewModel }) => {
         style={{
           fontSize: "1.8rem",
           fontWeight: "bold",
-          color: `${(props) => props.theme.colors.titleText}`,
+          color: `${theme.colors.titleText}`,
           marginBottom: "10px",
         }}
       >
@@ -55,7 +56,7 @@ const CarrierListCardTypeE = ({ viewModel }) => {
       </h3>
       <p
         style={{
-          color: `${(props) => props.theme.colors.descriptionText}`,
+          color: `${theme.colors.descriptionText}`,
           fontSize: "1rem",
           textAlign: "center",
           marginBottom: "20px",
@@ -83,10 +84,10 @@ const CarrierListCardTypeE = ({ viewModel }) => {
                 alignItems: "center",
                 justifyContent: "space-between",
                 padding: "20px",
-                backgroundColor: `${(props) => props.theme.colors.cardBackground}`,
+                backgroundColor: `${theme.colors.cardBackground}`,
                 borderRadius: "15px",
                 boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)",
-                border: `2px solid ${(props) => props.theme.colors.border}`,
+                border: `2px solid ${theme.colors.border}`,
                 overflow: "hidden",
                 position: "relative",
                 transition: "transform 0.3s, box-shadow 0.3s",
@@ -108,15 +109,15 @@ const CarrierListCardTypeE = ({ viewModel }) => {
                   height: "80px",
                   borderRadius: "50%",
                   marginBottom: "15px",
-                  border: `4px solid ${(props) => props.theme.colors.border}`,
-                  backgroundColor: `${(props) => props.theme.colors.cardBodyBackground}`,
+                  border: `4px solid ${theme.colors.border}`,
+                  backgroundColor: `${theme.colors.cardBodyBackground}`,
                 }}
               />
               <h4
                 style={{
                   fontSize: "1.2rem",
                   fontWeight: "bold",
-                  color: `${(props) => props.theme.colors.cardText}`,
+                  color: `${theme.colors.cardText}`,
                   textAlign: "center",
                   margin: "10px 0",
                 }}
@@ -125,7 +126,7 @@ const CarrierListCardTypeE = ({ viewModel }) => {
               </h4>
               <p
                 style={{
-                  color: `${(props) => props.theme.colors.descriptionText}`,
+                  color: `${theme.colors.descriptionText}`,
                   fontSize: "0.9rem",
                   textAlign: "center",
                   lineHeight: "1.5",
@@ -138,7 +139,7 @@ const CarrierListCardTypeE = ({ viewModel }) => {
                 style={{
                   fontSize: "1.3rem",
                   fontWeight: "bold",
-                  color: `${(props) => props.theme.colors.linkText}`,
+                  color: `${theme.colors.linkText}`,
                 }}
               >
                 ${(carrier.price / 100).toFixed(2)}
@@ -150,7 +151,7 @@ const CarrierListCardTypeE = ({ viewModel }) => {
                   left: "0",
                   right: "0",
                   height: "5px",
-                  background: `linear-gradient(to right, #007bff, #0056b3)`,
+                  background: theme.colors.cardBorder,
                 }}
               ></div>
             </div>
@@ -158,10 +159,10 @@ const CarrierListCardTypeE = ({ viewModel }) => {
         ) : (
           <selectedStyle.NoCarrierMessage
             style={{
-              color: `${(props) => props.theme.colors.descriptionText}`,
+              color: `${theme.colors.descriptionText}`,
               padding: "20px",
-              backgroundColor: `${(props) => props.theme.colors.emptyMessageBackground}`,
-              border: `1px dashed ${(props) => props.theme.colors.border}`,
+              backgroundColor: `${theme.colors.emptyMessageBackground}`,
+              border: `1px dashed ${theme.colors.border}`,
               textAlign: "center",
               fontSize: "1.2rem",
               borderRadius: "12px",

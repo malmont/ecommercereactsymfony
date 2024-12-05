@@ -3,13 +3,14 @@ import { observer } from "mobx-react-lite";
 import { styles } from "../../../../theme/AllStyles";
 import { useAdminContext } from "../../../../theme/AdminContext";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from 'styled-components';
 
 const OrderListCardTypeF = ({ viewModel }) => {
   const { orders, loading } = viewModel;
   const navigate = useNavigate();
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
-
+  const theme = useTheme();
   if (loading) {
     return <p>Loading orders...</p>;
   }
@@ -60,7 +61,7 @@ const OrderListCardTypeF = ({ viewModel }) => {
                 width: "20px",
                 height: "20px",
                 borderRadius: "50%",
-                background: "#007bff",
+                background: theme.colors.subtitleText,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -78,7 +79,7 @@ const OrderListCardTypeF = ({ viewModel }) => {
               <div
                 style={{
                   fontWeight: "bold",
-                  color: "#2c3e50",
+                  color: theme.colors.subtitleText,
                   marginBottom: "8px",
                 }}
               >
@@ -86,7 +87,7 @@ const OrderListCardTypeF = ({ viewModel }) => {
               </div>
               <div
                 style={{
-                  color: "#6c757d",
+                  color: theme.colors.textColor,
                   fontSize: "0.9rem",
                   marginBottom: "8px",
                 }}
@@ -95,7 +96,7 @@ const OrderListCardTypeF = ({ viewModel }) => {
               </div>
               <div
                 style={{
-                  color: "#28a745",
+                  color: theme.colors.successBackground,
                   fontWeight: "bold",
                   marginBottom: "8px",
                 }}
@@ -105,7 +106,7 @@ const OrderListCardTypeF = ({ viewModel }) => {
               <div
                 style={{
                   fontWeight: "bold",
-                  color: "#2c3e50",
+                  color: theme.colors.textColor,
                   marginBottom: "15px",
                 }}
               >
@@ -113,7 +114,7 @@ const OrderListCardTypeF = ({ viewModel }) => {
               </div>
               <selectedStyle.TableButton
                 style={{
-                  background: "#007bff",
+                  background: theme.colors.buttonBackground,
                   color: "#ffffff",
                   padding: "8px 16px",
                   border: "none",
@@ -136,7 +137,7 @@ const OrderListCardTypeF = ({ viewModel }) => {
         <selectedStyle.TableEmptyMessage
           style={{
             textAlign: "center",
-            color: "#6c757d",
+            color: theme.colors.textColor,
             padding: "20px",
             fontStyle: "italic",
           }}

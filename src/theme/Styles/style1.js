@@ -1026,7 +1026,7 @@ LoadingMessage: styled.p`
   font-weight: bold;
 `,
 CarrierWrapper: styled.div`
-  padding: 20px;
+
   background-color: ${(props) => props.theme.colors.wrapperBackground};
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
