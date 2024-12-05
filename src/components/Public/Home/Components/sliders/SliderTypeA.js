@@ -72,6 +72,7 @@ const SliderWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-radius: 10px;
 
   .sliderContent {
     position: relative;
@@ -79,11 +80,16 @@ const SliderWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0px ;
+    
   }
 
   .sliderText {
     animation: fly-ball 4s infinite;
     color: ${(props) => props.theme.colors.colorText};
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
   }
 
   .priceTag {

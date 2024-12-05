@@ -12,6 +12,7 @@ export const style4= {
    background: ${(props) => props.theme.colors.navbarContainerBackground};
   color: ${(props) => props.theme.colors.logoText};
   padding: 1rem;
+  border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 `,
 
@@ -155,12 +156,13 @@ background: ${(props) => props.theme.colors.navLinksBackground};
 CardContainer: styled.div`
 display: flex;
 flex-direction: column;
-justify-content: space-between;
+justify-content: center;
+align-items: center;
 height: 656px;
 width: 280px;
 border-radius: 8px;
 overflow: hidden;
-margin: 10px;
+margin: auto;
 border-radius: 10px;
 `,
 
@@ -171,25 +173,30 @@ height: 650px;
 width: 290px;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
+justify-content: center;
+align-items: center;
 border-radius: 8px;
 padding: 5px;
 `,
 
 CardImage: styled.img`
-width: 90%;
+width: 100%;
 height: 450px;
 object-fit: cover;
+border-radius: 8px;
 `,
 
 CardBody: styled.div`
-flex-grow: 1;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
-padding: 25px;
-color: ${(props) => props.theme.colors.cardBodyText };
-background-color: ${(props) => props.theme.colors.cardBodyBackground };
+justify-content: center;
+align-items: center;
+padding: 10px 20px;
+width: 255px;
+color: ${(props) => props.theme.colors.textSecondaryColor };
+background-color: ${(props) => props.theme.colors.cardHeaderBackground };
+margin :10px;
+border-radius: 8px;
 `,
 
 ColorText: styled.p`
@@ -229,9 +236,9 @@ display: flex;
 flex-wrap: wrap; /* S'adapte aux écrans plus petits */
 justify-content: space-around; /* Espacement uniforme entre les cartes */
 align-items: center;
-padding: 25px;
+padding: 5px;
 background-color: ${(props) => props.theme.colors.featureBackground || "#e8e8e8"};
-border-radius: 15px; /* Coins légèrement arrondis */
+border-radius: 15px;
 border: 2px solid ${(props) => props.theme.colors.border || "#ccc"}; /* Bordure visible */
 box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); /* Effet d'ombre léger */
 `,
@@ -426,15 +433,21 @@ text-decoration: none;
 `,
 
 EmailCardContainer : styled.div`
-  display: flex;
+display: flex;
 align-items: center;
 max-width: 800px;
-margin: 20px auto;
+margin: 10px auto;
 background-color: ${(props) => props.theme.colors.cardBackground || "#f9f9f9"};
 border-radius: 15px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 overflow: hidden;
+padding: 10px;
+border-radius: 10px;
 border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
+@media (max-width: 768px) {
+
+  flex-direction: column;
+}
 `,
 ContainerDetailsProduct: styled.div`
     padding: 40px;

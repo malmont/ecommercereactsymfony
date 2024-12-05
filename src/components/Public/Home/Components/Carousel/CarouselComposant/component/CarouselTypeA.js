@@ -25,7 +25,7 @@ const CarouselTypeA = ({ category }) => {
         />
         <selectedStyle.CardBody>
         <h6 className="card-title">
-            {category.name.length > 10 ? `${category.name.slice(0, 10)}...` : category.name}
+            {category.name.length > 10 ? `${category.name.slice(0, 15)}...` : category.name}
           </h6>
        
           <p className="card-text">
@@ -33,7 +33,7 @@ const CarouselTypeA = ({ category }) => {
               style: 'currency',
               currency: 'USD',
             })}
-            <selectedStyle.DiscountBadge>-40%</selectedStyle.DiscountBadge>
+            <selectedStyle.DiscountBadge className='ms-4'>-40%</selectedStyle.DiscountBadge>
           </p>
         </selectedStyle.CardBody>
       </selectedStyle.CardProperty>
@@ -68,11 +68,12 @@ flex-direction: column;
 justify-content: space-between;
 background-color: ${(props) => props.theme.colors.cardBackground};
 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-height: 400px;
+height: 410px;
 width: 280px;
 padding-bottom: 10px;
 border-radius: 10px;
-margin: 10px;
+margin: auto;
+margin-bottom: 20px;
 `;
 
 
