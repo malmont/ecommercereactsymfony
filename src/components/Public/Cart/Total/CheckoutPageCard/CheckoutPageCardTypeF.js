@@ -52,11 +52,12 @@ const CheckoutPageCardTypeF = observer(({
                             onClick={() => selectCarrier(carrier.id)}
                             isSelected={selectedCarrier?.id === carrier.id}
                             style={{
+                                width: '80px',
                                 cursor: 'pointer',
                                 padding: '1.5rem',
                                 borderRadius: '16px',
                                 background: selectedCarrier?.id === carrier.id
-                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(145deg, #d6eaff, #ffffff)'
+                                    ? selectedStyle?.colors?.hoverCardBackground
                                     : selectedStyle?.colors?.cardBackground ,
                                 border: `2px solid ${
                                     selectedCarrier?.id === carrier.id
@@ -102,16 +103,7 @@ const CheckoutPageCardTypeF = observer(({
                                    
                                 }}
                             />
-                            <p
-                                style={{
-                                    fontSize: '1.2rem',
-                                    fontWeight: '600',
-                                    color: selectedStyle?.colors?.textColor ,
-                                    zIndex: 0,
-                                }}
-                            >
-                           
-                            </p>
+                        
                         </selectedStyle.CarrierCard>
                     ))}
                 </selectedStyle.CarrierContainer>
@@ -121,7 +113,7 @@ const CheckoutPageCardTypeF = observer(({
             <div>
                 <h2
                     style={{
-                        fontSize: '1.8rem',
+                        fontSize: '1.5rem',
                         color: selectedStyle?.colors?.textColor,
                         fontWeight: 'bold',
                         marginBottom: '1.5rem',
@@ -133,7 +125,7 @@ const CheckoutPageCardTypeF = observer(({
                 <selectedStyle.AddressContainer
                     style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                         gap: '2rem',
                     }}
                 >
@@ -143,12 +135,13 @@ const CheckoutPageCardTypeF = observer(({
                             onClick={() => selectAddress(address.id)}
                             isSelected={selectedAddress?.id === address.id}
                             style={{
+                                width: '100%',
                                 cursor: 'pointer',
                                 padding: '1.8rem',
                                 borderRadius: '24px',
                                 background: selectedAddress?.id === address.id
-                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(145deg, #e8ffe8, #ffffff)'
-                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
+                                    ? selectedStyle?.colors?.hoverCardBackground
+                                    : selectedStyle?.colors?.cardBackground ,
                                 border: `2px solid ${
                                     selectedAddress?.id === address.id
                                         ? selectedStyle?.colors?.navItemHover
@@ -236,12 +229,12 @@ const CheckoutPageCardTypeF = observer(({
                             isSelected={selectedPaymentMethod?.id === method.id}
                             style={{
                                 cursor: 'pointer',
-                                width: '120px',
-                                height: '120px',
+                                width: '80px',
+                                height: '80px',
                                 borderRadius: '50%',
                                 background: selectedPaymentMethod?.id === method.id
-                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(145deg, #fffbe6, #ffffff)'
-                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
+                                    ? selectedStyle?.colors?.hoverCardBackground 
+                                    : selectedStyle?.colors?.cardBackground,
                                 border: `2px solid ${
                                     selectedPaymentMethod?.id === method.id
                                         ? selectedStyle?.colors?.navItemHover 

@@ -7,8 +7,6 @@ import ContainerSection5 from "../../../../../theme/ThemeContainer/ContainerSect
 import ContainerSection6 from "../../../../../theme/ThemeContainer/ContainerSection6";
 import ContainerSection7 from "../../../../../theme/ThemeContainer/ContainerSection7";
 
-import EmailCard from "../EmailCard/EmailCardTypeA";
-
 const Header = () => {
   return (
     <Wrapper>

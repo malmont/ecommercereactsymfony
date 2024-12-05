@@ -55,8 +55,10 @@ const CheckoutPageCardTypeD = observer(({
                             onClick={() => selectCarrier(carrier.id)}
                             isSelected={selectedCarrier?.id === carrier.id}
                             style={{
+                                width: '90px',
+                                height: '90px',
                                 cursor: 'pointer',
-                                padding: '1.2rem',
+                                padding: '1rem',
                                 border: `2px solid ${selectedCarrier?.id === carrier.id 
                                     ? selectedStyle?.colors?.navItemHover || '#007bff' 
                                     : selectedStyle?.colors?.border || '#dee2e6'}`,
@@ -87,23 +89,21 @@ const CheckoutPageCardTypeD = observer(({
                                         boxShadow: selectedStyle?.colors?.boxShadow || '0 2px 8px rgba(0, 0, 0, 0.2)',
                                     }}
                                 >
-                                    ✓
                                 </span>
                             )}
                             <img
                                 src={carrier.photo}
                                 alt={carrier.name}
                                 style={{
-                                    width: '70px',
+                                    width: '50px',
                                     height: '50px',
-                                    objectFit: 'contain',
-                                    marginBottom: '0.8rem',
+                                    padding: '0.5rem',
+                                 
                                 }}
                             />
                             <p
                                 style={{
-                                    fontSize: '1rem',
-                                    fontWeight: '600',
+                                    fontSize: '0.5rem',
                                     color: selectedStyle?.colors?.textColor || '#000000',
                                 }}
                             >
@@ -227,8 +227,8 @@ const CheckoutPageCardTypeD = observer(({
                             isSelected={selectedPaymentMethod?.id === method.id}
                             style={{
                                 cursor: 'pointer',
-                                width: '100px',
-                                height: '100px',
+                                width: '80px',
+                                height: '80px',
                                 border: `2px solid ${selectedPaymentMethod?.id === method.id 
                                     ? selectedStyle?.colors?.navItemHover || '#007bff' 
                                     : selectedStyle?.colors?.border || '#dee2e6'}`,

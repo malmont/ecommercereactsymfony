@@ -11,7 +11,8 @@ const StyledRow = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 300px; /* Espacement horizontal et vertical entre les cartes */
+  row-gap:: 300px; 
+  column-gap: 300px;
   text-align: center;
   margin: 20px 0; 
    @media screen and (max-width: 800px) {

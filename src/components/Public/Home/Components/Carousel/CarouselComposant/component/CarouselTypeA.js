@@ -68,9 +68,10 @@ flex-direction: column;
 justify-content: space-between;
 background-color: ${(props) => props.theme.colors.cardBackground};
 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-height: 410px;
+height: 400px;
 width: 280px;
 padding-bottom: 10px;
+border-radius: 10px;
 margin: 10px;
 `;
 

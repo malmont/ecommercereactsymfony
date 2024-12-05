@@ -7,7 +7,7 @@ import { MdEmail } from "react-icons/md";
 
 const IconContainer = styled.div`
   background: ${(props) =>
-    props.theme.colors.iconBackground || "linear-gradient(135deg, #a8edea, #fed6e3)"};
+    props.theme.colors.iconBackground };
   padding: 20px;
   border-radius: 50%;
   display: flex;
@@ -17,7 +17,7 @@ const IconContainer = styled.div`
 
   svg {
     font-size: 4rem;
-    color: ${(props) => props.theme.colors.iconColor || "#555"};
+    color: ${(props) => props.theme.colors.cartIconColor};
   }
 `;
 
@@ -29,10 +29,10 @@ const ContentSection = styled.div`
 const InputContainer = styled.div`
   display: flex;
   align-items: center;
-  border: 1px solid ${(props) => props.theme.colors.inputBorder || "#ccc"};
+  border: 1px solid ${(props) => props.theme.colors.inputBorder};
   border-radius: 10px;
   overflow: hidden;
-  background-color: ${(props) => props.theme.colors.inputBackground || "#fff"};
+  background-color: ${(props) => props.theme.colors.inputBackground };
   margin-top: 20px;
   width: 100%;
 `;
@@ -43,13 +43,13 @@ const InputField = styled.input`
   flex-grow: 1;
   font-size: 16px;
   outline: none;
-  color: ${(props) => props.theme.colors.inputText || "#333"};
+  color: ${(props) => props.theme.colors.inputText };
   background: none;
   width: 100%;
 `;
 
 const SubmitButton = styled.button`
-  background-color: ${(props) => props.theme.colors.buttonBackground || "#007BFF"};
+  background-color: ${(props) => props.theme.colors.buttonBackground };
   color: ${(props) => props.theme.colors.buttonText || "#fff"};
   border: none;
   padding: 10px 20px;
@@ -58,7 +58,7 @@ const SubmitButton = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.buttonHover || "#0056b3"};
+    background-color: ${(props) => props.theme.colors.buttonHover };
   }
 `;
 

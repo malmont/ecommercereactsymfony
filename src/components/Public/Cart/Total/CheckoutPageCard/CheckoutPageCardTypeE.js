@@ -31,7 +31,7 @@ const CheckoutPageCardTypeE = observer(({
             <div>
                 <h2
                     style={{
-                        fontSize: '1.6rem',
+                        fontSize: '1rem',
                         color: selectedStyle?.colors?.textColor ,
                         fontWeight: 'bold',
                         marginBottom: '1rem',
@@ -54,8 +54,8 @@ const CheckoutPageCardTypeE = observer(({
                             isSelected={selectedCarrier?.id === carrier.id}
                             style={{
                                 cursor: 'pointer',
-                                flex: '0 0 200px',
-                                padding: '1.5rem',
+                                flex: '0 0 80px',
+                             
                                 border: `2px solid ${
                                     selectedCarrier?.id === carrier.id
                                         ? selectedStyle?.colors?.navItemHover
@@ -63,7 +63,7 @@ const CheckoutPageCardTypeE = observer(({
                                 }`,
                                 borderRadius: '16px',
                                 background: selectedCarrier?.id === carrier.id
-                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(135deg, #e3f2fd, #ffffff)'
+                                    ? selectedStyle?.colors?.hoverCardBackground 
                                     : selectedStyle?.colors?.cardBackground ,
                                 transition: 'transform 0.3s ease, background 0.3s ease',
                                 boxShadow: selectedCarrier?.id === carrier.id
@@ -97,15 +97,15 @@ const CheckoutPageCardTypeE = observer(({
                                 src={carrier.photo}
                                 alt={carrier.name}
                                 style={{
-                                    width: '80px',
+                                    width: '50px',
                                     height: '50px',
                                     objectFit: 'contain',
-                                    marginBottom: '1rem',
+                          
                                 }}
                             />
                             <p
                                 style={{
-                                    fontSize: '1.1rem',
+                                    fontSize: '0.5rem',
                                     fontWeight: '600',
                                     color: selectedStyle?.colors?.textColor ,
                                     textAlign: 'center',
@@ -152,8 +152,8 @@ const CheckoutPageCardTypeE = observer(({
                                 }`,
                                 borderRadius: '12px',
                                 background: selectedAddress?.id === address.id
-                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(135deg, #e6ffe8, #ffffff)'
-                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
+                                    ? selectedStyle?.colors?.hoverCardBackground
+                                    : selectedStyle?.colors?.cardBackground ,
                                 boxShadow: selectedAddress?.id === address.id
                                     ? selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
                                     : '0 2px 6px rgba(0, 0, 0, 0.1)',
@@ -230,8 +230,8 @@ const CheckoutPageCardTypeE = observer(({
                             isSelected={selectedPaymentMethod?.id === method.id}
                             style={{
                                 cursor: 'pointer',
-                                width: '100px',
-                                height: '100px',
+                                width: '80px',
+                                height: '80px',
                                 border: `2px solid ${
                                     selectedPaymentMethod?.id === method.id
                                         ? selectedStyle?.colors?.goldAccent 
@@ -239,8 +239,8 @@ const CheckoutPageCardTypeE = observer(({
                                 }`,
                                 borderRadius: '50%',
                                 background: selectedPaymentMethod?.id === method.id
-                                    ? selectedStyle?.colors?.hoverCardBackground || 'linear-gradient(135deg, #fff9e6, #ffffff)'
-                                    : selectedStyle?.colors?.cardBackground || '#ffffff',
+                                    ? selectedStyle?.colors?.hoverCardBackground 
+                                    : selectedStyle?.colors?.cardBackground,
                                 boxShadow: selectedPaymentMethod?.id === method.id
                                     ? selectedStyle?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
                                     : '0 2px 6px rgba(0, 0, 0, 0.1)',

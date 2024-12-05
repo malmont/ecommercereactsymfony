@@ -120,7 +120,7 @@ const Content = styled.div`
   text-align: center;
   color: white;
   max-width: 700px;
-  margin: 50px 100px;
+  margin: 50px 50px;
   animation: ${fadeIn} 1.5s ease;
 
   .title {

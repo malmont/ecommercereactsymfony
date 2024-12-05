@@ -12,12 +12,12 @@ const ImageSection = styled.div`
   align-items: center;
   justify-content: center;
   background: ${(props) =>
-    props.theme.colors.imageWrapperBackground || "linear-gradient(135deg, #a8edea, #fed6e3)"};
+    props.theme.colors.imageWrapperBackground };
   padding: 20px;
 
   svg {
     font-size: 5rem;
-    color: ${(props) => props.theme.colors.iconColor || "#555"};
+    color: ${(props) => props.theme.colors.cartIconColor };
   }
 `;
 
@@ -25,10 +25,10 @@ const InputContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid ${(props) => props.theme.colors.inputBorder || "#ccc"};
+  border: 1px solid ${(props) => props.theme.colors.inputBorder};
   border-radius: 10px;
   overflow: hidden;
-  background-color: ${(props) => props.theme.colors.inputBackground || "#fff"};
+  background-color: ${(props) => props.theme.colors.inputBackground };
   margin-top: 15px;
   width: 100%;
 
@@ -40,14 +40,14 @@ const InputField = styled.input`
   flex-grow: 1;
   font-size: 16px;
   outline: none;
-  color: ${(props) => props.theme.colors.inputText || "#333"};
+  color: ${(props) => props.theme.colors.inputText };
   background: none;
   width: 100%;
 `;
 
 const SubmitButton = styled.button`
-  background-color: ${(props) => props.theme.colors.buttonBackground || "#007BFF"};
-  color: ${(props) => props.theme.colors.buttonText || "#fff"};
+  background-color: ${(props) => props.theme.colors.buttonBackground };
+  color: ${(props) => props.theme.colors.buttonText };
   border: none;
   padding: 10px 10px;
   cursor: pointer;
@@ -55,13 +55,13 @@ const SubmitButton = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.buttonHover || "#0056b3"};
+    background-color: ${(props) => props.theme.colors.buttonHover };
   }
 `;
 const ContentSection = styled.div`
   text-align: center;
   padding: 20px;
-  border: 1px solid ${(props) => props.theme.colors.inputBorder || "#ccc"};
+  border: 1px solid ${(props) => props.theme.colors.inputBorder };
   width: 50%;
   border-radius: 10px;
   @media (max-width: 768px) {

@@ -790,6 +790,9 @@ OrderSummaryText: styled.p`
   color: ${(props) => props.theme.colors.textColor || '#666'};
   margin: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Légère ombre pour le texte */
+   @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `,
 
 OrderSummaryHighlight: styled.p`
@@ -798,6 +801,9 @@ OrderSummaryHighlight: styled.p`
   color: ${(props) => props.theme.colors.highlight || '#0078d7'};
   margin: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Accentuation pour les valeurs importantes */
+   @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `,
 
 CheckoutButton: styled.button`
@@ -817,6 +823,10 @@ CheckoutButton: styled.button`
     background: ${(props) => props.theme.colors.buttonHover || '#3e8e41'};
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre accentuée au survol */
+  }
+      @media (max-width: 768px) {
+    padding: 10px 10px;
+    font-size: 0.9rem;
   }
 `,
 CarrierContainer: styled.div`

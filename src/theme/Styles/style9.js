@@ -848,6 +848,9 @@ OrderSummaryHighlight: styled.span`
   font-size: 1.4rem;
   color: ${(props) => props.theme.colors.blackAccent || '#000000'};
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `,
 CheckoutButton: styled.button`
   width: 100%;
@@ -866,6 +869,10 @@ CheckoutButton: styled.button`
     transform: scale(1.05);
     background-color: ${(props) => props.theme.colors.buttonHover || '#333333'};
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+      @media (max-width: 768px) {
+    padding: 10px 10px;
+    font-size: 0.9rem;
   }
 `,
 

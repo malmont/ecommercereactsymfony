@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAdminContext } from '../../../../../../../theme/AdminContext';
 import { styles } from '../../../../../../../theme/AllStyles';
+import styled from 'styled-components';
 
 const CarouselTypeE = ({ category }) => {
   const navigate = useNavigate();
@@ -9,19 +10,12 @@ const CarouselTypeE = ({ category }) => {
   const selectedStyle = styles[styleChoice];
 
   return (
-    <selectedStyle.CardContainer>
+    <CardContainer>
       {/* Prix en haut */}
-      <selectedStyle.CardBody>
-        {/* <selectedStyle.NavButton>
-          {(category.price / 100).toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD',
-          })}
-        </selectedStyle.NavButton> */}
-      </selectedStyle.CardBody>
+
       <div className="row d-flex align-items-center justify-content-start">
         {/* Image */}
-        <div className="col-12 col-md-8 m-2 text-center mb-3 mb-md-0">
+        <div className="col-12 col-md-8 m-2 text-center mb-3 mb-md-2">
           <selectedStyle.CardImage
             src={category.image}
             alt={category.name}
@@ -34,14 +28,14 @@ const CarouselTypeE = ({ category }) => {
         </div>
 
         {/* Bouton */}
-        <div className="col-12 col-md text-center">
+        <div className="col-3 col-md text-center">
           <selectedStyle.NavButton>
             {(category.price / 100).toLocaleString('en-US', {
               style: 'currency',
               currency: 'USD',
             })}
           </selectedStyle.NavButton>
-        </div>
+   
       </div>
 
       {/* Nom et description en bas */}
@@ -51,9 +45,26 @@ const CarouselTypeE = ({ category }) => {
         </h6>
         <selectedStyle.ColorText>New Arrival.</selectedStyle.ColorText>
       </selectedStyle.CardBody>
-    </selectedStyle.CardContainer>
+      </div>
+
+    </CardContainer>
   );
 };
 
 
 export default CarouselTypeE;
+const CardContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  width: 90%;  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin: 10px;
+  @media (max-width: 768px) {
+
+    width: 95%;
+  }
+`;

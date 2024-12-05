@@ -8,7 +8,7 @@ import styled from 'styled-components';
 const InputContainer = styled.div`
   display: flex;
   align-items: center;
-  border: 1px solid ${(props) => props.theme.colors.inputBorder || '#ccc'};
+  border: 1px solid ${(props) => props.theme.colors.inputBorder};
   border-radius: 10px;
   overflow: hidden;
   background-color: ${(props) => props.theme.colors.inputBackground || '#fff'};
@@ -21,13 +21,13 @@ const InputField = styled.input`
   flex-grow: 1;
   font-size: 16px;
   outline: none;
-  color: ${(props) => props.theme.colors.inputText || '#333'};
+  color: ${(props) => props.theme.colors.inputText };
   background: none;
 `;
 
 const SubmitButton = styled.button`
-  background-color: ${(props) => props.theme.colors.buttonBackground || '#007BFF'};
-  color: ${(props) => props.theme.colors.buttonText || '#fff'};
+  background-color: ${(props) => props.theme.colors.buttonBackground };
+  color: ${(props) => props.theme.colors.buttonText };
   border: none;
   padding: 10px 20px;
   cursor: pointer;
@@ -35,7 +35,7 @@ const SubmitButton = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.buttonHover || '#0056b3'};
+    background-color: ${(props) => props.theme.colors.buttonHover };
   }
 `;
 

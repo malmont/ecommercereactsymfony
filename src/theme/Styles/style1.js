@@ -197,7 +197,7 @@ Countdown: styled.div`
   font-size: 14px;
 `,
 ColorText: styled.p`
-color: ${(props) => props.theme.colors.colorText || 'white'};
+color: ${(props) => props.theme.colors.colorText};
 `,
 Time: styled.div`
   font-weight: bold;
@@ -422,42 +422,44 @@ ObjectFeatureDetailProduct: styled.div`
 `,
 
 ImageEncadrement: styled.img`
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
+  border: 1px solid ${(props) => props.theme.colors.imageBorder};
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
 `,
 
-ColorButton: styled.button`
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid ${(props) => (props.isSelected ? "#007BFF" : "#ccc")};
-    background-color: ${(props) => props.color};
-    cursor: pointer;
 
-    &:hover {
-        border: 2px solid #007BFF;
-    }
+ColorButton: styled.button`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid ${(props) => (props.isSelected ? props.theme.colors.selectedBorder : props.theme.colors.noSelectedBorder)};
+  background-color: ${(props) => props.color};
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid ${(props) => props.theme.colors.hoverBorder};
+  }
 `,
 
 SizeButton: styled.button`
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid ${(props) => (props.isSelected ? "#007BFF" : "#ccc")};
-    background-color: ${(props) => (props.isSelected ? "#007BFF" : "white")};
-    color: ${(props) => (props.isSelected ? "white" : "black")};
-    font-size: 18px;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid ${(props) => (props.isSelected ? props.theme.colors.selectedBorder : props.theme.colors.noSelectedBorder)};
+  background-color: ${(props) => (props.isSelected ? props.theme.colors.selectedBackground : props.theme.colors.noSelectedBackground)};
+  color: ${(props) => (props.isSelected ? props.theme.colors.selectedText : props.theme.colors.noSelectedText)};
+  font-size: 18px;
+  cursor: pointer;
 
-    &:hover {
-        background-color: #007BFF;
-        color: white;
-    }
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hoverBackground || props.theme.colors.hoverBorder};
+    color: ${(props) => props.theme.colors.hoverText};
+  }
 `,
+
 CartItemContainer: styled.div`
   margin-bottom: 20px;
   
@@ -559,21 +561,22 @@ ColorCircle: styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: ${(props) => props.color};
-  border: 1px solid #ccc;
+   background-color: ${(props) => props.color || props.theme.colors.defaultCircleBackground };
+  border: 1px solid ${(props) => props.theme.colors.colorCircleBorder};
 `,
+
 
 SizeCircle: styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: ${(props) => props.theme.colors.sizeCircleBackground || "#ccc"};
+  background-color: ${(props) => props.theme.colors.sizeCircleBackground };
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 18px;
   font-weight: bold;
-  color: ${(props) => props.theme.colors.sizeCircleText || "#000"};
+  color: ${(props) => props.theme.colors.sizeCircleText};
 `,
 
 OrderSummaryContainer: styled.div`
@@ -583,7 +586,7 @@ OrderSummaryContainer: styled.div`
     padding: 20px;
     border: 1px solid ${(props) => props.theme.colors.border};
     border-radius: 10px;
-    background-color: ${(props) => props.theme.colors.cardBackground || '#fff'};
+    background-color: ${(props) => props.theme.colors.cardBackground };
     margin-top: 20px;
     width: 110%;
   //    @media (max-width: 1000px) {
@@ -595,11 +598,11 @@ OrderSummaryContainer: styled.div`
   OrderSummaryTitle: styled.h4`
     font-size: 1.5rem;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.textColor || '#000'};
+    color: ${(props) => props.theme.colors.textColor };
     margin-bottom: 10px;
   `,
   Divider: styled.div`
-    border-top: 1px solid ${(props) => props.theme.colors.border || '#ccc'};
+    border-top: 1px solid ${(props) => props.theme.colors.border};
     margin: 10px 0;
   `,
   OrderSummaryRow: styled.div`
@@ -609,25 +612,32 @@ OrderSummaryContainer: styled.div`
     font-size: 1rem;
   `,
   OrderSummaryText: styled.p`
-    color: ${(props) => props.theme.colors.textColor || '#000'};
+    color: ${(props) => props.theme.colors.textColor};
   `,
   OrderSummaryHighlight: styled.p`
     font-weight: bold;
-    color: ${(props) => props.theme.colors.highlight || '#007bff'};
+    color: ${(props) => props.theme.colors.highlight };
+     @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
   `,
   CheckoutButton: styled.button`
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
-    background-color: ${(props) => props.theme.colors.buttonBackground || '#007bff'};
-    color: ${(props) => props.theme.colors.buttonText || '#fff'};
+    background-color: ${(props) => props.theme.colors.buttonBackground };
+    color: ${(props) => props.theme.colors.buttonText};
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.buttonHover || '#0056b3'};
+      background-color: ${(props) => props.theme.colors.buttonHover };
     }
+   @media (max-width: 768px) {
+    padding: 10px 10px;
+    font-size: 0.9rem;
+  }
   `,
 
 // Conteneur pour les options de transporteurs
@@ -648,8 +658,8 @@ CarrierCard: styled.div`
   padding: 10px;
   border: ${(props) =>
     props.isSelected
-      ? `2px solid ${props.theme.colors.highlight || '#007bff'}`
-      : `1px solid ${props.theme.colors.border || '#ccc'}`};
+      ? `2px solid ${props.theme.colors.highlight }`
+      : `1px solid ${props.theme.colors.border }`};
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -661,7 +671,7 @@ CarrierCard: styled.div`
   }
 
   &:hover {
-    border: 2px solid ${(props) => props.theme.colors.highlight || '#007bff'};
+    border: 2px solid ${(props) => props.theme.colors.highlight };
   }
 `,
 
@@ -682,8 +692,8 @@ AddressCard: styled.div`
   padding: 10px;
   border: ${(props) =>
     props.isSelected
-      ? `2px solid ${props.theme.colors.highlight || '#007bff'}`
-      : `1px solid ${props.theme.colors.border || '#ccc'}`};
+      ? `2px solid ${props.theme.colors.highlight }`
+      : `1px solid ${props.theme.colors.border}`};
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -691,11 +701,11 @@ AddressCard: styled.div`
   p {
     font-size: 14px;
     text-align: center;
-    color: ${(props) => props.theme.colors.textColor || '#000'};
+    color: ${(props) => props.theme.colors.textColor};
   }
 
   &:hover {
-    border: 2px solid ${(props) => props.theme.colors.highlight || '#007bff'};
+    border: 2px solid ${(props) => props.theme.colors.highlight };
   }
 `,
 
@@ -717,8 +727,8 @@ PaymentMethodCard: styled.div`
   padding: 10px;
   border: ${(props) =>
     props.isSelected
-      ? `2px solid ${props.theme.colors.highlight || '#007bff'}`
-      : `1px solid ${props.theme.colors.border || '#ccc'}`};
+      ? `2px solid ${props.theme.colors.highlight }`
+      : `1px solid ${props.theme.colors.border }`};
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -730,11 +740,11 @@ PaymentMethodCard: styled.div`
   }
 
   &:hover {
-    border: 2px solid ${(props) => props.theme.colors.highlight || '#007bff'};
+    border: 2px solid ${(props) => props.theme.colors.highlight };
   }
 `,
 DashboardWrapper: styled.div`
-background-color: ${(props) => props.theme.colors.contentBackground || '#f4f4f4'};
+background-color: ${(props) => props.theme.colors.contentBackground};
 min-height: 66vh;
 padding: 20px;
 margin-top: 90px;
@@ -742,7 +752,7 @@ margin-top: 90px;
 
 // Sidebar contenant les liens
 DashboardSidebar: styled.div`
-background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+background-color: ${(props) => props.theme.colors.cardBackground };
 padding: 20px;
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 border-radius: 8px;
@@ -763,21 +773,21 @@ font-size: 16px;
 font-weight: 500;
 color: ${(props) =>
   props.className?.includes('active')
-    ? props.theme.colors.buttonText || '#ffffff'
-    : props.theme.colors.textColor || '#333'} !important;
+    ? props.theme.colors.buttonText
+    : props.theme.colors.textColor } !important;
 background-color: ${(props) =>
   props.className?.includes('active')
-    ? props.theme.colors.navItemActive || '#212529'
-    : props.theme.colors.navItemHoverBackground || '#f8f9fa'} !important;
+    ? props.theme.colors.navItemActive 
+    : props.theme.colors.navItemHoverBackground } !important;
 border-radius: 5px;
 text-decoration: none !important;
-border: 1px solid ${(props) => props.theme.colors.border || '#ddd'} !important;
+border: 1px solid ${(props) => props.theme.colors.border } !important;
 transition: background-color 0.3s ease, border-color 0.3s ease;
 
 &:hover {
-  background-color: ${(props) => props.theme.colors.navItemHover || '#212529'} !important;
-  color: ${(props) => props.theme.colors.buttonText || '#ffffff'} !important;
-  border-color: ${(props) => props.theme.colors.navItemHover || '#212529'} !important;
+  background-color: ${(props) => props.theme.colors.navItemHover } !important;
+  color: ${(props) => props.theme.colors.buttonText } !important;
+  border-color: ${(props) => props.theme.colors.navItemHover } !important;
 }
 
 i {
@@ -796,14 +806,14 @@ padding: 20px;
 // Conteneur pour les onglets
 DashboardTabPane: styled.div`
 padding: 5px;
-background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+background-color: ${(props) => props.theme.colors.cardBackground };
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 border-radius: 8px;
 `,
 
 // Carte principale
 DashboardCard: styled.div`
-background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+background-color: ${(props) => props.theme.colors.cardBackground };
 border-radius: 8px;
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 `,
@@ -811,9 +821,9 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 // En-tête de la carte
 DashboardCardHeader: styled.div`
 padding: 20px;
-border-bottom: 1px solid ${(props) => props.theme.colors.border || '#f1f1f1'};
-background-color: ${(props) => props.theme.colors.navItemActive || '#212529'};
-color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+border-bottom: 1px solid ${(props) => props.theme.colors.border };
+background-color: ${(props) => props.theme.colors.navItemActive };
+color: ${(props) => props.theme.colors.buttonText };
 border-top-left-radius: 8px;
 border-top-right-radius: 8px;
 `,
@@ -974,7 +984,7 @@ ButtonGroup: styled.div`
   gap: 10px;
 `,
 EditButton: styled.a`
-  background-color: ${(props) => props.theme.colors.success || '#28a745'};
+  background-color: ${(props) => props.theme.colors.success};
   color: #fff;
   padding: 8px 16px;
   border: none;
@@ -986,11 +996,11 @@ EditButton: styled.a`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.successHover || '#218838'};
+    background-color: ${(props) => props.theme.colors.successHover };
   }
 `,
 DeleteButton: styled.button`
-  background-color: ${(props) => props.theme.colors.danger || '#dc3545'};
+  background-color: ${(props) => props.theme.colors.danger};
   color: #fff;
   padding: 8px 16px;
   border: none;
@@ -1000,18 +1010,18 @@ DeleteButton: styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.dangerHover || '#c82333'};
+    background-color: ${(props) => props.theme.colors.dangerHover };
   }
 `,
 EmptyAddressMessage: styled.p`
   text-align: center;
-  color: ${(props) => props.theme.colors.textMuted || '#6c757d'};
+  color: ${(props) => props.theme.colors.textMuted };
   font-style: italic;
   padding: 20px;
 `,
 LoadingMessage: styled.p`
   text-align: center;
-  color: ${(props) => props.theme.colors.textMuted || '#6c757d'};
+  color: ${(props) => props.theme.colors.textMuted };
   padding: 20px;
   font-weight: bold;
 `,
@@ -1093,7 +1103,7 @@ vertical-align: middle;
 NoCarrierMessage: styled.p`
   text-align: center;
   font-size: 1.2rem;
-  color: ${(props) => props.theme.colors.textMuted || '#6c757d'};
+  color: ${(props) => props.theme.colors.textMuted };
   padding: 20px;
   background-color: ${(props) => props.theme.colors.emptyMessageBackground};
   border-radius: 8px;

@@ -64,18 +64,14 @@ const TotalCardTypeB = observer(({ handleCheckout, buttonLabel = 'Pay Now' }) =>
       <selectedStyle.OrderSummaryRow>
         <selectedStyle.OrderSummaryText
           style={{
-            fontSize: '1.2rem',
+            fontSize: '1rem',
             fontWeight: 'bold',
             textTransform: 'uppercase',
           }}
         >
           Total
         </selectedStyle.OrderSummaryText>
-        <selectedStyle.OrderSummaryHighlight
-          style={{
-            fontSize: '1.6rem',
-          }}
-        >
+        <selectedStyle.OrderSummaryHighlight >
           {((cartViewModel.totalPriceWithTax) / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
         </selectedStyle.OrderSummaryHighlight>
       </selectedStyle.OrderSummaryRow>
