@@ -30,13 +30,14 @@ export const style3= {
 `,
 
   Logo: styled(NavLink)`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
   color: ${(props) => props.theme.colors.logoText};
   text-decoration: none;
   height: 10px;
   @media (max-width: 768px) {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+
   } 
 `,
 

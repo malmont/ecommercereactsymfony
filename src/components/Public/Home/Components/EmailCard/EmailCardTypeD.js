@@ -14,8 +14,8 @@ const IconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-
+  padding: 10px;
+  border-radius: 10px;
   svg {
     font-size: 4rem;
     color: ${(props) => props.theme.colors.cartIconColor};
@@ -24,7 +24,7 @@ const IconContainer = styled.div`
 
 const ContentSection = styled.div`
   flex: 2;
-  padding: 20px;
+  padding: 5px 10px;
   text-align: left;
 `;
 

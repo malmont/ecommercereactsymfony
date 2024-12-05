@@ -24,7 +24,7 @@ const CartPreview = styled.div`
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: white;
+
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 1rem;
@@ -33,6 +33,9 @@ const CartPreview = styled.div`
 
   ${CartContainer}:hover & {
     display: block;
+  }
+    @media screen and (max-width: 800px) {
+    display: none;
   }
 `;
 const AdminToggleButton = styled.button`
@@ -43,8 +46,6 @@ const AdminToggleButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   margin-right: 1rem;
-
-  /* Masquer le bouton en mode mobile et tablette (moins de 800px de largeur) */
   @media screen and (max-width: 800px) {
     display: none;
   }
@@ -69,7 +70,7 @@ const Navbar_b = ({ ResumeCart, AuthContext, useDependencies, selectedStyle }) =
       <NavbarContent>
         <div>
           <selectedStyle.Logo to={vm.homePath}>
-            {React.createElement(vm.icons.HomeIcon)} MyStore
+          {React.createElement(vm.icons.HomeIcon, { style: { width: '24px', height: '24px' } })} 
           </selectedStyle.Logo>
           <selectedStyle.NavLinks>
             <selectedStyle.NavItem to={vm.homePath}>
@@ -147,17 +148,7 @@ const Navbar_b = ({ ResumeCart, AuthContext, useDependencies, selectedStyle }) =
             <selectedStyle.MobileNavItem to={vm.registerPath}>Inscription</selectedStyle.MobileNavItem>
           </>
         )}
-   
-        <selectedStyle.Select value={vm.selectedCurrency} onChange={(e) => vm.handleCurrencyChange(e.target.value)}>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="GBP">GBP</option>
-        </selectedStyle.Select>
-        <selectedStyle.Select value={vm.selectedLanguage} onChange={(e) => vm.handleLanguageChange(e.target.value)}>
-          <option value="English">English</option>
-          <option value="French">Français</option>
-          <option value="Spanish">Español</option>
-        </selectedStyle.Select>
+
       </selectedStyle.MobileMenu>
     </selectedStyle.NavbarContainer>
   );
