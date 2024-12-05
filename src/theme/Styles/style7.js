@@ -948,6 +948,9 @@ OrderSummaryHighlight: styled.span`
   font-size: 1.2rem;
   color: ${(props) => props.theme.colors.highlightText || '#007BFF'};
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `,
 
 // Bouton de validation de la commande
@@ -973,6 +976,10 @@ CheckoutButton: styled.button`
     transform: scale(1.05);
     background: ${(props) => props.theme.colors.buttonHover || '#0056b3'};
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  }
+      @media (max-width: 768px) {
+    padding: 10px 10px;
+    font-size: 0.9rem;
   }
 `,
 CarrierContainer: styled.div`

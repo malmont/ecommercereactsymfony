@@ -22,10 +22,10 @@ const TotalCardTypeC = observer(({ handleCheckout, buttonLabel = 'Confirm Order'
       {/* Title */}
       <selectedStyle.OrderSummaryTitle
         style={{
-          fontSize: '2rem',
+          fontSize: '1.3rem',
           fontWeight: 'bold',
           textAlign: 'center',
-          marginBottom: '1.5rem',
+          marginBottom: '1rem',
           textTransform: 'uppercase',
         }}
       >
@@ -82,7 +82,7 @@ const TotalCardTypeC = observer(({ handleCheckout, buttonLabel = 'Confirm Order'
           marginTop: '2rem',
           width: '100%',
           padding: '1.2rem',
-          fontSize: '1.2rem',
+          fontSize: '1rem',
           fontWeight: 'bold',
           borderRadius: '15px',
           background: `linear-gradient(90deg, ${(props) => props.theme.colors.buttonBackground}, ${(props) => props.theme.colors.goldAccent})`,

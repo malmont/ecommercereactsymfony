@@ -896,6 +896,9 @@ font-weight: bold;
 font-size: 1.1rem;
 color: ${(props) => props.theme.colors.buttonHover};
 text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `,
 
 // Bouton de validation de la commande
@@ -916,7 +919,10 @@ text-transform: uppercase;
 cursor: pointer;
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-
+  @media (max-width: 768px) {
+    padding: 10px 10px;
+    font-size: 0.9rem;
+  }
 &:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);

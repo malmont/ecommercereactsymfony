@@ -871,6 +871,9 @@ OrderSummaryContainer: styled.div`
     font-size: 1.2rem;
     color: ${(props) => props.theme.colors.goldAccent || '#d4af37'};
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
   `,
 
   // Bouton de validation de la commande

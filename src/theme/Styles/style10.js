@@ -892,6 +892,9 @@ font-weight: bold;
 font-size: 1.3rem;
 color: ${(props) => props.theme.colors.primary || '#3498db'};
 text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `,
 
 // Bouton de validation de la commande
@@ -925,6 +928,10 @@ transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     props.theme.colors.disabledBackground || '#bdc3c7'};
   cursor: not-allowed;
 }
+    @media (max-width: 768px) {
+    padding: 10px 10px;
+    font-size: 0.9rem;
+  }
 `,
 
 CarrierContainer: styled.div`

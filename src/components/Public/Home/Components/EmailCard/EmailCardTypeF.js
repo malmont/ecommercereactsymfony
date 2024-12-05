@@ -78,7 +78,7 @@ const SubmitButton = styled.button`
   font-size: 16px;
   transition: background-color 0.3s;
   width: 100%;
-
+    border-radius: 10px;
   &:hover {
     background-color: ${(props) => props.theme.colors.buttonHover || "#0056b3"};
   }

@@ -12,7 +12,8 @@ const StyledRow = styled.div`
   justify-content:  space-evenly;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 200px; /* Espacement horizontal */
+  row-gap:: 200px; 
+  column-gap: 200px;
   text-align: center;
   margin: 10px 0; 
    @media screen and (max-width: 800px) {
@@ -21,7 +22,7 @@ const StyledRow = styled.div`
 `;
 
 const StyledFeatureCard = styled.div`
-  margin: 5px 35px; /* Espacement autour des cartes */
+  margin: 5px 5px; /* Espacement autour des cartes */
 `;
 
 const LowerFeatureCard = styled(StyledFeatureCard)`

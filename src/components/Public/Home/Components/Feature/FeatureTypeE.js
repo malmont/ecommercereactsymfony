@@ -11,7 +11,8 @@ const StyledRow = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 200px; 
+  row-gap:: 200px; 
+  column-gap: 200px;
   text-align: center;
   margin: 10px 0; 
    @media screen and (max-width: 800px) {

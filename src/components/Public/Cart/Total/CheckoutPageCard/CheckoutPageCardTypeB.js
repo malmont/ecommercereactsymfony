@@ -4,15 +4,15 @@ import { styles } from '../../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../../theme/AdminContext';
 
 const CheckoutPageCardTypeB = observer(({
-  carriers,
-  addresses,
-  paymentMethods,
-  selectedCarrier,
-  selectedAddress,
-  selectedPaymentMethod,
-  selectCarrier,
-  selectAddress,
-  selectPaymentMethod,
+    carriers,
+    addresses,
+    paymentMethods,
+    selectedCarrier,
+    selectedAddress,
+    selectedPaymentMethod,
+    selectCarrier,
+    selectAddress,
+    selectPaymentMethod,
 }) => {
     const { styleChoice } = useAdminContext();
     const selectedStyle = styles[styleChoice];
@@ -22,7 +22,7 @@ const CheckoutPageCardTypeB = observer(({
             style={{
                 gap: '2rem',
                 padding: '2rem',
-                backgroundColor: selectedStyle.colors?.cardBackground || '#ffffff',
+                backgroundColor: selectedStyle.colors?.cardBackground,
                 borderRadius: '8px',
                 boxShadow: selectedStyle.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.1)',
             }}
@@ -39,22 +39,23 @@ const CheckoutPageCardTypeB = observer(({
                         isSelected={selectedCarrier?.id === carrier.id}
                         style={{
                             padding: '1rem',
-                            boxShadow: selectedCarrier?.id === carrier.id 
-                                ? `0 0 10px ${selectedStyle.colors?.goldAccent }` 
+                            boxShadow: selectedCarrier?.id === carrier.id
+                                ? `0 0 10px ${selectedStyle.colors?.goldAccent}`
                                 : 'none',
                             transition: 'box-shadow 0.3s ease',
                             borderRadius: '8px',
-                            backgroundColor: selectedStyle.colors?.hoverCardBackground ,
+                            backgroundColor: selectedStyle.colors?.hoverCardBackground,
+                            width: '80px',
                         }}
                     >
                         <img
                             src={carrier.photo}
                             alt={carrier.name}
-                            style={{ 
-                                width: '80px', 
-                                height: '50px', 
-                                objectFit: 'contain', 
-                                borderRadius: '4px' 
+                            style={{
+                                width: '40px',
+                                height: '40px',
+                                objectFit: 'contain',
+                                borderRadius: '4px'
                             }}
                         />
                     </selectedStyle.CarrierCard>
@@ -62,7 +63,7 @@ const CheckoutPageCardTypeB = observer(({
             </selectedStyle.CarrierContainer>
 
             {/* Select Delivery Address */}
-            <selectedStyle.OrderSummaryTitle style={{ color: selectedStyle.colors?.titleText  }}>
+            <selectedStyle.OrderSummaryTitle style={{ color: selectedStyle.colors?.titleText }}>
                 Select Address
             </selectedStyle.OrderSummaryTitle>
             <selectedStyle.AddressContainer style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -73,26 +74,23 @@ const CheckoutPageCardTypeB = observer(({
                         isSelected={selectedAddress?.id === address.id}
                         style={{
                             padding: '1rem',
-                            boxShadow: selectedAddress?.id === address.id 
-                                ? `0 0 10px ${selectedStyle.colors?.goldAccent }` 
+                            boxShadow: selectedAddress?.id === address.id
+                                ? `0 0 10px ${selectedStyle.colors?.goldAccent}`
                                 : 'none',
                             transition: 'box-shadow 0.3s ease',
                             borderRadius: '8px',
-                            backgroundColor: selectedStyle.colors?.hoverCardBackground || '#f8f9fa',
+                            backgroundColor: selectedStyle.colors?.hoverCardBackground ,
                         }}
                     >
-                        <p style={{ margin: 0, fontWeight: 'bold', color: selectedStyle.colors?.textColor }}>
-                            {address.fullname}
-                        </p>
-                        <p style={{ margin: 0, color: selectedStyle.colors?.textColor  }}>
-                            {address.addressLineOne}, {address.city}
-                        </p>
+                        {address.fullname}
+                        {address.addressLineOne}, {address.city}
+
                     </selectedStyle.AddressCard>
                 ))}
             </selectedStyle.AddressContainer>
 
             {/* Select Payment Method */}
-            <selectedStyle.OrderSummaryTitle style={{ color: selectedStyle.colors?.titleText  }}>
+            <selectedStyle.OrderSummaryTitle style={{ color: selectedStyle.colors?.titleText }}>
                 Select Payment
             </selectedStyle.OrderSummaryTitle>
             <selectedStyle.PaymentMethodContainer style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
@@ -103,8 +101,8 @@ const CheckoutPageCardTypeB = observer(({
                         isSelected={selectedPaymentMethod?.id === method.id}
                         style={{
                             padding: '1rem',
-                            boxShadow: selectedPaymentMethod?.id === method.id 
-                                ? `0 0 10px ${selectedStyle.colors?.goldAccent }` 
+                            boxShadow: selectedPaymentMethod?.id === method.id
+                                ? `0 0 10px ${selectedStyle.colors?.goldAccent}`
                                 : 'none',
                             transition: 'box-shadow 0.3s ease',
                             borderRadius: '50%',
@@ -113,7 +111,7 @@ const CheckoutPageCardTypeB = observer(({
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            backgroundColor: selectedStyle.colors?.hoverCardBackground ,
+                            backgroundColor: selectedStyle.colors?.hoverCardBackground,
                         }}
                     >
                         <img

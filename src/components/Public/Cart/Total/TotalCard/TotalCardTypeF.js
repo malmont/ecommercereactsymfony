@@ -100,11 +100,11 @@ const TotalCardTypeF = observer(({ handleCheckout, buttonLabel = 'Checkout Now' 
       <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <selectedStyle.CheckoutButton
           style={{
-            padding: '0.5rem',
-            fontSize: '1.4rem',
+            padding: '1rem',
+            fontSize: '1rem',
             fontWeight: 'bold',
             borderRadius: '50px',
-            background: `linear-gradient(90deg, ${(props) => props.theme.colors.goldAccent || '#d4af37'}, ${(props) => props.theme.colors.buttonBackground || '#ffd700'})`,
+            background: `linear-gradient(90deg, ${(props) => props.theme.colors.goldAccent }, ${(props) => props.theme.colors.buttonBackground})`,
             color: `${(props) => props.theme.colors.buttonText || '#fff'}`,
             boxShadow: '0 6px 15px rgba(0, 0, 0, 0.15)',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease',

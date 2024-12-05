@@ -34,7 +34,7 @@ const TextOverlay = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: ${(props) => props.theme.colors.overlayText || "#ffffff"};
+  color: ${(props) => props.theme.colors.overlayText };
   text-align: center;
   padding: 10px 20px;
   background: rgba(0, 0, 0, 0.5); 
@@ -66,12 +66,12 @@ const OverlayDescription = styled.p`
 const OverlayLink = styled.a`
   font-size: 0.9rem;
   font-weight: bold;
-  color: ${(props) => props.theme.colors.overlayLink || "#f1c40f"};
+  color: ${(props) => props.theme.colors.linkText};
   text-decoration: none;
 
   &:hover {
     text-decoration: underline;
-    color: ${(props) => props.theme.colors.overlayLinkHover || "#e67e22"};
+    color: ${(props) => props.theme.colors.linkHoverText };
   }
 `;
 
