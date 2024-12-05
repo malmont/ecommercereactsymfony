@@ -3,12 +3,13 @@ import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../../DependencyContext';
 import { styles } from '../../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../../theme/AdminContext';
+import { useTheme } from 'styled-components';
 
 const TotalCardTypeF = observer(({ handleCheckout, buttonLabel = 'Checkout Now' }) => {
   const { cartViewModel } = useDependencies();
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
-
+  const theme = useTheme();
   return (
     <selectedStyle.OrderSummaryContainer
       style={{
@@ -18,13 +19,13 @@ const TotalCardTypeF = observer(({ handleCheckout, buttonLabel = 'Checkout Now' 
         justifyContent: 'space-between',
         padding: '1.5rem',
         borderRadius: '25px',
-        background: `${(props) => props.theme.colors.cardBackground || '#f9f9f9'}`,
+        background: `${theme.colors.cardBackground}`,
         boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)',
-        border: `2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'}`,
-        maxWidth: '900px',
+        border: `2px solid ${theme.colors.cardBorder }`,
+        maxWidth: '600px',
         margin: '2rem auto',
         gap: '1rem',
-        width: '110%',
+        width: '100%',
       }}
     >
       {/* Left Section: Summary Details */}
@@ -35,7 +36,7 @@ const TotalCardTypeF = observer(({ handleCheckout, buttonLabel = 'Checkout Now' 
             fontSize: '1.8rem',
             textAlign: 'left',
             marginBottom: '1rem',
-            color: `${(props) => props.theme.colors.textPrimary || '#333'}`,
+            color: `${theme.colors.textPrimary }`,
           }}
         >
           Your Order
@@ -104,8 +105,8 @@ const TotalCardTypeF = observer(({ handleCheckout, buttonLabel = 'Checkout Now' 
             fontSize: '1rem',
             fontWeight: 'bold',
             borderRadius: '50px',
-            background: `linear-gradient(90deg, ${(props) => props.theme.colors.goldAccent }, ${(props) => props.theme.colors.buttonBackground})`,
-            color: `${(props) => props.theme.colors.buttonText || '#fff'}`,
+            background: `linear-gradient(90deg, ${theme.colors.goldAccent }, ${theme.colors.buttonBackground})`,
+            color: `${theme.colors.buttonText || '#fff'}`,
             boxShadow: '0 6px 15px rgba(0, 0, 0, 0.15)',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
             cursor: 'pointer',

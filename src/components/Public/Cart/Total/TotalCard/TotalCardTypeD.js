@@ -3,17 +3,18 @@ import { observer } from "mobx-react-lite";
 import { useDependencies } from '../../../../../DependencyContext';
 import { styles } from '../../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../../theme/AdminContext';
+import { useTheme } from 'styled-components';
 
 const TotalCardTypeD = observer(({ handleCheckout, buttonLabel = 'Place Order' }) => {
   const { cartViewModel } = useDependencies();
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
-
+  const theme = useTheme();
   return (
     <selectedStyle.OrderSummaryContainer
       style={{
         borderRadius: '10px',
-        border: `1px solid ${(props) => props.theme.colors.borderPrimary}`,
+        border: `1px solid ${theme.colors.borderPrimary}`,
         padding: '1rem 1.5rem',
         maxWidth: '500px',
         margin: '1rem auto',
@@ -26,7 +27,7 @@ const TotalCardTypeD = observer(({ handleCheckout, buttonLabel = 'Place Order' }
         style={{
           fontSize: '1.8rem',
           textAlign: 'center',
-          color: `${(props) => props.theme.colors.textPrimary}`,
+          color: `${theme.colors.textPrimary}`,
           marginBottom: '1rem',
         }}
       >
@@ -67,7 +68,7 @@ const TotalCardTypeD = observer(({ handleCheckout, buttonLabel = 'Place Order' }
           fontSize: '1.2rem',
           fontWeight: 'bold',
           padding: '0.5rem 0',
-          background: `${(props) => props.theme.colors.highlightBackground}`,
+          background: `${theme.colors.highlightBackground}`,
           borderRadius: '5px',
         }}
       >
@@ -87,7 +88,7 @@ const TotalCardTypeD = observer(({ handleCheckout, buttonLabel = 'Place Order' }
           textTransform: 'uppercase',
           fontWeight: 'bold',
           borderRadius: '8px',
-          background: `linear-gradient(to right, ${(props) => props.theme.colors.buttonBackground}, ${(props) => props.theme.colors.goldAccent})`,
+          background: `linear-gradient(to right, ${theme.colors.buttonBackground}, ${theme.colors.goldAccent})`,
           transition: 'all 0.3s ease',
         }}
         onClick={handleCheckout}

@@ -17,7 +17,7 @@ const OrderListCardTypeD = ({ viewModel }) => {
     return (
         <selectedStyle.TableWrapper
             style={{
-                width: "100%",
+                width: "98%",
                 maxWidth: "1200px",
                 margin: "0 auto",
                 borderRadius: "8px",

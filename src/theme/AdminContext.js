@@ -83,6 +83,7 @@ export const AdminProvider = ({ children }) => {
         setAccountDashboardComponent(settings.accountDashboardComponent || 'typeA');
         setOrderListCardComponent(settings.orderListCardComponent || 'typeA');
         setAdressListCardComponent(settings.adressListCardComponent || 'typeA');
+        setCarrierListCardComponent(settings.carrierListCardComponent || 'typeA');
 
       }
     } catch (error) {

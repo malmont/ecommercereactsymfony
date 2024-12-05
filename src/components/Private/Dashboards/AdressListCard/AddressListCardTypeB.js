@@ -36,8 +36,8 @@ const AddressListCardTypeB = observer(() => {
         style={{
           background: `${(props) => props.theme.colors.buttonBackground}`,
           color: `${(props) => props.theme.colors.navButtonText}`,
-          fontSize: '1.4rem',
-          padding: '20px 40px',
+          fontSize: '1rem',
+          padding: '20px',
           border: `2px solid ${(props) => props.theme.colors.border}`,
           borderRadius: '12px',
           transition: 'background-color 0.4s ease, transform 0.3s',
@@ -55,7 +55,7 @@ const AddressListCardTypeB = observer(() => {
               border: `3px solid ${(props) => props.theme.colors.border}`,
               background: `${(props) => props.theme.colors.cardBackground}`,
               borderRadius: '15px',
-              padding: '20',
+              padding: '10',
             }}
           >
             <selectedStyle.AddressCardHeader
@@ -75,7 +75,7 @@ const AddressListCardTypeB = observer(() => {
               style={{
                 background: `${(props) => props.theme.colors.cardBodyBackground}`,
                 color: `${(props) => props.theme.colors.cardBodyText}`,
-                padding: '25px',
+               
                
               }}
             >

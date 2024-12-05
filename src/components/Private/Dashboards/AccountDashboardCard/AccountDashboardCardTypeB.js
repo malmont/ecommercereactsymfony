@@ -6,13 +6,14 @@ import { useDependencies } from '../../../../DependencyContext';
 import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
 import ContainerTypeOrderListCard from '../../../../theme/ThemeContainer/ContainerTypeOrderListCard';
+import { useTheme } from 'styled-components';
 
 const AccountDashboardCardTypeB = () => {
   const { orderListViewModel, addressListViewModel, carrierListViewModel } = useDependencies();
   const [activeTab, setActiveTab] = useState('dashboard');
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
-
+  const theme = useTheme();
   return (
     <selectedStyle.DashboardWrapper>
       <div className="section">
@@ -22,7 +23,7 @@ const AccountDashboardCardTypeB = () => {
             <selectedStyle.DashboardSidebar
               className="col "
               style={{
-                backgroundColor: "#f8f9fa", // Light background for contrast
+                backgroundColor: theme.colors.cardBackground,
                 borderRadius: "12px", // Slightly rounded corners
                 padding: "20px",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Subtle shadow
@@ -47,8 +48,8 @@ const AccountDashboardCardTypeB = () => {
                         alignItems: "center",
                         padding: "10px",
                         borderRadius: "8px",
-                        backgroundColor: activeTab === item.tab ? "#007bff" : "transparent",
-                        color: activeTab === item.tab ? "#fff" : "#000",
+                        backgroundColor: activeTab === item.tab ? theme.colors.buttonBackground : "transparent",
+                        color:  activeTab === item.tab ? theme.colors.buttonBackground : "transparent",
                         transition: "background-color 0.3s",
                       }}
                     >
@@ -81,7 +82,6 @@ const AccountDashboardCardTypeB = () => {
                   >
                     <selectedStyle.DashboardCardHeader
                       style={{
-                        backgroundColor: "#007bff",
                         color: "#fff",
                         padding: "15px",
                       }}

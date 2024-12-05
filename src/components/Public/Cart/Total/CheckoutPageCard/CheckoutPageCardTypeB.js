@@ -2,6 +2,7 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 import { styles } from '../../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../../theme/AdminContext';
+import { useTheme } from 'styled-components';
 
 const CheckoutPageCardTypeB = observer(({
     carriers,
@@ -16,19 +17,19 @@ const CheckoutPageCardTypeB = observer(({
 }) => {
     const { styleChoice } = useAdminContext();
     const selectedStyle = styles[styleChoice];
-
+    const theme = useTheme();
     return (
         <selectedStyle.OrderSummaryContainer
             style={{
                 gap: '2rem',
                 padding: '2rem',
-                backgroundColor: selectedStyle.colors?.cardBackground,
+                backgroundColor: theme.colors?.cardBackground,
                 borderRadius: '8px',
-                boxShadow: selectedStyle.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.1)',
+                boxShadow: theme.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.1)',
             }}
         >
             {/* Select Carrier */}
-            <selectedStyle.OrderSummaryTitle style={{ color: selectedStyle.colors?.titleText }}>
+            <selectedStyle.OrderSummaryTitle style={{ color: theme.colors?.titleText }}>
                 Select Carrier
             </selectedStyle.OrderSummaryTitle>
             <selectedStyle.CarrierContainer style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
@@ -40,11 +41,11 @@ const CheckoutPageCardTypeB = observer(({
                         style={{
                             padding: '1rem',
                             boxShadow: selectedCarrier?.id === carrier.id
-                                ? `0 0 10px ${selectedStyle.colors?.goldAccent}`
+                                ? `0 0 10px ${theme.colors?.goldAccent}`
                                 : 'none',
                             transition: 'box-shadow 0.3s ease',
                             borderRadius: '8px',
-                            backgroundColor: selectedStyle.colors?.hoverCardBackground,
+                            backgroundColor: theme.colors?.cardBackground,
                             width: '80px',
                         }}
                     >
@@ -63,7 +64,7 @@ const CheckoutPageCardTypeB = observer(({
             </selectedStyle.CarrierContainer>
 
             {/* Select Delivery Address */}
-            <selectedStyle.OrderSummaryTitle style={{ color: selectedStyle.colors?.titleText }}>
+            <selectedStyle.OrderSummaryTitle style={{ color: theme.colors?.titleText }}>
                 Select Address
             </selectedStyle.OrderSummaryTitle>
             <selectedStyle.AddressContainer style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -75,11 +76,12 @@ const CheckoutPageCardTypeB = observer(({
                         style={{
                             padding: '1rem',
                             boxShadow: selectedAddress?.id === address.id
-                                ? `0 0 10px ${selectedStyle.colors?.goldAccent}`
+                                ? `0 0 10px ${theme.colors?.goldAccent}`
                                 : 'none',
                             transition: 'box-shadow 0.3s ease',
                             borderRadius: '8px',
-                            backgroundColor: selectedStyle.colors?.hoverCardBackground ,
+                            backgroundColor: theme.colors?.cardBackground ,
+                            color: theme.colors?.cardBodyText,
                         }}
                     >
                         {address.fullname}
@@ -90,7 +92,7 @@ const CheckoutPageCardTypeB = observer(({
             </selectedStyle.AddressContainer>
 
             {/* Select Payment Method */}
-            <selectedStyle.OrderSummaryTitle style={{ color: selectedStyle.colors?.titleText }}>
+            <selectedStyle.OrderSummaryTitle style={{ color: theme.colors?.titleText }}>
                 Select Payment
             </selectedStyle.OrderSummaryTitle>
             <selectedStyle.PaymentMethodContainer style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
@@ -102,7 +104,7 @@ const CheckoutPageCardTypeB = observer(({
                         style={{
                             padding: '1rem',
                             boxShadow: selectedPaymentMethod?.id === method.id
-                                ? `0 0 10px ${selectedStyle.colors?.goldAccent}`
+                                ? `0 0 10px ${theme.colors?.goldAccent}`
                                 : 'none',
                             transition: 'box-shadow 0.3s ease',
                             borderRadius: '50%',
@@ -111,7 +113,7 @@ const CheckoutPageCardTypeB = observer(({
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            backgroundColor: selectedStyle.colors?.hoverCardBackground,
+                            backgroundColor: theme.colors?.cardBackground,
                         }}
                     >
                         <img

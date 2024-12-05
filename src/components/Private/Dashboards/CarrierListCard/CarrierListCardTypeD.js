@@ -12,7 +12,7 @@ const CarrierListCardTypeD = ({ viewModel }) => {
     return (
       <selectedStyle.NoCarrierMessage
         style={{
-          padding: "20px",
+    
           backgroundColor: `${(props) => props.theme.colors.tableWrapperBackground}`,
           color: `${(props) => props.theme.colors.linkHoverText}`,
           border: `2px dashed ${(props) => props.theme.colors.border}`,
@@ -33,9 +33,9 @@ const CarrierListCardTypeD = ({ viewModel }) => {
     <selectedStyle.CarrierWrapper
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
         gap: "20px",
-        padding: "30px",
+    
         backgroundColor: `${(props) => props.theme.colors.featureBackground}`,
         borderRadius: "15px",
         boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)",

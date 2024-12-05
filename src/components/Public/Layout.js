@@ -47,4 +47,7 @@ const MainContent = styled.main`
   padding: 20px;
   flex: 1;
   background-color: #f9f9f9;
+  @media (max-width: 768px) {
+    padding: 5px;
+  }
 `;
