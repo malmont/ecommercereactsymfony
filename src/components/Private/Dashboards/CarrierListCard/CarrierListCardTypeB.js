@@ -66,9 +66,9 @@ const CarrierListCardTypeB = ({ viewModel }) => {
                   textAlign: "left",
                 }}
               >
-                <th style={{ padding: "10px" }}>Carrier</th>
-                <th style={{ padding: "10px" }}>Description</th>
-                <th style={{ padding: "10px" }}>Price</th>
+                <th style={{ padding: "1px" }}>Carrier</th>
+                <th style={{ padding: "1px" }}>Description</th>
+                <th style={{ padding: "1px" }}>Price</th>
               </tr>
             </thead>
             <tbody>
@@ -86,7 +86,7 @@ const CarrierListCardTypeB = ({ viewModel }) => {
                     (e.currentTarget.style.backgroundColor = `${(props) => props.theme.colors.cardBackground}`)
                   }
                 >
-                  <td style={{ padding: "10px", display: "flex", alignItems: "center" }}>
+                  <td >
                     <selectedStyle.CarrierImage
                       src={carrier.photo}
                       alt={carrier.name}
@@ -100,10 +100,10 @@ const CarrierListCardTypeB = ({ viewModel }) => {
                     />
                     {carrier.name}
                   </td>
-                  <td style={{ padding: "10px" }}>{carrier.description}</td>
+                  <td style={{ padding: "1px" }}>{carrier.description}</td>
                   <td
                     style={{
-                      padding: "10px",
+                     
                       fontWeight: "bold",
                       color: `${(props) => props.theme.colors.linkText}`,
                     }}

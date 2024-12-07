@@ -1056,12 +1056,23 @@ transition: all 0.3s ease;
   // Sidebar pour les onglets
 
   DashboardWrapper: styled.div`
-  background-color: ${(props) => props.theme.colors.contentBackground || '#f4f4f4'};
-  min-height: 66vh;
-  padding: 20px;
-  margin-top: 90px;
+  background: linear-gradient(
+    135deg,
+    ${(props) => props.theme.colors.gradientStart},
+    ${(props) => props.theme.colors.gradientEnd}
+  );
+   margin-top: 50px;
+   width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: 768px) {
+    padding: 20px;
+    width: 100%;
+  }
   `,
-
   // Élément de navigation dans la sidebar
   DashboardNavItem: styled.li`
     margin-bottom: 10px;
@@ -1077,11 +1088,11 @@ transition: all 0.3s ease;
     font-weight: bold;
     color: ${(props) =>
       props.className?.includes('active')
-        ? props.theme.colors.activeLinkText || '#ffffff'
-        : props.theme.colors.linkText || '#333'} !important;
+        ? props.theme.colors.activeLinkText
+        : props.theme.colors.linkText } !important;
     background-color: ${(props) =>
       props.className?.includes('active')
-        ? props.theme.colors.activeLinkBackground || '#d4af37'
+        ? props.theme.colors.goldAccent 
         : 'transparent'} !important;
     border-radius: 15px;
     text-decoration: none !important;
@@ -1091,14 +1102,14 @@ transition: all 0.3s ease;
     border: 2px solid
       ${(props) =>
       props.className?.includes('active')
-        ? props.theme.colors.goldAccent || '#d4af37'
+        ? props.theme.colors.goldAccent
         : 'transparent'};
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.navItemHoverBackground || '#f5f5f5'} !important;
+      background-color: ${(props) => props.theme.colors.navItemHoverBackground} !important;
       transform: scale(1.05);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-      border: 2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+      border: 2px solid ${(props) => props.theme.colors.goldAccent};
     }
 
     i {
@@ -1108,53 +1119,63 @@ transition: all 0.3s ease;
 
   // Contenu principal du tableau de bord
   DashboardContent: styled.div`
-    padding: 60px;
-    margin-left: 350px; /* Pour laisser de la place à la sidebar */
-    background: ${(props) => props.theme.colors.contentBackground || '#ffffff'};
-    border-radius: 30px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    border: 3px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'}; /* Contour doré */
-  `,
+  padding: 10px;
+  margin-top: 50px;
+  width: 100%;
+  background: ${(props) => props.theme.colors.contentBackground};
+  border-radius: 25px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+  @media (max-width: 992px) {
+    margin-left: 180px; /* Ajustement pour les écrans moyens */
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+    padding: 0px;
+  }
+`,
 
   // Conteneur pour les onglets
   DashboardTabPane: styled.div`
-    padding: 50px;
-    background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    background: ${(props) => props.theme.colors.cardBackground };
     border-radius: 25px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    border: 2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'}; /* Contour doré */
+    border: 2px solid ${(props) => props.theme.colors.goldAccent}; /* Contour doré */
   `,
 
   // Carte principale
   DashboardCard: styled.div`
-    background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    background: ${(props) => props.theme.colors.cardBackground };
     border-radius: 25px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     position: relative;
-    border: 2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'}; /* Contour doré */
+    border: 2px solid ${(props) => props.theme.colors.goldAccent }; /* Contour doré */
   `,
 
   // En-tête de la carte
   DashboardCardHeader: styled.div`
     padding: 40px;
-    background: ${(props) => props.theme.colors.cardHeaderBackground || '#d4af37'};
-    color: ${(props) => props.theme.colors.cardHeaderText || '#ffffff'};
+    background: ${(props) => props.theme.colors.goldAccent };
+    color: ${(props) => props.theme.colors.cardHeaderText };
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-    border-bottom: 2px solid ${(props) => props.theme.colors.goldAccent || '#b8860b'}; /* Liseré doré */
+    border-bottom: 2px solid ${(props) => props.theme.colors.goldAccent }; /* Liseré doré */
   `,
 
   // Corps de la carte
   DashboardCardBody: styled.div`
     padding: 40px;
-    color: ${(props) => props.theme.colors.cardBodyText || '#333'};
+    color: ${(props) => props.theme.colors.cardBodyText };
     font-size: 1.1rem;
     line-height: 1.8;
   `,
   DashboardSidebar: styled.div`
-background: ${(props) => props.theme.colors.sidebarBackground || '#ffffff'};
+background: ${(props) => props.theme.colors.sidebarBackground};
 padding: 40px;
 border-radius: 20px;
 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
@@ -1164,15 +1185,28 @@ left: 0;
 height: calc(100% - ${(props) => props.theme.navbarHeight || '70px'});
 width: 280px;
 overflow-y: auto;
+@media (max-width: 992px) {
+  width: 200px; /* Réduction de la largeur pour les écrans moyens */
+}
+
+@media (max-width: 768px) {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 15px;
+}
 `,
-  TableWrapper: styled.div`
+
+TableWrapper: styled.div`
 overflow-x: auto;
 margin: 20px 0;
 padding: 20px;
 background: ${(props) => props.theme.colors.cardBackground};
 border-radius: 12px;
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-border: 2px solid ${(props) => props.theme.colors.tableBorder || '#d4af37'};
+border: 2px solid ${(props) => props.theme.colors.goldAccent };
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 &:hover {
@@ -1185,28 +1219,28 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
 width: 100%;
 border-collapse: collapse;
 font-size: 0.95rem;
-background: ${(props) => props.theme.colors.tableBackground || '#ffffff'};
+background: ${(props) => props.theme.colors.tableBackground };
 
 th, td {
   padding: 15px;
   text-align: left;
-  border: 1px solid ${(props) => props.theme.colors.tableBorder || '#d4af37'};
+  border: 1px solid ${(props) => props.theme.colors.goldAccent };
 }
 
 th {
-  background: ${(props) => props.theme.colors.tableHeaderBackground || '#f4f4f4'};
-  color: ${(props) => props.theme.colors.tableHeaderText || '#333'};
+  background: ${(props) => props.theme.colors.tableHeaderBackground };
+  color: ${(props) => props.theme.colors.tableHeaderText };
   font-weight: bold;
   text-transform: uppercase;
 }
 
 td {
-  background: ${(props) => props.theme.colors.tableRowBackground || '#fafafa'};
-  color: ${(props) => props.theme.colors.tableRowText || '#555'};
+  background: ${(props) => props.theme.colors.tableRowBackground };
+  color: ${(props) => props.theme.colors.tableRowText };
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.tableRowHoverBackground || '#f0f0f0'};
+    background-color: ${(props) => props.theme.colors.tableRowHoverBackground };
   }
 }
 
@@ -1219,7 +1253,7 @@ td {
     display: block;
     text-align: right;
     position: relative;
-    padding-left: 50%;
+    padding-left: 30%;
   }
 
   td::before {
@@ -1228,15 +1262,15 @@ td {
     left: 10px;
     font-weight: bold;
     text-transform: uppercase;
-    color: ${(props) => props.theme.colors.textMuted || '#999'};
+    color: ${(props) => props.theme.colors.textMuted };
   }
 }
 `,
 
   TableButton: styled.button`
 padding: 10px 20px;
-background: ${(props) => props.theme.colors.buttonBackground || '#d4af37'};
-color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+background: ${(props) => props.theme.colors.goldAccent };
+color: ${(props) => props.theme.colors.buttonText };
 border: none;
 border-radius: 8px;
 font-weight: bold;
@@ -1245,7 +1279,7 @@ cursor: pointer;
 transition: background-color 0.3s ease, transform 0.3s ease;
 
 &:hover {
-  background: ${(props) => props.theme.colors.buttonHover || '#e5c26b'};
+  background: ${(props) => props.theme.colors.buttonHover};
   transform: scale(1.05);
 }
 
@@ -1257,29 +1291,32 @@ transition: background-color 0.3s ease, transform 0.3s ease;
   TableEmptyMessage: styled.p`
 font-size: 1.2rem;
 text-align: center;
-color: ${(props) => props.theme.colors.emptyMessageText || '#999'};
-background: ${(props) => props.theme.colors.emptyMessageBackground || '#f9f9f9'};
+color: ${(props) => props.theme.colors.emptyMessageText };
+background: ${(props) => props.theme.colors.emptyMessageBackground };
 padding: 20px;
 border-radius: 10px;
-border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#d4af37'};
+border: 1px dashed ${(props) => props.theme.colors.goldAccent};
 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 animation: fadeIn 0.8s ease-in-out;
 `,
   AddressListWrapper: styled.div`
     padding: 30px;
-    background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+    background: ${(props) => props.theme.colors.containerBackground };
     border-radius: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     margin: 0 auto;
-    border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#d4af37'};
+    border: 1px dashed ${(props) => props.theme.colors.goldAccent };
+    @media (max-width: 768px) {
+    max-width:none;
+  }
   `,
 
   AddNewAddressButton: styled.button`
     width: 100%;
     padding: 10px 20px;
-    background: ${(props) => props.theme.colors.buttonBackground || '#d4af37'};
-    color: ${(props) => props.theme.colors.buttonText || '#fff'};
+    background: ${(props) => props.theme.colors.goldAccent };
+    color: ${(props) => props.theme.colors.buttonText };
     border: none;
     border-radius: 10px;
     font-size: 1rem;
@@ -1290,7 +1327,7 @@ animation: fadeIn 0.8s ease-in-out;
     transition: all 0.3s ease;
     margin-bottom: 20px;    
     &:hover {
-      background: ${(props) => props.theme.colors.buttonHover || '#e5c26b'};
+      background: ${(props) => props.theme.colors.goldAccent};
       transform: scale(1.05);
     }
   `,
@@ -1304,20 +1341,19 @@ animation: fadeIn 0.8s ease-in-out;
   `,
 
   AddressCardHeader: styled.div`
-    background: ${(props) => props.theme.colors.cardHeaderBackground || '#d4af37'};
-    color: ${(props) => props.theme.colors.cardHeaderText || '#fff'};
+    background: ${(props) => props.theme.colors.goldAccent };
+    color: ${(props) => props.theme.colors.cardHeaderText};
     padding: 10px;
     font-size: 1.2rem;
     font-weight: bold;
     text-align: center;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-radius: 5px;
     
   `,
 
   AddressCardBody: styled.div`
     padding: 15px;
-    color: ${(props) => props.theme.colors.cardBodyText || '#333'};
+    color: ${(props) => props.theme.colors.cardBodyText};
     font-size: 1rem;
     line-height: 1.5;
     
@@ -1328,13 +1364,13 @@ animation: fadeIn 0.8s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: ${(props) => props.theme.colors.cardBackground || '#fff'};
-    border: 1px solid ${(props) => props.theme.colors.cardBorder || '#ddd'};
+    background: ${(props) => props.theme.colors.cardBackground };
+    border: 1px solid ${(props) => props.theme.colors.cardBorder };
     border-radius: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 0.3s ease;
-    border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#d4af37'};
+    border: 1px dashed ${(props) => props.theme.colors.goldAccent};
     &:hover {
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
       transform: translateY(-3px);
@@ -1346,14 +1382,13 @@ animation: fadeIn 0.8s ease-in-out;
     justify-content: space-between;
     gap: 10px;
     padding: 10px 15px;
-    border-top: 1px solid ${(props) => props.theme.colors.cardBorder || '#ddd'};
-    background: ${(props) => props.theme.colors.cardBodyBackground || '#fafafa'};
+    background: ${(props) => props.theme.colors.cardBodyBackground };
   `,
 
   EditButton: styled.button`
     padding: 8px 16px;
-    background: ${(props) => props.theme.colors.buttonBackground || '#007BFF'};
-    color: ${(props) => props.theme.colors.buttonText || '#fff'};
+    background: ${(props) => props.theme.colors.buttonBackground };
+    color: ${(props) => props.theme.colors.buttonText };
     border: none;
     border-radius: 8px;
     font-size: 0.9rem;
@@ -1362,7 +1397,7 @@ animation: fadeIn 0.8s ease-in-out;
     transition: background-color 0.3s ease, transform 0.3s ease;
 
     &:hover {
-      background: ${(props) => props.theme.colors.buttonHover || '#0056b3'};
+      background: ${(props) => props.theme.colors.buttonHover};
       transform: scale(1.05);
     }
   `,
@@ -1370,7 +1405,7 @@ animation: fadeIn 0.8s ease-in-out;
   DeleteButton: styled.button`
     padding: 8px 16px;
     background: ${(props) => props.theme.colors.errorBackground || '#FF0000'};
-    color: ${(props) => props.theme.colors.errorText || '#fff'};
+    color: ${(props) => props.theme.colors.errorText };
     border: none;
     border-radius: 8px;
     font-size: 0.9rem;
@@ -1386,35 +1421,35 @@ animation: fadeIn 0.8s ease-in-out;
 
   EmptyAddressMessage: styled.p`
     font-size: 1rem;
-    color: ${(props) => props.theme.colors.emptyMessageText || '#555'};
+    color: ${(props) => props.theme.colors.emptyMessageText };
     text-align: center;
     padding: 20px;
-    background: ${(props) => props.theme.colors.emptyMessageBackground || '#f9f9f9'};
+    background: ${(props) => props.theme.colors.emptyMessageBackground};
     border-radius: 10px;
-    border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#ddd'};
+    border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder };
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   `,
 
   LoadingMessage: styled.div`
     font-size: 1.2rem;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.textPrimary || '#333'};
+    color: ${(props) => props.theme.colors.textPrimary };
     text-align: center;
     padding: 20px;
-    background: ${(props) => props.theme.colors.loadingBackground || '#fff'};
+    background: ${(props) => props.theme.colors.loadingBackground };
     border-radius: 10px;
-    border: 1px solid ${(props) => props.theme.colors.loadingBorder || '#ddd'};
+    border: 1px solid ${(props) => props.theme.colors.loadingBorder };
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     animation: shimmer 2s infinite;
   `,
   NoCarrierMessage: styled.p`
   font-size: 1.2rem;
-  color: ${(props) => props.theme.colors.emptyMessageText || '#999'};
+  color: ${(props) => props.theme.colors.emptyMessageText };
   text-align: center;
   padding: 20px;
-  background: ${(props) => props.theme.colors.emptyMessageBackground || '#f9f9f9'};
+  background: ${(props) => props.theme.colors.emptyMessageBackground };
   border-radius: 10px;
-  border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#d4af37'};
+  border: 1px dashed ${(props) => props.theme.colors.goldAccent};
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
   max-width: 600px;
@@ -1425,7 +1460,7 @@ animation: fadeIn 0.8s ease-in-out;
   height: auto;
   object-fit: cover;
   border-radius: 10px;
-  border: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'};
+  border: 2px solid ${(props) => props.theme.colors.goldAccent};
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -1438,42 +1473,42 @@ animation: fadeIn 0.8s ease-in-out;
   CarrierTable: styled.table`
   width: 100%;
   border-collapse: collapse;
-  background: ${(props) => props.theme.colors.tableBackground || '#ffffff'};
+  background: ${(props) => props.theme.colors.tableBackground };
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
   th, td {
-    padding: 15px;
+    padding: 5px;
     text-align: left;
-    border: 1px solid ${(props) => props.theme.colors.tableBorder || '#d4af37'};
+    border: 1px solid ${(props) => props.theme.colors.goldAccent };
   }
 
   th {
-    background: ${(props) => props.theme.colors.tableHeaderBackground || '#f4f4f4'};
-    color: ${(props) => props.theme.colors.tableHeaderText || '#333'};
+    background: ${(props) => props.theme.colors.tableHeaderBackground };
+    color: ${(props) => props.theme.colors.tableHeaderText };
     font-weight: bold;
     text-transform: uppercase;
   }
 
   td {
-    background: ${(props) => props.theme.colors.tableRowBackground || '#fafafa'};
-    color: ${(props) => props.theme.colors.tableRowText || '#555'};
+    background: ${(props) => props.theme.colors.tableRowBackground };
+    color: ${(props) => props.theme.colors.tableRowText };
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.tableRowHoverBackground || '#f0f0f0'};
+      background-color: ${(props) => props.theme.colors.tableRowHoverBackground };
     }
   }
 `,
 
   CarrierTableContainer: styled.div`
   overflow-x: auto;
-  padding: 20px;
-  background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+ 
+  background: ${(props) => props.theme.colors.containerBackground };
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'};
+  border: 2px solid ${(props) => props.theme.colors.cardAccent };
   margin: 20px 0;
   max-width: 1200px;
   margin: 0 auto;
@@ -1485,7 +1520,7 @@ animation: fadeIn 0.8s ease-in-out;
   gap: 20px;
   justify-content: center;
   padding: 20px;
-  background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+  background: ${(props) => props.theme.colors.containerBackground };
   border-radius: 15px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 `

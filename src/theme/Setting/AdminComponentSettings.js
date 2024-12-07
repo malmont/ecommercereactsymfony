@@ -296,7 +296,7 @@ const AdminComponentSettings = () => {
 
       {isAccountDashboardComponent && (
         <SettingCard
-          label=" liste Orders"
+          label=" liste Adress"
           value={adressListCardComponent}
           onChange={(event) => setAdressListCardComponent(event.target.value)}
           options={ComponentTypeCategoryCard}

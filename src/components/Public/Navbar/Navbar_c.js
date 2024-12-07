@@ -38,6 +38,13 @@ const NavLinks = styled.div`
   }
 `;
 
+const CartIconMobile = styled.div`
+  display: none;
+  @media screen and (max-width: 800px) {
+    display: block;
+  }
+`;
+
 const NavItem = styled(NavLink)`
   color: ${(props) => props.theme.colors.navItemText};
   text-decoration: none;
@@ -105,9 +112,18 @@ const Navbar_c = observer(({ ResumeCart, AuthContext, useDependencies, selectedS
         <AdminToggleButton onClick={toggleAdminSettings} active={showAdminSettings}>
           {showAdminSettings ? 'Admin' : 'Admin'}
         </AdminToggleButton>
+        <CartIconMobile>
+        <selectedStyle.CartIcon onClick={() => vm.navigateToCart()}>
+            {React.createElement(vm.icons.ShoppingCartIcon, { color: '#ecf0f1', size: 24 })}
+            {vm.getTotalQuantity() > 0 && (
+              <selectedStyle.CartCount>{vm.getTotalQuantity()}</selectedStyle.CartCount>
+            )}
+        </selectedStyle.CartIcon>
+        </CartIconMobile>
         <selectedStyle.MobileMenuButton onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {React.createElement(vm.icons.MenuIcon, { color: '#ecf0f1', size: 24 })}
         </selectedStyle.MobileMenuButton>
+        
       </NavbarContent>
       <selectedStyle.MobileMenu isOpen={isMobileMenuOpen}>
         <selectedStyle.MobileNavItem to={vm.homePath}>Home</selectedStyle.MobileNavItem>

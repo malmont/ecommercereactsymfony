@@ -113,6 +113,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `,
 
   CartIcon: styled.div`
+  position: relative;
   cursor: pointer;
   color: ${(props) => props.theme.colors.cartIconColor};
 `,

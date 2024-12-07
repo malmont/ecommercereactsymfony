@@ -23,9 +23,9 @@ const AccountDashboardCardTypeA = () => {
                 {[
                   { tab: 'dashboard', label: 'Dashboard', icon: 'ti-layout-grid2' },
                   { tab: 'orders', label: 'Orders', icon: 'ti-shopping-cart-full' },
-                  { tab: 'address', label: 'My Address', icon: 'ti-location-pin' },
+                  { tab: 'address', label: 'Address', icon: 'ti-location-pin' },
                   { tab: 'carriers', label: 'Carriers', icon: 'ti-truck' },
-                  { tab: 'accountDetails', label: 'Account details', icon: 'ti-id-badge' },
+                  { tab: 'accountDetails', label: 'Account', icon: 'ti-id-badge' },
                   { tab: 'logout', label: 'Logout', icon: 'ti-lock', link: '/logout' },
                 ].map((item, index) => (
                   <selectedStyle.DashboardNavItem key={index}>
