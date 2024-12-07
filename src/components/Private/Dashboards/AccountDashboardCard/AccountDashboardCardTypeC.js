@@ -30,9 +30,10 @@ const AccountDashboardCardTypeC = () => {
             className="row justify-content-center"
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
               gap: "20px",
               marginBottom: "30px",
+              marginTop: "50px",
             }}
           >
             {tabs.map((item, index) => (

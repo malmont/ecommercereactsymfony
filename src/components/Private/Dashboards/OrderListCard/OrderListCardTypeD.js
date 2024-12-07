@@ -17,20 +17,20 @@ const OrderListCardTypeD = ({ viewModel }) => {
     return (
         <selectedStyle.TableWrapper
             style={{
-                width: "98%",
-                maxWidth: "1200px",
-                margin: "0 auto",
-                borderRadius: "8px",
-                overflow: "hidden",
-                backgroundColor: "#ffffff",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+               display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))",
+                width: "100%",
+                gap: "20px",
+                backgroundColor: "#f8f9fa",
+                borderRadius: "12px",
+                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
             }}
         >
             {orders.length > 0 ? (
                 <table
                     style={{
                         width: "100%",
-                        borderCollapse: "collapse",
+                        borderCollapse: "collapse", 
                         textAlign: "left",
                     }}
                 >

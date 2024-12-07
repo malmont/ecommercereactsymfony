@@ -130,6 +130,7 @@ background: ${(props) => props.theme.colors.navLinksBackground};
 `,
 
   CartIcon: styled.div`
+  position: relative;
   cursor: pointer;
   transition: all 0.3s ease;
   color: ${(props) => props.theme.colors.cartIconColor};

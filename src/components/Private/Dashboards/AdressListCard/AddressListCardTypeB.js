@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { useDependencies } from '../../../../DependencyContext';
 import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
+import { a } from 'react-spring';
 
 const AddressListCardTypeB = observer(() => {
   const { addressListViewModel } = useDependencies();
@@ -29,6 +30,7 @@ const AddressListCardTypeB = observer(() => {
         background: `${(props) => props.theme.colors.wrapperBackground}`,
         border: `1px solid ${(props) => props.theme.colors.border}`,
         borderRadius: '20px',
+    
       }}
     >
       <selectedStyle.AddNewAddressButton
@@ -65,7 +67,7 @@ const AddressListCardTypeB = observer(() => {
                 color: `${(props) => props.theme.colors.cardHeaderText}`,
                 padding: '20px',
                 borderBottom: `3px solid ${(props) => props.theme.colors.border}`,
-                borderRadius: '15px 15px 0 0',
+                borderRadius: '15px '
                 
               }}
             >

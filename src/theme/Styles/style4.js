@@ -106,7 +106,8 @@ background: ${(props) => props.theme.colors.navLinksBackground};
   z-index: 1000;
 `,
 
-  MobileNavItem: styled(NavLink)`
+MobileNavItem: styled(NavLink)`
+  display: block;
   margin: 0.5rem 0;
   color: ${(props) => props.theme.colors.mobileNavItemText};
   text-decoration: none;
@@ -114,11 +115,12 @@ background: ${(props) => props.theme.colors.navLinksBackground};
   transition: all 0.3s ease;
 
   &:hover, &.active {
-    color: ${(props) => props.theme.colors.navItemHover};
+    color: ${(props) => props.theme.colors.hoverLink};
   }
 `,
 
   CartIcon: styled.div`
+  position: relative;
   cursor: pointer;
   transition: all 0.3s ease;
   color: ${(props) => props.theme.colors.cartIconColor};
@@ -987,17 +989,18 @@ img {
 }
 `,
 DashboardWrapper: styled.div`
-background: ${(props) => props.theme.colors.contentBackground || '#1a1a1a'};
+background: ${(props) => props.theme.colors.contentBackground };
 min-height: 70vh;
-padding: 40px;
+padding: 10px;
+margin-bottom: 10px;
 `,
 
 // Sidebar pour les onglets
 DashboardSidebar: styled.div`
-background: ${(props) => props.theme.colors.sidebarBackground || '#333'};
+background: ${(props) => props.theme.colors.sidebarBackground };
 padding: 30px;
 border-radius: 15px;
-color: ${(props) => props.theme.colors.sidebarText || '#f0f0f0'};
+color: ${(props) => props.theme.colors.sidebarText };
 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 `,
 
@@ -1038,17 +1041,17 @@ i {
 
 // Contenu principal du tableau de bord
 DashboardContent: styled.div`
-padding: 30px;
+padding: 15px;
 background: ${(props) => props.theme.colors.contentBackground || '#1a1a1a'};
 border-radius: 15px;
 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-margin-left: 40px;
 color: ${(props) => props.theme.colors.textColor || '#f0f0f0'};
+margin-top: 10px;
 `,
 
 // Conteneur pour les onglets
 DashboardTabPane: styled.div`
-padding: 30px;
+padding: 10px;
 background: ${(props) => props.theme.colors.cardBackground || '#262626'};
 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 border-radius: 15px;
@@ -1064,7 +1067,7 @@ color: ${(props) => props.theme.colors.cardText || '#f0f0f0'};
 
 // En-tête de la carte
 DashboardCardHeader: styled.div`
-padding: 25px;
+padding: 15px;
 border-bottom: 1px solid ${(props) => props.theme.colors.border || '#404040'};
 background: ${(props) => props.theme.colors.cardHeaderBackground || '#007BFF'};
 color: ${(props) => props.theme.colors.cardHeaderText || '#ffffff'};
@@ -1193,8 +1196,8 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 AddNewAddressButton: styled.button`
 background-color: ${(props) =>
-  props.theme.colors.primaryButtonBackground || '#007BFF'};
-color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+  props.theme.colors.buttonBackground };
+color: ${(props) => props.theme.colors.buttonText};
 padding: 10px 15px;
 font-size: 1rem;
 font-weight: bold;
@@ -1205,7 +1208,7 @@ transition: background-color 0.3s ease, transform 0.3s ease;
 
 &:hover {
   background-color: ${(props) =>
-    props.theme.colors.primaryButtonHover || '#0056b3'};
+    props.theme.colors.buttonHover};
   transform: scale(1.05);
 }
 `,
@@ -1223,12 +1226,13 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
 AddressCardHeader: styled.div`
 background-color: ${(props) =>
-  props.theme.colors.headerBackground || '#007BFF'};
-color: ${(props) => props.theme.colors.headerText || '#ffffff'};
+  props.theme.colors.cardHeaderBackground };
+color: ${(props) => props.theme.colors.cardHeaderText };
 padding: 15px;
 font-size: 1.2rem;
 font-weight: bold;
 text-align: center;
+border-radius: 10px;
 `,
 
 AddressCardBody: styled.div`
@@ -1349,36 +1353,58 @@ width: 100%;
 border-collapse: collapse;
 margin: 20px 0;
 background-color: ${(props) =>
-  props.theme.colors.tableBackground || '#ffffff'};
-border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+  props.theme.colors.tableBackground };
+border: 1px solid ${(props) => props.theme.colors.border };
 border-radius: 12px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 th,
 td {
   padding: 12px 15px;
-  border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+  border: 1px solid ${(props) => props.theme.colors.border };
   text-align: left;
   font-size: 1rem;
 }
 
 th {
   background-color: ${(props) =>
-    props.theme.colors.tableHeaderBackground || '#007BFF'};
-  color: ${(props) => props.theme.colors.tableHeaderText || '#ffffff'};
+    props.theme.colors.tableHeaderBackground};
+  color: ${(props) => props.theme.colors.tableHeaderText };
   font-weight: bold;
 }
 
 td {
   background-color: ${(props) =>
-    props.theme.colors.tableRowBackground || '#f9f9f9'};
-  color: ${(props) => props.theme.colors.tableText || '#333'};
+    props.theme.colors.tableRowBackground };
+  color: ${(props) => props.theme.colors.tableText };
 }
 
 tr:hover {
   background-color: ${(props) =>
     props.theme.colors.tableRowHoverBackground || '#f1f1f1'};
 }
+    @media (max-width: 768px) {
+    thead {
+      display: none;
+    }
+
+    th, td {
+      display: block;
+      text-align: left;
+      padding: 10px;
+    }
+
+    td::before {
+      content: attr(data-label);
+      font-weight: bold;
+  
+      display: inline-block;
+      margin-right: 10px;
+    }
+      td:last-child {
+      margin-bottom: 5px;
+  }
+  }
 `,
 
 // Conteneur pour le tableau des transporteurs
@@ -1387,7 +1413,7 @@ overflow-x: auto;
 margin-top: 20px;
 padding: 20px;
 background-color: ${(props) =>
-  props.theme.colors.containerBackground || '#f8f8f8'};
+  props.theme.colors.containerBackground};
 border-radius: 15px;
 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 `,

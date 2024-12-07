@@ -12,7 +12,7 @@ const CarrierListCardTypeC = ({ viewModel }) => {
     return (
       <selectedStyle.NoCarrierMessage
         style={{
-          padding: "20px",
+        
           backgroundColor: `${(props) => props.theme.colors.emptyMessageBackground}`,
           borderRadius: "10px",
           fontSize: "1rem",
@@ -29,7 +29,7 @@ const CarrierListCardTypeC = ({ viewModel }) => {
   return (
     <selectedStyle.CarrierWrapper
       style={{
-        padding: "25px",
+        
         background: `${(props) => props.theme.colors.wrapperBackground}`,
         borderRadius: "20px",
         border: `1px solid ${(props) => props.theme.colors.border}`,
@@ -66,9 +66,9 @@ const CarrierListCardTypeC = ({ viewModel }) => {
                   fontWeight: "bold",
                 }}
               >
-                <th style={{ padding: "12px" }}>Carrier</th>
-                <th style={{ padding: "12px" }}>Description</th>
-                <th style={{ padding: "12px" }}>Price</th>
+                <th style={{ padding: "2px" }}>Carrier</th>
+                <th style={{ padding: "2px" }}>Description</th>
+                <th style={{ padding: "2px" }}>Price</th>
               </tr>
             </thead>
             <tbody>
@@ -81,7 +81,7 @@ const CarrierListCardTypeC = ({ viewModel }) => {
                       : `${(props) => props.theme.colors.containerBackground}`,
                   }}
                 >
-                  <td style={{ padding: "12px", display: "flex", alignItems: "center" }}>
+                  <td >
                     <selectedStyle.CarrierImage
                       src={carrier.photo}
                       alt={carrier.name}
@@ -95,7 +95,7 @@ const CarrierListCardTypeC = ({ viewModel }) => {
                     />
                     {carrier.name}
                   </td>
-                  <td style={{ padding: "12px" }}>{carrier.description}</td>
+                  <td style={{ padding: "2px" }}>{carrier.description}</td>
                   <td
                     style={{
                       padding: "12px",

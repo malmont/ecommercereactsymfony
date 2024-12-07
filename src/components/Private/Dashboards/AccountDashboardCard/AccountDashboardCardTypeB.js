@@ -24,9 +24,10 @@ const AccountDashboardCardTypeB = () => {
               className="col "
               style={{
                 backgroundColor: theme.colors.cardBackground,
-                borderRadius: "12px", // Slightly rounded corners
+                borderRadius: "12px",
+                color:`${theme.colors.cardBodyText}`, 
                 padding: "20px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Subtle shadow
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", 
               }}
             >
               <ul className="nav nav-tabs flex-column" role="tablist">
@@ -49,7 +50,7 @@ const AccountDashboardCardTypeB = () => {
                         padding: "10px",
                         borderRadius: "8px",
                         backgroundColor: activeTab === item.tab ? theme.colors.buttonBackground : "transparent",
-                        color:  activeTab === item.tab ? theme.colors.buttonBackground : "transparent",
+                        color:  activeTab === item.tab ? theme.colors.cardBodyText : theme.colors.buttonBackground,
                         transition: "background-color 0.3s",
                       }}
                     >
@@ -65,7 +66,7 @@ const AccountDashboardCardTypeB = () => {
             <selectedStyle.DashboardContent
               className="col-lg-9 col-md-8 mt-3"
               style={{
-                padding: "20px",
+              
                 backgroundColor: "#ffffff", // White background for clarity
                 borderRadius: "12px",
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)", // Stronger shadow for focus

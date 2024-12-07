@@ -1033,31 +1033,50 @@ img {
     }
 `,
 DashboardWrapper: styled.div`
-background: ${(props) => props.theme.colors.dashboardBackground || '#f0f0f0'};
-min-height: 80vh;
-padding: 80px;
+background: linear-gradient(
+  135deg,
+  ${(props) => props.theme.colors.gradientStart},
+  ${(props) => props.theme.colors.gradientEnd}
+);
+ margin-top: 50px;
+ width: 50%;
+margin: 0 auto;
+margin-top: 50px;
 display: flex;
 flex-direction: column;
 align-items: center;
-border: 2px dashed ${(props) => props.theme.colors.blackAccent || '#000000'};
-border-radius: 20px;
-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+@media (max-width: 768px) {
+  padding: 20px;
+  width: 100%;
+}
 `,
 
-// Sidebar pour les onglets
 DashboardSidebar: styled.div`
-background: ${(props) => props.theme.colors.sidebarBackground || '#ffffff'};
-padding: 40px;
-border-radius: 20px;
-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+background: ${(props) => props.theme.colors.sidebarBackground };
+padding: 30px;
+border-radius: 25px;
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 position: fixed;
-top: ${(props) => props.theme.navbarHeight || '70px'};
+top: ${(props) => props.theme.navbarHeight || "110px"};
 left: 0;
-height: calc(100% - ${(props) => props.theme.navbarHeight || '70px'});
+height: calc(100% - ${(props) => props.theme.navbarHeight || "110px"});
 width: 280px;
 overflow-y: auto;
-`,
 
+@media (max-width: 992px) {
+  width: 200px; /* Réduction de la largeur pour les écrans moyens */
+}
+
+@media (max-width: 768px) {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 15px;
+}
+`,
 // Élément de navigation dans la sidebar
 DashboardNavItem: styled.li`
 margin-bottom: 30px;
@@ -1096,18 +1115,31 @@ i {
 }
 `,
 
-// Contenu principal du tableau de bord
 DashboardContent: styled.div`
-padding: 50px;
-margin-left: 320px; /* Pour laisser de la place à la sidebar */
-background: ${(props) => props.theme.colors.contentBackground || '#ffffff'};
-border-radius: 20px;
-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+padding: 10px;
+
+margin-top: 50px;
+width: 100%;
+background: ${(props) => props.theme.colors.contentBackground};
+border-radius: 25px;
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+
+@media (max-width: 992px) {
+  margin-left: 180px; /* Ajustement pour les écrans moyens */
+}
+
+@media (max-width: 768px) {
+  margin-left: 0;
+  margin-top: 10px;
+  width: 100%;
+  padding: 0px;
+}
 `,
+
 
 // Conteneur pour les onglets
 DashboardTabPane: styled.div`
-padding: 40px;
 background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
 border-radius: 18px;
 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
@@ -1159,19 +1191,19 @@ TableWrapper: styled.div`
 ResponsiveTable: styled.table`
   width: 100%;
   border-collapse: collapse;
-  background: ${(props) => props.theme.colors.tableBackground || '#f9f9f9'};
+  background: ${(props) => props.theme.colors.tableBackground };
   border-radius: 12px;
   overflow: hidden;
 
   th, td {
     padding: 15px;
     text-align: left;
-    border: 1px solid ${(props) => props.theme.colors.tableBorder || '#000000'};
+    border: 1px solid ${(props) => props.theme.colors.tableBorder };
   }
 
   th {
-    background: ${(props) => props.theme.colors.tableHeaderBackground || '#000000'};
-    color: ${(props) => props.theme.colors.tableHeaderText || '#ffffff'};
+    background: ${(props) => props.theme.colors.tableHeaderBackground};
+    color: ${(props) => props.theme.colors.tableHeaderText };
     font-weight: bold;
     text-transform: uppercase;
   }
@@ -1195,7 +1227,7 @@ ResponsiveTable: styled.table`
       display: block;
       text-align: right;
       position: relative;
-      padding-left: 50%;
+      padding-left: 30%;
     }
 
     td::before {
@@ -1249,6 +1281,9 @@ border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder };
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 max-width: 800px;
 margin: 0 auto;
+  @media (max-width: 768px) {
+    max-width:none;
+  }
 `,
 
 AddNewAddressButton: styled.button`
@@ -1419,7 +1454,7 @@ CarrierTable: styled.table`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
   th, td {
-    padding: 15px;
+    padding: 5px;
     text-align: left;
     border: 1px solid ${(props) => props.theme.colors.tableBorder };
   }
@@ -1444,7 +1479,6 @@ CarrierTable: styled.table`
 
 CarrierTableContainer: styled.div`
   overflow-x: auto;
-  padding: 20px;
   background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

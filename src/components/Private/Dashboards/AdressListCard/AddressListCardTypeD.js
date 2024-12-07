@@ -93,8 +93,8 @@ const AddressListCardTypeD = observer(() => {
                 fontSize: '1.2rem',
                 fontWeight: 'bold',
                 background: `linear-gradient(to right, ${(props) =>
-                  props.theme.colors.cardHeaderBackground || '#3498db'}, ${(props) =>
-                  props.theme.colors.cardBodyBackground || '#ffffff'})`,
+                  props.theme.colors.cardHeaderBackground }, ${(props) =>
+                  props.theme.colors.cardBodyBackground })`,
                 color: `${(props) => props.theme.colors.cardHeaderText}`,
                 textAlign: 'center',
                 borderBottom: `2px solid ${(props) =>

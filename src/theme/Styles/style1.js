@@ -122,6 +122,7 @@ export const style1 = {
     `,
 
     CartIcon: styled.div`
+    position: relative;
       cursor: pointer;
       color: ${(props) => props.theme.colors.cartIcon};
     `,
@@ -945,7 +946,7 @@ AddNewAddressButton: styled.a`
   margin-bottom: 20px;
   text-align: center;
   text-decoration: none;
-  border-radius: 12px; /* Aligné avec AddressCard */
+  border-radius: 12px;
   font-weight: bold;
   transition: background-color 0.3s ease;
 
@@ -987,8 +988,6 @@ ButtonGroup: styled.div`
   gap: 10px;
 `,
 EditButton: styled.a`
-  background-color: ${(props) => props.theme.colors.success};
-  color: #fff;
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
@@ -997,14 +996,12 @@ EditButton: styled.a`
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
   &:hover {
     background-color: ${(props) => props.theme.colors.successHover };
   }
 `,
 DeleteButton: styled.button`
   background-color: ${(props) => props.theme.colors.danger};
-  color: #fff;
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
