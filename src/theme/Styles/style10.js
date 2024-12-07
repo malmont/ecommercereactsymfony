@@ -813,6 +813,10 @@ CartItem: styled.div`
     transform: scale(1.02);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   }
+    @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `,
 
 CartItemContainer: styled.div`
@@ -824,7 +828,11 @@ CartItemContainer: styled.div`
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
-  width: 50%;
+  width: 65%;
+   @media (max-width: 768px) {
+    width: 100%;
+      margin: 10px 0px;
+    }
 `,
 
 OrderSummaryContainer: styled.div`
@@ -832,35 +840,44 @@ width: 100%;
 max-width: 550px;
 margin: 2rem auto;
 padding: 2rem;
-background: ${(props) => props.theme.colors.summaryBackground || '#ffffff'};
+background: ${(props) => props.theme.colors.summaryBackground };
 border-radius: 20px;
 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-border: 2px solid ${(props) => props.theme.colors.primary || '#3498db'};
+border: 2px solid ${(props) => props.theme.colors.primary };
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 &:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
+  @media (max-width: 768px) {
+    padding: 10px;
+    gap: 1px;
+    margin:auto;
+    width: 100%;
+  }
 `,
 
 // Titre du résumé de commande
 OrderSummaryTitle: styled.h2`
 font-size: 1.8rem;
 font-weight: bold;
-color: ${(props) => props.theme.colors.primaryText || '#2c3e50'};
+color: ${(props) => props.theme.colors.primaryText };
 margin-bottom: 1.5rem;
 text-align: center;
 text-transform: uppercase;
 letter-spacing: 1px;
 text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+ @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
 `,
 
 // Ligne de séparation subtile
 Divider: styled.hr`
 border: 0;
 height: 2px;
-background: ${(props) => props.theme.colors.primary || '#3498db'};
+background: ${(props) => props.theme.colors.primary };
 margin: 1.5rem 0;
 border-radius: 1px;
 `,
@@ -873,16 +890,16 @@ align-items: center;
 padding: 0.75rem 0;
 font-size: 1rem;
 font-weight: 500;
-color: ${(props) => props.theme.colors.textSecondary || '#7f8c8d'};
+color: ${(props) => props.theme.colors.textSecondary };
 `,
 
 // Texte standard pour les détails
 OrderSummaryText: styled.span`
-color: ${(props) => props.theme.colors.textSecondary || '#7f8c8d'};
+color: ${(props) => props.theme.colors.textSecondary };
 transition: color 0.3s ease;
 
 &:hover {
-  color: ${(props) => props.theme.colors.primary || '#3498db'};
+  color: ${(props) => props.theme.colors.primary };
 }
 `,
 
@@ -890,7 +907,7 @@ transition: color 0.3s ease;
 OrderSummaryHighlight: styled.span`
 font-weight: bold;
 font-size: 1.3rem;
-color: ${(props) => props.theme.colors.primary || '#3498db'};
+color: ${(props) => props.theme.colors.primary };
 text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   @media (max-width: 768px) {
     font-size: 0.9rem;
@@ -903,10 +920,10 @@ width: 100%;
 padding: 1rem;
 background: linear-gradient(
   90deg,
-  ${(props) => props.theme.colors.primary || '#3498db'},
-  ${(props) => props.theme.colors.secondary || '#2ecc71'}
+  ${(props) => props.theme.colors.primary },
+  ${(props) => props.theme.colors.textSecondaryColor }
 );
-color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+color: ${(props) => props.theme.colors.buttonText };
 border: none;
 border-radius: 15px;
 font-size: 1.2rem;
@@ -935,13 +952,19 @@ transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 `,
 
 CarrierContainer: styled.div`
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-gap: 15px;
-padding: 20px;
+display: flex;
+flex-wrap: wrap;
+justify-content: center
+gap: 10px;
+padding: 10px;
 background: ${(props) => props.theme.colors.lightBackground || "#f7faff"};
 border-radius: 15px;
 box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+@media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    padding: px;
+  }
 `,
 
 CarrierCard: styled.div`
@@ -949,15 +972,16 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-padding: 15px;
+padding: 10px;
+margin: 5px;
 background: ${(props) =>
   props.isSelected
-    ? props.theme.colors.highlightBackground || "#eaf5ff"
-    : props.theme.colors.cardBackground || "#ffffff"};
+    ? props.theme.colors.hoverBackground 
+    : props.theme.colors.cardBackground };
 border: ${(props) =>
   props.isSelected
-    ? `3px solid ${props.theme.colors.highlightBorder || "#3498db"}`
-    : `1px solid ${props.theme.colors.cardBorder || "#ccc"}`};
+    ? `3px solid ${props.theme.colors.cardBackground }`
+    : `1px solid ${props.theme.colors.hoverBackground }`};
 border-radius: 20px;
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 cursor: pointer;
@@ -969,7 +993,7 @@ transition: all 0.4s ease;
 }
 
 img {
-  width: 80px;
+  width: 50px;
   height: auto;
   margin-bottom: 10px;
 }
@@ -978,6 +1002,10 @@ span {
   font-size: 0.9rem;
   color: ${(props) => props.theme.colors.text || "#444"};
 }
+     @media (max-width: 768px) {
+    width: 80px;
+    height: 80px;
+    }
 `,
 
 AddressContainer: styled.div`
@@ -994,12 +1022,12 @@ AddressCard: styled.div`
 padding: 15px;
 background: ${(props) =>
   props.isSelected
-    ? props.theme.colors.highlightBackground || "#eaf5ff"
-    : props.theme.colors.cardBackground || "#ffffff"};
+    ? props.theme.colors.hoverBackground 
+    : props.theme.colors.cardBackground };
 border: ${(props) =>
   props.isSelected
-    ? `2px solid ${props.theme.colors.highlightBorder || "#3498db"}`
-    : `1px solid ${props.theme.colors.cardBorder || "#ccc"}`};
+     ? `3px solid ${props.theme.colors.cardBackground }`
+    : `1px solid ${props.theme.colors.hoverBackground }`};
 border-radius: 15px;
 box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
 cursor: pointer;
@@ -1037,12 +1065,12 @@ align-items: center;
 justify-content: center;
 background: ${(props) =>
   props.isSelected
-    ? props.theme.colors.highlightBackground || "#eaf5ff"
-    : props.theme.colors.cardBackground || "#ffffff"};
+ ? props.theme.colors.hoverBackground 
+    : props.theme.colors.cardBackground };
 border: ${(props) =>
   props.isSelected
-    ? `3px solid ${props.theme.colors.highlightBorder || "#3498db"}`
-    : `1px solid ${props.theme.colors.cardBorder || "#ccc"}`};
+       ? `3px solid ${props.theme.colors.cardBackground }`
+    : `1px solid ${props.theme.colors.hoverBackground }`};
 border-radius: 15px;
 box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
 cursor: pointer;
@@ -1063,6 +1091,11 @@ span {
   font-size: 0.85rem;
   color: ${(props) => props.theme.colors.text || "#444"};
 }
+  @media (max-width: 768px) {
+  padding: 10px;
+    width: 60px;
+    height: 60px;
+    }
 `,
 DashboardWrapper: styled.div`
     background: ${(props) => props.theme.colors.dashboardBackground || '#ecf0f1'};

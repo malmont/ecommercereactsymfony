@@ -4,6 +4,7 @@ import { useDependencies } from '../../../../../DependencyContext';
 import { styles } from '../../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../../theme/AdminContext';
 import { useTheme } from 'styled-components';
+import styled from 'styled-components';
 
 const CartItemCardTypeB = observer(({ id, image, title, price, quantity = 0, color, size, colorHex, variantId, showButtons }) => {
   const { cartViewModel } = useDependencies();
@@ -11,18 +12,7 @@ const CartItemCardTypeB = observer(({ id, image, title, price, quantity = 0, col
   const selectedStyle = styles[styleChoice];
   const theme = useTheme();
   return (
-    <selectedStyle.CartItemContainer
-      style={{
-        flexDirection: "row",
-        padding: "20px",
-        gap: "15px",
-        border: `1px solid ${theme.colors.cartItemBorder}`,
-        background: theme.colors.cardBackground,
-        borderRadius: "10px",
- 
-      }}
-    >
-    
+    <selectedStyle.CartItemContainer as={CartItemContainer}>
       <selectedStyle.CartItemImage
         src={image}
         alt="item"
@@ -162,3 +152,19 @@ const CartItemCardTypeB = observer(({ id, image, title, price, quantity = 0, col
 });
 
 export default CartItemCardTypeB;
+
+const CartItemContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  gap: 15px;
+  background: ${(props) => props.theme.colors.cardBackground};
+  border-radius: 10px;
+
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 15px;
+    gap: 10px;
+  }
+`;

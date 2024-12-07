@@ -16,6 +16,10 @@ const SectionTitle = styled.h2`
   color: ${(props) => props.theme.colors.titleText};
   font-weight: bold;
   margin-bottom: 1.5rem;
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+    
 `;
 
 const PaymentContainer = styled.div`
@@ -56,9 +60,6 @@ const CheckoutPageCardTypeC = observer(({
                   ? theme?.colors?.navItemHover
                   : theme?.colors?.border}`,
                 borderRadius: '10px',
-                backgroundColor: selectedCarrier?.id === carrier.id
-                  ? theme?.colors?.hoverCardBackground
-                  : theme?.colors?.cardBackground,
                 transition: 'transform 0.3s ease, background-color 0.3s ease',
                 boxShadow: selectedCarrier?.id === carrier.id
                   ? theme?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'
@@ -86,7 +87,7 @@ const CheckoutPageCardTypeC = observer(({
         <SectionTitle>Select Delivery Address</SectionTitle>
         <selectedStyle.AddressContainer style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
           gap: '1.5rem',
         }}>
           {addresses.map((address) => (
@@ -99,7 +100,7 @@ const CheckoutPageCardTypeC = observer(({
                 margin: 0,
                 fontWeight: '600',
                 fontSize: '1rem',
-                color:selectedAddress?.id === address.id? theme?.colors?.hoverText: theme?.colors?.textColor,
+                color:selectedAddress?.id === address.id? theme?.colors?.textColor: theme?.colors?.linkHoverText,
                 marginBottom: '0.5rem',
               }}>
                 {address.fullname}
@@ -107,7 +108,7 @@ const CheckoutPageCardTypeC = observer(({
               <p style={{
                 margin: 0,
                 fontSize: '0.9rem',
-                color:selectedAddress?.id === address.id? theme?.colors?.hoverText: theme?.colors?.textColor,
+                color:selectedAddress?.id === address.id? theme?.colors?.textColor: theme?.colors?.linkHoverText,
               }}>
                 {address.addressLineOne}, {address.city}
               </p>
@@ -133,9 +134,6 @@ const CheckoutPageCardTypeC = observer(({
                   ? theme?.colors?.navItemHover
                   : theme?.colors?.border}`,
                 borderRadius: '50%',
-                backgroundColor: selectedPaymentMethod?.id === method.id
-                  ? theme?.colors?.hoverCardBackground
-                  : theme?.colors?.cardBackground,
                 transition: 'transform 0.3s ease, background-color 0.3s ease',
                 boxShadow: selectedPaymentMethod?.id === method.id
                   ? theme?.colors?.boxShadow || '0 4px 12px rgba(0, 0, 0, 0.2)'

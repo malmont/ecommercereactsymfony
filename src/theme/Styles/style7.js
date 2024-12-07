@@ -878,20 +878,29 @@ ContainerDetailsProduct: styled.div`
       transform: translateY(-5px);
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
     }
+    @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   `,
 
   CartItemContainer: styled.div`
-    width: 60%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin: 20px auto;
+    @media (max-width: 768px) {
+    width: 100%;
+    margin: 10px 0px;
+
+  }
   `,
   OrderSummaryContainer: styled.div`
   width: 100%;
   max-width: 830px;
   margin: 2rem auto;
-  padding: 1.5rem;
+  padding: 1.2rem;
   background: ${(props) => props.theme.colors.cardBackground || '#f7f7f7'};
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -900,6 +909,12 @@ ContainerDetailsProduct: styled.div`
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  }
+    @media (max-width: 768px) {
+    padding: 10px;
+    gap: 1px;
+    margin:auto;
+    width: 100%;
   }
 `,
 
@@ -911,6 +926,9 @@ OrderSummaryTitle: styled.h2`
   margin-bottom: 1rem;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+   @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
 `,
 
 // Ligne de séparation subtile
@@ -983,7 +1001,7 @@ CheckoutButton: styled.button`
   }
 `,
 CarrierContainer: styled.div`
-  width: 700px;
+  
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -1001,16 +1019,22 @@ CarrierContainer: styled.div`
     transform: scale(1.02);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
+    @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 5px;
+  }
 `,
 CarrierCard: styled.div`
-  flex: 1;
-  max-width: 300px;
+  display: flex;
+  flex-direction: row;
+  max-width: 100px;
   padding: 1rem;
   background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
   border: ${(props) =>
     props.isSelected
-      ? `3px solid ${props.theme.colors.selectedBorder || props.theme.colors.primary}`
-      : `2px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+      ? `3px dashed ${props.theme.colors.selectedBorder || props.theme.colors.primary}`
+      : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
   border-radius: 10px;
   box-shadow: ${(props) =>
     props.isSelected
@@ -1023,7 +1047,7 @@ CarrierCard: styled.div`
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    background: ${(props) => props.theme.colors.hoverCardBackground || '#f9f9f9'};
+
   }
 `,
 AddressContainer: styled.div`
@@ -1043,8 +1067,8 @@ AddressCard: styled.div`
   background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
   border: ${(props) =>
     props.isSelected
-      ? `3px solid ${props.theme.colors.selectedBorder || '#007BFF'}`
-      : `2px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+      ? `3px dashed ${props.theme.colors.selectedBorder || '#007BFF'}`
+      : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
   border-radius: 10px;
   box-shadow: ${(props) =>
     props.isSelected
@@ -1071,14 +1095,12 @@ PaymentMethodContainer: styled.div`
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 `,
 PaymentMethodCard: styled.div`
-  flex: 1;
   max-width: 250px;
-  padding: 1rem;
-  background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+  background: ${(props) => props.theme.colors.cardBackground};
   border: ${(props) =>
     props.isSelected
-      ? `3px dashed ${props.theme.colors.selectedBorder || '#007BFF'}`
-      : `2px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+      ? `3px dashed ${props.theme.colors.selectedBorder }`
+      : `1px solid ${props.theme.colors.cardBorder }`};
   border-radius: 10px;
   box-shadow: ${(props) =>
     props.isSelected
@@ -1090,7 +1112,6 @@ PaymentMethodCard: styled.div`
 
   &:hover {
     transform: scale(1.05);
-    background: ${(props) => props.theme.colors.hoverCardBackground || '#f9f9f9'};
   }
 `,
 DashboardWrapper: styled.div`

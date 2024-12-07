@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const style8= {
+export const style8 = {
   navbarHeight: '60px',
 
   TopNavbar: styled.div`
@@ -179,7 +179,7 @@ transition: all 0.3s ease;
 }
 `,
 
-CardProperty: styled.div`
+  CardProperty: styled.div`
   background: ${(props) => props.theme.colors.cardPropertyBackground || '#111'};
   border: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'};
   height: 100%;
@@ -191,14 +191,14 @@ CardProperty: styled.div`
   border-radius: 24px;
 `,
 
-CardImage: styled.img`
+  CardImage: styled.img`
 width: 100%;
 height: 400px;
 object-fit: cover;
 border-bottom: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'};
 `,
 
-CardBody: styled.div`
+  CardBody: styled.div`
 flex-grow: 1;
 display: flex;
 flex-direction: column;
@@ -209,7 +209,7 @@ color: ${(props) => props.theme.colors.cardBodyText || '#000000'};
 text-align: center;
 `,
 
-DiscountBadge: styled.span`
+  DiscountBadge: styled.span`
 background: ${(props) => props.theme.colors.discountBadgeBackground || '#d4af37'};
 color: ${(props) => props.theme.colors.discountBadgeText || '#ffffff'};
 border-radius: 20px;
@@ -221,12 +221,12 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 `,
 
 
-ColorText: styled.p`
+  ColorText: styled.p`
   color: ${(props) => props.theme.colors.colorText || '#0ff'};
   font-size: 1rem;
   margin: 10px 0;
 `,
-Countdown: styled.div`
+  Countdown: styled.div`
   width: 90%;
   background: ${(props) => props.theme.colors.countdownBackground || '#000'};
   color: ${(props) => props.theme.colors.countdownText || '#0ff'};
@@ -237,12 +237,12 @@ Countdown: styled.div`
   border-radius: 12px;
 `,
 
-Time: styled.div`
+  Time: styled.div`
   font-weight: bold;
   font-size: 22px;
   color: ${(props) => props.theme.colors.timeText || '#ff0000'};
 `,
-FeatureWrapper: styled.div`
+  FeatureWrapper: styled.div`
 display: flex;
 justify-content: space-around;
 align-items: center;
@@ -263,7 +263,7 @@ box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 
 `,
 
-FeatureCard: styled.div`
+  FeatureCard: styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -304,7 +304,7 @@ svg {
   }
 }
 `,
-StandardCardExploreCard: styled.div`
+  StandardCardExploreCard: styled.div`
 max-width: 100%;
 padding: 25px;
 min-height: 500px;
@@ -324,7 +324,7 @@ transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 `,
 
-CardExplore: styled.div`
+  CardExplore: styled.div`
 background: ${(props) => props.theme.colors.cardBackground};
 color: ${(props) => props.theme.colors.cardText};
 border: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
@@ -339,7 +339,7 @@ transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 `,
 
-RowExplore: styled.div`
+  RowExplore: styled.div`
 display: flex;
 gap: 20px;
 margin: 30px 0;
@@ -347,12 +347,12 @@ flex-wrap: wrap;
 justify-content: space-evenly;
 `,
 
-ColumnExplore: styled.div`
+  ColumnExplore: styled.div`
 flex: 1;
 min-width: 340px;
 `,
 
-CardBodyExplore: styled.div`
+  CardBodyExplore: styled.div`
 padding: 30px;
 text-align: center;
 background: ${(props) => props.theme.colors.cardBodyBackground};
@@ -360,7 +360,7 @@ border-top: 1px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; 
 border-radius: 0 0 25px 25px;
 `,
 
-DifferentCardExploreCard: styled.div`
+  DifferentCardExploreCard: styled.div`
 max-width: 100%;
 padding: 30px;
 background: ${(props) => props.theme.colors.differentCardBackground};
@@ -375,7 +375,7 @@ transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 `,
 
-ContentExplore: styled.div`
+  ContentExplore: styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -393,7 +393,7 @@ transition: background-color 0.4s ease;
 
 
 
-ImageWrapperExploreDifferent: styled.div`
+  ImageWrapperExploreDifferent: styled.div`
  width: 100%;
 height: 450px;
 overflow: hidden;
@@ -405,7 +405,7 @@ align-items: center;
 border-bottom: 3px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
 `,
 
-ImageWrapperExploreStandart: styled.div`
+  ImageWrapperExploreStandart: styled.div`
 width: 100%;
 height: 450px;
 overflow: hidden;
@@ -417,7 +417,7 @@ align-items: center;
 border-bottom: 3px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
 `,
 
-CardImageExploreStandart:styled.img`
+  CardImageExploreStandart: styled.img`
 width: auto;
 height: 100%;
 object-fit: cover;
@@ -428,7 +428,7 @@ transition: transform 0.3s ease;
 }
 `,
 
-CardImageExploreDifferent: styled.img`
+  CardImageExploreDifferent: styled.img`
 width: auto;
 height: 100%;
 object-fit: cover;
@@ -439,12 +439,12 @@ transition: transform 0.3s ease;
 }
 `,
 
-DetailsExplore: styled.div`
+  DetailsExplore: styled.div`
 padding: 25px;
 text-align: center;
 `,
 
-TitleExplore: styled.h3`
+  TitleExplore: styled.h3`
 font-size: 2rem;
 font-weight: bold;
 color: ${(props) => props.theme.colors.titleText};
@@ -452,7 +452,7 @@ margin-bottom: 20px;
 text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 `,
 
-DescriptionExplore: styled.p`
+  DescriptionExplore: styled.p`
 font-size: 1.2rem;
 line-height: 1.8;
 color: ${(props) => props.theme.colors.descriptionText};
@@ -462,7 +462,7 @@ overflow: hidden;
 text-overflow: ellipsis;
 `,
 
-LinkExplore: styled.a`
+  LinkExplore: styled.a`
 font-size: 1.2rem;
 font-weight: bold;
 color: ${(props) => props.theme.colors.linkText};
@@ -475,7 +475,7 @@ border-bottom: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'
   transform: scale(1.1);
 }
 `,
-EmailCardContainer : styled.div`
+  EmailCardContainer: styled.div`
   display: flex;
 align-items: center;
 max-width: 700px;
@@ -489,7 +489,7 @@ overflow: hidden;
 `,
 
 
-ContainerDetailsProduct: styled.div`
+  ContainerDetailsProduct: styled.div`
 padding: 50px;
 background: linear-gradient(
   135deg,
@@ -507,7 +507,7 @@ transition: all 0.3s ease;
 }
 `,
 
-PrincipalDetailsDetailProduct: styled.div`
+  PrincipalDetailsDetailProduct: styled.div`
 padding: 40px;
 background: radial-gradient(
   circle,
@@ -523,7 +523,7 @@ border-radius: 15px;
 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 `,
 
-ImageEncadrement: styled.img`
+  ImageEncadrement: styled.img`
 width: 100%;
 max-width: 450px;
 border-radius: 15px;
@@ -537,21 +537,21 @@ transition: transform 0.3s ease;
 }
 `,
 
-ColorSelectionDetailProduct: styled.div`
+  ColorSelectionDetailProduct: styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
 gap: 20px;
 `,
 
-ColorOptionsDetailProduct: styled.div`
+  ColorOptionsDetailProduct: styled.div`
 display: flex;
 gap: 10px;
 flex-wrap: wrap;
 justify-content: center;
 `,
 
-ColorButton: styled.button`
+  ColorButton: styled.button`
 width: 50px;
 height: 50px;
 border-radius: 50%;
@@ -565,20 +565,20 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 `,
 
-SizeSelectionDetailProduct: styled.div`
+  SizeSelectionDetailProduct: styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
 gap: 20px;
 `,
 
-SizeOptionsDetailProduct: styled.div`
+  SizeOptionsDetailProduct: styled.div`
 display: flex;
 gap: 15px;
 justify-content: center;
 `,
 
-SizeButton: styled.button`
+  SizeButton: styled.button`
 width: 60px;
 height: 60px;
 background-color: ${(props) => (props.isSelected ? props.theme?.colors?.goldAccent || "#d4af37" : "#f5f5f5")};
@@ -595,7 +595,7 @@ transition: transform 0.3s ease, background-color 0.3s ease;
   color: #fff;
 }
 `,
-ObjectFeatureDetailProduct: styled.div`
+  ObjectFeatureDetailProduct: styled.div`
   text-align: center;
   padding: 20px;
   background: ${(props) => props.theme?.colors?.featureBackground || "#ffffff"};
@@ -615,7 +615,7 @@ ObjectFeatureDetailProduct: styled.div`
   }
 `,
 
-InfoSelectionDetailProduct: styled.div`
+  InfoSelectionDetailProduct: styled.div`
 margin-top: 20px;
 padding: 15px 25px;
 background-color: ${(props) => props.theme?.colors?.infoBackground || "#f5f5f5"};
@@ -632,7 +632,7 @@ transition: transform 0.3s ease;
 }
 `,
 
-FeatureDetailProduct: styled.div`
+  FeatureDetailProduct: styled.div`
 display: flex;
 flex-wrap: wrap;
 gap: 20px;
@@ -647,15 +647,15 @@ background: linear-gradient(
 border-radius: 15px;
 box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 `,
-ColorCircle: styled.div`
+  ColorCircle: styled.div`
 width: 40px;
 height: 40px;
 border-radius: 50%;
 background-color: ${(props) => props.color || '#ddd'};
 border: ${(props) =>
-  props.isSelected
-    ? `3px solid ${props.theme.colors.goldAccent || '#d4af37'}`
-    : '2px solid #ccc'};
+      props.isSelected
+        ? `3px solid ${props.theme.colors.goldAccent || '#d4af37'}`
+        : '2px solid #ccc'};
 transition: all 0.3s ease;
 
 &:hover {
@@ -664,20 +664,20 @@ transition: all 0.3s ease;
 }
 `,
 
-SizeCircle: styled.div`
+  SizeCircle: styled.div`
 width: 40px;
 height: 40px;
 border-radius: 50%;
 background-color: ${(props) =>
-  props.isSelected ? props.theme.colors.goldAccent || '#d4af37' : '#f7f7f7'};
+      props.isSelected ? props.theme.colors.goldAccent || '#d4af37' : '#f7f7f7'};
 color: ${(props) => (props.isSelected ? '#fff' : '#000')};
 display: flex;
 align-items: center;
 justify-content: center;
 border: ${(props) =>
-  props.isSelected
-    ? `3px solid ${props.theme.colors.goldAccent || '#d4af37'}`
-    : '2px solid #ccc'};
+      props.isSelected
+        ? `3px solid ${props.theme.colors.goldAccent || '#d4af37'}`
+        : '2px solid #ccc'};
 font-weight: bold;
 font-size: 0.9rem;
 transition: all 0.3s ease;
@@ -688,7 +688,7 @@ transition: all 0.3s ease;
 }
 `,
 
-CartItemQuantity: styled.div`
+  CartItemQuantity: styled.div`
 font-size: 0.9rem;
 font-weight: bold;
 color: ${(props) => props.theme.colors.textPrimary};
@@ -696,7 +696,7 @@ margin: 0 5px;
 text-align: center;
 `,
 
-CartItemButton: styled.button`
+  CartItemButton: styled.button`
 background: ${(props) => props.theme.colors.buttonBackground};
 color: ${(props) => props.theme.colors.buttonText};
 border: none;
@@ -716,7 +716,7 @@ transition: all 0.3s ease;
 }
 `,
 
-IncrDecButton: styled.button`
+  IncrDecButton: styled.button`
 background: ${(props) => props.theme.colors.buttonBackground};
 color: ${(props) => props.theme.colors.buttonText};
 border: none;
@@ -736,32 +736,32 @@ transition: all 0.3s ease;
 }
 `,
 
-CartItemIncrDec: styled.div`
+  CartItemIncrDec: styled.div`
 display: flex;
 align-items: center;
 gap: 8px;
 `,
 
-CartItemVariantInfo: styled.div`
+  CartItemVariantInfo: styled.div`
 font-size: 0.8rem;
 color: ${(props) => props.theme.colors.textSecondary};
 `,
 
-CartItemPrice: styled.div`
+  CartItemPrice: styled.div`
 font-size: 1.1rem;
 font-weight: bold;
 color: ${(props) => props.theme.colors.goldAccent || '#d4af37'};
 margin-top: 5px;
 `,
 
-CartItemTitle: styled.div`
+  CartItemTitle: styled.div`
 font-size: 1rem;
 font-weight: bold;
 color: ${(props) => props.theme.colors.textPrimary};
 text-align: left;
 `,
 
-CartItemImage: styled.img`
+  CartItemImage: styled.img`
 width: 200px;
 height: 300px;
 border-radius: 5px;
@@ -772,20 +772,20 @@ border: 2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'};
 
 `,
 
-CartItemInfo: styled.div`
+  CartItemInfo: styled.div`
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 gap: 5px;
 `,
 
-CartItem: styled.div`
+  CartItem: styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
 padding: 10px;
 background: ${(props) => props.theme.colors.cardBackground};
-border: 2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+border: 2px solid ${(props) => props.theme.colors.goldAccent };
 border-radius: 8px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 transition: all 0.3s ease;
@@ -794,36 +794,48 @@ transition: all 0.3s ease;
   transform: scale(1.03);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
+   @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `,
 
-CartItemContainer: styled.div`
-width: 55%;
-display: flex;
-flex-direction: column;
-gap: 10px;
-background: ${(props) => props.theme.colors.containerBackground};
-padding: 15px;
-border-radius: 10px;
-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-margin: 20px;
-
+  CartItemContainer: styled.div`
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: ${(props) => props.theme.colors.containerBackground};
+  border: 2px solid ${(props) => props.theme.colors.goldAccent };
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  @media (max-width: 768px) {
+      width: 100%;
+  margin: 10px 0px;
+  }
 
 `,
-OrderSummaryContainer: styled.div`
+  OrderSummaryContainer: styled.div`
     width: 100%;
-    max-width: 550px;
     margin: 2rem auto;
     padding: 1.5rem;
-    background: ${(props) => props.theme.colors.cardBackground || '#fff'};
+    background: ${(props) => props.theme.colors.cardBackground };
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+    border: 2px solid ${(props) => props.theme.colors.goldAccent};
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
     }
+    @media (max-width: 768px) {
+    padding: 10px;
+    margin:auto;
+    width: 100%;
+  }
   `,
 
   // Titre du résumé de commande
@@ -834,6 +846,9 @@ OrderSummaryContainer: styled.div`
     margin-bottom: 1rem;
     text-align: center;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
   `,
 
   // Ligne de séparation subtile
@@ -905,28 +920,33 @@ OrderSummaryContainer: styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 20px;
+    gap: 20px
     padding: 20px;
     background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
   `,
 
   CarrierCard: styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 130px;
-    height: 130px;
-    padding: 15px;
+    width: 100px;
+    height: 100px;
+    padding: 5px;
     background: ${(props) =>
       props.isSelected
-        ? props.theme.colors.cardSelectedBackground || '#d4af37'
-        : props.theme.colors.cardBackground || '#ffffff'};
+        ? props.theme.colors.goldAccent 
+        : props.theme.colors.cardBackground };
     border: ${(props) =>
       props.isSelected
-        ? `3px solid ${props.theme.colors.cardSelectedBorder || '#d4af37'}`
-        : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+        ? `3px solid ${props.theme.colors.goldAccent}`
+        : `1px solid ${props.theme.colors.cardBorder }`};
     border-radius: 15px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -938,8 +958,12 @@ OrderSummaryContainer: styled.div`
     }
 
     img {
-      width: 80px;
+      width: 50px;
       height: auto;
+    }
+      @media (max-width: 768px) {
+    width: 70px;
+    height: 70px;
     }
   `,
 
@@ -961,12 +985,12 @@ OrderSummaryContainer: styled.div`
     padding: 15px;
     background: ${(props) =>
       props.isSelected
-        ? props.theme.colors.cardSelectedBackground || '#d4af37'
-        : props.theme.colors.cardBackground || '#ffffff'};
+        ? props.theme.colors.goldAccent 
+        : props.theme.colors.cardBackground };
     border: ${(props) =>
       props.isSelected
-        ? `3px solid ${props.theme.colors.cardSelectedBorder || '#d4af37'}`
-        : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+        ? `3px solid ${props.theme.colors.goldAccent}`
+        : `1px solid ${props.theme.colors.cardBorder}`};
     border-radius: 15px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -1003,12 +1027,12 @@ OrderSummaryContainer: styled.div`
     padding: 15px;
     background: ${(props) =>
       props.isSelected
-        ? props.theme.colors.cardSelectedBackground || '#d4af37'
-        : props.theme.colors.cardBackground || '#ffffff'};
+        ? props.theme.colors.goldAccent 
+        : props.theme.colors.cardBackground };
     border: ${(props) =>
       props.isSelected
-        ? `3px solid ${props.theme.colors.cardSelectedBorder || '#d4af37'}`
-        : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+        ? `3px solid ${props.theme.colors.goldAccent}`
+        : `1px solid ${props.theme.colors.cardBorder}`};
     border-radius: 15px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -1023,10 +1047,14 @@ OrderSummaryContainer: styled.div`
       width: 80px;
       height: auto;
     }
+    @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+    }
   `,
 
   // Sidebar pour les onglets
- 
+
   DashboardWrapper: styled.div`
   background-color: ${(props) => props.theme.colors.contentBackground || '#f4f4f4'};
   min-height: 66vh;
@@ -1062,9 +1090,9 @@ OrderSummaryContainer: styled.div`
     overflow: hidden;
     border: 2px solid
       ${(props) =>
-        props.className?.includes('active')
-          ? props.theme.colors.goldAccent || '#d4af37'
-          : 'transparent'};
+      props.className?.includes('active')
+        ? props.theme.colors.goldAccent || '#d4af37'
+        : 'transparent'};
 
     &:hover {
       background-color: ${(props) => props.theme.colors.navItemHoverBackground || '#f5f5f5'} !important;
@@ -1137,7 +1165,7 @@ height: calc(100% - ${(props) => props.theme.navbarHeight || '70px'});
 width: 280px;
 overflow-y: auto;
 `,
-TableWrapper: styled.div`
+  TableWrapper: styled.div`
 overflow-x: auto;
 margin: 20px 0;
 padding: 20px;
@@ -1153,7 +1181,7 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 `,
 
-ResponsiveTable: styled.table`
+  ResponsiveTable: styled.table`
 width: 100%;
 border-collapse: collapse;
 font-size: 0.95rem;
@@ -1205,7 +1233,7 @@ td {
 }
 `,
 
-TableButton: styled.button`
+  TableButton: styled.button`
 padding: 10px 20px;
 background: ${(props) => props.theme.colors.buttonBackground || '#d4af37'};
 color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
@@ -1226,7 +1254,7 @@ transition: background-color 0.3s ease, transform 0.3s ease;
 }
 `,
 
-TableEmptyMessage: styled.p`
+  TableEmptyMessage: styled.p`
 font-size: 1.2rem;
 text-align: center;
 color: ${(props) => props.theme.colors.emptyMessageText || '#999'};
@@ -1237,7 +1265,7 @@ border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#d4af3
 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 animation: fadeIn 0.8s ease-in-out;
 `,
-AddressListWrapper: styled.div`
+  AddressListWrapper: styled.div`
     padding: 30px;
     background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
     border-radius: 20px;
@@ -1392,7 +1420,7 @@ AddressListWrapper: styled.div`
   max-width: 600px;
 `,
 
-CarrierImage: styled.img`
+  CarrierImage: styled.img`
   width: 100px;
   height: auto;
   object-fit: cover;
@@ -1407,7 +1435,7 @@ CarrierImage: styled.img`
   }
 `,
 
-CarrierTable: styled.table`
+  CarrierTable: styled.table`
   width: 100%;
   border-collapse: collapse;
   background: ${(props) => props.theme.colors.tableBackground || '#ffffff'};
@@ -1439,7 +1467,7 @@ CarrierTable: styled.table`
   }
 `,
 
-CarrierTableContainer: styled.div`
+  CarrierTableContainer: styled.div`
   overflow-x: auto;
   padding: 20px;
   background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
@@ -1451,7 +1479,7 @@ CarrierTableContainer: styled.div`
   margin: 0 auto;
 `,
 
-CarrierWrapper: styled.div`
+  CarrierWrapper: styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;

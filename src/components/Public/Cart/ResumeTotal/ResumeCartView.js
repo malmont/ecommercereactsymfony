@@ -42,7 +42,7 @@ const Wrapper = styled.div`
   padding: 10px 10px 0 10px;
   gap: 20px;
   flex: 1;
-  width: 500px;
+  width: 650px;
 }
 
 .cart__left {

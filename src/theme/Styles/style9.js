@@ -737,6 +737,10 @@ ContainerDetailsProduct: styled.div`
       transform: scale(1.02);
       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
     }
+       @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   `,
 
   CartItemContainer: styled.div`
@@ -749,7 +753,11 @@ ContainerDetailsProduct: styled.div`
     border: 1px solid ${(props) => props.theme.colors.blackAccent || '#000000'};
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     margin-bottom: 10px;
-    width: 55%;
+    width: 75%;
+     @media (max-width: 768px) {
+    width: 100%;
+      margin: 10px 0px;
+    }
   `,
 
   CartItemVariantInfo: styled.div`
@@ -811,6 +819,12 @@ ContainerDetailsProduct: styled.div`
     transform: scale(1.02);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   }
+    @media (max-width: 768px) {
+    padding: 10px;
+    gap: 1px;
+    margin:auto;
+    width: 100%;
+  }
 `,
 OrderSummaryTitle: styled.h2`
   font-size: 1.8rem;
@@ -819,6 +833,9 @@ OrderSummaryTitle: styled.h2`
   margin-bottom: 1.5rem;
   text-align: center;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
 `,
 Divider: styled.hr`
   border: none;
@@ -885,23 +902,28 @@ padding: 20px;
 background: ${(props) => props.theme.colors.containerBackground || '#f0f0f0'};
 border-radius: 15px;
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+@media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    padding: 5px;
+  }
 `,
 
 CarrierCard: styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-width: 120px;
-height: 120px;
-padding: 15px;
+width: 100px;
+height: 100px;
+padding: 5px;
 background: ${(props) =>
   props.isSelected
-    ? props.theme.colors.cardSelectedBackground || '#333'
-    : props.theme.colors.cardBackground || '#ffffff'};
+    ? props.theme.colors.cardSelectedBackground
+    : props.theme.colors.cardBackground };
 border: ${(props) =>
   props.isSelected
-    ? `3px solid ${props.theme.colors.cardSelectedBorder || '#000000'}`
-    : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+    ? `3px solid ${props.theme.colors.cardSelectedBorder }`
+    : `1px solid ${props.theme.colors.cardBorder }`};
 border-radius: 12px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 cursor: pointer;
@@ -916,14 +938,22 @@ img {
   width: 60px;
   height: auto;
 }
+     @media (max-width: 768px) {
+    width: 70px;
+    height: 70px;
+    }
 `,
 
 AddressContainer: styled.div`
 display: flex;
 flex-wrap: wrap;
 gap: 15px;
-padding: 15px;
-background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+padding: 5px;
+background: ${(props) => props.theme.colors.containerBackground };
+border: ${(props) =>
+  props.isSelected
+     ? `3px solid ${props.theme.colors.cardSelectedBorder }`
+    : `1px solid ${props.theme.colors.cardBorder }`};
 border-radius: 15px;
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 `,
@@ -932,12 +962,12 @@ AddressCard: styled.div`
 padding: 12px;
 background: ${(props) =>
   props.isSelected
-    ? props.theme.colors.cardSelectedBackground || '#333'
-    : props.theme.colors.cardBackground || '#ffffff'};
+   ? props.theme.colors.cardSelectedBackground
+    : props.theme.colors.cardBackground };
 border: ${(props) =>
   props.isSelected
-    ? `3px solid ${props.theme.colors.cardSelectedBorder || '#000000'}`
-    : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+     ? `3px solid ${props.theme.colors.cardBorder }`
+    : `1px solid ${props.theme.colors.cardSelectedBorder }`};
 border-radius: 12px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 cursor: pointer;
@@ -950,8 +980,12 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 p {
   font-size: 1rem;
-  color: ${(props) => props.theme.colors.textPrimary || '#333'};
+  color: ${(props) => props.theme.colors.textPrimary };
 }
+  @media (max-width: 768px) {
+    width: 100%;
+   
+    } 
 `,
 
 PaymentMethodContainer: styled.div`
@@ -959,7 +993,7 @@ display: flex;
 flex-wrap: wrap;
 gap: 20px;
 padding: 15px;
-background: ${(props) => props.theme.colors.containerBackground || '#f0f0f0'};
+background: ${(props) => props.theme.colors.containerBackground };
 border-radius: 15px;
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 `,
@@ -973,12 +1007,12 @@ align-items: center;
 padding: 10px;
 background: ${(props) =>
   props.isSelected
-    ? props.theme.colors.cardSelectedBackground || '#333'
-    : props.theme.colors.cardBackground || '#ffffff'};
+ ? props.theme.colors.cardSelectedBackground
+    : props.theme.colors.cardBackground };
 border: ${(props) =>
   props.isSelected
-    ? `3px solid ${props.theme.colors.cardSelectedBorder || '#000000'}`
-    : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+    ? `3px solid ${props.theme.colors.cardSelectedBorder }`
+    : `1px solid ${props.theme.colors.cardBorder }`};
 border-radius: 12px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 cursor: pointer;
@@ -993,6 +1027,10 @@ img {
   width: 50px;
   height: auto;
 }
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+    }
 `,
 DashboardWrapper: styled.div`
 background: ${(props) => props.theme.colors.dashboardBackground || '#f0f0f0'};

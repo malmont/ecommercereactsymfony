@@ -47,6 +47,7 @@ const CarrierContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
   gap: 1rem;
+
 `;
 
 const AddressContainer = styled.div`
@@ -97,10 +98,11 @@ const CheckoutPageCardTypeF = observer(({
               onClick={() => selectCarrier(carrier.id)}
               isSelected={selectedCarrier?.id === carrier.id}
               style={{
-                width: "80px",
+                width: "70px",
                 cursor: "pointer",
-                padding: "1.5rem",
+                padding: "1rem",
                 borderRadius: "16px",
+                
                 background: selectedCarrier?.id === carrier.id
                   ? theme?.colors?.hoverCardBackground
                   : theme?.colors?.cardBackground,

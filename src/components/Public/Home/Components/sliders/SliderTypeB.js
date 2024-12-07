@@ -90,6 +90,8 @@ const SliderWrapper = styled.div`
     text-align: center;
     animation: fade-in 3s ease-in-out;
     color: ${(props) => props.theme.colors.colorText};
+    background-color: rgba(0, 0, 0, 0.2); 
+  }
 
     .subtitle {
       font-size: 1.2rem;

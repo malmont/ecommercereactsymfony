@@ -761,7 +761,7 @@ OrderSummaryContainer: styled.div`
     padding: 10px;
     gap: 1px;
     margin:auto;
-    width: 110%;
+    width: 100%;
   }
 `,
 
