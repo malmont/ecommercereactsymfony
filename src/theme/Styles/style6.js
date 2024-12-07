@@ -676,7 +676,7 @@ ContainerDetailsProduct: styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: ${(props) => props.color};
+  background-color: ${(props) => props.theme.colors.sizeCircleBackground};
   border: ${(props) => (props.isSelected ? `2px solid ${props.theme.colors.primary}` : '2px solid #ccc')};
   cursor: pointer;
   display: flex;
@@ -686,17 +686,17 @@ ContainerDetailsProduct: styled.div`
 
   &:hover {
     transform: scale(1.1);
-    border-color: ${(props) => props.theme.colors.hoverBorder};
+    background-color: ${(props) => props.theme.colors.hoverBackground};
   }
 `,
 
 SizeCircle: styled.div`
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: ${(props) => props.theme.colors.sizeCircleBackground};
   border: ${(props) => (props.isSelected ? `2px solid ${props.theme.colors.primary}` : '2px solid #ccc')};
-  color: ${(props) => (props.isSelected ? '#fff' : props.theme.colors.textColor)};
+  color: ${(props) => (props.isSelected ? '#fff' : props.theme.colors.buttonText)};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -786,12 +786,15 @@ CartItemPrice: styled.div`
   margin-top: 1rem;
 `,
 
-CartItemTitle: styled.h3`
-  font-size: 1.2rem;
+CartItemTitle: styled.h1`
+  font-size: 1.9rem;
   font-weight: bold;
   color: ${(props) => props.theme.colors.textPrimary};
   margin-bottom: 0.5rem;
   text-align: left;
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
 `,
 
 CartItemImage: styled.img`
@@ -822,6 +825,10 @@ CartItem: styled.div`
   &:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
+      @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `,
 
 CartItemContainer: styled.div`
@@ -830,6 +837,12 @@ CartItemContainer: styled.div`
   flex-direction: column;
   gap: 2rem;
   margin: 1rem 20px;
+   @media (max-width: 768px) {
+    width: 100%;
+    margin: 10px 0px;
+
+  }
+  
 `,
 OrderSummaryContainer: styled.div`
 width: 100%;
@@ -849,6 +862,12 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
+  @media (max-width: 768px) {
+    padding: 10px;
+    gap: 1px;
+    margin:auto;
+    width: 100%;
+  }
 `,
 
 // Titre du résumé de commande
@@ -859,6 +878,9 @@ color: ${(props) => props.theme.colors.logoText};
 text-align: center;
 text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 margin-bottom: 1.5rem;
+@media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
 `,
 
 // Ligne de séparation subtile
@@ -949,25 +971,28 @@ CarrierContainer: styled.div`
     );
     border-radius: 20px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 5px;
+    width: 100%;
+  }
   `,
 
   CarrierCard: styled.div`
-  width: 30%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1rem;
   background: ${(props) => props.theme.colors.cardBackground};
   border: ${(props) =>
     props.isSelected
-      ? `3px solid ${props.theme.colors.selectedBorder || props.theme.colors.primary}`
-      : `2px solid ${props.theme.colors.cardBorder}`};
+      ? `4px solid ${props.theme.colors.selectedBorder || props.theme.colors.primary}`
+      : `1px solid ${props.theme.colors.cardBorder}`};
   border-radius: 15px;
-  box-shadow: ${(props) =>
-    props.isSelected
-      ? '0 10px 25px rgba(0, 0, 255, 0.3)'
-      : '0 8px 20px rgba(0, 0, 0, 0.15)'};
+
   transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
   cursor: pointer;
 
@@ -1001,13 +1026,9 @@ CarrierContainer: styled.div`
   background: ${(props) => props.theme.colors.cardBackground};
   border: ${(props) =>
     props.isSelected
-      ? `3px solid ${props.theme.colors.selectedBorder || props.theme.colors.primary}`
-      : `2px solid ${props.theme.colors.cardBorder}`};
+      ? `4px solid ${props.theme.colors.selectedBorder || props.theme.colors.primary}`
+      : `1px solid ${props.theme.colors.cardBorder}`};
   border-radius: 15px;
-  box-shadow: ${(props) =>
-    props.isSelected
-      ? '0 10px 25px rgba(0, 0, 255, 0.3)'
-      : '0 8px 20px rgba(0, 0, 0, 0.15)'};
   transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
   cursor: pointer;
 
@@ -1026,7 +1047,7 @@ CarrierContainer: styled.div`
     align-items: center;
     gap: 20px;
     margin-top: 2rem;
-    padding: 1.5rem;
+   
     background: ${(props) => props.theme.colors.containerBackground};
     border-radius: 20px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
@@ -1037,17 +1058,14 @@ CarrierContainer: styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+
   background: ${(props) => props.theme.colors.cardBackground};
   border: ${(props) =>
     props.isSelected
-      ? `3px solid ${props.theme.colors.selectedBorder || props.theme.colors.primary}`
-      : `2px solid ${props.theme.colors.cardBorder}`};
+      ? `4px solid ${props.theme.colors.selectedBorder || props.theme.colors.primary}`
+      : `1px solid ${props.theme.colors.cardBorder}`};
   border-radius: 15px;
-  box-shadow: ${(props) =>
-    props.isSelected
-      ? '0 10px 25px rgba(0, 0, 255, 0.3)'
-      : '0 8px 20px rgba(0, 0, 0, 0.15)'};
+
   transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
   cursor: pointer;
 

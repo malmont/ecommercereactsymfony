@@ -659,7 +659,7 @@ OrderSummaryContainer: styled.div`
   max-width: 600px;
   margin: 0 auto;
   margin-top: 30px;
-  width: 110%;
+  width: 100%;
   
 `,
 
@@ -669,6 +669,9 @@ OrderSummaryTitle: styled.h4`
   color: ${(props) => props.theme.colors.titleText };
   margin-bottom: 15px;
   text-align: center;
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
 `,
 
 Divider: styled.div`
@@ -749,7 +752,7 @@ CarrierContainer: styled.div`
         ? props.theme.colors.selectedBackground 
         : props.theme.colors.cardBackground};
     transition: all 0.3s ease;
-
+      
     img {
       width: 40px;
       height: auto;
@@ -787,11 +790,11 @@ CarrierContainer: styled.div`
         ? props.theme.colors.selectedBackground 
         : props.theme.colors.cardBackground };
     transition: all 0.3s ease;
-
+      
     p {
       font-size: 0.9rem;
       text-align: center;
-      color: ${(props) => props.theme.colors.textColor };
+      
     }
 
     &:hover {

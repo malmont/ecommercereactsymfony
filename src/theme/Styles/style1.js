@@ -588,7 +588,7 @@ OrderSummaryContainer: styled.div`
     border-radius: 10px;
     background-color: ${(props) => props.theme.colors.cardBackground };
     margin-top: 20px;
-    width: 110%;
+    width: 100%;
   //    @media (max-width: 1000px) {
   //    padding: 10px;
   //   width: 250px;
@@ -600,6 +600,9 @@ OrderSummaryContainer: styled.div`
     font-weight: bold;
     color: ${(props) => props.theme.colors.textColor };
     margin-bottom: 10px;
+     @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
   `,
   Divider: styled.div`
     border-top: 1px solid ${(props) => props.theme.colors.border};
@@ -646,6 +649,7 @@ CarrierContainer: styled.div`
   gap: 10px;
   flex-wrap: wrap;
   padding: 10px 0;
+  
 `,
 
 // Style pour chaque transporteur
@@ -701,7 +705,6 @@ AddressCard: styled.div`
   p {
     font-size: 14px;
     text-align: center;
-    color: ${(props) => props.theme.colors.textColor};
   }
 
   &:hover {

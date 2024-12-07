@@ -628,7 +628,7 @@ CartItemContainer: styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 15px;
+  padding: 2px;
   border-radius: 15px;
   background: ${(props) => props.theme.colors.featureBackground};
   border: 1px solid ${(props) => props.theme.colors.border};
@@ -638,6 +638,9 @@ CartItemContainer: styled.div`
   &:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transform: scale(1.02);
+  }
+   @media (max-width: 768px) {
+    width: 100%;
   }
 `,
 
@@ -656,6 +659,7 @@ CartItem: styled.div`
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
+    
 `,
 
 CartItemInfo: styled.div`
@@ -677,6 +681,7 @@ CartItemTitle: styled.p`
   font-size: 1.4rem;
   font-weight: 600;
   color: ${(props) => props.theme.colors.textHighlight};
+ 
 `,
 
 CartItemPrice: styled.p`
@@ -775,12 +780,18 @@ OrderSummaryContainer: styled.div`
   border-radius: 20px;
   background: ${(props) => props.theme.colors.cardBackground};
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border: 1px solid ${(props) => props.theme.colors.border || '#ddd'};
+  border: 1px solid ${(props) => props.theme.colors.border };
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: scale(1.02);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+    @media (max-width: 768px) {
+    padding: 10px;
+    gap: 1px;
+    margin:auto;
+    width: 100%;
   }
 `,
 
@@ -792,12 +803,15 @@ OrderSummaryTitle: styled.h4`
   text-align: center;
   margin-bottom: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+   @media (max-width: 768px) {
+    font-size: 1.3rem;
+  } 
 `,
 
 Divider: styled.div`
   width: 100%;
   height: 1px;
-  background: ${(props) => props.theme.colors.border || '#ddd'};
+  background: ${(props) => props.theme.colors.border};
   margin: 10px 0;
   opacity: 0.8;
 `,
@@ -808,12 +822,12 @@ OrderSummaryRow: styled.div`
   align-items: center;
   padding: 15px 20px;
   border-radius: 15px;
-  background-color: ${(props) => props.theme.colors.rowBackground || '#f9f9f9'};
+  background-color: ${(props) => props.theme.colors.rowBackground };
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
 
   &:nth-child(even) {
-    background-color: ${(props) => props.theme.colors.alternateRowBackground || '#ffffff'};
+    background-color: ${(props) => props.theme.colors.alternateRowBackground };
   }
 `,
 
@@ -829,7 +843,7 @@ OrderSummaryText: styled.p`
 OrderSummaryHighlight: styled.p`
   font-size: 1.2rem;
   font-weight: bold;
-  color: ${(props) => props.theme.colors.highlightText || '#007BFF'};
+  color: ${(props) => props.theme.colors.highlightText };
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
    @media (max-width: 768px) {
     font-size: 0.9rem;
@@ -841,8 +855,8 @@ CheckoutButton: styled.button`
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: ${(props) => props.theme.colors.buttonText || '#fff'};
-  background: ${(props) => props.theme.colors.primary || '#007BFF'};
+  color: ${(props) => props.theme.colors.buttonText };
+  background: ${(props) => props.theme.colors.primary };
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -850,7 +864,7 @@ CheckoutButton: styled.button`
   transition: transform 0.3s ease, background-color 0.3s ease;
 
   &:hover {
-    background: ${(props) => props.theme.colors.primaryHover || '#0056b3'};
+    background: ${(props) => props.theme.colors.primaryHover };
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
@@ -861,9 +875,11 @@ CheckoutButton: styled.button`
 `,
 CarrierContainer: styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
   background: ${(props) =>
     `linear-gradient(135deg, ${props.theme.colors.containerBackground || '#ffffff'}, ${props.theme.colors.secondaryBackground || '#f8f8f8'})`};
   border-radius: 10px;
@@ -880,10 +896,10 @@ CarrierCard: styled.div`
   padding: 15px;
   border: ${(props) =>
     props.isSelected
-      ? `3px dashed ${props.theme.colors.selectedBorder || '#007BFF'}`
-      : `2px solid ${props.theme.colors.border || '#ccc'}`};
+      ? `3px dashed ${props.theme.colors.selectedBorder }`
+      : `2px solid ${props.theme.colors.border }`};
   border-radius: 6px;
-  background: ${(props) => props.theme.colors.cardBackground || '#f9f9f9'};
+  background: ${(props) => props.theme.colors.cardBackground };
   box-shadow: ${(props) =>
     props.isSelected
       ? '0 6px 15px rgba(0, 123, 255, 0.2)'
@@ -893,17 +909,18 @@ CarrierCard: styled.div`
   transition: all 0.3s ease;
 
   &:hover {
-    background: ${(props) => props.theme.colors.hoverCardBackground || '#f1f1f1'};
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    background: ${(props) => props.theme.colors.hoverBackground};
   }
 
+
   img {
-    max-width: 100px;
-    max-height: 60px;
+   
     margin-bottom: 10px;
     border-radius: 4px;
   }
+  
 `,
 
 // OrderSummaryTitle: styled.h2`
@@ -933,13 +950,10 @@ AddressCard: styled.div`
   padding: 20px;
   border: ${(props) =>
     props.isSelected
-      ? `3px solid ${props.theme.colors.primary || '#007BFF'}`
-      : `2px solid ${props.theme.colors.border || '#ddd'}`};
+      ? `3px dashed ${props.theme.colors.selectedBorder }`
+      : `2px solid ${props.theme.colors.border }`};
   border-radius: 8px;
-  background: ${(props) =>
-    props.isSelected
-      ? props.theme.colors.selectedBackground || '#f0f8ff'
-      : props.theme.colors.cardBackground || '#ffffff'};
+ 
   box-shadow: ${(props) =>
     props.isSelected
       ? '0 6px 10px rgba(0, 123, 255, 0.15)'
@@ -947,17 +961,20 @@ AddressCard: styled.div`
   cursor: pointer;
   text-align: left;
   transition: all 0.3s ease;
+ 
 
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+   &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    background: ${(props) => props.theme.colors.hoverBackground};
   }
+
 
   p {
     margin: 5px 0;
     font-size: 1rem;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.textColor || '#444'};
+    color: ${(props) => props.theme.colors.textColor};
   }
 `,
 
@@ -973,13 +990,13 @@ PaymentMethodContainer: styled.div`
 `,
 
 PaymentMethodCard: styled.div`
-  padding: 15px;
+
   border: ${(props) =>
     props.isSelected
-      ? `3px dashed ${props.theme.colors.selectedBorder || '#007BFF'}`
-      : `1px solid ${props.theme.colors.border || '#ccc'}`};
+      ? `3px dashed ${props.theme.colors.selectedBorder }`
+      : `1px solid ${props.theme.colors.border }`};
   border-radius: 10px;
-  background: ${(props) => props.theme.colors.cardBackground || '#f9f9f9'};
+  background: ${(props) => props.theme.colors.cardBackground };
   box-shadow: ${(props) =>
     props.isSelected
       ? '0 6px 12px rgba(0, 123, 255, 0.15)'
@@ -991,7 +1008,7 @@ PaymentMethodCard: styled.div`
   &:hover {
     transform: scale(1.02);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    background: ${(props) => props.theme.colors.hoverBackground || '#f1f1f1'};
+    background: ${(props) => props.theme.colors.hoverBackground};
   }
 
   img {

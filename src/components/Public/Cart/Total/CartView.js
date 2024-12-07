@@ -54,7 +54,7 @@ const CartView = observer(() => {
              />
               ))}
             </div>
-            <div className="col-12 col-md-4 row align-items-end">
+            <div className="col-12 align-items-end">
             <ContainerTypeTotalCard handleCheckout={handleCheckout} buttonLabel="CheckOut" />
             </div>
           </div>

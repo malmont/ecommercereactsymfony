@@ -16,6 +16,9 @@ const SectionTitle = styled.h2`
   color: ${(props) => props.theme.colors.titleText};
   font-weight: bold;
   margin-bottom: 1.5rem;
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const CarrierBadge = styled.span`
@@ -32,14 +35,11 @@ const CarrierBadge = styled.span`
 `;
 
 const AddressText = styled.p`
+  color: ${(props) => props.theme.colors.titleText};
   margin: 0;
   font-weight: ${(props) => (props.isBold ? "600" : "normal")};
   font-size: ${(props) => (props.isBold ? "1rem" : "0.9rem")};
-  color: ${(props) =>
-    props.isBold
-      ? props.theme.colors.textColor
-      : props.theme.colors.infoTextColor};
-  margin-bottom: ${(props) => (props.isBold ? "0.5rem" : "0")};
+  
 `;
 
 const CheckoutPageCardTypeD = observer(({
@@ -70,33 +70,23 @@ const CheckoutPageCardTypeD = observer(({
       {/* Select Carrier */}
       <SectionContainer>
         <SectionTitle>Choose Your Carrier</SectionTitle>
-        <selectedStyle.CarrierContainer
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "1rem",
-          }}
-        >
+        <selectedStyle.CarrierContainer>
           {carriers.map((carrier) => (
             <selectedStyle.CarrierCard
               key={carrier.id}
               onClick={() => selectCarrier(carrier.id)}
               isSelected={selectedCarrier?.id === carrier.id}
               style={{
-                width: "90px",
-                height: "90px",
+                width: "80px",
+                height: "80px",
                 cursor: "pointer",
-                padding: "1rem",
+                padding: "0.5rem",
                 border: `2px solid ${
                   selectedCarrier?.id === carrier.id
                     ? theme?.colors?.navItemHover
                     : theme?.colors?.border
                 }`,
                 borderRadius: "12px",
-                background:
-                  selectedCarrier?.id === carrier.id
-                    ? theme?.colors?.hoverCardBackground
-                    : theme?.colors?.cardBackground,
                 transition: "transform 0.3s ease, background 0.3s ease",
                 boxShadow:
                   selectedCarrier?.id === carrier.id
@@ -111,15 +101,15 @@ const CheckoutPageCardTypeD = observer(({
                 src={carrier.photo}
                 alt={carrier.name}
                 style={{
-                  width: "50px",
-                  height: "50px",
-                  padding: "0.5rem",
+                  width: "40px",
+                  height: "40px",
+                  padding: "0.1rem",
                 }}
               />
               <p
                 style={{
-                  fontSize: "0.5rem",
-                  color: theme?.colors?.textColor,
+                  fontSize: "0.4rem",
+                  color: theme?.colors?.titleText,
                 }}
               >
                 {carrier.name}
@@ -135,7 +125,7 @@ const CheckoutPageCardTypeD = observer(({
         <selectedStyle.AddressContainer
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
             gap: "1.5rem",
           }}
         >
@@ -153,10 +143,6 @@ const CheckoutPageCardTypeD = observer(({
                     : theme?.colors?.border
                 }`,
                 borderRadius: "12px",
-                background:
-                  selectedAddress?.id === address.id
-                    ? theme?.colors?.hoverCardBackground
-                    : theme?.colors?.cardBackground,
                 transition: "transform 0.3s ease, background 0.3s ease",
                 boxShadow:
                   selectedAddress?.id === address.id
@@ -166,8 +152,8 @@ const CheckoutPageCardTypeD = observer(({
               }}
             >
               {selectedAddress?.id === address.id && <CarrierBadge>✓</CarrierBadge>}
-              <AddressText isBold>{address.fullname}</AddressText>
-              <AddressText>{`${address.addressLineOne}, ${address.city}`}</AddressText>
+              <AddressText >{address.fullname}</AddressText>
+              <AddressText>{`${address.addressLineOne} ${address.city}`}</AddressText>
             </selectedStyle.AddressCard>
           ))}
         </selectedStyle.AddressContainer>
@@ -198,10 +184,6 @@ const CheckoutPageCardTypeD = observer(({
                     : theme?.colors?.border
                 }`,
                 borderRadius: "50%",
-                background:
-                  selectedPaymentMethod?.id === method.id
-                    ? theme?.colors?.hoverCardBackground
-                    : theme?.colors?.cardBackground,
                 transition: "transform 0.3s ease, background 0.3s ease",
                 boxShadow:
                   selectedPaymentMethod?.id === method.id

@@ -14,6 +14,9 @@ const SectionTitle = styled.h2`
   color: ${(props) => props.theme.colors.textColor};
   font-weight: bold;
   margin-bottom: 1rem;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const CarrierBadge = styled.span`
@@ -33,22 +36,19 @@ const AddressText = styled.p`
   margin: 0;
   font-weight: ${(props) => (props.isBold ? "600" : "normal")};
   font-size: ${(props) => (props.isBold ? "1rem" : "0.9rem")};
-  color: ${(props) =>
-        props.isBold
-            ? props.theme.colors.textColor
-            : props.theme.colors.infoTextColor};
+  color:  ${(props) => props.theme.colors.titleText};
   margin-bottom: ${(props) => (props.isBold ? "0.5rem" : "0")};
 `;
 
 const CarrierContainer = styled.div`
    display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   gap: 1.5rem;
 `;
 
 const AddressContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
 `;
 
@@ -121,8 +121,8 @@ const CheckoutPageCardTypeE = observer(({
                                 src={carrier.photo}
                                 alt={carrier.name}
                                 style={{
-                                    width: "50px",
-                                    height: "50px",
+                                    width: "30px",
+                                    height: "40px",
                                     objectFit: "contain",
                                 }}
                             />
@@ -130,7 +130,7 @@ const CheckoutPageCardTypeE = observer(({
                                 style={{
                                     fontSize: "0.5rem",
                                     fontWeight: "600",
-                                    color: theme?.colors?.textColor,
+                                    color: theme?.colors?.titleText,
                                     textAlign: "center",
                                 }}
                             >
@@ -154,8 +154,8 @@ const CheckoutPageCardTypeE = observer(({
                                 cursor: "pointer",
                                 padding: "1.5rem",
                                 border: `2px solid ${selectedAddress?.id === address.id
-                                        ? theme?.colors?.navItemHover
-                                        : theme?.colors?.border
+                                    ? theme?.colors?.navItemHover
+                                    : theme?.colors?.border
                                     }`,
                                 borderRadius: "12px",
                                 background:
@@ -193,8 +193,8 @@ const CheckoutPageCardTypeE = observer(({
                                 width: "80px",
                                 height: "80px",
                                 border: `2px solid ${selectedPaymentMethod?.id === method.id
-                                        ? theme?.colors?.goldAccent
-                                        : theme?.colors?.border
+                                    ? theme?.colors?.navItemHover
+                                    : theme?.colors?.border
                                     }`,
                                 borderRadius: "50%",
                                 background:

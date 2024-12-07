@@ -17,7 +17,7 @@ const TotalCardTypeC = observer(({ handleCheckout, buttonLabel = 'Confirm Order'
         borderRadius: '20px',
         boxShadow: '0 8px 20px rgba(0, 0, 0, 0.2)',
         padding: '2rem',
-        width: '110%',
+        width: '100%',
       }}
     >
       {/* Title */}

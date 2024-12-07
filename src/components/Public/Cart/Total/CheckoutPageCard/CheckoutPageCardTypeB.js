@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import { styles } from '../../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../../theme/AdminContext';
 import { useTheme } from 'styled-components';
+import styled from 'styled-components';
 
 const CheckoutPageCardTypeB = observer(({
     carriers,
@@ -19,7 +20,7 @@ const CheckoutPageCardTypeB = observer(({
     const selectedStyle = styles[styleChoice];
     const theme = useTheme();
     return (
-        <selectedStyle.OrderSummaryContainer
+        <selectedStyle.OrderSummaryContainer 
             style={{
                 gap: '2rem',
                 padding: '2rem',
@@ -32,7 +33,7 @@ const CheckoutPageCardTypeB = observer(({
             <selectedStyle.OrderSummaryTitle style={{ color: theme.colors?.titleText }}>
                 Select Carrier
             </selectedStyle.OrderSummaryTitle>
-            <selectedStyle.CarrierContainer style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+            <selectedStyle.CarrierContainer as={CarrierContainer}>
                 {carriers.map((carrier) => (
                     <selectedStyle.CarrierCard
                         key={carrier.id}
@@ -80,8 +81,9 @@ const CheckoutPageCardTypeB = observer(({
                                 : 'none',
                             transition: 'box-shadow 0.3s ease',
                             borderRadius: '8px',
-                            backgroundColor: theme.colors?.cardBackground ,
+                            backgroundColor: theme.colors?.cardBackground,
                             color: theme.colors?.cardBodyText,
+                            width: '100%',
                         }}
                     >
                         {address.fullname}
@@ -102,12 +104,12 @@ const CheckoutPageCardTypeB = observer(({
                         onClick={() => selectPaymentMethod(method.id)}
                         isSelected={selectedPaymentMethod?.id === method.id}
                         style={{
-                            padding: '1rem',
+                          
                             boxShadow: selectedPaymentMethod?.id === method.id
                                 ? `0 0 10px ${theme.colors?.goldAccent}`
                                 : 'none',
                             transition: 'box-shadow 0.3s ease',
-                            borderRadius: '50%',
+                            borderRadius: '70%',
                             width: '80px',
                             height: '80px',
                             display: 'flex',
@@ -129,3 +131,15 @@ const CheckoutPageCardTypeB = observer(({
 });
 
 export default CheckoutPageCardTypeB;
+
+const CarrierContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  gap: 15px;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 15px;
+  }
+`;
