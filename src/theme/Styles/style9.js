@@ -165,10 +165,13 @@ export const style9= {
   CardContainer: styled.div`
 display: flex;
 flex-direction: column;
-justify-content: space-between;
+justify-content: center;
 align-items: center;
-height: 580px;
-width: 260px;
+height: 656px;
+width: 280px;
+border-radius: 8px;
+overflow: hidden;
+margin: auto;
 border-radius: 20px;
 background: ${(props) => props.theme.colors.cardBackground || 'linear-gradient(135deg, #ff9a9e, #fad0c4)'};
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 154, 158, 0.5);
@@ -1042,10 +1045,6 @@ background: linear-gradient(
  width: 50%;
 margin: 0 auto;
 margin-top: 50px;
-display: flex;
-flex-direction: column;
-align-items: center;
-
 @media (max-width: 768px) {
   padding: 20px;
   width: 100%;
@@ -1173,18 +1172,20 @@ font-size: 1rem;
 line-height: 1.6;
 `,
 TableWrapper: styled.div`
-  overflow-x: auto;
+  width: 100%;
   margin: 20px 0;
   padding: 20px;
-  background: ${(props) => props.theme.colors.tableWrapperBackground || '#ffffff'};
   border-radius: 15px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  border: 2px dashed ${(props) => props.theme.colors.tableBorder || '#000000'};
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: scale(1.02);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+     @media (max-width: 768px) {
+    padding: 5px;
+    overflow-x: auto;
   }
 `,
 

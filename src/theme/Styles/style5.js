@@ -158,11 +158,14 @@ background: ${(props) => props.theme.colors.navLinksBackground};
 CardContainer: styled.div`
 display: flex;
 flex-direction: column;
-justify-content: space-between;
-height: 660px;
-width: 265px;
-border-radius: 12px;
+justify-content: center;
+align-items: center;
+height: 656px;
+width: 280px;
+border-radius: 8px;
 overflow: hidden;
+margin: auto;
+border-radius: 10px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 background-color: ${(props) => props.theme.colors.cardBackground };
 transition: transform 0.3s, box-shadow 0.3s;
@@ -1023,6 +1026,7 @@ DashboardWrapper: styled.div`
     background: ${(props) => props.theme.colors.contentBackground };
     min-height: 80vh;
     padding: 10px;
+    margin-top: 50px;
   `,
 
   // Sidebar pour les onglets

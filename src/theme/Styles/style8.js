@@ -32,7 +32,7 @@ export const style8 = {
   Logo: styled(NavLink)`
     font-size: 1.6rem;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.logoText};
+    color: ${(props) => props.theme.colors.goldAccent};
     text-decoration: none;
     transition: color 0.3s ease;
     &:hover {
@@ -81,7 +81,7 @@ export const style8 = {
     display: none;
     background: none;
     border: none;
-    color: ${(props) => props.theme.colors.mobileMenuButton};
+    color: ${(props) => props.theme.colors.buttonBackground};
     font-size: 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -124,7 +124,7 @@ export const style8 = {
     cursor: pointer;
     margin-left: 1rem;
     transition: all 0.3s ease;
-    color: ${(props) => props.theme.colors.cartIconColor};
+    color: ${(props) => props.theme.colors.goldAccent};
 
     &:hover {
       transform: scale(1.1);
@@ -162,22 +162,26 @@ export const style8 = {
     }
   `,
   CardContainer: styled.div`
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-height: 600px;
-width: 260px;
-border-radius: 20px;
-background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-transition: all 0.3s ease;
-  margin-bottom: 10px;
-&:hover {
-  border-color: ${(props) => props.theme.colors.cardHoverAccent || '#ffd700'};
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-8px);
-}
-`,
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 656px;
+  width: 280px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 10px;
+  background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+    margin-bottom: 10px;
+  &:hover {
+    border-color: ${(props) => props.theme.colors.cardHoverAccent || '#ffd700'};
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+  }
+  `,
 
   CardProperty: styled.div`
   background: ${(props) => props.theme.colors.cardPropertyBackground || '#111'};
@@ -189,6 +193,7 @@ transition: all 0.3s ease;
   justify-content: space-between;
   padding: 20px;
   border-radius: 24px;
+  margin:auto;
 `,
 
   CardImage: styled.img`
@@ -785,7 +790,7 @@ align-items: center;
 justify-content: space-between;
 padding: 10px;
 background: ${(props) => props.theme.colors.cardBackground};
-border: 2px solid ${(props) => props.theme.colors.goldAccent };
+border: 2px solid ${(props) => props.theme.colors.goldAccent};
 border-radius: 8px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 transition: all 0.3s ease;
@@ -806,7 +811,7 @@ transition: all 0.3s ease;
   flex-direction: column;
   gap: 10px;
   background: ${(props) => props.theme.colors.containerBackground};
-  border: 2px solid ${(props) => props.theme.colors.goldAccent };
+  border: 2px solid ${(props) => props.theme.colors.goldAccent};
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -821,7 +826,7 @@ transition: all 0.3s ease;
     width: 100%;
     margin: 2rem auto;
     padding: 1.5rem;
-    background: ${(props) => props.theme.colors.cardBackground };
+    background: ${(props) => props.theme.colors.cardBackground};
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: 2px solid ${(props) => props.theme.colors.goldAccent};
@@ -941,12 +946,12 @@ transition: all 0.3s ease;
     padding: 5px;
     background: ${(props) =>
       props.isSelected
-        ? props.theme.colors.goldAccent 
-        : props.theme.colors.cardBackground };
+        ? props.theme.colors.goldAccent
+        : props.theme.colors.cardBackground};
     border: ${(props) =>
       props.isSelected
         ? `3px solid ${props.theme.colors.goldAccent}`
-        : `1px solid ${props.theme.colors.cardBorder }`};
+        : `1px solid ${props.theme.colors.cardBorder}`};
     border-radius: 15px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -985,8 +990,8 @@ transition: all 0.3s ease;
     padding: 15px;
     background: ${(props) =>
       props.isSelected
-        ? props.theme.colors.goldAccent 
-        : props.theme.colors.cardBackground };
+        ? props.theme.colors.goldAccent
+        : props.theme.colors.cardBackground};
     border: ${(props) =>
       props.isSelected
         ? `3px solid ${props.theme.colors.goldAccent}`
@@ -1027,8 +1032,8 @@ transition: all 0.3s ease;
     padding: 15px;
     background: ${(props) =>
       props.isSelected
-        ? props.theme.colors.goldAccent 
-        : props.theme.colors.cardBackground };
+        ? props.theme.colors.goldAccent
+        : props.theme.colors.cardBackground};
     border: ${(props) =>
       props.isSelected
         ? `3px solid ${props.theme.colors.goldAccent}`
@@ -1065,9 +1070,6 @@ transition: all 0.3s ease;
    width: 50%;
   margin: 0 auto;
   margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   @media (max-width: 768px) {
     padding: 20px;
     width: 100%;
@@ -1089,10 +1091,10 @@ transition: all 0.3s ease;
     color: ${(props) =>
       props.className?.includes('active')
         ? props.theme.colors.activeLinkText
-        : props.theme.colors.linkText } !important;
+        : props.theme.colors.linkText} !important;
     background-color: ${(props) =>
       props.className?.includes('active')
-        ? props.theme.colors.goldAccent 
+        ? props.theme.colors.goldAccent
         : 'transparent'} !important;
     border-radius: 15px;
     text-decoration: none !important;
@@ -1140,7 +1142,7 @@ transition: all 0.3s ease;
 
   // Conteneur pour les onglets
   DashboardTabPane: styled.div`
-    background: ${(props) => props.theme.colors.cardBackground };
+    background: ${(props) => props.theme.colors.cardBackground};
     border-radius: 25px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     border: 2px solid ${(props) => props.theme.colors.goldAccent}; /* Contour doré */
@@ -1148,29 +1150,29 @@ transition: all 0.3s ease;
 
   // Carte principale
   DashboardCard: styled.div`
-    background: ${(props) => props.theme.colors.cardBackground };
+    background: ${(props) => props.theme.colors.cardBackground};
     border-radius: 25px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     position: relative;
-    border: 2px solid ${(props) => props.theme.colors.goldAccent }; /* Contour doré */
+    border: 2px solid ${(props) => props.theme.colors.goldAccent}; /* Contour doré */
   `,
 
   // En-tête de la carte
   DashboardCardHeader: styled.div`
     padding: 40px;
-    background: ${(props) => props.theme.colors.goldAccent };
-    color: ${(props) => props.theme.colors.cardHeaderText };
+    background: ${(props) => props.theme.colors.goldAccent};
+    color: ${(props) => props.theme.colors.cardHeaderText};
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-    border-bottom: 2px solid ${(props) => props.theme.colors.goldAccent }; /* Liseré doré */
+    border-bottom: 2px solid ${(props) => props.theme.colors.goldAccent}; /* Liseré doré */
   `,
 
   // Corps de la carte
   DashboardCardBody: styled.div`
     padding: 40px;
-    color: ${(props) => props.theme.colors.cardBodyText };
+    color: ${(props) => props.theme.colors.cardBodyText};
     font-size: 1.1rem;
     line-height: 1.8;
   `,
@@ -1199,48 +1201,51 @@ overflow-y: auto;
 }
 `,
 
-TableWrapper: styled.div`
-overflow-x: auto;
-margin: 20px 0;
-padding: 20px;
+  TableWrapper: styled.div`
+margin: 10px 0;
+padding: 10px;
+width: 100%;
 background: ${(props) => props.theme.colors.cardBackground};
 border-radius: 12px;
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-border: 2px solid ${(props) => props.theme.colors.goldAccent };
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 &:hover {
   transform: scale(1.02);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
+   @media (max-width: 768px) {
+    padding: 5px;
+    overflow-x: auto;
+  }
 `,
 
   ResponsiveTable: styled.table`
 width: 100%;
 border-collapse: collapse;
 font-size: 0.95rem;
-background: ${(props) => props.theme.colors.tableBackground };
+background: ${(props) => props.theme.colors.tableBackground};
 
 th, td {
   padding: 15px;
   text-align: left;
-  border: 1px solid ${(props) => props.theme.colors.goldAccent };
+  border: 1px solid ${(props) => props.theme.colors.goldAccent};
 }
 
 th {
-  background: ${(props) => props.theme.colors.tableHeaderBackground };
-  color: ${(props) => props.theme.colors.tableHeaderText };
+  background: ${(props) => props.theme.colors.tableHeaderBackground};
+  color: ${(props) => props.theme.colors.tableHeaderText};
   font-weight: bold;
   text-transform: uppercase;
 }
 
 td {
-  background: ${(props) => props.theme.colors.tableRowBackground };
-  color: ${(props) => props.theme.colors.tableRowText };
+  background: ${(props) => props.theme.colors.tableRowBackground};
+  color: ${(props) => props.theme.colors.tableRowText};
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.tableRowHoverBackground };
+    background-color: ${(props) => props.theme.colors.tableRowHoverBackground};
   }
 }
 
@@ -1262,15 +1267,15 @@ td {
     left: 10px;
     font-weight: bold;
     text-transform: uppercase;
-    color: ${(props) => props.theme.colors.textMuted };
+    color: ${(props) => props.theme.colors.textMuted};
   }
 }
 `,
 
   TableButton: styled.button`
 padding: 10px 20px;
-background: ${(props) => props.theme.colors.goldAccent };
-color: ${(props) => props.theme.colors.buttonText };
+background: ${(props) => props.theme.colors.goldAccent};
+color: ${(props) => props.theme.colors.buttonText};
 border: none;
 border-radius: 8px;
 font-weight: bold;
@@ -1291,8 +1296,8 @@ transition: background-color 0.3s ease, transform 0.3s ease;
   TableEmptyMessage: styled.p`
 font-size: 1.2rem;
 text-align: center;
-color: ${(props) => props.theme.colors.emptyMessageText };
-background: ${(props) => props.theme.colors.emptyMessageBackground };
+color: ${(props) => props.theme.colors.emptyMessageText};
+background: ${(props) => props.theme.colors.emptyMessageBackground};
 padding: 20px;
 border-radius: 10px;
 border: 1px dashed ${(props) => props.theme.colors.goldAccent};
@@ -1301,12 +1306,12 @@ animation: fadeIn 0.8s ease-in-out;
 `,
   AddressListWrapper: styled.div`
     padding: 30px;
-    background: ${(props) => props.theme.colors.containerBackground };
+    background: ${(props) => props.theme.colors.containerBackground};
     border-radius: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     margin: 0 auto;
-    border: 1px dashed ${(props) => props.theme.colors.goldAccent };
+    border: 1px dashed ${(props) => props.theme.colors.goldAccent};
     @media (max-width: 768px) {
     max-width:none;
   }
@@ -1315,8 +1320,8 @@ animation: fadeIn 0.8s ease-in-out;
   AddNewAddressButton: styled.button`
     width: 100%;
     padding: 10px 20px;
-    background: ${(props) => props.theme.colors.goldAccent };
-    color: ${(props) => props.theme.colors.buttonText };
+    background: ${(props) => props.theme.colors.goldAccent};
+    color: ${(props) => props.theme.colors.buttonText};
     border: none;
     border-radius: 10px;
     font-size: 1rem;
@@ -1341,7 +1346,7 @@ animation: fadeIn 0.8s ease-in-out;
   `,
 
   AddressCardHeader: styled.div`
-    background: ${(props) => props.theme.colors.goldAccent };
+    background: ${(props) => props.theme.colors.goldAccent};
     color: ${(props) => props.theme.colors.cardHeaderText};
     padding: 10px;
     font-size: 1.2rem;
@@ -1364,8 +1369,8 @@ animation: fadeIn 0.8s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: ${(props) => props.theme.colors.cardBackground };
-    border: 1px solid ${(props) => props.theme.colors.cardBorder };
+    background: ${(props) => props.theme.colors.cardBackground};
+    border: 1px solid ${(props) => props.theme.colors.cardBorder};
     border-radius: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -1382,13 +1387,13 @@ animation: fadeIn 0.8s ease-in-out;
     justify-content: space-between;
     gap: 10px;
     padding: 10px 15px;
-    background: ${(props) => props.theme.colors.cardBodyBackground };
+    background: ${(props) => props.theme.colors.cardBodyBackground};
   `,
 
   EditButton: styled.button`
     padding: 8px 16px;
-    background: ${(props) => props.theme.colors.buttonBackground };
-    color: ${(props) => props.theme.colors.buttonText };
+    background: ${(props) => props.theme.colors.buttonBackground};
+    color: ${(props) => props.theme.colors.buttonText};
     border: none;
     border-radius: 8px;
     font-size: 0.9rem;
@@ -1405,7 +1410,7 @@ animation: fadeIn 0.8s ease-in-out;
   DeleteButton: styled.button`
     padding: 8px 16px;
     background: ${(props) => props.theme.colors.errorBackground || '#FF0000'};
-    color: ${(props) => props.theme.colors.errorText };
+    color: ${(props) => props.theme.colors.errorText};
     border: none;
     border-radius: 8px;
     font-size: 0.9rem;
@@ -1421,33 +1426,33 @@ animation: fadeIn 0.8s ease-in-out;
 
   EmptyAddressMessage: styled.p`
     font-size: 1rem;
-    color: ${(props) => props.theme.colors.emptyMessageText };
+    color: ${(props) => props.theme.colors.emptyMessageText};
     text-align: center;
     padding: 20px;
     background: ${(props) => props.theme.colors.emptyMessageBackground};
     border-radius: 10px;
-    border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder };
+    border: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder};
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   `,
 
   LoadingMessage: styled.div`
     font-size: 1.2rem;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.textPrimary };
+    color: ${(props) => props.theme.colors.textPrimary};
     text-align: center;
     padding: 20px;
-    background: ${(props) => props.theme.colors.loadingBackground };
+    background: ${(props) => props.theme.colors.loadingBackground};
     border-radius: 10px;
-    border: 1px solid ${(props) => props.theme.colors.loadingBorder };
+    border: 1px solid ${(props) => props.theme.colors.loadingBorder};
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     animation: shimmer 2s infinite;
   `,
   NoCarrierMessage: styled.p`
   font-size: 1.2rem;
-  color: ${(props) => props.theme.colors.emptyMessageText };
+  color: ${(props) => props.theme.colors.emptyMessageText};
   text-align: center;
   padding: 20px;
-  background: ${(props) => props.theme.colors.emptyMessageBackground };
+  background: ${(props) => props.theme.colors.emptyMessageBackground};
   border-radius: 10px;
   border: 1px dashed ${(props) => props.theme.colors.goldAccent};
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -1473,7 +1478,7 @@ animation: fadeIn 0.8s ease-in-out;
   CarrierTable: styled.table`
   width: 100%;
   border-collapse: collapse;
-  background: ${(props) => props.theme.colors.tableBackground };
+  background: ${(props) => props.theme.colors.tableBackground};
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -1481,23 +1486,23 @@ animation: fadeIn 0.8s ease-in-out;
   th, td {
     padding: 5px;
     text-align: left;
-    border: 1px solid ${(props) => props.theme.colors.goldAccent };
+    border: 1px solid ${(props) => props.theme.colors.goldAccent};
   }
 
   th {
-    background: ${(props) => props.theme.colors.tableHeaderBackground };
-    color: ${(props) => props.theme.colors.tableHeaderText };
+    background: ${(props) => props.theme.colors.tableHeaderBackground};
+    color: ${(props) => props.theme.colors.tableHeaderText};
     font-weight: bold;
     text-transform: uppercase;
   }
 
   td {
-    background: ${(props) => props.theme.colors.tableRowBackground };
-    color: ${(props) => props.theme.colors.tableRowText };
+    background: ${(props) => props.theme.colors.tableRowBackground};
+    color: ${(props) => props.theme.colors.tableRowText};
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.tableRowHoverBackground };
+      background-color: ${(props) => props.theme.colors.tableRowHoverBackground};
     }
   }
 `,
@@ -1505,10 +1510,10 @@ animation: fadeIn 0.8s ease-in-out;
   CarrierTableContainer: styled.div`
   overflow-x: auto;
  
-  background: ${(props) => props.theme.colors.containerBackground };
+  background: ${(props) => props.theme.colors.containerBackground};
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 2px solid ${(props) => props.theme.colors.cardAccent };
+  border: 2px solid ${(props) => props.theme.colors.cardAccent};
   margin: 20px 0;
   max-width: 1200px;
   margin: 0 auto;
@@ -1520,7 +1525,7 @@ animation: fadeIn 0.8s ease-in-out;
   gap: 20px;
   justify-content: center;
   padding: 20px;
-  background: ${(props) => props.theme.colors.containerBackground };
+  background: ${(props) => props.theme.colors.containerBackground};
   border-radius: 15px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 `

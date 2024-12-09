@@ -204,10 +204,13 @@ export const style7= {
 `,CardContainer: styled.div`
 display: flex;
 flex-direction: column;
-justify-content: space-between;
+justify-content: center;
 align-items: center;
-height: 620px;
-width: 265px;
+height: 656px;
+width: 280px;
+border-radius: 8px;
+overflow: hidden;
+margin: auto;
 border-radius: 20px;
 background: linear-gradient(145deg, ${(props) => props.theme.colors.cardBackground}, ${(props) => props.theme.colors.cardAccent });
 box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2), -4px -4px 12px rgba(255, 255, 255, 0.7);
@@ -303,11 +306,11 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-wrap: wrap;
-padding: 40px;
+padding: 20px;
 background: linear-gradient(
   120deg,
-  ${(props) => props.theme.colors.featureGradientStart || "#e0f7fa"},
-  ${(props) => props.theme.colors.featureGradientEnd || "#80deea"}
+  ${(props) => props.theme.colors.featureBackground },
+  ${(props) => props.theme.colors.discountBadgeBackground}
 );
 border-radius: 20px;
 margin: 20px auto;
@@ -1124,9 +1127,7 @@ background: linear-gradient(
  width: 50%;
 margin: 0 auto;
 margin-top: 50px;
-display: flex;
-flex-direction: column;
-align-items: center;
+
 animation: ${gradientAnimation} 15s ease infinite;
 
 @media (max-width: 768px) {
@@ -1256,9 +1257,7 @@ animation: ${gradientAnimation} 15s ease infinite;
     line-height: 1.8;
   `,
   TableWrapper: styled.div`
-  overflow-x: auto;
-  margin: 20px 0;
-  padding: 20px;
+  padding: 10px;
   background: ${(props) => props.theme.colors.cardBackground};
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -1268,9 +1267,14 @@ animation: ${gradientAnimation} 15s ease infinite;
 
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   }
+    @media (max-width: 768px) {
+    padding: 5px;
+    overflow-x: auto;
+  }
 `,
 
 ResponsiveTable: styled.table`
+
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9rem;

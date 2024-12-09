@@ -184,10 +184,13 @@ export const style10= {
   CardContainer: styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 590px;
-    width: 260px;
+    height: 656px;
+    width: 280px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: auto;
     border-radius: 20px;
     background: ${(props) => props.theme.colors.cardBackground || 'linear-gradient(135deg, #ff9a9e, #fad0c4)'};
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 154, 158, 0.5);
@@ -1101,9 +1104,6 @@ DashboardWrapper: styled.div`
     background: ${(props) => props.theme.colors.dashboardBackground };
     min-height: 80vh;
     padding: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     border-radius: 25px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     @media (max-width: 768px) {
@@ -1235,17 +1235,20 @@ DashboardWrapper: styled.div`
     line-height: 1.8;
   `,
   TableWrapper: styled.div`
+  width: 100%;
   margin: 20px 0;
   padding: 20px;
-  background: ${(props) => props.theme.colors.tableWrapperBackground };
   border-radius: 15px;
-  border: 2px solid ${(props) => props.theme.colors.tableBorder };
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: scale(1.02);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+     @media (max-width: 768px) {
+    padding: 5px;
+    overflow-x: auto;
   }
 `,
 
