@@ -200,10 +200,14 @@ color: ${(props) => props.theme.colors.cartIconColor};
   CardContainer: styled.div`
 display: flex;
 flex-direction: column;
-justify-content: space-between;
+justify-content: center;
 align-items: center;
-height: 550px;
-width: 260px;
+height: 656px;
+width: 280px;
+border-radius: 8px;
+overflow: hidden;
+margin: auto;
+
 border-radius: 16px;
 background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
 box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
@@ -1083,9 +1087,7 @@ transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     ${(props) => props.theme.colors.gradientEnd}
   );
   padding: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
   animation: ${gradientAnimation} 15s ease infinite;
 
   @media (max-width: 768px) {

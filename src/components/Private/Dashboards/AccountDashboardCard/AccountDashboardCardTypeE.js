@@ -8,6 +8,7 @@ import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
 import ContainerTypeOrderListCard from '../../../../theme/ThemeContainer/ContainerTypeOrderListCard';
 import { useTheme } from 'styled-components';
+import styled from 'styled-components';
 
 const AccountDashboardCardTypeE = () => {
   const { orderListViewModel, addressListViewModel, carrierListViewModel } = useDependencies();
@@ -27,14 +28,7 @@ const AccountDashboardCardTypeE = () => {
     <selectedStyle.DashboardWrapper>
       <div className="section" style={{ padding: "5px" }}>
         {/* Grille des onglets */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-            gap: "20px",
-            marginBottom: "30px",
-          }}
-        >
+        <DashboardSidebar>
           {tabs.map((item, index) => (
             <div
               key={index}
@@ -57,17 +51,10 @@ const AccountDashboardCardTypeE = () => {
               <p style={{ margin: "0", fontWeight: "bold" }}>{item.label}</p>
             </div>
           ))}
-        </div>
+        </DashboardSidebar>
 
         {/* Contenu principal */}
-        <div
-          style={{
-            background: "#ffffff",
-            padding: "20px",
-            borderRadius: "12px",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-          }}
-        >
+        <DashboardContent>
           {activeTab === 'dashboard' && (
             <selectedStyle.DashboardTabPane>
               <selectedStyle.DashboardCard>
@@ -87,10 +74,30 @@ const AccountDashboardCardTypeE = () => {
           {activeTab === 'address' && <ContainerTypeAdressListCard viewModel={addressListViewModel} />}
           {activeTab === 'carriers' && <ContainerTypeCarrierListCard viewModel={carrierListViewModel} />}
           {activeTab === 'accountDetails' && <AccountDetails />}
-        </div>
+        </DashboardContent>
       </div>
     </selectedStyle.DashboardWrapper>
   );
 };
 
 export default AccountDashboardCardTypeE;
+
+const DashboardSidebar = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+  width: 100%; 
+  @media (max-width: 768px) {
+    width: 100%; 
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+`;
+
+const DashboardContent = styled.div`
+  width: 100%; 
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+`;

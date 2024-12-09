@@ -46,7 +46,7 @@ const CartIconMobile = styled.div`
 `;
 
 const NavItem = styled(NavLink)`
-  color: ${(props) => props.theme.colors.navItemText};
+  color: ${(props) => props.theme.colors.colorText};
   text-decoration: none;
   padding: 0.5rem 1rem;
   font-size: 1rem;

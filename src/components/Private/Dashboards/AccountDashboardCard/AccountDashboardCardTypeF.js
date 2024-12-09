@@ -116,10 +116,10 @@ const SidebarNav = styled.ul`
 `;
 
 const MainContent = styled.div`
-  flex: 1;
+
   background-color: #f8f9fa;
   marrgin-top: 20px;
-
+  margin:auto;
   display: flex;
   flex-direction: column;
   gap: 20px;

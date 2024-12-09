@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 const OrderListCardTypeD = ({ viewModel }) => {
     const { orders, loading } = viewModel;
@@ -15,17 +16,7 @@ const OrderListCardTypeD = ({ viewModel }) => {
     }
 
     return (
-        <selectedStyle.TableWrapper
-            style={{
-               display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))",
-                width: "100%",
-                gap: "20px",
-                backgroundColor: "#f8f9fa",
-                borderRadius: "12px",
-                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-            }}
-        >
+        <selectedStyle.TableWrapper as={TableWrapper}>
             {orders.length > 0 ? (
                 <table
                     style={{
@@ -124,3 +115,16 @@ const OrderListCardTypeD = ({ viewModel }) => {
 };
 
 export default observer(OrderListCardTypeD);
+
+const TableWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  width: 70%;
+  gap: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 768px) {
+       width: 100%
+    }
+`;
