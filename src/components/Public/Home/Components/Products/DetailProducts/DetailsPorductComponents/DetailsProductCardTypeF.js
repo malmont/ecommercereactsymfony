@@ -4,6 +4,7 @@ import { AiFillStar } from "react-icons/ai";
 import { IoIosPaperPlane } from "react-icons/io";
 import { BiAnalyse } from "react-icons/bi";
 import { observer } from "mobx-react-lite";
+import styled from "styled-components";
 
 const DetailsProductCardTypeF = ({
   category,
@@ -13,117 +14,53 @@ const DetailsProductCardTypeF = ({
   handleAddToCart,
 }) => {
   return (
-    <selectedStyle.ContainerDetailsProduct
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        gap: "20px",
-        padding: "20px",
-        backgroundColor: "#ffffff",
-        borderRadius: "10px",
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        maxWidth: "900px",
-        margin: "auto",
-      }}
-    >
+    <ContainerDetailsProduct as={selectedStyle.ContainerDetailsProduct}>
       {/* Left Column: Image */}
-      <div
-        style={{
-          flex: "1",
-          textAlign: "center",
-          minWidth: "300px",
-        }}
-      >
-        <selectedStyle.ImageEncadrement
+      <ImageWrapper>
+        <ImageEncadrement
+          as={selectedStyle.ImageEncadrement}
           src={category.image}
           alt={category.name}
-          style={{
-            width: "100%",
-            maxWidth: "400px",
-            borderRadius: "10px",
-            objectFit: "cover",
-          }}
         />
-      </div>
+      </ImageWrapper>
 
       {/* Right Column: Details */}
-      <div
-        style={{
-          flex: "2",
-          display: "flex",
-          flexDirection: "column",
-          gap: "20px",
-          minWidth: "300px",
-        }}
-      >
-        <div>
-          <h1
-            style={{
-              fontSize: "1.8rem",
-              marginBottom: "10px",
-              textAlign: "center",
-            }}
-          >
-            {category.name}
-          </h1>
-          <h2
-            style={{
-              fontSize: "1.5rem",
-              color: "#007bff",
-              marginBottom: "20px",
-              textAlign: "center",
-            }}
-          >
-            {(category.price / 100).toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD",
-            })}
-          </h2>
-        </div>
+      <DetailsWrapper>
+        <ProductTitle>{category.name}</ProductTitle>
+        <ProductPrice>
+          {(category.price / 100).toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
+          })}
+        </ProductPrice>
 
         {/* Color Selection */}
-        <div>
-          <h4>Sélectionnez une couleur :</h4>
-          <selectedStyle.ColorOptionsDetailProduct
-            style={{
-              display: "flex",
-              gap: "10px",
-              justifyContent: "center",
-            }}
-          >
+        <Section>
+          <SectionTitle>Sélectionnez une couleur :</SectionTitle>
+          <ColorOptionsDetailProduct as={selectedStyle.ColorOptionsDetailProduct}>
             {uniqueColors.map((color) => (
-              <selectedStyle.ColorButton
+              <ColorButton
+                as={selectedStyle.ColorButton}
                 key={color.id}
                 onClick={() => viewModel.handleColorSelection(color.name)}
                 isSelected={viewModel.selectedColor === color.name}
                 color={color.codeHexa}
-                style={{
-                  borderRadius: "50%",
-                  width: "30px",
-                  height: "30px",
-                }}
                 aria-label={`Sélectionnez la couleur ${color.name}`}
               />
             ))}
-          </selectedStyle.ColorOptionsDetailProduct>
-        </div>
+          </ColorOptionsDetailProduct>
+        </Section>
 
         {/* Size Selection */}
         {viewModel.selectedColor && (
-          <div>
-            <h4>Sélectionnez une taille :</h4>
-            <selectedStyle.SizeOptionsDetailProduct
-              style={{
-                display: "flex",
-                gap: "10px",
-                justifyContent: "center",
-              }}
-            >
+          <Section>
+            <SectionTitle>Sélectionnez une taille :</SectionTitle>
+            <SizeOptionsDetailProduct as={selectedStyle.SizeOptionsDetailProduct}>
               {viewModel
                 .getAvailableSizes(category.variants, viewModel.selectedColor)
                 .map((size) => (
-                  <selectedStyle.SizeButton
+                  <SizeButton
+                    as={selectedStyle.SizeButton}
                     key={size.id}
                     onClick={() =>
                       viewModel.handleSizeSelection(
@@ -133,116 +70,197 @@ const DetailsProductCardTypeF = ({
                       )
                     }
                     isSelected={viewModel.selectedSize === size.name}
-                    style={{
-                      padding: "10px",
-                      borderRadius: "5px",
-                    }}
                   >
                     {size.name.charAt(0)}
-                  </selectedStyle.SizeButton>
+                  </SizeButton>
                 ))}
-            </selectedStyle.SizeOptionsDetailProduct>
-          </div>
+            </SizeOptionsDetailProduct>
+          </Section>
         )}
 
         {/* Stock Availability */}
         {viewModel.selectedSize && viewModel.selectedColor && (
-          <selectedStyle.InfoSelectionDetailProduct>
-            <p style={{ textAlign: "center" }}>
-              Stock disponible :{" "}
-              <strong>{viewModel.availableStock ?? "Indisponible"}</strong>
-            </p>
-          </selectedStyle.InfoSelectionDetailProduct>
+          <StockInfo>
+            Stock disponible : <strong>{viewModel.availableStock ?? "Indisponible"}</strong>
+          </StockInfo>
         )}
 
         {/* Add to Cart Button */}
-        <div style={{ textAlign: "center" }}>
-          <button
-            className="btn btn-primary"
-            onClick={handleAddToCart}
-            disabled={!viewModel.selectedSize || !viewModel.selectedColor}
-            style={{
-              width: "100%",
-              maxWidth: "250px",
-              padding: "10px",
-              borderRadius: "8px",
-              backgroundColor: "#007bff",
-              color: "#fff",
-              fontSize: "1rem",
-              border: "none",
-            }}
-          >
-            Ajouter au panier
-          </button>
-        </div>
+        <AddToCartButton
+          onClick={handleAddToCart}
+          disabled={!viewModel.selectedSize || !viewModel.selectedColor}
+        >
+          Ajouter au panier
+        </AddToCartButton>
 
         {/* Features */}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-around",
-            alignItems: "center",
-            gap: "15px",
-            marginTop: "20px",
-          }}
-        >
-          <selectedStyle.ObjectFeatureDetailProduct
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "5px",
-              padding: "5px 10px",
-              backgroundColor: "#f1f1f1",
-              borderRadius: "15px",
-            }}
-          >
+        <FeaturesWrapper>
+          <Feature>
             <HiCash size={20} />
-            <span style={{ fontSize: "0.9rem" }}>Paiement sécurisé</span>
-          </selectedStyle.ObjectFeatureDetailProduct>
-          <selectedStyle.ObjectFeatureDetailProduct
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "5px",
-              padding: "5px 10px",
-              backgroundColor: "#f1f1f1",
-              borderRadius: "15px",
-            }}
-          >
+            <FeatureText>Paiement sécurisé</FeatureText>
+          </Feature>
+          <Feature>
             <AiFillStar size={20} />
-            <span style={{ fontSize: "0.9rem" }}>Livraison rapide</span>
-          </selectedStyle.ObjectFeatureDetailProduct>
-          <selectedStyle.ObjectFeatureDetailProduct
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "5px",
-              padding: "5px 10px",
-              backgroundColor: "#f1f1f1",
-              borderRadius: "15px",
-            }}
-          >
+            <FeatureText>Livraison rapide</FeatureText>
+          </Feature>
+          <Feature>
             <IoIosPaperPlane size={20} />
-            <span style={{ fontSize: "0.9rem" }}>Suivi d'expédition</span>
-          </selectedStyle.ObjectFeatureDetailProduct>
-          <selectedStyle.ObjectFeatureDetailProduct
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "5px",
-              padding: "5px 10px",
-              backgroundColor: "#f1f1f1",
-              borderRadius: "15px",
-            }}
-          >
+            <FeatureText>Suivi d'expédition</FeatureText>
+          </Feature>
+          <Feature>
             <BiAnalyse size={20} />
-            <span style={{ fontSize: "0.9rem" }}>Retours faciles</span>
-          </selectedStyle.ObjectFeatureDetailProduct>
-        </div>
-      </div>
-    </selectedStyle.ContainerDetailsProduct>
+            <FeatureText>Retours faciles</FeatureText>
+          </Feature>
+        </FeaturesWrapper>
+      </DetailsWrapper>
+    </ContainerDetailsProduct>
   );
 };
 
 export default observer(DetailsProductCardTypeF);
+
+// Styled Components
+const ContainerDetailsProduct = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background-color: ${(props) => props.theme.colors.cardBackground || "#ffffff"};
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: auto;
+`;
+
+const ImageWrapper = styled.div`
+  flex: 1;
+  text-align: center;
+  min-width: 300px;
+`;
+
+const ImageEncadrement = styled.img`
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  object-fit: cover;
+`;
+
+const DetailsWrapper = styled.div`
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 300px;
+`;
+
+const ProductTitle = styled.h1`
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  text-align: center;
+`;
+
+const ProductPrice = styled.h2`
+  font-size: 1.5rem;
+  color: ${(props) => props.theme.colors.primary || "#007bff"};
+  margin-bottom: 20px;
+  text-align: center;
+`;
+
+const Section = styled.div`
+  margin-bottom: 20px;
+`;
+
+const SectionTitle = styled.h4`
+  margin-bottom: 10px;
+`;
+
+const ColorOptionsDetailProduct = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+`;
+
+const ColorButton = styled.button`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid
+    ${(props) => (props.isSelected ? props.theme.colors.primary : "transparent")};
+  background-color: ${(props) => props.color};
+  cursor: pointer;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
+const SizeOptionsDetailProduct = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+`;
+
+const SizeButton = styled.button`
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid
+    ${(props) => (props.isSelected ? props.theme.colors.primary : "transparent")};
+  cursor: pointer;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+const StockInfo = styled.p`
+  text-align: center;
+`;
+
+const AddToCartButton = styled.button`
+  width: 100%;
+  max-width: 250px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: ${(props) => props.theme.colors.primary || "#007bff"};
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:disabled {
+    background-color: ${(props) => props.theme.colors.disabled || "#d6d6d6"};
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: ${(props) => props.theme.colors.primaryHover || "#0056b3"};
+  }
+`;
+
+const FeaturesWrapper = styled.div`
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  margin:auto;
+  gap: 15px;
+  margin-top: 20px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const Feature = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  background-color: ${(props) => props.theme.colors.secondaryBackground || "#f1f1f1"};
+  border-radius: 15px;
+`;
+
+const FeatureText = styled.span`
+  font-size: 0.9rem;
+`;

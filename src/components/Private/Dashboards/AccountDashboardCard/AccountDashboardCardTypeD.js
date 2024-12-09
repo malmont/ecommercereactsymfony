@@ -14,45 +14,29 @@ const AccountDashboardCardTypeD = () => {
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
 
+  const tabs = [
+    { tab: 'dashboard', label: 'Dashboard', icon: 'ti-layout-grid2' },
+    { tab: 'orders', label: 'Orders', icon: 'ti-shopping-cart-full' },
+    { tab: 'address', label: 'My Address', icon: 'ti-location-pin' },
+    { tab: 'carriers', label: 'Carriers', icon: 'ti-truck' },
+    { tab: 'accountDetails', label: 'Account details', icon: 'ti-id-badge' },
+    { tab: 'logout', label: 'Logout', icon: 'ti-lock', link: '/logout' },
+  ];
+
   return (
     <selectedStyle.DashboardWrapper>
-     <DashboardSection>
+      <DashboardSection>
         {/* Sidebar */}
-        <selectedStyle.DashboardSidebar
-          className="col-lg-2 col-md-4"
-          style={{
-            color: "#fff",
-            padding: "20px",
-            display: "flex",
-            flexDirection: "column",
-            marginTop: "30px",
-          }}
-        >
+        <selectedStyle.DashboardSidebar as={DashboardSidebar} className="col-lg-2 col-md-4">
           <ul className="nav nav-tabs flex-column" role="tablist">
-            {[
-              { tab: 'dashboard', label: 'Dashboard', icon: 'ti-layout-grid2' },
-              { tab: 'orders', label: 'Orders', icon: 'ti-shopping-cart-full' },
-              { tab: 'address', label: 'My Address', icon: 'ti-location-pin' },
-              { tab: 'carriers', label: 'Carriers', icon: 'ti-truck' },
-              { tab: 'accountDetails', label: 'Account details', icon: 'ti-id-badge' },
-              { tab: 'logout', label: 'Logout', icon: 'ti-lock', link: '/logout' },
-            ].map((item, index) => (
+            {tabs.map((item, index) => (
               <selectedStyle.DashboardNavItem key={index}>
                 <selectedStyle.DashboardNavLink
+                  as={DashboardNavLink}
                   className={activeTab === item.tab ? 'active' : ''}
                   to={item.link || '#'}
+                  isActive={activeTab === item.tab}
                   onClick={() => item.link ? null : setActiveTab(item.tab)}
-                  style={{
-                    color: activeTab === item.tab ? "#007bff" : "#adb5bd",
-                    fontWeight: activeTab === item.tab ? "bold" : "normal",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "10px",
-                    padding: "10px",
-                    borderRadius: "8px",
-                    backgroundColor: activeTab === item.tab ? "#e9ecef" : "transparent",
-                    transition: "all 0.3s",
-                  }}
                 >
                   <i className={item.icon}></i>
                   {item.label}
@@ -63,21 +47,14 @@ const AccountDashboardCardTypeD = () => {
         </selectedStyle.DashboardSidebar>
 
         {/* Main Content */}
-        <selectedStyle.DashboardContent className="col-lg-7 col-md-8" style={{ padding: "5px" }}>
+        <selectedStyle.DashboardContent as={DashboardContent}  className="col-lg-7 col-md-8">
           {activeTab === 'dashboard' && (
             <selectedStyle.DashboardTabPane>
-              <selectedStyle.DashboardCard
-                style={{
-                  border: "1px solid #dee2e6",
-                  borderRadius: "8px",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                  padding: "20px",
-                }}
-              >
-                <selectedStyle.DashboardCardHeader style={{ marginBottom: "15px" }}>
+              <selectedStyle.DashboardCard as={DashboardCard}>
+                <selectedStyle.DashboardCardHeader as={DashboardCardHeader}>
                   <h3>HELLO</h3>
                 </selectedStyle.DashboardCardHeader>
-                <selectedStyle.DashboardCardBody>
+                <selectedStyle.DashboardCardBody as={DashboardCardBody}>
                   <p>
                     From your account dashboard, you can easily check & view your recent orders,
                     manage your shipping and billing addresses, and edit your password and account details.
@@ -91,18 +68,65 @@ const AccountDashboardCardTypeD = () => {
           {activeTab === 'carriers' && <ContainerTypeCarrierListCard viewModel={carrierListViewModel} />}
           {activeTab === 'accountDetails' && <AccountDetails />}
         </selectedStyle.DashboardContent>
-        </DashboardSection>
+      </DashboardSection>
     </selectedStyle.DashboardWrapper>
   );
 };
 
 export default AccountDashboardCardTypeD;
 
+// Styled Components
 const DashboardSection = styled.div`
   display: flex;
-  
   @media (max-width: 768px) {
     flex-direction: column;
-   
   }
 `;
+
+const DashboardSidebar = styled.div`
+  background-color: ${(props) => props.theme.colors.sidebarBackground || '#ffffff'};
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+`;
+
+const DashboardNavLink = styled.div`
+  color: ${(props) => (props.isActive ? '#007bff' : '#adb5bd')};
+  font-weight: ${(props) => (props.isActive ? 'bold' : 'normal')};
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: ${(props) => (props.isActive ? '#e9ecef' : 'transparent')};
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #f8f9fa;
+  }
+`;
+
+const DashboardContent = styled.div`
+  padding: 5px;
+`;
+
+const DashboardCard = styled.div`
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+`;
+
+const DashboardCardHeader = styled.div`
+  margin-bottom: 15px;
+`;
+
+const DashboardCardBody = styled.div``;

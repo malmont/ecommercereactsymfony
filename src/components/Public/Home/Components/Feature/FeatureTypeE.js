@@ -37,17 +37,17 @@ const FeatureTypeE = () => {
       <StyledRow>
         <StyledFeatureCard as={selectedStyle.FeatureCard}>
           <FaMoneyBillTransfer size={50} data-testid="cash-icon" />
-          <div className="m-3"></div>
+          <div className="m-1"></div>
           <span className="mx-3">FAST SECURE PAYMENTS</span>
         </StyledFeatureCard>
         <StyledFeatureCard as={selectedStyle.FeatureCard} className="bg-danger">
           <GiStarsStack size={50} data-testid="star-icon" />
-          <div className="m-3"></div>
+          <div className="m-1"></div>
           <span className="mx-3">PREMIUM PRODUCTS</span>
         </StyledFeatureCard>
         <StyledFeatureCard as={selectedStyle.FeatureCard}>
           <RiPlanetFill size={50} data-testid="plane-icon" />
-          <div className="m-3"></div>
+          <div className="m-1"></div>
           <span className="mx-3">FREE & FAST DELIVERY</span>
         </StyledFeatureCard>
       </StyledRow>

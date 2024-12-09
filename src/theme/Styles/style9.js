@@ -324,6 +324,10 @@ transition: transform 0.4s ease, box-shadow 0.4s ease;
   transform: scale(1.05) rotate(-1deg);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 6px 24px rgba(255, 127, 80, 0.7);
 }
+  @media (max-width: 768px) {
+     max-width: 95%;
+     margin: 10px auto;
+    }
 `,
 
 CardExplore: styled.div`
@@ -624,7 +628,14 @@ ContainerDetailsProduct: styled.div`
   ObjectFeatureDetailProduct: styled.div`
     text-align: center;
     padding: 20px;
-    background: ${(props) => props.theme?.colors?.featureBackground || "#ffffff"};
+    width: 40%;
+    height: 200px;
+    @media (max-width: 768px) {
+      width: 100%;
+      height: 100px;
+    }
+  ;
+    background: ${(props) => props.theme?.colors?.featureBackground };
     border-radius: 15px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;

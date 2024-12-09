@@ -320,12 +320,12 @@ FeatureCard: styled.div`
   svg {
     margin-bottom: 20px;
     font-size: 3rem;
-    color: ${(props) => props.theme.colors.iconColor || "#3498db"};
+    color: ${(props) => props.theme.colors.iconColor};
     transition: transform 0.3s ease, color 0.3s ease;
 
     &:hover {
       transform: rotate(10deg);
-      color: ${(props) => props.theme.colors.iconHoverColor || "#2980b9"};
+      color: ${(props) => props.theme.colors.iconHoverColor };
     }
   }
 `,
@@ -333,7 +333,7 @@ StandardCardExploreCard: styled.div`
 max-width: 100%;
 padding: 20px;
 min-height: 600px;
-background: linear-gradient(135deg, ${(props) => props.theme.colors.gradientStart}, ${(props) => props.theme.colors.gradientEnd});
+background: linear-gradient(135deg, ${(props) => props.theme.colors.featureBackground}, ${(props) => props.theme.colors.featureTextColor});
 border: 2px solid ${(props) => props.theme.colors.cardBorder};
 border-radius: 20px;
 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -343,6 +343,10 @@ transition: transform 0.4s ease, box-shadow 0.4s ease;
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+  @media (max-width: 768px) {
+     max-width: 95%;
+     margin: 10px auto;
+    }
 `,
 
 CardExplore: styled.div`
@@ -495,7 +499,7 @@ background: ${(props) =>
 border-radius: 20px;
 box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.8);
 padding: 25px;
-border: 1px solid ${(props) => props.theme.colors.border || "#e0e0e0"};
+border: 1px solid ${(props) => props.theme.colors.border };
 overflow: hidden;
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -507,14 +511,12 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
 ContainerDetailsProduct: styled.div`
     padding: 70px;
     background: ${(props) =>
-      props.theme.colors.containerGradient ||
-      "linear-gradient(135deg, #f5f7fa, #c3cfe2)"};
+      props.theme.colors.containerGradient};
     border-radius: 25px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 
     &:hover {
-      transform: scale(1.05);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
     }
   `,
@@ -522,7 +524,7 @@ ContainerDetailsProduct: styled.div`
   PrincipalDetailsDetailProduct: styled.div`
     padding: 60px;
     background: ${(props) =>
-      props.theme.colors.principalDetailsBackground || "#ffffff"};
+      props.theme.colors.principalDetailsBackground};
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -537,7 +539,7 @@ ContainerDetailsProduct: styled.div`
 
   ImageEncadrement: styled.img`
     border: 6px solid ${(props) =>
-      props.theme.colors.imageBorder || "#3498db"};
+      props.theme.colors.imageBorder };
     border-radius: 25px;
     width: 100%;
     max-width: 480px;
@@ -639,6 +641,8 @@ ContainerDetailsProduct: styled.div`
     flex-wrap: wrap;
     gap: 20px;
     padding: 40px;
+    width: 100%;
+    height: 50%;
     justify-content: center;
     background: ${(props) =>
       props.theme.colors.featureBackground ||
@@ -652,13 +656,18 @@ ContainerDetailsProduct: styled.div`
         props.theme.colors.featureHoverBackground ||
         "linear-gradient(135deg, #ecf0f1, #ffffff)"};
     }
+        @media (max-width: 768px) {
+      height: 100%;
+    }
   `,
 
   ObjectFeatureDetailProduct: styled.div`
     text-align: center;
-    padding: 25px;
+    padding: 15px;
+    width: 180px;
+    height: 100px;
     background: ${(props) =>
-      props.theme.colors.objectFeatureBackground || "#ffffff"};
+      props.theme.colors.objectBackground };
     border-radius: 20px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 
@@ -669,7 +678,7 @@ ContainerDetailsProduct: styled.div`
     p {
       font-size: 18px;
       margin-top: 10px;
-      color: ${(props) => props.theme.colors.featureTextColor || "#34495e"};
+      color: ${(props) => props.theme.colors.featureTextColor};
     }
   `,
   ColorCircle: styled.div`

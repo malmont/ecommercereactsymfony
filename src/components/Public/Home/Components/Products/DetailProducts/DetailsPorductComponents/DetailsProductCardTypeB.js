@@ -4,6 +4,7 @@ import { AiFillStar } from "react-icons/ai";
 import { IoIosPaperPlane } from "react-icons/io";
 import { BiAnalyse } from "react-icons/bi";
 import { observer } from "mobx-react-lite";
+import styled from "styled-components";
 
 const DetailsProductCardTypeB = ({
   category,
@@ -13,73 +14,32 @@ const DetailsProductCardTypeB = ({
   handleAddToCart,
 }) => {
   return (
-    <selectedStyle.ContainerDetailsProduct
-      style={{
-        padding: "20px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "20px",
-      }}
-    >
-      <selectedStyle.PrincipalDetailsDetailProduct
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap", // Permet aux éléments de se replier
-          gap: "20px",
-        }}
-      >
+    <selectedStyle.ContainerDetailsProduct as={ContainerDetailsProduct}>
+      <selectedStyle.PrincipalDetailsDetailProduct as={PrincipalDetailsDetailProduct}>
         {/* Colonne gauche : Image */}
-        <div
-          style={{
-            flex: "1",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <selectedStyle.ImageEncadrement
-            src={category.image}
-            alt={category.name}
-            style={{
-              width: "300px",
-              Width: "400px", // Taille max pour les grands écrans
-              borderRadius: "15px",
-              objectFit: "cover",
-            }}
-          />
-        </div>
+        <ImageWrapper>
+          <selectedStyle.ImageEncadrement as={ImageEncadrement} />
+        </ImageWrapper>
 
         {/* Colonne droite : Détails du produit */}
-        <div
-          style={{
-            flex: "2",
-            display: "flex",
-            flexDirection: "column",
-            gap: "20px",
-          }}
-        >
-          <h2 style={{ fontSize: "1.8rem", margin: "10px 0" }}>{category.name}</h2>
-          <h2 style={{ fontSize: "1.5rem", color: "#007bff", marginBottom: "20px" }}>
+        <DetailsWrapper>
+          <ProductTitle>{category.name}</ProductTitle>
+          <ProductPrice>
             {(category.price / 100).toLocaleString("en-US", {
               style: "currency",
               currency: "USD",
             })}
-          </h2>
+          </ProductPrice>
 
-          {/* Sélection des couleurs */}
-          <div>
-            <h5>Sélectionnez</h5>
-            <selectedStyle.ColorOptionsDetailProduct>
+          {/* Color Selection */}
+          <Section>
+            <SectionTitle>Couleurs disponibles :</SectionTitle>
+            <selectedStyle.ColorOptionsDetailProduct as ={ColorOptionsDetailProduct}>
               {uniqueColors.map((color) => (
-                <selectedStyle.ColorButton
-                  key={color.id}
-                  onClick={() => viewModel.handleColorSelection(color.name)}
-                  isSelected={viewModel.selectedColor === color.name}
-                  color={color.codeHexa}
-                />
+                <selectedStyle.ColorButton as={ColorButton}/>
               ))}
             </selectedStyle.ColorOptionsDetailProduct>
-          </div>
+          </Section>
 
           {/* Sélection des tailles */}
           {viewModel.selectedColor && (
@@ -89,7 +49,7 @@ const DetailsProductCardTypeB = ({
                 {viewModel
                   .getAvailableSizes(category.variants, viewModel.selectedColor)
                   .map((size) => (
-                    <selectedStyle.SizeButton
+                    <selectedStyle.SizeButton 
                       key={size.id}
                       onClick={() =>
                         viewModel.handleSizeSelection(
@@ -118,35 +78,18 @@ const DetailsProductCardTypeB = ({
           )}
 
           {/* Bouton Ajouter au panier */}
-          <button
+          <AddToCartButton
             className="btn btn-primary"
             onClick={handleAddToCart}
-            disabled={!viewModel.selectedSize || !viewModel.selectedColor}
-            style={{
-              width: "100%",
-              backgroundColor: "#007bff",
-              border: "none",
-              borderRadius: "8px",
-              color: "#fff",
-              padding: "10px",
-              fontSize: "1rem",
-            }}
-          >
+            disabled={!viewModel.selectedSize || !viewModel.selectedColor}>
             Ajouter au panier
-          </button>
-        </div>
+          </AddToCartButton>
+        </DetailsWrapper>
       </selectedStyle.PrincipalDetailsDetailProduct>
 
       {/* Liste des avantages */}
-      <selectedStyle.FeatureDetailProduct
-        style={{
-          display: "flex",
-          flexWrap: "wrap", // Rend les avantages responsives
-          gap: "15px",
-          justifyContent: "space-around",
-          marginTop: "20px",
-        }}
-      >
+      <selectedStyle.FeatureDetailProduct as ={FeatureDetailProduct}>
+
         <selectedStyle.ObjectFeatureDetailProduct>
           <HiCash size={30} />
           <p>Paiement sécurisé</p>
@@ -169,3 +112,102 @@ const DetailsProductCardTypeB = ({
 };
 
 export default observer(DetailsProductCardTypeB);
+
+const ContainerDetailsProduct = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+`;
+
+const PrincipalDetailsDetailProduct = styled.div`
+ display: flex;
+ flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+`;
+
+const ImageWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+`;
+
+const ImageEncadrement = styled.img`
+  width: 200px;
+  border-radius: 15px;
+  object-fit: cover;
+`;
+
+const DetailsWrapper = styled.div`
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+const ProductTitle = styled.h2`
+  font-size: 1.8rem;
+  margin: 10px 0;
+`;
+
+const ProductPrice = styled.h2`
+  font-size: 1.5rem;
+  color: ${(props) => props.theme.colors.primary || "#007bff"};
+  margin-bottom: 20px;
+`;
+
+const Section = styled.div``;
+
+const SectionTitle = styled.h5`
+  margin-bottom: 10px;
+`;
+
+const ColorOptionsDetailProduct = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const ColorButton = styled.button`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid
+    ${(props) => (props.isSelected ? props.theme.colors.primary : "transparent")};
+  background-color: ${(props) => props.color};
+  cursor: pointer;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
+const AddToCartButton = styled.button`
+  width: 100%;
+  background-color: ${(props) => props.theme.colors.primary || "#007bff"};
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:disabled {
+    background-color: ${(props) => props.theme.colors.disabled || "#d6d6d6"};
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: ${(props) => props.theme.colors.primaryHover || "#0056b3"};
+  }
+`;
+
+const FeatureDetailProduct = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-around;
+  margin-top: 20px;
+`;

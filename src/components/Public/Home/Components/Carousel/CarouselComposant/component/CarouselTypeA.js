@@ -59,8 +59,7 @@ const CardImage= styled.img`
   cursor: pointer;
   padding-top: 10px;
   margin: auto;
-  border-radius: 20%;
-  margin-bottom: 20px;
+ 
 `;
 const CardContainer= styled.div`
 display: flex;
@@ -68,12 +67,12 @@ flex-direction: column;
 justify-content: space-between;
 background-color: ${(props) => props.theme.colors.cardBackground};
 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-height: 410px;
+height: 440px;
 width: 280px;
-padding-bottom: 10px;
 border-radius: 10px;
 margin: auto;
 margin-bottom: 20px;
+padding: 10px;
 `;
 
 
