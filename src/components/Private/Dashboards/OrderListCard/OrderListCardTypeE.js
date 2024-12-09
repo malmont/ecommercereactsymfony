@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import { styles } from "../../../../theme/AllStyles";
 import { useAdminContext } from "../../../../theme/AdminContext";
 import { useNavigate } from "react-router-dom";
-import { useTheme } from 'styled-components';
+import styled, { useTheme } from "styled-components";
 
 const OrderListCardTypeE = ({ viewModel }) => {
   const { orders, loading } = viewModel;
@@ -11,87 +11,30 @@ const OrderListCardTypeE = ({ viewModel }) => {
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
   const theme = useTheme();
+
   if (loading) {
-    return <p>Loading orders...</p>;
+    return <LoadingMessage>Loading orders...</LoadingMessage>;
   }
 
   return (
-    <selectedStyle.TableWrapper
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))",
-        gap: "20px",
-        padding: "2px",
-        background: theme.colors.objectBackground,
-        borderRadius: "12px",
-      }}
-    >
+    <TableWrapper as={selectedStyle.TableWrapper}>
       {orders.length > 0 ? (
         orders.map((order, index) => (
-          <div
+          <OrderCard
             key={`${order.id}-${index}`}
-            style={{
-              background: "#ffffff",
-              padding: "20px",
-              borderRadius: "12px",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
-              cursor: "pointer",
-            }}
             onClick={() =>
               navigate(`/order/${order.id}`, {
                 state: { order: JSON.parse(JSON.stringify(order)) },
               })
             }
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.boxShadow =
-                "0 8px 16px rgba(0, 0, 0, 0.2)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.boxShadow =
-                "0 4px 8px rgba(0, 0, 0, 0.1)")
-            }
           >
-            <div style={{ marginBottom: "10px", fontWeight: "bold" }}>
-              Order: {order.reference}
-            </div>
-            <div
-              style={{
-                marginBottom: "10px",
-                color: theme.colors.textColor,
-                fontSize: "0.9rem",
-              }}
-            >
-              Date: {new Date(order.orderDate).toLocaleDateString()}
-            </div>
-            <div
-              style={{
-                marginBottom: "10px",
-                color: theme.colors.successBackground,
-                fontWeight: "bold",
-              }}
-            >
-              Status: Completed
-            </div>
-            <div
-              style={{
-                marginBottom: "15px",
-                fontWeight: "bold",
-                color: theme.colors.textColor,
-              }}
-            >
-              Total: ${(order.totalAmount / 100).toFixed(2)}
-            </div>
-            <selectedStyle.TableButton
-              style={{
-                background: theme.colors.buttonBackground,
-                color: "#ffffff",
-                padding: "10px 20px",
-                border: "none",
-                borderRadius: "8px",
-                cursor: "pointer",
-                transition: "background 0.3s ease",
-              }}
+            <OrderDetails>
+              <OrderTitle>Order: {order.reference}</OrderTitle>
+              <OrderDate>Date: {new Date(order.orderDate).toLocaleDateString()}</OrderDate>
+              <OrderStatus>Status: Completed</OrderStatus>
+              <OrderTotal>Total: ${(order.totalAmount / 100).toFixed(2)}</OrderTotal>
+            </OrderDetails>
+            <ViewDetailsButton
               onClick={(e) => {
                 e.stopPropagation();
                 navigate(`/order/${order.id}`, {
@@ -100,24 +43,106 @@ const OrderListCardTypeE = ({ viewModel }) => {
               }}
             >
               View Details
-            </selectedStyle.TableButton>
-          </div>
+            </ViewDetailsButton>
+          </OrderCard>
         ))
       ) : (
-        <selectedStyle.TableEmptyMessage
-          style={{
-            gridColumn: "1 / -1",
-            textAlign: "center",
-            color: "#6c757d",
-            padding: "20px",
-            fontStyle: "italic",
-          }}
-        >
-          No orders found.
-        </selectedStyle.TableEmptyMessage>
+        <EmptyMessage as={selectedStyle.TableEmptyMessage}>No orders found.</EmptyMessage>
       )}
-    </selectedStyle.TableWrapper>
+    </TableWrapper>
   );
 };
 
 export default observer(OrderListCardTypeE);
+
+// Styled Components
+const LoadingMessage = styled.p`
+  text-align: center;
+  font-size: 1rem;
+  color: ${(props) => props.theme.colors.textMuted || "#6c757d"};
+`;
+
+const TableWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background: ${(props) => props.theme.colors.objectBackground || "#f9f9f9"};
+  border-radius: 12px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 15px;
+  }
+`;
+
+const OrderCard = styled.div`
+  background: ${(props) => props.theme.colors.cardBackground || "#ffffff"};
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+const OrderDetails = styled.div`
+  margin-bottom: 15px;
+`;
+
+const OrderTitle = styled.div`
+  margin-bottom: 10px;
+  font-weight: bold;
+`;
+
+const OrderDate = styled.div`
+  margin-bottom: 10px;
+  color: ${(props) => props.theme.colors.textColor || "#6c757d"};
+  font-size: 0.9rem;
+`;
+
+const OrderStatus = styled.div`
+  margin-bottom: 10px;
+  color: ${(props) => props.theme.colors.successBackground || "#28a745"};
+  font-weight: bold;
+`;
+
+const OrderTotal = styled.div`
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.textColor || "#2c3e50"};
+`;
+
+const ViewDetailsButton = styled.button`
+  background: ${(props) => props.theme.colors.buttonBackground || "#007bff"};
+  color: ${(props) => props.theme.colors.buttonText || "#ffffff"};
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: ${(props) => props.theme.colors.buttonHover || "#0056b3"};
+  }
+`;
+
+const EmptyMessage = styled.p`
+  grid-column: 1 / -1;
+  text-align: center;
+  color: ${(props) => props.theme.colors.textMuted || "#6c757d"};
+  padding: 20px;
+  font-style: italic;
+  background: ${(props) => props.theme.colors.emptyMessageBackground || "#ffffff"};
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+`;

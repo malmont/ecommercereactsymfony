@@ -12,33 +12,14 @@ const OrderListCardTypeC = ({ viewModel }) => {
     const selectedStyle = styles[styleChoice];
 
     if (loading) {
-        return <p>Chargement des commandes...</p>;
+        return <LoadingMessage>Chargement des commandes...</LoadingMessage>;
     }
 
     return (
-        <selectedStyle.TableWrapper
-            style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))",
-                gap: "20px",
-                backgroundColor: "#f8f9fa",
-                borderRadius: "12px",
-                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-            }}
-        >
+        <selectedStyle.TableWrapper as={TableWrapper}>
             {orders.length > 0 ? (
                 orders.map((order, index) => (
-                    <OrderCard
-                        key={`${order.id}-${index}`}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = "scale(1.03)";
-                            e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.2)";
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = "scale(1)";
-                            e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.1)";
-                        }}
-                    >
+                    <OrderCard key={`${order.id}-${index}`}>
                         <OrderDetails>
                             <OrderTitle>Commande : {order.reference}</OrderTitle>
                             <OrderDate>Date : {new Date(order.orderDate).toLocaleDateString()}</OrderDate>
@@ -56,17 +37,7 @@ const OrderListCardTypeC = ({ viewModel }) => {
                     </OrderCard>
                 ))
             ) : (
-                <selectedStyle.TableEmptyMessage
-                    style={{
-                        textAlign: "center",
-                        color: "#6c757d",
-                        padding: "20px",
-                        backgroundColor: "#ffffff",
-                        borderRadius: "12px",
-                        fontStyle: "italic",
-                        boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
-                    }}
-                >
+                <selectedStyle.TableEmptyMessage as={TableEmptyMessage}>
                     Aucune commande trouvée.
                 </selectedStyle.TableEmptyMessage>
             )}
@@ -75,6 +46,33 @@ const OrderListCardTypeC = ({ viewModel }) => {
 };
 
 export default observer(OrderListCardTypeC);
+
+const LoadingMessage = styled.p`
+    text-align: center;
+    font-size: 1rem;
+    color: ${(props) => props.theme.colors.textMuted || "#6c757d"};
+    margin: 20px 0;
+`;
+
+const TableWrapper = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+    background-color: ${(props) => props.theme.colors.wrapperBackground || "#f8f9fa"};
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+`;
+
+const TableEmptyMessage = styled.div`
+    text-align: center;
+    color: ${(props) => props.theme.colors.textMuted || "#6c757d"};
+    padding: 20px;
+    background-color: ${(props) => props.theme.colors.cardBackground || "#ffffff"};
+    border-radius: 12px;
+    font-style: italic;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+`;
 
 const OrderCard = styled.div`
     background-color: ${(props) => props.theme.colors.cardBackground || "#ffffff"};
@@ -86,8 +84,10 @@ const OrderCard = styled.div`
     justify-content: space-between;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    @media (max-width: 768px) {
-        width: 100%;
+
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 `;
 

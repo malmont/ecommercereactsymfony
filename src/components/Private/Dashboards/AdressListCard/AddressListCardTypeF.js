@@ -21,19 +21,7 @@ const AddressListCardTypeF = observer(() => {
 
   return (
     <AddressListWrapper>
-      <selectedStyle.AddNewAddressButton
-        href="/address/new"
-        style={{
-          minWidth: '250px',
-          height: '200px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: '1.5rem',
-          fontWeight: 'bold',
-          color: `${(props) => props.theme.colors.linkText}`,
-        }}
-      >
+       <selectedStyle.AddNewAddressButton as={AddNewAddressButton} href="/address/new">
         Ajouter une adresse
       </selectedStyle.AddNewAddressButton>
 
@@ -134,4 +122,14 @@ const ButtonGroup = styled.div`
     flex-direction: column;
     gap: 10px;
   }
+`;
+const AddNewAddressButton = styled.a`
+  min-width: 250px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.activeLinkText};
 `;

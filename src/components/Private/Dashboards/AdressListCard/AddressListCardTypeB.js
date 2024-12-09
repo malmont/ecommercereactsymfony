@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { useDependencies } from '../../../../DependencyContext';
 import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
-import { a } from 'react-spring';
+import styled from 'styled-components';
 
 const AddressListCardTypeB = observer(() => {
   const { addressListViewModel } = useDependencies();
@@ -12,76 +12,22 @@ const AddressListCardTypeB = observer(() => {
   const selectedStyle = styles[styleChoice];
 
   if (loading) {
-    return (
-      <selectedStyle.LoadingMessage
-        style={{
-          fontSize: '1.5rem',
-          color: `${(props) => props.theme.colors.cartItemTitle}`,
-        }}
-      >
-        Loading addresses...
-      </selectedStyle.LoadingMessage>
-    );
+    return <selectedStyle.LoadingMessage as={LoadingMessage}>Loading addresses...</selectedStyle.LoadingMessage>;
   }
 
   return (
-    <selectedStyle.AddressListWrapper
-      style={{
-        background: `${(props) => props.theme.colors.wrapperBackground}`,
-        border: `1px solid ${(props) => props.theme.colors.border}`,
-        borderRadius: '20px',
-    
-      }}
-    >
-      <selectedStyle.AddNewAddressButton
-        href="/address/new"
-        style={{
-          background: `${(props) => props.theme.colors.buttonBackground}`,
-          color: `${(props) => props.theme.colors.navButtonText}`,
-          fontSize: '1rem',
-          padding: '20px',
-          border: `2px solid ${(props) => props.theme.colors.border}`,
-          borderRadius: '12px',
-          transition: 'background-color 0.4s ease, transform 0.3s',
-        }}
-      >
+    <selectedStyle.AddressListWrapper as={AddressListWrapper}>
+      <selectedStyle.AddNewAddressButton as={AddNewAddressButton} href="/address/new">
         Add new address
       </selectedStyle.AddNewAddressButton>
       {addresses.length > 0 ? (
         addresses.map((address, index) => (
-          <selectedStyle.AddressCard
-            key={address.id}
-            style={{ 
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-              boxShadow: '0 15px 25px rgba(0, 0, 0, 0.2)',
-              border: `3px solid ${(props) => props.theme.colors.border}`,
-              background: `${(props) => props.theme.colors.cardBackground}`,
-              borderRadius: '15px',
-              padding: '10',
-            }}
-          >
-            <selectedStyle.AddressCardHeader
-              style={{
-                fontWeight: 'bold',
-                background: `${(props) => props.theme.colors.cardHeaderBackground}`,
-                color: `${(props) => props.theme.colors.cardHeaderText}`,
-                padding: '20px',
-                borderBottom: `3px solid ${(props) => props.theme.colors.border}`,
-                borderRadius: '15px '
-                
-              }}
-            >
+          <selectedStyle.AddressCard as={AddressCard} key={address.id}>
+            <selectedStyle.AddressCardHeader as={AddressCardHeader}>
               📍 Address #{index + 1}
             </selectedStyle.AddressCardHeader>
-            <selectedStyle.AddressCardBody
-              style={{
-                background: `${(props) => props.theme.colors.cardBodyBackground}`,
-                color: `${(props) => props.theme.colors.cardBodyText}`,
-               
-               
-              }}
-            >
-              <selectedStyle.Address>
+            <selectedStyle.AddressCardBody as={AddressCardBody}>
+              <selectedStyle.Address as={Address}>
                 {address.fullname}
                 <br />
                 {address.addressLineOne} {address.addressLineTwo}
@@ -90,40 +36,11 @@ const AddressListCardTypeB = observer(() => {
                 <br />
                 {address.country}
               </selectedStyle.Address>
-              <selectedStyle.ButtonGroup>
-                <selectedStyle.EditButton
-                  href={`/address/edit/${address.id}`}
-                  style={{
-                    background: `${(props) => props.theme.colors.buttonBackground}`,
-                    color: `${(props) => props.theme.colors.navButtonText}`,
-                    padding: '12px 25px',
-                    borderRadius: '8px',
-                    transition: 'transform 0.2s ease',
-                  }}
-                  onMouseOver={(e) =>
-                    (e.currentTarget.style.transform = 'scale(1.1)')
-                  }
-                  onMouseOut={(e) =>
-                    (e.currentTarget.style.transform = 'scale(1)')
-                  }
-                >
+              <selectedStyle.ButtonGroup as={ButtonGroup}>
+                <selectedStyle.EditButton as={EditButton} href={`/address/edit/${address.id}`}>
                   ✏️ Edit
                 </selectedStyle.EditButton>
-                <selectedStyle.DeleteButton
-                  style={{
-                    background: `${(props) => props.theme.colors.buttonHover}`,
-                    color: `${(props) => props.theme.colors.cartCountText}`,
-                    padding: '12px 25px',
-                    borderRadius: '8px',
-                    transition: 'transform 0.2s ease',
-                  }}
-                  onMouseOver={(e) =>
-                    (e.currentTarget.style.transform = 'scale(1.1)')
-                  }
-                  onMouseOut={(e) =>
-                    (e.currentTarget.style.transform = 'scale(1)')
-                  }
-                >
+                <selectedStyle.DeleteButton as={DeleteButton}>
                   🗑️ Delete
                 </selectedStyle.DeleteButton>
               </selectedStyle.ButtonGroup>
@@ -131,18 +48,7 @@ const AddressListCardTypeB = observer(() => {
           </selectedStyle.AddressCard>
         ))
       ) : (
-        <selectedStyle.EmptyAddressMessage
-          style={{
-            background: `${(props) => props.theme.colors.emptyMessageBackground}`,
-            color: `${(props) => props.theme.colors.cartItemTitle}`,
-            padding: '30px',
-            border: `3px dashed ${(props) => props.theme.colors.border}`,
-            borderRadius: '12px',
-            fontSize: '1.4rem',
-            textAlign: 'center',
-            animation: 'fadeIn 0.5s ease-in-out',
-          }}
-        >
+        <selectedStyle.EmptyAddressMessage as={EmptyAddressMessage}>
           🚫 You haven't added any addresses yet.
         </selectedStyle.EmptyAddressMessage>
       )}
@@ -151,3 +57,87 @@ const AddressListCardTypeB = observer(() => {
 });
 
 export default AddressListCardTypeB;
+
+const LoadingMessage = styled.div`
+  font-size: 1.5rem;
+  color: ${(props) => props.theme.colors.cartItemTitle};
+`;
+
+const AddressListWrapper = styled.div`
+  background: ${(props) => props.theme.colors.wrapperBackground};
+  border-radius: 20px;
+`;
+
+const AddNewAddressButton = styled.a`
+  background: ${(props) => props.theme.colors.buttonBackground};
+  color: ${(props) => props.theme.colors.navButtonText};
+  font-size: 1rem;
+  padding: 20px;
+  border-radius: 12px;
+  transition: background-color 0.4s ease, transform 0.3s;
+`;
+
+const AddressCard = styled.div`
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  border: 3px solid ${(props) => props.theme.colors.border};
+  background: ${(props) => props.theme.colors.cardBackground};
+  border-radius: 15px;
+  padding: 10px;
+`;
+
+const AddressCardHeader = styled.div`
+  font-weight: bold;
+  background: ${(props) => props.theme.colors.cardHeaderBackground};
+  color: ${(props) => props.theme.colors.cardHeaderText};
+  padding: 20px;
+  border-bottom: 3px solid ${(props) => props.theme.colors.border};
+  border-radius: 15px 15px 0 0;
+`;
+
+const AddressCardBody = styled.div`
+  background: ${(props) => props.theme.colors.cardBodyBackground};
+  color: ${(props) => props.theme.colors.cardBodyText};
+`;
+
+const Address = styled.div`
+  margin-bottom: 20px;
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const EditButton = styled.a`
+  background: ${(props) => props.theme.colors.buttonBackground};
+  color: ${(props) => props.theme.colors.navButtonText};
+  padding: 12px 25px;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
+const DeleteButton = styled.button`
+  background: ${(props) => props.theme.colors.buttonHover};
+  color: ${(props) => props.theme.colors.cartCountText};
+  padding: 12px 25px;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
+const EmptyAddressMessage = styled.div`
+  background: ${(props) => props.theme.colors.emptyMessageBackground};
+  color: ${(props) => props.theme.colors.cartItemTitle};
+  padding: 30px;
+ 
+  border-radius: 12px;
+  font-size: 1.4rem;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+`;

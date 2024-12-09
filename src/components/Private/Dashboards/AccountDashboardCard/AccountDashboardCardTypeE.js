@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import ContainerTypeAdressListCard from '../../../../theme/ThemeContainer/ContainerTypeAdressListCard'; 
 import AccountDetails from '../AccountDetails';
 import ContainerTypeCarrierListCard from '../../../../theme/ThemeContainer/ContainerTypeCarrierListCard';
@@ -16,6 +15,7 @@ const AccountDashboardCardTypeE = () => {
   const { styleChoice } = useAdminContext();
   const selectedStyle = styles[styleChoice];
   const theme = useTheme();
+
   const tabs = [
     { tab: 'dashboard', label: 'Dashboard', icon: 'ti-layout-grid2' },
     { tab: 'orders', label: 'Orders', icon: 'ti-shopping-cart-full' },
@@ -26,30 +26,18 @@ const AccountDashboardCardTypeE = () => {
 
   return (
     <selectedStyle.DashboardWrapper>
-      <div className="section" style={{ padding: "5px" }}>
-        {/* Grille des onglets */}
+      <DashboardSection>
+        {/* Onglets */}
         <DashboardSidebar>
           {tabs.map((item, index) => (
-            <div
+            <TabItem
               key={index}
+              isActive={activeTab === item.tab}
               onClick={() => setActiveTab(item.tab)}
-              style={{
-                cursor: "pointer",
-                backgroundColor: activeTab === item.tab ? theme.colors.buttonBackground : "transparent",
-                color: activeTab === item.tab ? "#ffffff" : "#000000",
-                border: "1px solid #dee2e6",
-                borderRadius: "12px",
-                padding: "20px",
-                textAlign: "center",
-                boxShadow: activeTab === item.tab
-                  ? "0 4px 12px rgba(0, 123, 255, 0.3)"
-                  : "0 2px 6px rgba(0, 0, 0, 0.1)",
-                transition: "all 0.3s ease",
-              }}
             >
-              <i className={`${item.icon}`} style={{ fontSize: "24px", marginBottom: "10px" }}></i>
-              <p style={{ margin: "0", fontWeight: "bold" }}>{item.label}</p>
-            </div>
+              <i className={`${item.icon}`} />
+              <p>{item.label}</p>
+            </TabItem>
           ))}
         </DashboardSidebar>
 
@@ -57,8 +45,8 @@ const AccountDashboardCardTypeE = () => {
         <DashboardContent>
           {activeTab === 'dashboard' && (
             <selectedStyle.DashboardTabPane>
-              <selectedStyle.DashboardCard>
-                <selectedStyle.DashboardCardHeader style={{ marginBottom: "15px" }}>
+              <selectedStyle.DashboardCard >
+                <selectedStyle.DashboardCardHeader as={DashboardCardHeader}>
                   <h3>Welcome to Your Dashboard</h3>
                 </selectedStyle.DashboardCardHeader>
                 <selectedStyle.DashboardCardBody>
@@ -75,12 +63,18 @@ const AccountDashboardCardTypeE = () => {
           {activeTab === 'carriers' && <ContainerTypeCarrierListCard viewModel={carrierListViewModel} />}
           {activeTab === 'accountDetails' && <AccountDetails />}
         </DashboardContent>
-      </div>
+      </DashboardSection>
     </selectedStyle.DashboardWrapper>
   );
 };
 
 export default AccountDashboardCardTypeE;
+
+// Styled Components
+const DashboardSection = styled.div`
+  padding: 5px;
+`;
+
 
 const DashboardSidebar = styled.div`
   display: grid;
@@ -88,10 +82,33 @@ const DashboardSidebar = styled.div`
   gap: 20px;
   margin-bottom: 30px;
   width: 100%; 
+
   @media (max-width: 768px) {
-    width: 100%; 
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
+  }
+`;
+
+const TabItem = styled.div`
+  cursor: pointer;
+  background-color: ${(props) => (props.isActive ? props.theme.colors.buttonBackground : 'transparent')};
+  color: ${(props) => (props.isActive ? '#ffffff' : '#000000')};
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: ${(props) =>
+    props.isActive ? '0 4px 12px rgba(0, 123, 255, 0.3)' : '0 2px 6px rgba(0, 0, 0, 0.1)'};
+  transition: all 0.3s ease;
+
+  i {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 0;
+    font-weight: bold;
   }
 `;
 
@@ -100,4 +117,8 @@ const DashboardContent = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
+`;
+
+const DashboardCardHeader = styled.div`
+  padding: 15px;
 `;

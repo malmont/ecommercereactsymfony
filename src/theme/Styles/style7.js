@@ -378,6 +378,10 @@ transition: transform 0.5s ease, box-shadow 0.5s ease;
   transform: translateY(-15px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
+  @media (max-width: 768px) {
+     max-width: 95%;
+     margin: 10px auto;
+    }
 `,
 
 CardExplore: styled.div`
@@ -539,9 +543,6 @@ ContainerDetailsProduct: styled.div`
     );
     border-radius: 30px;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-    animation: ${shimmer} 3s linear infinite;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-
     &:hover {
       transform: scale(1.03);
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
@@ -555,15 +556,8 @@ ContainerDetailsProduct: styled.div`
     flex-wrap: wrap;
     gap: 40px;
     padding: 50px;
-    background: linear-gradient(
-      135deg,
-      ${(props) => props.theme.colors.featureGradientStart || "#e9eff5"},
-      ${(props) => props.theme.colors.featureGradientEnd || "#d4e2f7"}
-    );
     border-radius: 25px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    animation: ${shimmer} 3s infinite;
-
     &:hover {
       transform: scale(1.03);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
@@ -573,6 +567,8 @@ ContainerDetailsProduct: styled.div`
   ObjectFeatureDetailProduct: styled.div`
     text-align: center;
     padding: 25px;
+    width: 200px;
+    height: 150px;
     background: ${(props) => props.theme.colors.featureBackground || "#ffffff"};
     border-radius: 25px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);

@@ -12,21 +12,11 @@ const OrderListCardTypeB = ({ viewModel }) => {
     const selectedStyle = styles[styleChoice];
 
     if (loading) {
-        return <p>Chargement des commandes...</p>;
+        return <LoadingMessage>Chargement des commandes...</LoadingMessage>;
     }
 
     return (
-        <selectedStyle.TableWrapper
-        style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "15px",
-            padding: "20px",
-            backgroundColor: "#f9f9f9",
-            borderRadius: "12px",
-            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-        }}
-    >
+        <selectedStyle.TableWrapper as={TableWrapper}>
             {orders.length > 0 ? (
                 orders.map((order, index) => (
                     <OrderCard key={`${order.id}-${index}`}>
@@ -47,7 +37,7 @@ const OrderListCardTypeB = ({ viewModel }) => {
                     </OrderCard>
                 ))
             ) : (
-                <selectedStyle.TableEmptyMessage>
+                <selectedStyle.TableEmptyMessage as={TableEmptyMessage}>
                     Aucune commande trouvée.
                 </selectedStyle.TableEmptyMessage>
             )}
@@ -57,15 +47,38 @@ const OrderListCardTypeB = ({ viewModel }) => {
 
 export default observer(OrderListCardTypeB);
 
+const LoadingMessage = styled.p`
+    text-align: center;
+    font-size: 1rem;
+    color: ${(props) => props.theme.colors.textMuted || '#6c757d'};
+    margin: 20px 0;
+`;
+
+const TableWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background-color: ${(props) => props.theme.colors.wrapperBackground || '#f9f9f9'};
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+`;
+
+const TableEmptyMessage = styled.div`
+    text-align: center;
+    font-size: 1rem;
+    color: ${(props) => props.theme.colors.textMuted || '#6c757d'};
+`;
+
 const OrderCard = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: ${(props) => props.theme.colors.cardBackground };
+    background-color: ${(props) => props.theme.colors.cardBackground};
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border: 1px solid ${(props) => props.theme.colors.border };
+    border: 1px solid ${(props) => props.theme.colors.border};
     margin-bottom: 15px;
 
     @media (max-width: 768px) {
@@ -120,7 +133,7 @@ const ViewButton = styled.button`
     flex: 1;
     text-align: center;
     background-color: ${(props) => props.theme.colors.buttonBackground};
-    color: ${(props) => props.theme.colors.colorText };
+    color: ${(props) => props.theme.colors.colorText};
     padding: 8px 12px;
     border-radius: 6px;
     font-size: 0.9rem;
@@ -129,7 +142,7 @@ const ViewButton = styled.button`
     cursor: pointer;
 
     &:hover {
-        background-color: ${(props) => props.theme.colors.buttonHover };
+        background-color: ${(props) => props.theme.colors.buttonHover};
     }
 
     @media (max-width: 768px) {

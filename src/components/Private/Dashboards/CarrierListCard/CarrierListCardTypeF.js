@@ -2,6 +2,7 @@ import React from 'react';
 import { observer } from "mobx-react-lite";
 import { styles } from '../../../../theme/AllStyles';
 import { useAdminContext } from '../../../../theme/AdminContext';
+import styled from 'styled-components';
 
 const CarrierListCardTypeF = ({ viewModel }) => {
   const { carriers, loading } = viewModel;
@@ -10,129 +11,28 @@ const CarrierListCardTypeF = ({ viewModel }) => {
 
   if (loading) {
     return (
-      <selectedStyle.NoCarrierMessage
-        style={{
-          backgroundColor: `${(props) => props.theme.colors.cardBackground}`,
-          color: `${(props) => props.theme.colors.textColor}`,
-          borderRadius: "10px",
-          fontSize: "1rem",
-          textAlign: "center",
-          border: `1px solid ${(props) => props.theme.colors.border}`,
-        }}
-      >
+      <selectedStyle.NoCarrierMessage as={NoCarrierMessage}>
         Loading carriers...
       </selectedStyle.NoCarrierMessage>
     );
   }
 
   return (
-    <selectedStyle.CarrierWrapper
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "15px",
-        backgroundColor: `${(props) => props.theme.colors.wrapperBackground}`,
-        borderRadius: "20px",
-        border: `2px solid ${(props) => props.theme.colors.border}`,
-        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-      }}
-    >
-      <h2
-        style={{
-          fontSize: "1.rem",
-          color: `${(props) => props.theme.colors.titleText}`,
-          textAlign: "center",
-          marginBottom: "20px",
-        }}
-      >
-        Available Carriers
-      </h2>
-
+    <selectedStyle.CarrierWrapper as={CarrierWrapper}>
+      <CarrierTitle>Available Carriers</CarrierTitle>
       {carriers.length > 0 ? (
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-            gap: "20px",
-          }}
-        >
+        <CarrierGrid>
           {carriers.map((carrier, index) => (
-            <div
-              key={`carrier-${carrier.id}-${index}`}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                padding: "20px",
-                backgroundColor: `${(props) => props.theme.colors.cardBackground}`,
-                borderRadius: "15px",
-                border: `1px solid ${(props) => props.theme.colors.border}`,
-                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
-                transition: "all 0.3s ease",
-                overflow: "hidden",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-5px)";
-                e.currentTarget.style.boxShadow = "0 8px 20px rgba(0, 0, 0, 0.2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.1)";
-              }}
-            >
-              <selectedStyle.CarrierImage
-                src={carrier.photo}
-                alt={carrier.name}
-                style={{
-                  width: "70px",
-                  height: "70px",
-                  borderRadius: "50%",
-                  marginBottom: "10px",
-                }}
-              />
-              <h4
-                style={{
-                  fontSize: "1.2rem",
-                  color: `${(props) => props.theme.colors.textColor}`,
-                  marginBottom: "10px",
-                }}
-              >
-                {carrier.name}
-              </h4>
-              <p
-                style={{
-                  color: `${(props) => props.theme.colors.descriptionText}`,
-                  fontSize: "0.9rem",
-                  textAlign: "center",
-                  lineHeight: "1.5",
-                  marginBottom: "15px",
-                }}
-              >
-                {carrier.description}
-              </p>
-              <span
-                style={{
-                  fontSize: "1.3rem",
-                  fontWeight: "bold",
-                  color: `${(props) => props.theme.colors.linkText}`,
-                }}
-              >
-                ${(carrier.price / 100).toFixed(2)}
-              </span>
-            </div>
+            <CarrierCard key={`carrier-${carrier.id}-${index}`}>
+              <selectedStyle.CarrierImage as={CarrierImage} src={carrier.photo} alt={carrier.name} />
+              <CarrierName>{carrier.name}</CarrierName>
+              <CarrierDescription>{carrier.description}</CarrierDescription>
+              <CarrierPrice>${(carrier.price / 100).toFixed(2)}</CarrierPrice>
+            </CarrierCard>
           ))}
-        </div>
+        </CarrierGrid>
       ) : (
-        <selectedStyle.NoCarrierMessage
-          style={{
-            padding: "15px",
-            backgroundColor: `${(props) => props.theme.colors.emptyMessageBackground}`,
-            borderRadius: "12px",
-            color: `${(props) => props.theme.colors.textColor}`,
-            textAlign: "center",
-            border: `1px solid ${(props) => props.theme.colors.border}`,
-          }}
-        >
+        <selectedStyle.NoCarrierMessage as={NoCarrierMessage}>
           No carriers available.
         </selectedStyle.NoCarrierMessage>
       )}
@@ -141,3 +41,82 @@ const CarrierListCardTypeF = ({ viewModel }) => {
 };
 
 export default observer(CarrierListCardTypeF);
+
+const NoCarrierMessage = styled.div`
+  background-color: ${(props) => props.theme.colors.cardBackground};
+  color: ${(props) => props.theme.colors.textColor};
+  border-radius: 10px;
+  font-size: 1rem;
+  text-align: center;
+  border: 1px solid ${(props) => props.theme.colors.border};
+  padding: 15px;
+`;
+
+const CarrierWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: ${(props) => props.theme.colors.wrapperBackground};
+  border-radius: 20px;
+  border: 2px solid ${(props) => props.theme.colors.border};
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+`;
+
+const CarrierTitle = styled.h2`
+  font-size: 1.5rem;
+  color: ${(props) => props.theme.colors.titleText};
+  text-align: center;
+  margin-bottom: 20px;
+`;
+
+const CarrierGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+`;
+
+const CarrierCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: ${(props) => props.theme.colors.cardBackground};
+  border-radius: 15px;
+  border: 1px solid ${(props) => props.theme.colors.border};
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+`;
+
+const CarrierImage = styled.img`
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+`;
+
+const CarrierName = styled.h4`
+  font-size: 1.2rem;
+  color: ${(props) => props.theme.colors.textColor};
+  margin-bottom: 10px;
+`;
+
+const CarrierDescription = styled.p`
+  color: ${(props) => props.theme.colors.descriptionText};
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 15px;
+`;
+
+const CarrierPrice = styled.span`
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.linkText};
+`;

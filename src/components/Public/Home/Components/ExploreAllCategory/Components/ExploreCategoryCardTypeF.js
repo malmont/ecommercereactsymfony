@@ -104,7 +104,7 @@ const HorizontalContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
-  align-items: flex-start;
+  align-items: center;
 
   @media (max-width: 768px) {
     flex-direction: column;

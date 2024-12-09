@@ -1421,7 +1421,6 @@ box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 // Wrapper pour les transporteurs
 CarrierWrapper: styled.div`
 display: flex;
-flex-wrap: wrap;
 gap: 20px;
 justify-content: center;
 padding: 20px;

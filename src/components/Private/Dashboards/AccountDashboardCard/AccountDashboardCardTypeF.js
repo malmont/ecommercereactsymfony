@@ -31,22 +31,10 @@ const AccountDashboardCardTypeF = () => {
           <SidebarHeader>Account Menu</SidebarHeader>
           <SidebarNav>
             {tabs.map((item, index) => (
-              <selectedStyle.DashboardNavItem
+              <selectedStyle.DashboardNavItem as = {DashboardNavItem}
               key={index}
-              onClick={() => setActiveTab(item.tab)}
-              style={{
-                padding: "10px 15px",
-                cursor: "pointer",
-                borderRadius: "8px",
-                backgroundColor: activeTab === item.tab ? theme.colors.buttonBackground : "transparent",
-                color: activeTab === item.tab ? "#fff" : "#adb5bd",
-                fontWeight: activeTab === item.tab ? "bold" : "normal",
-                transition: "background-color 0.3s ease",
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-              }}
-            >
+              isActive={activeTab === item.tab}
+              onClick={() => setActiveTab(item.tab)}>
                 <i className={item.icon}></i>
                 {item.label}
               </selectedStyle.DashboardNavItem>
@@ -143,4 +131,21 @@ const Content = styled.div`
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
+`;
+const DashboardNavItem = styled.li`
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: ${(props) =>
+    props.isActive ? props.theme.colors.buttonBackground : "transparent"};
+  color: ${(props) => (props.isActive ? "#fff" : "#adb5bd")};
+  font-weight: ${(props) => (props.isActive ? "bold" : "normal")};
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  i {
+    font-size: 18px;
+  }
 `;

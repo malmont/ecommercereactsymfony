@@ -351,6 +351,10 @@ transition: transform 0.5s ease, box-shadow 0.5s ease;
   transform: translateY(-15px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
+  @media (max-width: 768px) {
+     max-width: 95%;
+     margin: 10px auto;
+    }
 `,
 
   CardExplore: styled.div`
@@ -610,6 +614,8 @@ border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
 
   ObjectFeatureDetailProduct: styled.div`
     text-align: center;
+     width: 200px;
+    height: 150px;
     padding: 25px;
     background-color: ${(props) => props.theme.colors.objectBackground || "#ffffff"};
     border-radius: 20px;

@@ -33,7 +33,7 @@ export const theme4 = {
       discountBadgeText: '#FFFFFF',
       countdownText: '#393C49',
       countdownBackground: '#FFFFFF',
-      featureBackground: '#1F1D2B',
+      featureBackground: '#EA7C69',
       cardText: '#393C49',
       border: '#393C49',
       cardBodyBackground: '#FFFFFF',

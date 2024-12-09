@@ -172,27 +172,27 @@ export const style8 = {
   overflow: hidden;
   margin: auto;
   border-radius: 10px;
-  background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+  background: ${(props) => props.theme.colors.cardBackground };
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
     margin-bottom: 10px;
   &:hover {
-    border-color: ${(props) => props.theme.colors.cardHoverAccent || '#ffd700'};
+    border-color: ${(props) => props.theme.colors.goldAccent };
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-8px);
   }
   `,
 
   CardProperty: styled.div`
-  background: ${(props) => props.theme.colors.cardPropertyBackground || '#111'};
-  border: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'};
+  background: ${(props) => props.theme.colors.cardPropertyBackground };
+  border: 2px solid ${(props) => props.theme.colors.goldAccent };
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
-  border-radius: 24px;
+  border-radius: 10px;
   margin:auto;
 `,
 
@@ -200,7 +200,7 @@ export const style8 = {
 width: 100%;
 height: 400px;
 object-fit: cover;
-border-bottom: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'};
+border-bottom: 2px solid ${(props) => props.theme.colors.goldAccent };
 `,
 
   CardBody: styled.div`
@@ -210,13 +210,13 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 15px;
-color: ${(props) => props.theme.colors.cardBodyText || '#000000'};
+color: ${(props) => props.theme.colors.cardBodyText };
 text-align: center;
 `,
 
   DiscountBadge: styled.span`
-background: ${(props) => props.theme.colors.discountBadgeBackground || '#d4af37'};
-color: ${(props) => props.theme.colors.discountBadgeText || '#ffffff'};
+background: ${(props) => props.theme.colors.goldAccent };
+color: ${(props) => props.theme.colors.discountBadgeText };
 border-radius: 20px;
 padding: 10px 16px;
 font-size: 0.85rem;
@@ -227,14 +227,14 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 
 
   ColorText: styled.p`
-  color: ${(props) => props.theme.colors.colorText || '#0ff'};
+  color: ${(props) => props.theme.colors.colorText };
   font-size: 1rem;
   margin: 10px 0;
 `,
   Countdown: styled.div`
   width: 90%;
-  background: ${(props) => props.theme.colors.countdownBackground || '#000'};
-  color: ${(props) => props.theme.colors.countdownText || '#0ff'};
+  background: ${(props) => props.theme.colors.countdownBackground };
+  color: ${(props) => props.theme.colors.countdownText };
   text-align: center;
   padding: 12px;
   font-size: 1rem;
@@ -245,7 +245,7 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
   Time: styled.div`
   font-weight: bold;
   font-size: 22px;
-  color: ${(props) => props.theme.colors.timeText || '#ff0000'};
+  color: ${(props) => props.theme.colors.timeText };
 `,
   FeatureWrapper: styled.div`
 display: flex;
@@ -255,8 +255,8 @@ flex-wrap: wrap;
 padding: 30px;
 background: linear-gradient(
   135deg,
-  ${(props) => props.theme.colors.featureGradientStart || "#ffffff"},
-  ${(props) => props.theme.colors.featureGradientEnd || "#e0e0e0"}
+  ${(props) => props.theme.colors.featureGradientStart},
+  ${(props) => props.theme.colors.featureGradientEnd }
 );
 border-radius: 20px;
 margin: 20px auto;
@@ -277,11 +277,11 @@ padding: 20px;
 margin: 15px;
 width: 280px;
 height: 120px;
-background: ${(props) => props.theme.colors.cardBackground || "#fff"};
-border: 2px solid ${(props) => props.theme.colors.cardAccent || "#d4af37"}; /* Bordure dorée */
+background: ${(props) => props.theme.colors.cardBackground };
+border: 2px solid ${(props) => props.theme.colors.goldAccent }; /* Bordure dorée */
 border-radius: 15px;
 
-color: ${(props) => props.theme.colors.cardText || "#333"};
+color: ${(props) => props.theme.colors.cardText };
 font-size: 1rem;
 font-weight: bold;
 text-align: center;
@@ -300,21 +300,21 @@ transition: transform 0.4s ease, box-shadow 0.4s ease;
 svg {
   margin-bottom: 15px;
   font-size: 2.5rem;
-  color: ${(props) => props.theme.colors.iconColor || "#ffc107"};
+  color: ${(props) => props.theme.colors.goldAccent };
   transition: transform 0.3s ease, color 0.3s ease;
 
   &:hover {
     transform: scale(1.2);
-    color: ${(props) => props.theme.colors.iconHoverColor || "#ff9800"};
+    color: ${(props) => props.theme.colors.iconHoverColor };
   }
 }
 `,
   StandardCardExploreCard: styled.div`
 max-width: 100%;
-padding: 25px;
+padding: 15px;
 min-height: 500px;
 background: linear-gradient(135deg, ${(props) => props.theme.colors.gradientStart}, ${(props) => props.theme.colors.gradientEnd});
-border: 3px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
+border: 3px solid ${(props) => props.theme.colors.goldAccent };
 border-radius: 20px;
 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -325,14 +325,15 @@ transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
   @media (max-width: 768px) {
-     max-width: 85%;
+     max-width: 95%;
+     margin: 10px auto;
     }
 `,
 
   CardExplore: styled.div`
 background: ${(props) => props.theme.colors.cardBackground};
 color: ${(props) => props.theme.colors.cardText};
-border: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
+border: 2px solid ${(props) => props.theme.colors.goldAccent }; /* Contour doré */
 border-radius: 25px;
 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -361,7 +362,7 @@ min-width: 340px;
 padding: 30px;
 text-align: center;
 background: ${(props) => props.theme.colors.cardBodyBackground};
-border-top: 1px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
+border-top: 1px solid ${(props) => props.theme.colors.goldAccent }; /* Contour doré */
 border-radius: 0 0 25px 25px;
 `,
 
@@ -369,7 +370,7 @@ border-radius: 0 0 25px 25px;
 max-width: 100%;
 padding: 30px;
 background: ${(props) => props.theme.colors.differentCardBackground};
-border: 3px dotted ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré en pointillés */
+border: 3px dotted ${(props) => props.theme.colors.goldAccent }; /* Contour doré en pointillés */
 border-radius: 25px;
 box-shadow: 0 10px 20px rgba(255, 0, 0, 0.25);
 transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -388,7 +389,7 @@ background: ${(props) => props.theme.colors.contentBackground};
 color: ${(props) => props.theme.colors.differentCardText};
 border-radius: 25px;
 padding: 25px;
-border: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
+border: 2px solid ${(props) => props.theme.colors.goldAccent}; /* Contour doré */
 transition: background-color 0.4s ease;
 
 &:hover {
@@ -403,11 +404,11 @@ transition: background-color 0.4s ease;
 height: 450px;
 overflow: hidden;
 border-radius: 25px 25px 0 0;
-background: ${(props) => props.theme.colors.imageWrapperBackground || "#e8e8e8"};
+background: ${(props) => props.theme.colors.imageWrapperBackground };
 display: flex;
 justify-content: center;
 align-items: center;
-border-bottom: 3px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
+border-bottom: 3px solid ${(props) => props.theme.colors.goldAccent }; /* Contour doré */
 `,
 
   ImageWrapperExploreStandart: styled.div`
@@ -415,11 +416,11 @@ width: 100%;
 height: 450px;
 overflow: hidden;
 border-radius: 25px 25px 0 0;
-background: ${(props) => props.theme.colors.imageWrapperBackground || "#e8e8e8"};
+background: ${(props) => props.theme.colors.imageWrapperBackground };
 display: flex;
 justify-content: center;
 align-items: center;
-border-bottom: 3px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
+border-bottom: 3px solid ${(props) => props.theme.colors.goldAccent }; /* Contour doré */
 `,
 
   CardImageExploreStandart: styled.img`
@@ -472,7 +473,7 @@ font-size: 1.2rem;
 font-weight: bold;
 color: ${(props) => props.theme.colors.linkText};
 text-decoration: none;
-border-bottom: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'}; /* Contour doré */
+border-bottom: 2px solid ${(props) => props.theme.colors.goldAccent}; /* Contour doré */
 
 &:hover {
   color: ${(props) => props.theme.colors.linkHoverText};
@@ -485,11 +486,11 @@ border-bottom: 2px solid ${(props) => props.theme.colors.cardAccent || '#d4af37'
 align-items: center;
 max-width: 700px;
 margin: 20px auto;
-background-color: ${(props) => props.theme.colors.cardBackground || "#f9f9f9"};
+background-color: ${(props) => props.theme.colors.cardBackground };
 border-radius: 15px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 padding: 20px;
-border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
+border: 1px solid ${(props) => props.theme.colors.border };
 overflow: hidden;
 `,
 
@@ -498,8 +499,8 @@ overflow: hidden;
 padding: 50px;
 background: linear-gradient(
   135deg,
-  ${(props) => props.theme?.colors?.containerGradientStart || "#f7f7f7"},
-  ${(props) => props.theme?.colors?.containerGradientEnd || "#e0e0e0"}
+  ${(props) => props.theme?.colors?.containerGradientStart },
+  ${(props) => props.theme?.colors?.containerGradientEnd }
 );
 
 border-radius: 20px;
@@ -523,7 +524,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 gap: 20px;
-border: 3px solid ${(props) => props.theme?.colors?.goldAccent || "#d4af37"};
+border: 3px solid ${(props) => props.theme?.colors?.goldAccent };
 border-radius: 15px;
 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 `,
@@ -532,7 +533,7 @@ box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 width: 100%;
 max-width: 450px;
 border-radius: 15px;
-border: 4px solid ${(props) => props.theme?.colors?.goldAccent || "#d4af37"};
+border: 4px solid ${(props) => props.theme?.colors?.goldAccent };
 box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 transition: transform 0.3s ease;
 
@@ -560,13 +561,13 @@ justify-content: center;
 width: 50px;
 height: 50px;
 border-radius: 50%;
-background-color: ${(props) => props.color || "#ddd"};
-border: 3px solid ${(props) => (props.isSelected ? props.theme?.colors?.goldAccent || "#d4af37" : "#ccc")};
+background-color: ${(props) => props.color };
+border: 3px solid ${(props) => (props.isSelected ? props.theme?.colors?.goldAccent : "#ccc")};
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 &:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 10px ${(props) => props.theme?.colors?.goldAccent || "#d4af37"};
+  box-shadow: 0 4px 10px ${(props) => props.theme?.colors?.goldAccent };
 }
 `,
 
@@ -586,8 +587,8 @@ justify-content: center;
   SizeButton: styled.button`
 width: 60px;
 height: 60px;
-background-color: ${(props) => (props.isSelected ? props.theme?.colors?.goldAccent || "#d4af37" : "#f5f5f5")};
-border: 3px solid ${(props) => (props.isSelected ? props.theme?.colors?.goldAccent || "#d4af37" : "#ccc")};
+background-color: ${(props) => (props.isSelected ? props.theme?.colors?.goldAccent  : "#f5f5f5")};
+border: 3px solid ${(props) => (props.isSelected ? props.theme?.colors?.goldAccent  : "#ccc")};
 color: ${(props) => (props.isSelected ? "#fff" : "#000")};
 font-size: 16px;
 font-weight: bold;
@@ -596,14 +597,15 @@ transition: transform 0.3s ease, background-color 0.3s ease;
 
 &:hover {
   transform: translateY(-3px) scale(1.05);
-  background-color: ${(props) => props.theme?.colors?.goldHover || "#e5c26b"};
+  background-color: ${(props) => props.theme?.colors?.goldAccent };
   color: #fff;
 }
 `,
   ObjectFeatureDetailProduct: styled.div`
   text-align: center;
-  padding: 20px;
-  background: ${(props) => props.theme?.colors?.featureBackground || "#ffffff"};
+  padding: 10px;
+  width: 100%;
+  background: ${(props) => props.theme?.colors?.goldAccent };
   border-radius: 15px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -616,16 +618,16 @@ transition: transform 0.3s ease, background-color 0.3s ease;
   p {
     margin-top: 10px;
     font-size: 16px;
-    color: ${(props) => props.theme?.colors?.featureTextColor || "#666"};
+    color: ${(props) => props.theme?.colors?.featureTextColor };
   }
 `,
 
   InfoSelectionDetailProduct: styled.div`
 margin-top: 20px;
 padding: 15px 25px;
-background-color: ${(props) => props.theme?.colors?.infoBackground || "#f5f5f5"};
-color: ${(props) => props.theme?.colors?.infoTextColor || "#333"};
-border: 2px solid ${(props) => props.theme?.colors?.goldAccent || "#d4af37"};
+background-color: ${(props) => props.theme?.colors?.infoBackground };
+color: ${(props) => props.theme?.colors?.infoTextColor};
+border: 2px solid ${(props) => props.theme?.colors?.goldAccent};
 border-radius: 10px;
 box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 font-weight: bold;
@@ -645,8 +647,8 @@ padding: 30px;
 justify-content: space-between;
 background: linear-gradient(
   145deg,
-  ${(props) => props.theme?.colors?.featureGradientStart || "#eef2f3"},
-  ${(props) => props.theme?.colors?.featureGradientEnd || "#e0e0e0"}
+  ${(props) => props.theme?.colors?.featureGradientStart },
+  ${(props) => props.theme?.colors?.featureGradientEnd }
 );
 
 border-radius: 15px;
@@ -656,16 +658,16 @@ box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 width: 40px;
 height: 40px;
 border-radius: 50%;
-background-color: ${(props) => props.color || '#ddd'};
+background-color: ${(props) => props.color};
 border: ${(props) =>
       props.isSelected
-        ? `3px solid ${props.theme.colors.goldAccent || '#d4af37'}`
+        ? `3px solid ${props.theme.colors.goldAccent }`
         : '2px solid #ccc'};
 transition: all 0.3s ease;
 
 &:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 10px ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+  box-shadow: 0 4px 10px ${(props) => props.theme.colors.goldAccent};
 }
 `,
 
@@ -674,14 +676,14 @@ width: 40px;
 height: 40px;
 border-radius: 50%;
 background-color: ${(props) =>
-      props.isSelected ? props.theme.colors.goldAccent || '#d4af37' : '#f7f7f7'};
+      props.isSelected ? props.theme.colors.goldAccent  : '#f7f7f7'};
 color: ${(props) => (props.isSelected ? '#fff' : '#000')};
 display: flex;
 align-items: center;
 justify-content: center;
 border: ${(props) =>
       props.isSelected
-        ? `3px solid ${props.theme.colors.goldAccent || '#d4af37'}`
+        ? `3px solid ${props.theme.colors.goldAccent }`
         : '2px solid #ccc'};
 font-weight: bold;
 font-size: 0.9rem;
@@ -689,7 +691,7 @@ transition: all 0.3s ease;
 
 &:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 10px ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+  box-shadow: 0 4px 10px ${(props) => props.theme.colors.goldAccent };
 }
 `,
 
@@ -755,7 +757,7 @@ color: ${(props) => props.theme.colors.textSecondary};
   CartItemPrice: styled.div`
 font-size: 1.1rem;
 font-weight: bold;
-color: ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+color: ${(props) => props.theme.colors.goldAccent };
 margin-top: 5px;
 `,
 
@@ -773,7 +775,7 @@ border-radius: 5px;
 object-fit: cover;
 box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 margin-right: 10px;
-border: 2px solid ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+border: 2px solid ${(props) => props.theme.colors.goldAccent };
 
 `,
 
@@ -847,7 +849,7 @@ transition: all 0.3s ease;
   OrderSummaryTitle: styled.h2`
     font-size: 1.6rem;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.textPrimary || '#333'};
+    color: ${(props) => props.theme.colors.textPrimary };
     margin-bottom: 1rem;
     text-align: center;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -860,7 +862,7 @@ transition: all 0.3s ease;
   Divider: styled.hr`
     border: 0;
     height: 2px;
-    background: ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+    background: ${(props) => props.theme.colors.goldAccent };
     margin: 1rem 0;
   `,
 
@@ -872,16 +874,16 @@ transition: all 0.3s ease;
     padding: 0.5rem 0;
     font-size: 1rem;
     font-weight: 500;
-    color: ${(props) => props.theme.colors.textSecondary || '#555'};
+    color: ${(props) => props.theme.colors.textSecondary };
   `,
 
   // Texte standard pour les détails
   OrderSummaryText: styled.span`
-    color: ${(props) => props.theme.colors.textSecondary || '#666'};
+    color: ${(props) => props.theme.colors.textSecondary };
     transition: color 0.3s ease;
 
     &:hover {
-      color: ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+      color: ${(props) => props.theme.colors.goldAccent};
     }
   `,
 
@@ -889,7 +891,7 @@ transition: all 0.3s ease;
   OrderSummaryHighlight: styled.span`
     font-weight: bold;
     font-size: 1.2rem;
-    color: ${(props) => props.theme.colors.goldAccent || '#d4af37'};
+    color: ${(props) => props.theme.colors.goldAccent };
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
       @media (max-width: 768px) {
     font-size: 0.9rem;
@@ -902,8 +904,8 @@ transition: all 0.3s ease;
     padding: 0.75rem;
     background: linear-gradient(
       90deg,
-      ${(props) => props.theme.colors.goldAccent || '#d4af37'},
-      ${(props) => props.theme.colors.buttonBackground || '#ffd700'}
+      ${(props) => props.theme.colors.goldAccent},
+      ${(props) => props.theme.colors.buttonBackground }
     );
     color: ${(props) => props.theme.colors.buttonText || '#fff'};
     border: none;
@@ -917,7 +919,7 @@ transition: all 0.3s ease;
 
     &:hover {
       transform: scale(1.05);
-      background: ${(props) => props.theme.colors.goldHover || '#e5c26b'};
+      background: ${(props) => props.theme.colors.goldAccent };
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
     }
   `,
@@ -927,7 +929,7 @@ transition: all 0.3s ease;
     justify-content: space-between;
     gap: 20px
     padding: 20px;
-    background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+    background: ${(props) => props.theme.colors.containerBackground };
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     @media (max-width: 768px) {
@@ -1008,7 +1010,7 @@ transition: all 0.3s ease;
 
     p {
       font-size: 1rem;
-      color: ${(props) => props.theme.colors.textPrimary || '#333'};
+      color: ${(props) => props.theme.colors.textPrimary};
       text-align: center;
     }
   `,
@@ -1018,7 +1020,7 @@ transition: all 0.3s ease;
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
-    background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+    background: ${(props) => props.theme.colors.containerBackground };
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   `,
