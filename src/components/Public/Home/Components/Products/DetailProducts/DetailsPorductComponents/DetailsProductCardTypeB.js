@@ -18,7 +18,9 @@ const DetailsProductCardTypeB = ({
       <selectedStyle.PrincipalDetailsDetailProduct as={PrincipalDetailsDetailProduct}>
         {/* Colonne gauche : Image */}
         <ImageWrapper>
-          <selectedStyle.ImageEncadrement as={ImageEncadrement} />
+          <selectedStyle.ImageEncadrement as={ImageEncadrement} 
+          src={category.image}
+          alt={category.name}/>
         </ImageWrapper>
 
         {/* Colonne droite : Détails du produit */}
@@ -36,7 +38,12 @@ const DetailsProductCardTypeB = ({
             <SectionTitle>Couleurs disponibles :</SectionTitle>
             <selectedStyle.ColorOptionsDetailProduct as ={ColorOptionsDetailProduct}>
               {uniqueColors.map((color) => (
-                <selectedStyle.ColorButton as={ColorButton}/>
+                <selectedStyle.ColorButton as={ColorButton}
+                key={color.id}
+                onClick={() => viewModel.handleColorSelection(color.name)}
+                isSelected={viewModel.selectedColor === color.name}
+                color={color.codeHexa}
+              />
               ))}
             </selectedStyle.ColorOptionsDetailProduct>
           </Section>
@@ -128,15 +135,17 @@ const PrincipalDetailsDetailProduct = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  flex: 1;
   display: flex;
   justify-content: center;
 `;
 
 const ImageEncadrement = styled.img`
-  width: 200px;
+  
   border-radius: 15px;
   object-fit: cover;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const DetailsWrapper = styled.div`

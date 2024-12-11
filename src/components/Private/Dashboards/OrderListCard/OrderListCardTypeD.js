@@ -69,7 +69,7 @@ const TableWrapper = styled.div`
     background-color: ${(props) => props.theme.colors.wrapperBackground || "#f8f9fa"};
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
+    margin-left: 100px;
     @media (max-width: 1024px) {
         width: 90%;
     }
@@ -77,6 +77,7 @@ const TableWrapper = styled.div`
     @media (max-width: 768px) {
         width: 100%;
         padding: 15px;
+        margin-left: 0;
     }
 `;
 

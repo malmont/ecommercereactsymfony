@@ -165,6 +165,7 @@ export const style1 = {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin:auto;
   `,
 
   CardImage: styled.img`
@@ -238,8 +239,8 @@ FeatureCard: styled.div`
 `,
 StandardCardExploreCard: styled.div`
   max-width: 100%;
-  padding: 0px 5px;
   min-height: 400px;
+  margin:auto;
 `,
 
 
@@ -251,6 +252,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 border-radius: 10px;
 transition: transform 0.3s ease-in-out;
 height: 450px;
+margin:auto;
 &:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
@@ -315,11 +317,13 @@ text-align: center;
 TitleExplore: styled.h3`
 font-size: 1.5rem;
 margin-bottom: 10px;
+color: ${(props) => props.theme.colors.titleText };
 `,
 
 DescriptionExplore: styled.p`
 font-size: 1rem;
 margin-bottom: 15px;
+color: ${(props) => props.theme.colors.descriptionText };
 `,
 
 LinkExplore: styled.a`

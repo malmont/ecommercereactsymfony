@@ -69,7 +69,7 @@ const LoadingMessage = styled.div`
 
 const AddressListWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   background: ${(props) => props.theme.colors.wrapperBackground};
   border-radius: 20px;

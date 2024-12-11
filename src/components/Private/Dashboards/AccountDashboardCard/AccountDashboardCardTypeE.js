@@ -73,6 +73,10 @@ export default AccountDashboardCardTypeE;
 // Styled Components
 const DashboardSection = styled.div`
   padding: 5px;
+  margin-top: 40px;
+  @media (max-width: 768px) {
+    margin-top 0;
+  }
 `;
 
 

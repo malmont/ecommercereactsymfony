@@ -2,6 +2,7 @@ export const theme2 = {
     colors: {
         navbarBackground: '#4caf50',
         logoText: '#ffffff',
+        logoColor: '#ffcc00',
         navLinksBackground: '#a5d6a7',
         navItemText: '#ffffff',
         navItemHover: '#388e3c',

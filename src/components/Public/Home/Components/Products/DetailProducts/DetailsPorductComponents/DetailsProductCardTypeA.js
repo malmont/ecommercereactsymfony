@@ -22,8 +22,8 @@ const DetailsProductCardTypeA = ({
               alt={category.name}
             />
           </div>
-          <div className="col-md-6">
-            <h2>{category.name}</h2>
+          <div className="col-md-6 ">
+            <h3>{category.name}</h3>
             <h2>
               {(category.price / 100).toLocaleString("en-US", {
                 style: "currency",

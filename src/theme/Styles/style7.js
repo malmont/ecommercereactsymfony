@@ -226,7 +226,7 @@ margin-bottom: 10px;
 CardProperty: styled.div`
 background: ${(props) => props.theme.colors.cardPropertyBackground };
 height: 100%;
-width: 100%;
+width: 93%;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
@@ -272,8 +272,8 @@ margin-bottom: 15px;
 `,
 
 DiscountBadge: styled.span`
-background: linear-gradient(45deg, ${(props) => props.theme.colors.discountBadgeBackground || '#ff5f6d'}, ${(props) => props.theme.colors.discountBadgeAccent || '#ffc371'});
-color: ${(props) => props.theme.colors.discountBadgeText || '#ffffff'};
+background: linear-gradient(45deg, ${(props) => props.theme.colors.discountBadgeBackground }, ${(props) => props.theme.colors.goldAccent });
+color: ${(props) => props.theme.colors.dangerHover};
 border-radius: 20px;
 padding: 10px 16px;
 font-size: 0.85rem;
@@ -298,7 +298,7 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 Time: styled.div`
 font-weight: bold;
 font-size: 22px;
-color: ${(props) => props.theme.colors.timeText || '#ff0000'};
+color: ${(props) => props.theme.colors.timeText };
 text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 `,
 FeatureWrapper: styled.div`
@@ -330,13 +330,13 @@ width: 300px;
 height: 240px;
 background: linear-gradient(
   135deg,
-  ${(props) => props.theme.colors.cardGradientStart || "#ffffff"},
-  ${(props) => props.theme.colors.cardGradientEnd || "#eceff1"}
+  ${(props) => props.theme.colors.cardGradientStart },
+  ${(props) => props.theme.colors.cardGradientEnd }
 );
-border: 1px solid ${(props) => props.theme.colors.cardBorder || "#d1d9e6"};
+border: 1px solid ${(props) => props.theme.colors.cardBorder };
 border-radius: 20px;
 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-color: ${(props) => props.theme.colors.cardText || "#333333"};
+color: ${(props) => props.theme.colors.cardText };
 font-size: 1.1rem;
 font-weight: bold;
 text-align: center;
@@ -347,20 +347,20 @@ transition: transform 0.4s ease, box-shadow 0.4s ease;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   background: linear-gradient(
     135deg,
-    ${(props) => props.theme.colors.cardHoverGradientStart || "#f5f5f5"},
-    ${(props) => props.theme.colors.cardHoverGradientEnd || "#e0e0e0"}
+    ${(props) => props.theme.colors.cardHoverGradientStart },
+    ${(props) => props.theme.colors.cardHoverGradientEnd }
   );
 }
 
 svg {
   margin-bottom: 10px;
   font-size: 2.5rem;
-  color: ${(props) => props.theme.colors.iconColor || "#4fc3f7"};
+  color: ${(props) => props.theme.colors.iconColor };
   transition: transform 0.3s ease, color 0.3s ease;
 
   &:hover {
     transform: rotate(10deg);
-    color: ${(props) => props.theme.colors.iconHoverColor || "#0288d1"};
+    color: ${(props) => props.theme.colors.iconHoverColor };
   }
 }
 `,
@@ -409,7 +409,10 @@ justify-content: space-evenly; /* Centrage plus uniforme */
 
 ColumnExplore: styled.div`
 flex: 1;
-min-width: 340px; /* Adaptation responsive */
+min-width: 340px; 
+@media (max-width: 768px) {
+  min-width: 100%;
+}
 `,
 
 CardBodyExplore: styled.div`
@@ -456,7 +459,7 @@ width: 100%;
 height: 300px; 
 overflow: hidden;
 border-radius: 25px 25px 0 0;
-background: ${(props) => props.theme.colors.imageWrapperBackground || "#e8e8e8"};
+background: ${(props) => props.theme.colors.imageWrapperBackground };
 display: flex;
 justify-content: center;
 align-items: center;
@@ -467,7 +470,7 @@ width: 100%;
 height: 300px; 
 overflow: hidden;
 border-radius: 25px 25px 0 0;
-background: ${(props) => props.theme.colors.imageWrapperBackground || "#e8e8e8"};
+background: ${(props) => props.theme.colors.imageWrapperBackground };
 display: flex;
 justify-content: center;
 align-items: center;
@@ -477,14 +480,14 @@ CardImageExploreStandart: styled.img`
 width: auto;
 height: 100%;
 object-fit: cover;
-  border-bottom: 3px solid ${(props) => props.theme.colors.cardBorder || '#d4d4d4'};
+  border-bottom: 3px solid ${(props) => props.theme.colors.cardBorder };
 `,
 
 CardImageExploreDifferent: styled.img`
 width: auto;
 height: 100%;
 object-fit: cover;
- border-bottom: 3px solid ${(props) => props.theme.colors.cardBorder || '#d4d4d4'};
+ border-bottom: 3px solid ${(props) => props.theme.colors.cardBorder };
 `,
 
 DetailsExplore: styled.div`
@@ -527,19 +530,19 @@ EmailCardContainer : styled.div`
 align-items: center;
 max-width: 700px;
 margin: 20px auto;
-background-color: ${(props) => props.theme.colors.cardBackground || "#f9f9f9"};
+background-color: ${(props) => props.theme.colors.cardBackground };
 border-radius: 15px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 padding: 20px;
-border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
+border: 1px solid ${(props) => props.theme.colors.border };
 overflow: hidden;
 `,
 ContainerDetailsProduct: styled.div`
-    padding: 60px;
+    padding: 10px;
     background: linear-gradient(
       120deg,
-      ${(props) => props.theme.colors.containerGradientStart || "#f5f5f5"},
-      ${(props) => props.theme.colors.containerGradientEnd || "#e0e0e0"}
+      ${(props) => props.theme.colors.containerGradientStart },
+      ${(props) => props.theme.colors.containerGradientEnd }
     );
     border-radius: 30px;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
@@ -569,7 +572,7 @@ ContainerDetailsProduct: styled.div`
     padding: 25px;
     width: 200px;
     height: 150px;
-    background: ${(props) => props.theme.colors.featureBackground || "#ffffff"};
+    background: ${(props) => props.theme.colors.featureBackground};
     border-radius: 25px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     transition: transform 0.4s ease;
@@ -582,7 +585,7 @@ ContainerDetailsProduct: styled.div`
     p {
       margin-top: 15px;
       font-size: 18px;
-      color: ${(props) => props.theme.colors.featureTextColor || "#555"};
+      color: ${(props) => props.theme.colors.featureTextColor };
     }
   `,
 
@@ -590,7 +593,7 @@ ContainerDetailsProduct: styled.div`
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    border: 4px solid ${(props) => (props.isSelected ? props.theme.colors.primary || "#0288d1" : "#ccc")};
+    border: 4px solid ${(props) => (props.isSelected ? props.theme.colors.primary  : "#ccc")};
     background: ${(props) => props.color};
     cursor: pointer;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -602,11 +605,11 @@ ContainerDetailsProduct: styled.div`
   `,
 
   SizeButton: styled.button`
-    width: 65px;
-    height: 65px;
+    width: 55px;
+    height: 55px;
     border-radius: 20%;
-    border: 4px solid ${(props) => (props.isSelected ? props.theme.colors.primary || "#0288d1" : "#ccc")};
-    background: ${(props) => (props.isSelected ? props.theme.colors.primary || "#0288d1" : "#f5f5f5")};
+    border: 4px solid ${(props) => (props.isSelected ? props.theme.colors.primary  : "#ccc")};
+    background: ${(props) => (props.isSelected ? props.theme.colors.primary  : "#f5f5f5")};
     color: ${(props) => (props.isSelected ? "#ffffff" : "#000000")};
     font-size: 20px;
     font-weight: bold;
@@ -615,13 +618,13 @@ ContainerDetailsProduct: styled.div`
 
     &:hover {
       transform: translateY(-5px) scale(1.15);
-      background: ${(props) => props.theme.colors.primaryHover || "#026aa7"};
+      background: ${(props) => props.theme.colors.primaryHover };
       color: #ffffff;
     }
   `,
 
   ImageEncadrement: styled.img`
-    border: 5px solid ${(props) => props.theme.colors.imageBorder || "#ccc"};
+    border: 5px solid ${(props) => props.theme.colors.imageBorder };
     border-radius: 30px;
     width: 100%;
     max-width: 450px;
@@ -637,8 +640,8 @@ ContainerDetailsProduct: styled.div`
     font-size: 20px;
     font-weight: bold;
     margin-top: 20px;
-    color: ${(props) => props.theme.colors.infoTextColor || "#444"};
-    background: ${(props) => props.theme.colors.infoBackground || "#f3f3f3"};
+    color: ${(props) => props.theme.colors.infoTextColor };
+    background: ${(props) => props.theme.colors.infoBackground };
     padding: 20px 25px;
     border-radius: 15px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -651,11 +654,11 @@ ContainerDetailsProduct: styled.div`
 
 
   PrincipalDetailsDetailProduct: styled.div`
-    padding: 50px;
+    padding: 10px;
     background: radial-gradient(
       circle,
-      ${(props) => props.theme?.colors?.principalDetailsBackground || "#ffffff"},
-      ${(props) => props.theme?.colors?.secondaryBackground || "#f2f2f2"}
+      ${(props) => props.theme?.colors?.principalDetailsBackground },
+      ${(props) => props.theme?.colors?.secondaryBackground }
     );
     display: flex;
     flex-direction: column;
@@ -710,7 +713,7 @@ ContainerDetailsProduct: styled.div`
     background: ${(props) => props.color};
     border: ${(props) =>
       props.isSelected
-        ? `4px solid ${props.theme.colors.primary || "#FF6F61"}`
+        ? `4px solid ${props.theme.colors.primary}`
         : "3px dashed #bbb"};
     display: flex;
     justify-content: center;
@@ -731,12 +734,12 @@ ContainerDetailsProduct: styled.div`
     height: 50px;
     border-radius: 50%;
     background-color: ${(props) =>
-      props.isSelected ? props.theme.colors.secondaryBackground || "#f3e5f5" : "#fff"};
+      props.isSelected ? props.theme.colors.secondaryBackground : "#fff"};
     border: ${(props) =>
       props.isSelected
         ? `3px solid ${props.theme.colors.primary}`
         : "2px solid #ddd"};
-    color: ${(props) => (props.isSelected ? "#fff" : props.theme.colors.textColor || "#333")};
+    color: ${(props) => (props.isSelected ? "#fff" : props.theme.colors.textColor )};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -746,7 +749,7 @@ ContainerDetailsProduct: styled.div`
     transition: all 0.3s ease;
 
     &:hover {
-      background: ${(props) => props.theme.colors.hoverBackground || "#ffeb3b"};
+      background: ${(props) => props.theme.colors.hoverBackground };
       transform: scale(1.15) rotate(-3deg);
     }
   `,
@@ -754,16 +757,16 @@ ContainerDetailsProduct: styled.div`
   CartItemQuantity: styled.span`
     font-size: 1.2rem;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.quantityText || "#333"};
-    background: ${(props) => props.theme.colors.quantityBackground || "#f7f7f7"};
+    color: ${(props) => props.theme.colors.quantityText };
+    background: ${(props) => props.theme.colors.quantityBackground };
     padding: 0.4rem 0.8rem;
     border-radius: 50px;
-    border: 2px solid ${(props) => props.theme.colors.primary || "#4caf50"};
+    border: 2px solid ${(props) => props.theme.colors.primary };
     box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.3s ease;
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.hoverQuantityBackground || "#c8e6c9"};
+      background-color: ${(props) => props.theme.colors.hoverQuantityBackground };
       transform: scale(1.1);
     }
   `,
@@ -807,7 +810,7 @@ ContainerDetailsProduct: styled.div`
     transition: all 0.3s ease;
 
     &:hover {
-      background: ${(props) => props.theme.colors.hoverBackground || "#388e3c"};
+      background: ${(props) => props.theme.colors.hoverBackground };
       transform: scale(1.15) rotate(5deg);
     }
   `,
@@ -821,14 +824,14 @@ ContainerDetailsProduct: styled.div`
   CartItemVariantInfo: styled.div`
     font-size: 1rem;
     font-style: italic;
-    color: ${(props) => props.theme.colors.variantText || "#777"};
+    color: ${(props) => props.theme.colors.variantText };
     margin-top: 5px;
   `,
 
   CartItemPrice: styled.div`
     font-size: 1.4rem;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.priceText || "#222"};
+    color: ${(props) => props.theme.colors.priceText };
     margin-top: 10px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   `,
@@ -836,7 +839,7 @@ ContainerDetailsProduct: styled.div`
   CartItemTitle: styled.h3`
     font-size: 1.3rem;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.titleText || "#111"};
+    color: ${(props) => props.theme.colors.titleText };
     margin-bottom: 5px;
   `,
 
@@ -868,8 +871,8 @@ ContainerDetailsProduct: styled.div`
     align-items: center;
     padding: 1.2rem;
     border-radius: 15px;
-    background: ${(props) => props.theme.colors.cartItemBackground || "#fdfdfd"};
-    border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
+    background: ${(props) => props.theme.colors.cartItemBackground};
+    border: 1px solid ${(props) => props.theme.colors.border };
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -900,7 +903,7 @@ ContainerDetailsProduct: styled.div`
   max-width: 830px;
   margin: 2rem auto;
   padding: 1.2rem;
-  background: ${(props) => props.theme.colors.cardBackground || '#f7f7f7'};
+  background: ${(props) => props.theme.colors.cardBackground };
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -921,7 +924,7 @@ ContainerDetailsProduct: styled.div`
 OrderSummaryTitle: styled.h2`
   font-size: 1.5rem;
   font-weight: bold;
-  color: ${(props) => props.theme.colors.titleText || '#333'};
+  color: ${(props) => props.theme.colors.titleText };
   margin-bottom: 1rem;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -934,7 +937,7 @@ OrderSummaryTitle: styled.h2`
 Divider: styled.hr`
   border: 0;
   height: 2px;
-  background: ${(props) => props.theme.colors.gradientStart || '#ddd'};
+  background: ${(props) => props.theme.colors.gradientStart};
   margin: 1rem 0;
 `,
 
@@ -946,16 +949,16 @@ OrderSummaryRow: styled.div`
   padding: 0.5rem 0;
   font-size: 1rem;
   font-weight: 500;
-  color: ${(props) => props.theme.colors.textColor || '#555'};
+  color: ${(props) => props.theme.colors.textColor };
 `,
 
 // Texte standard pour les détails
 OrderSummaryText: styled.span`
-  color: ${(props) => props.theme.colors.cardBodyText || '#666'};
+  color: ${(props) => props.theme.colors.cardBodyText };
   transition: color 0.3s ease;
 
   &:hover {
-    color: ${(props) => props.theme.colors.navItemHoverBackground || '#007BFF'};
+    color: ${(props) => props.theme.colors.navItemHoverBackground };
   }
 `,
 
@@ -963,7 +966,7 @@ OrderSummaryText: styled.span`
 OrderSummaryHighlight: styled.span`
   font-weight: bold;
   font-size: 1.2rem;
-  color: ${(props) => props.theme.colors.highlightText || '#007BFF'};
+  color: ${(props) => props.theme.colors.highlightText };
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     @media (max-width: 768px) {
     font-size: 0.9rem;
@@ -976,10 +979,10 @@ CheckoutButton: styled.button`
   padding: 0.75rem;
   background: linear-gradient(
     90deg,
-    ${(props) => props.theme.colors.buttonBackground || '#007BFF'},
-    ${(props) => props.theme.colors.buttonHover || '#0056b3'}
+    ${(props) => props.theme.colors.buttonBackground },
+    ${(props) => props.theme.colors.buttonHover }
   );
-  color: ${(props) => props.theme.colors.buttonText || '#fff'};
+  color: ${(props) => props.theme.colors.buttonText };
   border: none;
   border-radius: 10px;
   font-size: 1rem;
@@ -991,7 +994,7 @@ CheckoutButton: styled.button`
 
   &:hover {
     transform: scale(1.05);
-    background: ${(props) => props.theme.colors.buttonHover || '#0056b3'};
+    background: ${(props) => props.theme.colors.buttonHover };
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
   }
       @media (max-width: 768px) {
@@ -1029,11 +1032,11 @@ CarrierCard: styled.div`
   flex-direction: row;
   max-width: 100px;
   padding: 1rem;
-  background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+  background: ${(props) => props.theme.colors.cardBackground };
   border: ${(props) =>
     props.isSelected
       ? `3px dashed ${props.theme.colors.selectedBorder || props.theme.colors.primary}`
-      : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+      : `1px solid ${props.theme.colors.cardBorder }`};
   border-radius: 10px;
   box-shadow: ${(props) =>
     props.isSelected
@@ -1055,7 +1058,7 @@ AddressContainer: styled.div`
   justify-content: center;
   gap: 20px;
   padding: 2rem;
-  background: ${(props) => props.theme.colors.containerBackground || '#ffffff'};
+  background: ${(props) => props.theme.colors.containerBackground };
   border-radius: 20px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 `,
@@ -1063,11 +1066,11 @@ AddressCard: styled.div`
   width: 100%;
   max-width: 280px;
   padding: 1.5rem;
-  background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+  background: ${(props) => props.theme.colors.cardBackground };
   border: ${(props) =>
     props.isSelected
-      ? `3px dashed ${props.theme.colors.selectedBorder || '#007BFF'}`
-      : `1px solid ${props.theme.colors.cardBorder || '#ddd'}`};
+      ? `3px dashed ${props.theme.colors.selectedBorder }`
+      : `1px solid ${props.theme.colors.cardBorder }`};
   border-radius: 10px;
   box-shadow: ${(props) =>
     props.isSelected
@@ -1122,11 +1125,12 @@ background: linear-gradient(
  margin-top: 50px;
  width: 50%;
 margin: 0 auto;
-margin-top: 50px;
+margin-top: 70px;
 
 animation: ${gradientAnimation} 15s ease infinite;
 
 @media (max-width: 768px) {
+margin-top: 0;
   padding: 20px;
   width: 100%;
 }
@@ -1221,14 +1225,14 @@ animation: ${gradientAnimation} 15s ease infinite;
   // Conteneur pour les onglets
   DashboardTabPane: styled.div`
     padding: 10px;
-    background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    background: ${(props) => props.theme.colors.cardBackground };
     border-radius: 25px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
   `,
 
   // Carte principale
   DashboardCard: styled.div`
-    background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+    background: ${(props) => props.theme.colors.cardBackground };
     border-radius: 25px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     overflow: hidden;
@@ -1441,8 +1445,8 @@ justify-content: center;
 `,
 
 EditButton: styled.button`
-background: ${(props) => props.theme.colors.editButtonBackground || '#4caf50'};
-color: ${(props) => props.theme.colors.buttonText || '#fff'};
+background: ${(props) => props.theme.colors.editButtonBackground };
+color: ${(props) => props.theme.colors.buttonText };
 border: none;
 padding: 0.5rem 1rem;
 border-radius: 10px;
@@ -1453,14 +1457,14 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 transition: transform 0.3s ease, background-color 0.3s ease;
 
 &:hover {
-  background: ${(props) => props.theme.colors.editButtonHover || '#388e3c'};
+  background: ${(props) => props.theme.colors.editButtonHover };
   transform: scale(1.05);
 }
 `,
 
 DeleteButton: styled.button`
-background: ${(props) => props.theme.colors.deleteButtonBackground || '#f44336'};
-color: ${(props) => props.theme.colors.buttonText || '#fff'};
+background: ${(props) => props.theme.colors.deleteButtonBackground };
+color: ${(props) => props.theme.colors.buttonText };
 border: none;
 padding: 0.5rem 1rem;
 border-radius: 10px;
@@ -1471,7 +1475,7 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 transition: transform 0.3s ease, background-color 0.3s ease;
 
 &:hover {
-  background: ${(props) => props.theme.colors.deleteButtonHover || '#d32f2f'};
+  background: ${(props) => props.theme.colors.deleteButtonHover };
   transform: scale(1.05);
 }
 `,
@@ -1555,6 +1559,28 @@ td {
       props.theme.colors.tableCellHoverBackground };
   }
 }
+  @media (max-width: 768px) {
+  margin-top: 1rem;
+    th {
+      display: none;
+    }
+
+    td {
+      display: block;
+      text-align: right;
+      position: relative;
+      padding-left: 30%;
+    }
+
+    td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: ${(props) => props.theme.colors.textMuted };
+    }
+  }
 `,
 
 // Conteneur pour la table des transporteurs
@@ -1573,14 +1599,15 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
 `,
 
 // Wrapper principal pour les cartes ou sections des transporteurs
-CarrierWrapper: styled.div`
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 20px;
-padding: 2rem;
-background: ${(props) => props.theme.colors.wrapperBackground };
-border-radius: 15px;
-box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-`,
+  CarrierWrapper: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+    background: ${(props) => props.theme.colors.containerBackground};
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    
+  `,
 }

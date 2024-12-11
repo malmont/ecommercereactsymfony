@@ -5,14 +5,14 @@ export const style10= {
   navbarHeight: '80px',
 
   TopNavbar: styled.div`
-    background: ${(props) => props.theme.colors.TopNavbarBackground || '#2c3e50'};
+    background: ${(props) => props.theme.colors.TopNavbarBackground };
     padding: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     border-bottom: 3px solid #3498db;
   `,
 
   NavbarContainer: styled.nav`
-    background-color: ${(props) => props.theme.colors.navbarBackground || '#ffffff'};
+    background-color: ${(props) => props.theme.colors.navbarBackground };
     padding: 1.5rem 3rem;
     position: sticky;
     top: 0;
@@ -33,14 +33,14 @@ export const style10= {
   Logo: styled(NavLink)`
     font-size: 1.8rem;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.logoText || '#34495e'};
+    color: ${(props) => props.theme.colors.logoText };
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: color 0.4s ease;
 
     &:hover {
-      color: ${(props) => props.theme.colors.logoHover || '#e74c3c'};
+      color: ${(props) => props.theme.colors.logoHover };
     }
   `,
 
@@ -48,14 +48,14 @@ export const style10= {
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: ${(props) => props.theme.colors.navLinksBackground || 'transparent'};
+    background: ${(props) => props.theme.colors.navLinksBackground };
     @media (max-width: 768px) {
       display: none;
     }
   `,
 
   NavItem: styled(NavLink)`
-    color: ${(props) => props.theme.colors.navItemText || '#7f8c8d'};
+    color: ${(props) => props.theme.colors.navItemText };
     text-decoration: none;
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
@@ -64,14 +64,14 @@ export const style10= {
 
     &:hover,
     &.active {
-      background-color: ${(props) => props.theme.colors.navItemHoverBackground || '#ecf0f1'};
-      color: ${(props) => props.theme.colors.navItemHover || '#2c3e50'};
+      background-color: ${(props) => props.theme.colors.navItemHoverBackground };
+      color: ${(props) => props.theme.colors.navItemHover };
     }
   `,
 
   NavButton: styled.button`
-    background-color: ${(props) => props.theme.colors.buttonBackground || '#e74c3c'};
-    color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+    background-color: ${(props) => props.theme.colors.buttonBackground };
+    color: ${(props) => props.theme.colors.buttonText };
     border: none;
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
@@ -80,7 +80,7 @@ export const style10= {
     transition: background-color 0.3s ease, transform 0.2s;
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.buttonHover || '#c0392b'};
+      background-color: ${(props) => props.theme.colors.buttonHover };
       transform: scale(1.05);
     }
   `,
@@ -89,7 +89,7 @@ export const style10= {
     display: none;
     background: none;
     border: none;
-    color: ${(props) => props.theme.colors.mobileMenuButton || '#2c3e50'};
+    color: ${(props) => props.theme.colors.mobileMenuButton };
     font-size: 2rem;
     cursor: pointer;
     transition: color 0.3s ease;
@@ -99,7 +99,7 @@ export const style10= {
     }
 
     &:hover {
-      color: ${(props) => props.theme.colors.mobileMenuButtonHover || '#e74c3c'};
+      color: ${(props) => props.theme.colors.mobileMenuButtonHover };
     }
   `,
 
@@ -109,7 +109,7 @@ export const style10= {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: ${(props) => props.theme.colors.mobileMenuBackground || '#ffffff'};
+    background-color: ${(props) => props.theme.colors.mobileMenuBackground };
     padding: 2rem;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     border-top: 3px solid #3498db;
@@ -122,7 +122,7 @@ export const style10= {
   MobileNavItem: styled(NavLink)`
     display: block;
     margin: 1rem 0;
-    color: ${(props) => props.theme.colors.mobileNavItemText || '#34495e'};
+    color: ${(props) => props.theme.colors.mobileNavItemText };
     text-decoration: none;
     padding: 1rem;
     font-size: 1.2rem;
@@ -131,7 +131,7 @@ export const style10= {
 
     &:hover,
     &.active {
-      color: ${(props) => props.theme.colors.mobileNavItemHover || '#e74c3c'};
+      color: ${(props) => props.theme.colors.mobileNavItemHover };
     }
   `,
 
@@ -139,7 +139,7 @@ export const style10= {
     position: relative;
     cursor: pointer;
     font-size: 1.8rem;
-    color: ${(props) => props.theme.colors.cartIconColor || '#2c3e50'};
+    color: ${(props) => props.theme.colors.cartIconColor };
     transition: all 0.3s ease;
 
     &:hover {
@@ -151,8 +151,8 @@ export const style10= {
     position: absolute;
     top: -5px;
     right: -5px;
-    background-color: ${(props) => props.theme.colors.cartCountBackground || '#e74c3c'};
-    color: ${(props) => props.theme.colors.cartCountText || '#ffffff'};
+    background-color: ${(props) => props.theme.colors.cartCountBackground };
+    color: ${(props) => props.theme.colors.cartCountText};
     border-radius: 50%;
     padding: 3px 8px;
     font-size: 0.75rem;
@@ -161,8 +161,8 @@ export const style10= {
   `,
 
   Select: styled.select`
-    background-color: ${(props) => props.theme.colors.selectBackground || '#ecf0f1'};
-    color: ${(props) => props.theme.colors.selectText || '#2c3e50'};
+    background-color: ${(props) => props.theme.colors.selectBackground };
+    color: ${(props) => props.theme.colors.selectText};
     border: 2px solid #bdc3c7;
     padding: 0.5rem;
     margin-right: 1rem;
@@ -172,12 +172,12 @@ export const style10= {
     transition: all 0.3s ease;
 
     &:hover {
-      border-color: ${(props) => props.theme.colors.selectHoverBorder || '#3498db'};
+      border-color: ${(props) => props.theme.colors.selectHoverBorder };
     }
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 5px ${(props) => props.theme.colors.selectFocus || '#3498db'};
+      box-shadow: 0 0 5px ${(props) => props.theme.colors.selectFocus };
     }
   `,
 
@@ -187,7 +187,7 @@ export const style10= {
     justify-content: center;
     align-items: center;
     height: 656px;
-    width: 280px;
+    width: 270px;
     border-radius: 8px;
     overflow: hidden;
     margin: auto;
@@ -266,11 +266,11 @@ export const style10= {
   Time: styled.div`
     font-weight: bold;
     font-size: 22px;
-    color: ${(props) => props.theme.colors.timeText || '#ff0000'};
+    color: ${(props) => props.theme.colors.timeText };
   `,
   FeatureWrapper: styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   padding: 30px;
@@ -279,7 +279,7 @@ export const style10= {
     "linear-gradient(135deg, #ffffff, #ecf0f1)"};
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(52, 152, 219, 0.2);
-  margin: 20px auto;
+  margin:auto;
   max-width: 1800px;
   transition: background 0.4s ease;
 
@@ -299,11 +299,11 @@ FeatureCard: styled.div`
   margin: 15px;
   width: 280px;
   height: 150px;
-  background: ${(props) => props.theme.colors.cardBackground || "#ffffff"};
-  border: 2px solid ${(props) => props.theme.colors.cardBorder || "#ddd"};
+  background: ${(props) => props.theme.colors.cardBackground };
+  border: 2px solid ${(props) => props.theme.colors.cardBorder };
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(52, 152, 219, 0.2);
-  color: ${(props) => props.theme.colors.cardText || "#34495e"};
+  color: ${(props) => props.theme.colors.cardText };
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
@@ -374,6 +374,9 @@ justify-content: space-between;
 ColumnExplore: styled.div`
 flex: 1;
 min-width: 300px;
+@media (max-width: 768px) {
+  min-width: 100%;
+}
 `,
 
 CardBodyExplore: styled.div`
@@ -509,7 +512,7 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 `,
 ContainerDetailsProduct: styled.div`
-    padding: 70px;
+    padding: 10px;
     background: ${(props) =>
       props.theme.colors.containerGradient};
     border-radius: 25px;
@@ -522,7 +525,7 @@ ContainerDetailsProduct: styled.div`
   `,
 
   PrincipalDetailsDetailProduct: styled.div`
-    padding: 60px;
+    padding: 10px;
     background: ${(props) =>
       props.theme.colors.principalDetailsBackground};
     border-radius: 20px;
@@ -567,13 +570,13 @@ ContainerDetailsProduct: styled.div`
   `,
 
   ColorButton: styled.button`
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 3px solid
       ${(props) =>
-        props.isSelected ? props.theme.colors.primary || "#2ecc71" : "#ccc"};
-    background: ${(props) => props.color || "#ddd"};
+        props.isSelected ? props.theme.colors.primary  : "#ccc"};
+    background: ${(props) => props.color };
     cursor: pointer;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 
@@ -599,14 +602,14 @@ ContainerDetailsProduct: styled.div`
   `,
 
   SizeButton: styled.button`
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border-radius: 15%;
     border: 3px solid
       ${(props) =>
-        props.isSelected ? props.theme.colors.primary || "#3498db" : "#ccc"};
+        props.isSelected ? props.theme.colors.primary : "#ccc"};
     background: ${(props) =>
-      props.isSelected ? props.theme.colors.primary || "#3498db" : "#f7f7f7"};
+      props.isSelected ? props.theme.colors.primary : "#f7f7f7"};
     color: ${(props) => (props.isSelected ? "#ffffff" : "#000000")};
     font-size: 20px;
     font-weight: bold;
@@ -615,7 +618,7 @@ ContainerDetailsProduct: styled.div`
 
     &:hover {
       transform: translateY(-5px) scale(1.2);
-      background: ${(props) => props.theme.colors.primaryHover || "#2980b9"};
+      background: ${(props) => props.theme.colors.primaryHover };
     }
   `,
 
@@ -624,9 +627,9 @@ ContainerDetailsProduct: styled.div`
     font-size: 22px;
     font-weight: bold;
     background: ${(props) =>
-      props.theme.colors.infoBackground || "#ecf0f1"};
+      props.theme.colors.infoBackground };
     color: ${(props) =>
-      props.theme.colors.infoTextColor || "#2c3e50"};
+      props.theme.colors.infoTextColor };
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 
@@ -685,8 +688,8 @@ ContainerDetailsProduct: styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: ${(props) => props.color || '#ddd'};
-  border: 2px solid ${(props) => (props.isSelected ? props.theme.colors.primary || '#3498db' : '#ccc')};
+  background-color: ${(props) => props.color };
+  border: 2px solid ${(props) => (props.isSelected ? props.theme.colors.primary  : '#ccc')};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -694,7 +697,7 @@ ContainerDetailsProduct: styled.div`
 
   &:hover {
     transform: scale(1.2);
-    box-shadow: 0 4px 10px ${(props) => props.theme.colors.primary || '#3498db'};
+    box-shadow: 0 4px 10px ${(props) => props.theme.colors.primary };
   }
 `,
 
@@ -702,8 +705,8 @@ SizeCircle: styled.button`
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  border: 2px solid ${(props) => (props.isSelected ? props.theme.colors.secondary || '#2ecc71' : '#ccc')};
-  background-color: ${(props) => (props.isSelected ? props.theme.colors.secondary || '#2ecc71' : '#f7f7f7')};
+  border: 2px solid ${(props) => (props.isSelected ? props.theme.colors.secondary  : '#ccc')};
+  background-color: ${(props) => (props.isSelected ? props.theme.colors.secondary  : '#f7f7f7')};
   color: ${(props) => (props.isSelected ? '#ffffff' : '#000')};
   font-size: 14px;
   font-weight: bold;
@@ -714,24 +717,24 @@ SizeCircle: styled.button`
 
   &:hover {
     transform: scale(1.2);
-    background-color: ${(props) => props.theme.colors.secondaryHover || '#27ae60'};
+    background-color: ${(props) => props.theme.colors.secondaryHover };
     color: #fff;
   }
 `,
 
 CartItemQuantity: styled.span`
-  background: ${(props) => props.theme.colors.quantityBackground || '#ecf0f1'};
-  color: ${(props) => props.theme.colors.quantityText || '#34495e'};
+  background: ${(props) => props.theme.colors.quantityBackground };
+  color: ${(props) => props.theme.colors.quantityText };
   font-size: 16px;
   font-weight: bold;
-  border: 1px solid ${(props) => props.theme.colors.quantityBorder || '#bdc3c7'};
+  border: 1px solid ${(props) => props.theme.colors.quantityBorder };
   padding: 5px 10px;
   border-radius: 5px;
 `,
 
 CartItemButton: styled.button`
-  background: ${(props) => props.theme.colors.buttonBackground || '#3498db'};
-  color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+  background: ${(props) => props.theme.colors.buttonBackground };
+  color: ${(props) => props.theme.colors.buttonText };
   border: none;
   padding: 10px 15px;
   font-size: 14px;
@@ -742,15 +745,15 @@ CartItemButton: styled.button`
   margin-top: 20px;
   margin-bottom: 20px;
   &:hover {
-    background-color: ${(props) => props.theme.colors.buttonHover || '#2980b9'};
+    background-color: ${(props) => props.theme.colors.buttonHover };
     transform: scale(1.1);
   }
 `,
 
 IncrDecButton: styled.button`
-  background: ${(props) => props.theme.colors.incrDecBackground || '#ffffff'};
-  color: ${(props) => props.theme.colors.incrDecText || '#34495e'};
-  border: 1px solid ${(props) => props.theme.colors.incrDecBorder || '#bdc3c7'};
+  background: ${(props) => props.theme.colors.incrDecBackground };
+  color: ${(props) => props.theme.colors.incrDecText };
+  border: 1px solid ${(props) => props.theme.colors.incrDecBorder};
   padding: 5px 10px;
   font-size: 16px;
   border-radius: 5px;
@@ -758,7 +761,7 @@ IncrDecButton: styled.button`
   transition: transform 0.2s ease, background-color 0.3s ease;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.incrDecHover || '#ecf0f1'};
+    background-color: ${(props) => props.theme.colors.incrDecHover };
     transform: scale(1.1);
   }
 `,
@@ -770,7 +773,7 @@ CartItemIncrDec: styled.div`
 `,
 
 CartItemVariantInfo: styled.div`
-  color: ${(props) => props.theme.colors.variantInfoText || '#7f8c8d'};
+  color: ${(props) => props.theme.colors.variantInfoText };
   font-size: 14px;
   margin-top: 5px;
   display: flex;
@@ -781,14 +784,14 @@ CartItemVariantInfo: styled.div`
 CartItemPrice: styled.div`
   font-size: 18px;
   font-weight: bold;
-  color: ${(props) => props.theme.colors.priceText || '#2c3e50'};
+  color: ${(props) => props.theme.colors.priceText };
   margin-top: 5px;
 `,
 
 CartItemTitle: styled.div`
   font-size: 16px;
   font-weight: bold;
-  color: ${(props) => props.theme.colors.titleText || '#34495e'};
+  color: ${(props) => props.theme.colors.titleText };
   margin-bottom: 5px;
   text-align: left;
 `,
@@ -799,7 +802,7 @@ CartItemImage: styled.img`
   border-radius: 8px;
   object-fit: cover;
   margin-right: 10px;
-  border: 2px solid ${(props) => props.theme.colors.imageBorder || '#bdc3c7'};
+  border: 2px solid ${(props) => props.theme.colors.imageBorder};
 `,
 
 CartItemInfo: styled.div`
@@ -814,8 +817,8 @@ CartItem: styled.div`
   align-items: flex-start;
   justify-content: space-between;
   padding: 15px;
-  background: ${(props) => props.theme.colors.cartItemBackground || '#ffffff'};
-  border: 1px solid ${(props) => props.theme.colors.cartItemBorder || '#bdc3c7'};
+  background: ${(props) => props.theme.colors.cartItemBackground};
+  border: 1px solid ${(props) => props.theme.colors.cartItemBorder};
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
@@ -836,7 +839,7 @@ CartItemContainer: styled.div`
   flex-direction: column;
   gap: 25px;
   padding: 20px;
-  background: ${(props) => props.theme.colors.containerBackground || '#f7f7f7'};
+  background: ${(props) => props.theme.colors.containerBackground };
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
@@ -948,13 +951,13 @@ transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 &:hover {
   transform: scale(1.05);
   background: ${(props) =>
-    props.theme.colors.primaryHover || '#2980b9'};
+    props.theme.colors.primaryHover};
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 &:disabled {
   background: ${(props) =>
-    props.theme.colors.disabledBackground || '#bdc3c7'};
+    props.theme.colors.disabledBackground };
   cursor: not-allowed;
 }
     @media (max-width: 768px) {
@@ -969,7 +972,7 @@ flex-wrap: wrap;
 justify-content: center
 gap: 10px;
 padding: 10px;
-background: ${(props) => props.theme.colors.lightBackground || "#f7faff"};
+background: ${(props) => props.theme.colors.lightBackground };
 border-radius: 15px;
 box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 @media (max-width: 768px) {
@@ -1012,7 +1015,7 @@ img {
 
 span {
   font-size: 0.9rem;
-  color: ${(props) => props.theme.colors.text || "#444"};
+  color: ${(props) => props.theme.colors.text };
 }
      @media (max-width: 768px) {
     width: 80px;
@@ -1025,7 +1028,7 @@ display: grid;
 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 gap: 15px;
 padding: 20px;
-background: ${(props) => props.theme.colors.lightBackground || "#fefefe"};
+background: ${(props) => props.theme.colors.lightBackground };
 border-radius: 15px;
 box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 `,
@@ -1052,7 +1055,7 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 p {
   font-size: 0.95rem;
-  color: ${(props) => props.theme.colors.text || "#333"};
+  color: ${(props) => props.theme.colors.text };
   line-height: 1.4;
 }
 `,
@@ -1063,7 +1066,7 @@ flex-wrap: wrap;
 justify-content: center;
 gap: 20px;
 padding: 20px;
-background: ${(props) => props.theme.colors.lightBackground || "#f7f7f7"};
+background: ${(props) => props.theme.colors.lightBackground };
 border-radius: 15px;
 box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 `,
@@ -1101,7 +1104,7 @@ img {
 
 span {
   font-size: 0.85rem;
-  color: ${(props) => props.theme.colors.text || "#444"};
+  color: ${(props) => props.theme.colors.text};
 }
   @media (max-width: 768px) {
   padding: 10px;
@@ -1165,11 +1168,11 @@ DashboardWrapper: styled.div`
     font-weight: bold;
     color: ${(props) =>
       props.className?.includes('active')
-        ? props.theme.colors.activeLinkText || '#ffffff'
-        : props.theme.colors.linkText || '#34495e'} !important;
+        ? props.theme.colors.activeLinkText 
+        : props.theme.colors.linkText } !important;
     background-color: ${(props) =>
       props.className?.includes('active')
-        ? props.theme.colors.activeLinkBackground || '#3498db'
+        ? props.theme.colors.activeLinkBackground 
         : 'transparent'} !important;
     border-radius: 10px;
     text-decoration: none !important;
@@ -1178,8 +1181,8 @@ DashboardWrapper: styled.div`
     overflow: hidden;
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.navItemHoverBackground || '#ecf0f1'} !important;
-      color: ${(props) => props.theme.colors.navItemHover || '#2c3e50'} !important;
+      background-color: ${(props) => props.theme.colors.navItemHoverBackground } !important;
+      color: ${(props) => props.theme.colors.navItemHover } !important;
       transform: translateY(-3px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
@@ -1252,7 +1255,6 @@ DashboardWrapper: styled.div`
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    transform: scale(1.02);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
      @media (max-width: 768px) {
@@ -1284,7 +1286,7 @@ ResponsiveTable: styled.table`
 
   td {
     color: ${(props) => props.theme.colors.tableRowText };
-    background: ${(props) => props.theme.colors.tableRowBackground || '#ecf0f1'};
+    background: ${(props) => props.theme.colors.tableRowBackground };
     transition: background-color 0.3s ease;
 
     &:hover {
@@ -1316,8 +1318,8 @@ ResponsiveTable: styled.table`
 
 TableButton: styled.button`
   padding: 12px 20px;
-  background: ${(props) => props.theme.colors.buttonBackground || '#e74c3c'};
-  color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+  background: ${(props) => props.theme.colors.buttonBackground };
+  color: ${(props) => props.theme.colors.buttonText };
   border: none;
   border-radius: 50px;
   font-weight: bold;
@@ -1327,7 +1329,7 @@ TableButton: styled.button`
   transition: background-color 0.3s ease, transform 0.3s ease;
 
   &:hover {
-    background: ${(props) => props.theme.colors.buttonHover || '#c0392b'};
+    background: ${(props) => props.theme.colors.buttonHover };
     transform: translateY(-3px);
   }
 
@@ -1339,19 +1341,19 @@ TableButton: styled.button`
 TableEmptyMessage: styled.p`
   font-size: 1.2rem;
   text-align: center;
-  color: ${(props) => props.theme.colors.emptyMessageText || '#2c3e50'};
-  background: ${(props) => props.theme.colors.emptyMessageBackground || '#f7f9f9'};
+  color: ${(props) => props.theme.colors.emptyMessageText };
+  background: ${(props) => props.theme.colors.emptyMessageBackground };
   padding: 20px;
   border-radius: 10px;
-  border: 2px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#bdc3c7'};
+  border: 2px dashed ${(props) => props.theme.colors.emptyMessageBorder};
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.4s ease-in-out;
 `,
 AddressListWrapper: styled.div`
     padding: 20px;
-    background: ${(props) => props.theme.colors.containerBackground || '#ecf0f1'};
+    background: ${(props) => props.theme.colors.containerBackground };
     border-radius: 20px;
-    border: 2px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#bdc3c7'};
+    border: 2px dashed ${(props) => props.theme.colors.emptyMessageBorder};
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     margin: 0 auto;
@@ -1364,8 +1366,8 @@ AddressListWrapper: styled.div`
     width: 100%;
     padding: 12px 20px;
     margin-bottom: 20px;
-    background: ${(props) => props.theme.colors.buttonBackground || '#3498db'};
-    color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+    background: ${(props) => props.theme.colors.buttonBackground };
+    color: ${(props) => props.theme.colors.buttonText };
     border: none;
     border-radius: 10px;
     font-size: 1rem;
@@ -1376,7 +1378,7 @@ AddressListWrapper: styled.div`
     transition: all 0.3s ease;
 
     &:hover {
-      background: ${(props) => props.theme.colors.buttonHover || '#2980b9'};
+      background: ${(props) => props.theme.colors.buttonHover };
       transform: scale(1.05);
     }
   `,
@@ -1390,8 +1392,8 @@ AddressListWrapper: styled.div`
   `,
 
   AddressCardHeader: styled.div`
-    background: ${(props) => props.theme.colors.cardHeaderBackground || '#3498db'};
-    color: ${(props) => props.theme.colors.cardHeaderText || '#ffffff'};
+    background: ${(props) => props.theme.colors.cardHeaderBackground };
+    color: ${(props) => props.theme.colors.cardHeaderText };
     padding: 10px;
     font-size: 1.2rem;
     font-weight: bold;
@@ -1402,8 +1404,8 @@ AddressListWrapper: styled.div`
 
   AddressCardBody: styled.div`
     padding: 15px;
-    background: ${(props) => props.theme.colors.cardBodyBackground || '#ffffff'};
-    color: ${(props) => props.theme.colors.cardBodyText || '#34495e'};
+    background: ${(props) => props.theme.colors.cardBodyBackground };
+    color: ${(props) => props.theme.colors.cardBodyText };
     font-size: 1rem;
     line-height: 1.5;
   `,
@@ -1413,8 +1415,8 @@ AddressListWrapper: styled.div`
     padding: 20px;
     flex-direction: column;
     justify-content: space-between;
-    background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
-    border: 2px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#bdc3c7'};
+    background: ${(props) => props.theme.colors.cardBackground };
+    border: 2px dashed ${(props) => props.theme.colors.emptyMessageBorder };
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -1432,14 +1434,14 @@ AddressListWrapper: styled.div`
     justify-content: space-between;
     gap: 10px;
     padding: 10px 15px;
-    border-top: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#bdc3c7'};
-    background: ${(props) => props.theme.colors.buttonGroupBackground || '#ecf0f1'};
+    border-top: 1px dashed ${(props) => props.theme.colors.emptyMessageBorder };
+    background: ${(props) => props.theme.colors.buttonGroupBackground };
   `,
 
   EditButton: styled.button`
     padding: 8px 16px;
-    background: ${(props) => props.theme.colors.editButtonBackground || '#2ecc71'};
-    color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+    background: ${(props) => props.theme.colors.editButtonBackground };
+    color: ${(props) => props.theme.colors.buttonText };
     border: none;
     border-radius: 8px;
     font-size: 0.9rem;
@@ -1448,15 +1450,15 @@ AddressListWrapper: styled.div`
     transition: background-color 0.3s ease, transform 0.3s ease;
 
     &:hover {
-      background: ${(props) => props.theme.colors.editButtonHover || '#27ae60'};
+      background: ${(props) => props.theme.colors.editButtonHover };
       transform: scale(1.05);
     }
   `,
 
   DeleteButton: styled.button`
     padding: 8px 16px;
-    background: ${(props) => props.theme.colors.deleteButtonBackground || '#e74c3c'};
-    color: ${(props) => props.theme.colors.buttonText || '#ffffff'};
+    background: ${(props) => props.theme.colors.deleteButtonBackground };
+    color: ${(props) => props.theme.colors.buttonText };
     border: none;
     border-radius: 8px;
     font-size: 0.9rem;
@@ -1465,41 +1467,41 @@ AddressListWrapper: styled.div`
     transition: background-color 0.3s ease, transform 0.3s ease;
 
     &:hover {
-      background: ${(props) => props.theme.colors.deleteButtonHover || '#c0392b'};
+      background: ${(props) => props.theme.colors.deleteButtonHover };
       transform: scale(1.05);
     }
   `,
 
   EmptyAddressMessage: styled.p`
     font-size: 1rem;
-    color: ${(props) => props.theme.colors.emptyMessageText || '#7f8c8d'};
+    color: ${(props) => props.theme.colors.emptyMessageText};
     text-align: center;
     padding: 20px;
-    background: ${(props) => props.theme.colors.emptyMessageBackground || '#f9f9f9'};
+    background: ${(props) => props.theme.colors.emptyMessageBackground };
     border-radius: 10px;
-    border: 2px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#bdc3c7'};
+    border: 2px dashed ${(props) => props.theme.colors.emptyMessageBorder };
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   `,
 
   LoadingMessage: styled.div`
     font-size: 1.2rem;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.loadingMessageText || '#34495e'};
+    color: ${(props) => props.theme.colors.loadingMessageText};
     text-align: center;
     padding: 20px;
-    background: ${(props) => props.theme.colors.loadingMessageBackground || '#ffffff'};
+    background: ${(props) => props.theme.colors.loadingMessageBackground} ;
     border-radius: 10px;
-    border: 2px dashed ${(props) => props.theme.colors.emptyMessageBorder || '#bdc3c7'};
+    border: 2px dashed ${(props) => props.theme.colors.emptyMessageBorder };
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   `,
   NoCarrierMessage: styled.div`
     font-size: 1.2rem;
     text-align: center;
-    color: ${(props) => props.theme.colors.noCarrierMessageText || '#7f8c8d'};
-    background: ${(props) => props.theme.colors.noCarrierMessageBackground || '#f9f9f9'};
+    color: ${(props) => props.theme.colors.noCarrierMessageText };
+    background: ${(props) => props.theme.colors.noCarrierMessageBackground };
     padding: 20px;
     border-radius: 10px;
-    border: 2px dashed ${(props) => props.theme.colors.noCarrierMessageBorder || '#bdc3c7'};
+    border: 2px dashed ${(props) => props.theme.colors.noCarrierMessageBorder };
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
   `,
@@ -1509,7 +1511,7 @@ AddressListWrapper: styled.div`
     height: auto;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid ${(props) => props.theme.colors.carrierImageBorder || '#bdc3c7'};
+    border: 2px solid ${(props) => props.theme.colors.carrierImageBorder };
     margin-bottom: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -1522,7 +1524,7 @@ AddressListWrapper: styled.div`
   CarrierTable: styled.table`
     width: 100%;
     border-collapse: collapse;
-    background: ${(props) => props.theme.colors.carrierTableBackground || '#ffffff'};
+    background: ${(props) => props.theme.colors.carrierTableBackground };
     border-radius: 10px;
     overflow: hidden;
 
@@ -1530,32 +1532,43 @@ AddressListWrapper: styled.div`
     td {
       padding: 5px;
       text-align: left;
-      border: 1px solid ${(props) => props.theme.colors.carrierTableBorder || '#bdc3c7'};
+      border: 1px solid ${(props) => props.theme.colors.carrierTableBorder };
     }
 
     th {
-      background: ${(props) => props.theme.colors.carrierTableHeaderBackground || '#3498db'};
-      color: ${(props) => props.theme.colors.carrierTableHeaderText || '#ffffff'};
+      background: ${(props) => props.theme.colors.carrierTableHeaderBackground };
+      color: ${(props) => props.theme.colors.carrierTableHeaderText };
       font-weight: bold;
       text-transform: uppercase;
     }
 
     td {
-      color: ${(props) => props.theme.colors.carrierTableRowText || '#2c3e50'};
-      background: ${(props) => props.theme.colors.carrierTableRowBackground || '#ecf0f1'};
+      color: ${(props) => props.theme.colors.carrierTableRowText };
+      background: ${(props) => props.theme.colors.carrierTableRowBackground };
       transition: background-color 0.3s ease;
 
       &:hover {
-        background: ${(props) => props.theme.colors.carrierTableRowHoverBackground || '#dff9fb'};
+        background: ${(props) => props.theme.colors.carrierTableRowHoverBackground };
       }
+    }
+      @media (max-width: 768px) {
+    th {
+      display: none;
+    } 
+    td {
+      display: block;
+      text-align: right;
+      position: relative;
+      padding-left: 30%;
+    }
     }
   `,
 
   CarrierTableContainer: styled.div`
   
-    background: ${(props) => props.theme.colors.carrierTableContainerBackground || '#f7f9f9'};
+    background: ${(props) => props.theme.colors.carrierTableContainerBackground };
     border-radius: 15px;
-    border: 2px solid ${(props) => props.theme.colors.carrierTableContainerBorder || '#bdc3c7'};
+    border: 2px solid ${(props) => props.theme.colors.carrierTableContainerBorder };
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -1571,7 +1584,7 @@ AddressListWrapper: styled.div`
     justify-content: center;
     gap: 20px;
     padding: 10px;
-    background: ${(props) => props.theme.colors.carrierWrapperBackground || '#ecf0f1'};
+    background: ${(props) => props.theme.colors.carrierWrapperBackground };
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   `,
