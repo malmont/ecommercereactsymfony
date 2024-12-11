@@ -254,13 +254,14 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-padding: 20px;
+padding: 10px;
 color: ${(props) => props.theme.colors.cardBodyText};
 background: ${(props) => props.theme.colors.cardBodyBackground };
 backdrop-filter: blur(10px);
 text-align: center;
 border-radius: 16px;
-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3), 
+              0 4px 6px rgba(0, 0, 0, 0.2); 
 margin-bottom: 10px;
 `,
 
@@ -1264,7 +1265,6 @@ animation: ${gradientAnimation} 15s ease infinite;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   }
     @media (max-width: 768px) {
