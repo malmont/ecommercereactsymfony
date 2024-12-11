@@ -54,7 +54,7 @@ const renderer = ({ hours, minutes, seconds }, selectedStyle) => {
 };
 
 const CardImage= styled.img`
-  height: 240px;
+  height: 200px;
   width: 180px;
   cursor: pointer;
   padding-top: 10px;
