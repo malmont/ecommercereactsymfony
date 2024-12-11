@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/ecommercereactsymfony/static/css/main.73b493a2.css",
-    "main.js": "/ecommercereactsymfony/static/js/main.ad3351da.js",
+    "main.js": "/ecommercereactsymfony/static/js/main.7031c06d.js",
     "static/js/787.1de174c0.chunk.js": "/ecommercereactsymfony/static/js/787.1de174c0.chunk.js",
     "static/media/revicons.eot": "/ecommercereactsymfony/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/ecommercereactsymfony/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/ecommercereactsymfony/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/ecommercereactsymfony/index.html",
     "main.73b493a2.css.map": "/ecommercereactsymfony/static/css/main.73b493a2.css.map",
-    "main.ad3351da.js.map": "/ecommercereactsymfony/static/js/main.ad3351da.js.map",
+    "main.7031c06d.js.map": "/ecommercereactsymfony/static/js/main.7031c06d.js.map",
     "787.1de174c0.chunk.js.map": "/ecommercereactsymfony/static/js/787.1de174c0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.73b493a2.css",
-    "static/js/main.ad3351da.js"
+    "static/js/main.7031c06d.js"
   ]
 }
