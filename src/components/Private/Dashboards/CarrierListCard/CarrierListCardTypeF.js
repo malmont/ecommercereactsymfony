@@ -56,6 +56,7 @@ const CarrierWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  padding: 20px;
   background-color: ${(props) => props.theme.colors.wrapperBackground};
   border-radius: 20px;
   border: 2px solid ${(props) => props.theme.colors.border};
@@ -71,8 +72,12 @@ const CarrierTitle = styled.h2`
 
 const CarrierGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  height: 700px;
+  @media (max-width: 768px) {
+   height: auto;
+  }
 `;
 
 const CarrierCard = styled.div`

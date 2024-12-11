@@ -3,7 +3,8 @@
 export const light= {
     colors: {
       navbarBackground: '#f8f9fa',  
-      logoText: '#000000',  
+      logoText: '#000000', 
+      logoColor: '#ffcc00', 
       navLinksBackground: '#ffffff', 
       navItemText: '#212529',  
       navItemHover: '#007bff',  

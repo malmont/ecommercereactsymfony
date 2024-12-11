@@ -50,7 +50,7 @@ export default observer(OrderListCardTypeB);
 const LoadingMessage = styled.p`
     text-align: center;
     font-size: 1rem;
-    color: ${(props) => props.theme.colors.textMuted || '#6c757d'};
+    color: ${(props) => props.theme.colors.textMuted };
     margin: 20px 0;
 `;
 
@@ -59,7 +59,7 @@ const TableWrapper = styled.div`
     flex-direction: column;
     gap: 15px;
     padding: 20px;
-    background-color: ${(props) => props.theme.colors.wrapperBackground || '#f9f9f9'};
+    background-color: ${(props) => props.theme.colors.wrapperBackground };
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 `;
@@ -67,7 +67,7 @@ const TableWrapper = styled.div`
 const TableEmptyMessage = styled.div`
     text-align: center;
     font-size: 1rem;
-    color: ${(props) => props.theme.colors.textMuted || '#6c757d'};
+    color: ${(props) => props.theme.colors.textMuted };
 `;
 
 const OrderCard = styled.div`
@@ -102,7 +102,7 @@ const OrderTitle = styled.p`
 
 const OrderDate = styled.p`
     margin: 5px 0 0;
-    color: ${(props) => props.theme.colors.textMuted || '#6c757d'};
+    color: ${(props) => props.theme.colors.textMuted };
 `;
 
 const OrderStatus = styled.span`
@@ -110,8 +110,8 @@ const OrderStatus = styled.span`
     text-align: center;
     padding: 5px 10px;
     border-radius: 12px;
-    background-color: ${(props) => props.theme.colors.successBackground || '#d4edda'};
-    color: ${(props) => props.theme.colors.successText || '#155724'};
+    background-color: ${(props) => props.theme.colors.successBackground };
+    color: ${(props) => props.theme.colors.successText};
     font-weight: bold;
 
     @media (max-width: 768px) {

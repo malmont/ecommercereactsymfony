@@ -293,6 +293,7 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform: translateY(-10px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
+  
 `,
 
 CardExplore: styled.div`
@@ -319,7 +320,7 @@ flex-wrap: wrap;
 
 ColumnExplore: styled.div`
 flex: 1;
-min-width: 320px; /* Adaptation responsive */
+min-width: 320px;
 `,
 
 CardBodyExplore: styled.div`
@@ -452,7 +453,7 @@ border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
 }
 `,
 ContainerDetailsProduct: styled.div`
-    padding: 40px;
+    padding: 10px;
     background: linear-gradient(145deg, ${(props) => props.theme.colors.containerBackground || "#f7f7f7"}, ${(props) => props.theme.colors.hoverContainerBackground || "#ebebeb"});
     border-radius: 25px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -482,7 +483,7 @@ ContainerDetailsProduct: styled.div`
   `,
 
   ColorSelectionDetailProduct: styled.div`
-    margin: 30px 0;
+    margin: 10px 0;
     font-size: 18px;
     font-weight: 600;
     color: ${(props) => props.theme.colors.textColor || "#333"};
@@ -491,7 +492,7 @@ ContainerDetailsProduct: styled.div`
   `,
 
   SizeSelectionDetailProduct: styled.div`
-    margin: 30px 0;
+    margin: 10px 0;
     font-size: 18px;
     font-weight: 600;
     color: ${(props) => props.theme.colors.textColor || "#333"};
@@ -501,14 +502,14 @@ ContainerDetailsProduct: styled.div`
 
   ColorOptionsDetailProduct: styled.div`
     display: flex;
-    gap: 20px;
+    gap: 10px;
     margin-top: 20px;
     justify-content: center;
   `,
 
   SizeOptionsDetailProduct: styled.div`
     display: flex;
-    gap: 20px;
+    gap: 10px;
     margin-top: 20px;
     justify-content: center;
   `,
@@ -563,7 +564,6 @@ ContainerDetailsProduct: styled.div`
     border: 3px solid ${(props) => props.theme.colors.imageBorder || "#ccc"};
     padding: 10px;
     border-radius: 20px;
-    width: 100%;
     max-width: 400px;
     background-color: ${(props) => props.theme.colors.imageBackground || "#f9f9f9"};
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
@@ -572,11 +572,12 @@ ContainerDetailsProduct: styled.div`
     &:hover {
       transform: scale(1.08);
     }
+  
   `,
 
   ColorButton: styled.button`
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 4px solid ${(props) => (props.isSelected ? props.theme.colors.selectedBorder || "#0056b3" : "#ccc")};
     background: radial-gradient(circle, ${(props) => props.color}, ${(props) => props.theme.colors.buttonBackground || "#fff"});
@@ -590,8 +591,8 @@ ContainerDetailsProduct: styled.div`
   `,
 
   SizeButton: styled.button`
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border-radius: 15%;
     border: 4px solid ${(props) => (props.isSelected ? props.theme.colors.selectedBorder || "#0056b3" : "#ccc")};
     background: linear-gradient(135deg, ${(props) => props.theme.colors.buttonBackground || "#007BFF"}, ${(props) => props.theme.colors.hoverBackground || "#0056b3"});
@@ -1411,7 +1412,7 @@ tr:hover {
 CarrierTableContainer: styled.div`
 overflow-x: auto;
 margin-top: 20px;
-padding: 20px;
+
 background-color: ${(props) =>
   props.theme.colors.containerBackground};
 border-radius: 15px;
@@ -1421,10 +1422,10 @@ box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 // Wrapper pour les transporteurs
 CarrierWrapper: styled.div`
 display: flex;
-gap: 20px;
+flex-wrap: wrap;
 justify-content: center;
 padding: 20px;
-background: ${(props) => props.theme.colors.wrapperBackground || '#ffffff'};
+background: ${(props) => props.theme.colors.wrapperBackground};
 border-radius: 15px;
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 `,

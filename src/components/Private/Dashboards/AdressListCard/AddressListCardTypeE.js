@@ -90,6 +90,8 @@ const AddNewAddressButton = styled.a`
   font-size: 1rem;
   font-weight: bold;
   border-radius: 25px;
+  width: 80%;
+  margin: 20px auto;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
   &:hover {
@@ -101,7 +103,8 @@ const AddressCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px;
+  margin:auto;
   border-radius: 15px;
   background: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);

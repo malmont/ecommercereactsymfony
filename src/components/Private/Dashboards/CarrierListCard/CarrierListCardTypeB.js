@@ -79,7 +79,7 @@ const CarrierTitle = styled.h3`
   text-align: center;
   font-size: 1.6rem;
   font-weight: bold;
-  color: ${(props) => props.theme.colors.navItemText};
+  color: ${(props) => props.theme.colors.titleText};
   margin-bottom: 20px;
 `;
 

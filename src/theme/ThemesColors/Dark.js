@@ -2,6 +2,7 @@ export const dark = {
   colors: {
     navbarBackground: '#121212',
     logoText: '#ffffff',
+    logoColor: '#ffcc00',
     navLinksBackground: '#1e1e1e',
     navItemText: '#e0e0e0',
     navItemHover: '#bb86fc',

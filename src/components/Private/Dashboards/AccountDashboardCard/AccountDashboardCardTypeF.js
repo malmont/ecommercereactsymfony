@@ -110,6 +110,7 @@ const MainContent = styled.div`
   margin:auto;
   display: flex;
   flex-direction: column;
+  flex: 1;
   gap: 20px;
 `;
 
@@ -131,6 +132,7 @@ const Content = styled.div`
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
+  margin:auto;
 `;
 const DashboardNavItem = styled.li`
   padding: 10px 15px;

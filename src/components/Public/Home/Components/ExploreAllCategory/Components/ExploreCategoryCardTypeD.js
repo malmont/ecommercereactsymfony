@@ -21,7 +21,7 @@ export default function ExploreCategoryCardTypeF({
   const selectedStyle = styles[styleChoice];
 
   return (
-    <selectedStyle.StandardCardExploreCard>
+    <selectedStyle.StandardCardExploreCard className='mb-1'>
       {/* Image Full-Width */}
       <selectedStyle.ImageWrapperExploreStandart className='mt-2 mt-md-0'>
         <selectedStyle.CardImageExploreStandart src={image} alt={titre} />

@@ -203,13 +203,13 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 height: 656px;
-width: 280px;
+width: 270px;
 border-radius: 8px;
 overflow: hidden;
 margin: auto;
 
 border-radius: 16px;
-background-color: ${(props) => props.theme.colors.cardBackground || '#ffffff'};
+background-color: ${(props) => props.theme.colors.cardBackground };
 box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
 overflow: hidden;
 transition: transform 0.2s, box-shadow 0.2s;
@@ -221,7 +221,7 @@ transition: transform 0.2s, box-shadow 0.2s;
 `,
 
   CardProperty: styled.div`
-background-color: ${(props) => props.theme.colors.cardPropertyBackground || '#f5f5f5'};
+background-color: ${(props) => props.theme.colors.cardPropertyBackground };
 height: 100%;
 width: 100%;
 display: flex;
@@ -234,7 +234,11 @@ padding: 20px;
 width: 100%;
 height: 370px;
 object-fit: cover;
-border-bottom: 2px solid ${(props) => props.theme.colors.cardBorder || '#eaeaea'};
+border-bottom: 2px solid ${(props) => props.theme.colors.cardBorder };
+@media (max-width: 768px) {
+object-fit: contain;
+
+}
 `,
 
   CardBody: styled.div`
@@ -244,21 +248,21 @@ flex-direction: column;
 justify-content: space-between;
 align-items: center;
 padding: 15px;
-color: ${(props) => props.theme.colors.cardBodyText || '#333333'};
-background-color: ${(props) => props.theme.colors.cardBodyBackground || '#fafafa'};
+color: ${(props) => props.theme.colors.cardBodyText };
+background-color: ${(props) => props.theme.colors.cardBodyBackground };
 text-align: center;
 `,
 
   ColorText: styled.p`
-color: ${(props) => props.theme.colors.colorText || '#555555'};
+color: ${(props) => props.theme.colors.colorText};
 font-size: 1rem;
 font-weight: 600;
 margin-bottom: 10px;
 `,
 
   DiscountBadge: styled.span`
-background-color: ${(props) => props.theme.colors.discountBadgeBackground || '#ff5733'};
-color: ${(props) => props.theme.colors.discountBadgeText || '#ffffff'};
+background-color: ${(props) => props.theme.colors.discountBadgeBackground};
+color: ${(props) => props.theme.colors.discountBadgeText };
 border-radius: 50px;
 padding: 8px 16px;
 font-size: 0.85rem;
@@ -269,8 +273,8 @@ margin-top: 10px;
 
   Countdown: styled.div`
 width: 90%;
-background: ${(props) => props.theme.colors.countdownBackground || '#000000'};
-color: ${(props) => props.theme.colors.countdownText || '#ffffff'};
+background: ${(props) => props.theme.colors.countdownBackground };
+color: ${(props) => props.theme.colors.countdownText };
 text-align: center;
 padding: 12px;
 font-size: 1rem;
@@ -282,7 +286,7 @@ margin: 15px auto;
   Time: styled.div`
 font-weight: bold;
 font-size: 18px;
-color: ${(props) => props.theme.colors.timeText || '#ff0000'};
+color: ${(props) => props.theme.colors.timeText};
 `,
   FeatureWrapper: styled.div`
 display: flex;
@@ -291,9 +295,9 @@ justify-content: center;
 align-items: center;
 padding: 40px;
 background: linear-gradient(
-  135deg,
-  ${(props) => props.theme.colors.featureGradientStart || "#e3ffe7"},
-  ${(props) => props.theme.colors.featureGradientEnd || "#d9e7ff"}
+  105deg,
+  ${(props) => props.theme.colors.featureTextColor},
+  ${(props) => props.theme.colors.featureBackground}
 );
 border-radius: 20px;
 margin: 20px auto;
@@ -377,12 +381,15 @@ display: flex;
 gap: 20px;
 margin: 30px 0;
 flex-wrap: wrap;
-justify-content: space-evenly; /* Centrage plus uniforme */
+justify-content: space-evenly; 
 `,
 
-  ColumnExplore: styled.div`
+ColumnExplore: styled.div`
 flex: 1;
-min-width: 340px; /* Adaptation responsive */
+min-width: 320px; 
+@media (max-width: 768px) {
+  min-width: 100%;
+}
 `,
 
   CardBodyExplore: styled.div`
@@ -393,7 +400,7 @@ border-top: 1px solid ${(props) => props.theme.colors.cardBorder};
 border-radius: 0 0 25px 25px;
 `,
 
-  DifferentCardExploreCard: styled.div`
+DifferentCardExploreCard: styled.div`
 max-width: 100%;
 padding: 30px;
 background: ${(props) => props.theme.colors.differentCardBackground};
@@ -426,38 +433,39 @@ transition: background-color 0.4s ease;
 
   ImageWrapperExploreDifferent: styled.div`
 width: 100%;
-height: 450px; /* Plus grande pour s'adapter à des images détaillées */
+height: 450px;
 overflow: hidden;
 border-radius: 25px 25px 0 0;
-background: ${(props) => props.theme.colors.imageWrapperBackground || "#e8e8e8"};
+background: ${(props) => props.theme.colors.imageWrapperBackground};
 display: flex;
 justify-content: center;
 align-items: center;
+
 `,
 
   ImageWrapperExploreStandart: styled.div`
 width: 100%;
-height: 450px; /* Plus grande pour s'adapter à des images détaillées */
+height: 450px; 
 overflow: hidden;
 border-radius: 25px 25px 0 0;
-background: ${(props) => props.theme.colors.imageWrapperBackground || "#e8e8e8"};
+background: ${(props) => props.theme.colors.imageWrapperBackground};
 display: flex;
 justify-content: center;
 align-items: center;
 `,
 
-  CardImageExploreStandart: styled.img`
+CardImageExploreStandart: styled.img`
 width: auto;
 height: 100%;
 object-fit: cover;
-  border-bottom: 3px solid ${(props) => props.theme.colors.cardBorder || '#d4d4d4'};
+  border-bottom: 3px solid ${(props) => props.theme.colors.cardBorder};
 `,
 
   CardImageExploreDifferent: styled.img`
 width: auto;
 height: 100%;
 object-fit: cover;
- border-bottom: 3px solid ${(props) => props.theme.colors.cardBorder || '#d4d4d4'};
+ border-bottom: 3px solid ${(props) => props.theme.colors.cardBorder};
 `,
 
   DetailsExplore: styled.div`
@@ -498,16 +506,16 @@ text-decoration: none;
   EmailCardContainer: styled.div`
  max-width: 600px;
 margin: 20px auto;
-background-color: ${(props) => props.theme.colors.cardBackground || "#f9f9f9"};
+background-color: ${(props) => props.theme.colors.cardBackground };
 border-radius: 15px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 text-align: center;
 padding: 30px;
-border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
+border: 1px solid ${(props) => props.theme.colors.border };
 `,
   ContainerDetailsProduct: styled.div`
-    padding: 50px;
-    background: ${(props) => props.theme.colors.containerBackground || "#fff"};
+    padding: 10px;
+    background: ${(props) => props.theme.colors.containerBackground};
     border-radius: 30px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s ease, background-color 0.4s ease;
@@ -516,8 +524,8 @@ border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
       transform: scale(1.03);
       background: linear-gradient(
         145deg,
-        ${(props) => props.theme.colors.containerBackground || "#f7f7f7"},
-        ${(props) => props.theme.colors.hoverContainerBackground || "#ebebeb"}
+        ${(props) => props.theme.colors.containerBackground },
+        ${(props) => props.theme.colors.hoverContainerBackground }
       );
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
@@ -531,8 +539,8 @@ border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
     gap: 30px;
     background: radial-gradient(
       circle,
-      ${(props) => props.theme.colors.principalDetailsBackground || "#fff"},
-      ${(props) => props.theme.colors.secondaryBackground || "#f4f4f4"}
+      ${(props) => props.theme.colors.principalDetailsBackground },
+      ${(props) => props.theme.colors.secondaryBackground }
     );
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -548,7 +556,7 @@ border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
     margin: 20px 0;
     font-size: 18px;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.textColor || "#333"};
+    color: ${(props) => props.theme.colors.textColor};
     text-transform: uppercase;
     letter-spacing: 1.2px;
   `,
@@ -557,7 +565,7 @@ border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
     margin: 20px 0;
     font-size: 18px;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.textColor || "#333"};
+    color: ${(props) => props.theme.colors.textColor};
     text-transform: uppercase;
     letter-spacing: 1.2px;
   `,
@@ -580,9 +588,9 @@ border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
     margin-top: 25px;
     font-size: 20px;
     font-weight: bold;
-    color: ${(props) => props.theme.colors.infoTextColor || "#444"};
-    background: ${(props) => props.theme.colors.infoBackground || "#fefefe"};
-    border-left: 6px solid ${(props) => props.theme.colors.primary || "#007BFF"};
+    color: ${(props) => props.theme.colors.infoTextColor };
+    background: ${(props) => props.theme.colors.infoBackground };
+    border-left: 6px solid ${(props) => props.theme.colors.primary};
     padding: 10px 20px;
     border-radius: 12px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
@@ -600,7 +608,7 @@ border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
     flex-wrap: wrap;
     margin-top: 40px;
     padding: 30px;
-    background: ${(props) => props.theme.colors.featureBackground || "#f9f9f9"};
+    background: ${(props) => props.theme.colors.featureBackground };
     border-radius: 25px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     gap: 25px;
@@ -617,7 +625,7 @@ border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
      width: 200px;
     height: 150px;
     padding: 25px;
-    background-color: ${(props) => props.theme.colors.objectBackground || "#ffffff"};
+    background-color: ${(props) => props.theme.colors.objectBackground };
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -630,17 +638,17 @@ border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
     p {
       margin-top: 15px;
       font-size: 16px;
-      color: ${(props) => props.theme.colors.featureTextColor || "#555"};
+      color: ${(props) => props.theme.colors.featureTextColor };
     }
   `,
 
   ImageEncadrement: styled.img`
-    border: 3px solid ${(props) => props.theme.colors.imageBorder || "#ddd"};
+    border: 3px solid ${(props) => props.theme.colors.imageBorder};
     padding: 10px;
     border-radius: 15px;
     width: 100%;
     max-width: 450px;
-    background-color: ${(props) => props.theme.colors.imageBackground || "#f9f9f9"};
+    background-color: ${(props) => props.theme.colors.imageBackground };
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
 
@@ -650,26 +658,26 @@ border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
   `,
 
   ColorButton: styled.button`
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    border: 4px solid ${(props) => (props.isSelected ? props.theme.colors.primary || "#007BFF" : "#ddd")};
+    border: 4px solid ${(props) => (props.isSelected ? props.theme.colors.primary : "#ddd")};
     background: ${(props) => props.color};
     cursor: pointer;
     transition: transform 0.3s ease, border-color 0.3s ease;
 
     &:hover {
       transform: scale(1.2);
-      border-color: ${(props) => props.theme.colors.primary || "#0056b3"};
+      border-color: ${(props) => props.theme.colors.primary };
     }
   `,
 
   SizeButton: styled.button`
-    width: 70px;
-    height: 70px;
+    width: 40px;
+    height: 40px;
     border-radius: 15%;
-    border: 4px solid ${(props) => (props.isSelected ? props.theme.colors.primary || "#007BFF" : "#ddd")};
-    background: ${(props) => (props.isSelected ? props.theme.colors.primary || "#007BFF" : "#f7f7f7")};
+    border: 4px solid ${(props) => (props.isSelected ? props.theme.colors.primary : "#ddd")};
+    background: ${(props) => (props.isSelected ? props.theme.colors.primary  : "#f7f7f7")};
     color: ${(props) => (props.isSelected ? "#fff" : "#000")};
     font-size: 18px;
     font-weight: bold;
@@ -678,7 +686,7 @@ border: 1px solid ${(props) => props.theme.colors.border || "#ddd"};
 
     &:hover {
       transform: scale(1.15);
-      background: ${(props) => props.theme.colors.primary || "#0056b3"};
+      background: ${(props) => props.theme.colors.primary };
       color: #fff;
     }
   `,
@@ -1092,12 +1100,12 @@ transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     ${(props) => props.theme.colors.gradientStart},
     ${(props) => props.theme.colors.gradientEnd}
   );
-  padding: 60px;
-
+  padding: 30px;
+    
   animation: ${gradientAnimation} 15s ease infinite;
 
   @media (max-width: 768px) {
-    padding: 20px;
+    padding: 10px;
     margin-top: 50px;
   }
 `,
@@ -1220,8 +1228,8 @@ box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
   // En-tête de la carte
   DashboardCardHeader: styled.div`
 padding: 35px;
-background: ${(props) => props.theme.colors.cardHeaderBackground || '#007BFF'};
-color: ${(props) => props.theme.colors.cardHeaderText || '#ffffff'};
+background: ${(props) => props.theme.colors.cardHeaderBackground };
+color: ${(props) => props.theme.colors.cardHeaderText };
 border-top-left-radius: 20px;
 border-top-right-radius: 20px;
 text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -1507,37 +1515,62 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
   // Table pour afficher les informations des transporteurs
   CarrierTable: styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: ${(props) =>
+    props.theme.colors.tableBackground};
+  border: 1px solid ${(props) => props.theme.colors.border };
+  border-radius: 10px;
 
-    border-collapse: collapse;
-    font-size: 1rem;
-    margin-top: 1.5rem;
+  th,
+  td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid ${(props) => props.theme.colors.border };
+  }
 
-    th,
-    td {
-      padding: 12px 5px;
-      text-align: left;
-      border: 1px solid ${(props) => props.theme.colors.cardBorder};
-    }
+  th {
+    background-color: ${(props) =>
+      props.theme.colors.tableHeaderBackground };
+    color: ${(props) => props.theme.colors.tableHeaderText };
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 
-    th {
-      background: ${(props) => props.theme.colors.tableHeaderBackground};
-      color: ${(props) => props.theme.colors.tableHeaderText};
-      text-transform: uppercase;
-      font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+  td {
+    background-color: ${(props) =>
+      props.theme.colors.tableRowBackground };
+    color: ${(props) => props.theme.colors.tableText };
+  }
 
-    td {
-      background: ${(props) => props.theme.colors.cardBackground};
-      color: ${(props) => props.theme.colors.textColor};
-      transition: background-color 0.3s ease;
+  tr:hover {
+    background-color: ${(props) =>
+      props.theme.colors.tableRowHoverBackground };
+  }
+      @media (max-width: 768px) {
+  thead {
+    display: none;
+  }
 
-      &:hover {
-        background: ${(props) => props.theme.colors.tableRowHoverBackground};
-      }
-    }
-  `,
+  th, td {
+    display: block;
+    text-align: left;
+    padding: 10px;
+  }
 
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+
+    display: inline-block;
+    margin-right: 10px;
+  }
+    td:last-child {
+    margin-bottom: 5px;
+}
+}
+`,
   // Conteneur pour la table des transporteurs
   CarrierTableContainer: styled.div`
     width: 100%;

@@ -56,12 +56,12 @@ const LoadingMessage = styled.p`
 
 const TableWrapper = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     background-color: ${(props) => props.theme.colors.wrapperBackground || "#f8f9fa"};
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 10px;
 `;
 
 const TableEmptyMessage = styled.div`

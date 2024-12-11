@@ -6,19 +6,12 @@ import { MdEmail } from "react-icons/md";
 
 
 const ImageSection = styled.div`
-  flex: 1;
-  min-width: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: ${(props) =>
     props.theme.colors.imageWrapperBackground };
-  padding: 20px;
-
-  svg {
-    font-size: 5rem;
-    color: ${(props) => props.theme.colors.cartIconColor };
-  }
+  padding: 10px;
 `;
 
 const InputContainer = styled.div`
@@ -28,6 +21,7 @@ const InputContainer = styled.div`
   border: 1px solid ${(props) => props.theme.colors.inputBorder};
   border-radius: 10px;
   overflow: hidden;
+  color: ${(props) => props.theme.colors.inputText };
   background-color: ${(props) => props.theme.colors.inputBackground };
   margin-top: 15px;
   width: 100%;
@@ -75,7 +69,7 @@ export default function EmailCardTypeB({ titre, description, buttonText }) {
   return (
     <selectedStyle.EmailCardContainer>
       <ImageSection>
-        <MdEmail />
+        <MdEmail size={40}/>
       </ImageSection>
       <ContentSection>
         <selectedStyle.TitleExplore>{titre}</selectedStyle.TitleExplore>

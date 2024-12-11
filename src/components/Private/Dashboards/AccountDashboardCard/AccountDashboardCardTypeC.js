@@ -37,8 +37,8 @@ const AccountDashboardCardTypeC = () => {
               </TabItem>
             ))}
           </TabContainer>
-
-          <DashboardContent className="row">
+          {/* <DashboardContent className="row"> */}
+          <DashboardContent >
             {activeTab === 'dashboard' && (
               <selectedStyle.DashboardTabPane>
                 <selectedStyle.DashboardCard>
@@ -80,7 +80,7 @@ const TabItem = styled.div`
   color: ${(props) => (props.isActive ? props.theme.colors.tableText : props.theme.colors.buttonBackground)};
   border: 1px solid #dee2e6;
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   box-shadow: ${(props) =>
     props.isActive ? '0 4px 12px rgba(0, 123, 255, 0.3)' : '0 2px 6px rgba(0, 0, 0, 0.1)'};
@@ -101,7 +101,7 @@ const DashboardContent = styled.div`
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-left: 20px;
-  padding: 20px;
+
   @media (max-width: 768px) {
     margin-left: 0;
   }

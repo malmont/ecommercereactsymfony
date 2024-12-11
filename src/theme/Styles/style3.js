@@ -447,7 +447,7 @@ border: 1px solid ${(props) => props.theme.colors.border };
 padding: 20px;
 `,
 ContainerDetailsProduct: styled.div`
-    padding: 40px;
+    padding: 10px;
     background-color: ${(props) => props.theme.colors.containerBackground};
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -535,6 +535,7 @@ ContainerDetailsProduct: styled.div`
     padding: 15px;
     border-radius: 20px;
     width: 100%;
+    margin: auto;
     max-width: 400px;
     background-color: ${(props) => props.theme.colors.imageBackground };
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
@@ -546,8 +547,8 @@ ContainerDetailsProduct: styled.div`
   `,
 
   ColorButton: styled.button`
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 3px solid ${(props) => (props.isSelected ? props.theme.colors.selectedBorder   : props.theme.colors.noSelectedBorder)};
     background-color: ${(props) => props.color};
@@ -561,8 +562,8 @@ ContainerDetailsProduct: styled.div`
   `,
 
   SizeButton: styled.button`
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 10%;
     border: 3px solid ${(props) => (props.isSelected ? props.theme.colors.selectedBorder  :  props.theme.colors.noSelectedBorder)};
     background-color: ${(props) => (props.isSelected ? props.theme.colors.selectedBackground : props.theme.colors.noSelectedBackground)};

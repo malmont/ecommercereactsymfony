@@ -77,14 +77,14 @@ const CarrierWrapper = styled.div`
   border-radius: 20px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  padding: 20px;
+  padding: 10px;
 `;
 
 const CarrierTitle = styled.h3`
   text-align: center;
   font-size: 1.8rem;
   font-weight: bold;
-  color: ${(props) => props.theme.colors.navItemText};
+  color: ${(props) => props.theme.colors.titleText};
   margin-bottom: 20px;
 `;
 

@@ -2,6 +2,7 @@ export const custom = {
   colors: {
     navbarBackground: '#ff3366',
     logoText: '#fff',
+    logoColor: '#ffcc00',
     navLinksBackground: '#ff3366',
     navItemText: '#fff',
     navItemHover: '#ff6699',

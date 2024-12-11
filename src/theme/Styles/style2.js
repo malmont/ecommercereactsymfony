@@ -201,12 +201,13 @@ color: ${(props) => props.theme.colors.colorText || 'white'};
 Time: styled.div`
 font-weight: bold;
 font-size: 16px;
-`,FeatureWrapper: styled.div`
+`,
+FeatureWrapper: styled.div`
 display: flex;
 flex-wrap: wrap; /* Permet aux cartes de s'adapter à plusieurs lignes */
 justify-content: space-around; /* Espacement uniforme entre les cartes */
 align-items: center;
-padding: 5px;
+padding: 16px;
 background-color: ${(props) => props.theme.colors.featureBackground };
 border-radius: 15px; /* Ajout d'une bordure arrondie */
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
@@ -404,7 +405,7 @@ overflow: hidden;
 border: 1px solid ${(props) => props.theme.colors.border };
 `,
 ContainerDetailsProduct: styled.div`
-padding: 40px;
+padding: 10px;
 background-color: ${(props) => props.theme.colors.containerBackground};
 border-radius: 20px;
 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -498,39 +499,39 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `,
 
 ColorButton: styled.button`
-width: 60px;
-height: 60px;
+width: 50px;
+height: 50px;
 border-radius: 10%;
-border: 3px solid ${(props) => (props.isSelected ? props.theme.colors.selectedBorder || "#007BFF" : "#ddd")};
+border: 3px solid ${(props) => (props.isSelected ? props.theme.colors.selectedBorder  : "#ddd")};
 background-color: ${(props) => props.color};
 cursor: pointer;
 transition: all 0.3s ease;
 
 &:hover {
   transform: scale(1.1);
-  border-color: ${(props) => props.theme.colors.hoverBorder || "#007BFF"};
+  border-color: ${(props) => props.theme.colors.hoverBorder };
 }
 `,
 
 SizeButton: styled.button`
-width: 60px;
-height: 60px;
+width: 50px;
+height: 50px;
 border-radius: 15%;
-border: 3px solid ${(props) => (props.isSelected ? props.theme.colors.selectedBorder || "#007BFF" : "#ddd")};
-background-color: ${(props) => (props.isSelected ? props.theme.colors.selectedBackground || "#007BFF" : "#fff")};
-color: ${(props) => (props.isSelected ? props.theme.colors.selectedText || "#fff" : "#000")};
+border: 3px solid ${(props) => (props.isSelected ? props.theme.colors.selectedBorder  : "#ddd")};
+background-color: ${(props) => (props.isSelected ? props.theme.colors.selectedBackground  : "#fff")};
+color: ${(props) => (props.isSelected ? props.theme.colors.selectedText  : "#000")};
 font-size: 20px;
 cursor: pointer;
 transition: all 0.3s ease;
 
 &:hover {
-  background-color: ${(props) => props.theme.colors.hoverBackground || "#005BB5"};
-  color: ${(props) => props.theme.colors.hoverText || "#fff"};
+  background-color: ${(props) => props.theme.colors.hoverBackground };
+  color: ${(props) => props.theme.colors.hoverText };
 }
 `,
 CartItemContainer: styled.div`
   margin-bottom: 20px;
-  background-color: ${(props) => props.theme.colors.cartItemContainerBackground || "#f9f9f9"};
+  background-color: ${(props) => props.theme.colors.cartItemContainerBackground };
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px;
@@ -541,7 +542,7 @@ CartItem: styled.div`
   display: flex;
   gap: 20px;
   align-items: center;
-  border-bottom: 1px solid ${(props) => props.theme.colors.cartItemBorder || "#ddd"};
+  border-bottom: 1px solid ${(props) => props.theme.colors.cartItemBorder };
   padding-bottom: 15px;
 
   &:last-child {
@@ -1146,7 +1147,6 @@ background: ${(props) => props.theme.colors.loadingBackground };
 border-radius: 10px;
 `,
 CarrierWrapper: styled.div`
-
   background-color: ${(props) => props.theme.colors.wrapperBackground};
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

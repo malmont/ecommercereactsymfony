@@ -167,7 +167,7 @@ export const style8 = {
   justify-content: center;
   align-items: center;
   height: 656px;
-  width: 280px;
+  width: 270px;
   border-radius: 8px;
   overflow: hidden;
   margin: auto;
@@ -356,6 +356,9 @@ justify-content: space-evenly;
   ColumnExplore: styled.div`
 flex: 1;
 min-width: 340px;
+@media (max-width: 768px) {
+  min-width: 100%;
+}
 `,
 
   CardBodyExplore: styled.div`
@@ -496,7 +499,7 @@ overflow: hidden;
 
 
   ContainerDetailsProduct: styled.div`
-padding: 50px;
+padding: 10px;
 background: linear-gradient(
   135deg,
   ${(props) => props.theme?.colors?.containerGradientStart },
@@ -514,7 +517,7 @@ transition: all 0.3s ease;
 `,
 
   PrincipalDetailsDetailProduct: styled.div`
-padding: 40px;
+padding: 10px;
 background: radial-gradient(
   circle,
   ${(props) => props.theme?.colors?.principalDetailsBackground || "#ffffff"},
@@ -558,8 +561,8 @@ justify-content: center;
 `,
 
   ColorButton: styled.button`
-width: 50px;
-height: 50px;
+width: 40px;
+height: 40px;
 border-radius: 50%;
 background-color: ${(props) => props.color };
 border: 3px solid ${(props) => (props.isSelected ? props.theme?.colors?.goldAccent : "#ccc")};
@@ -585,8 +588,8 @@ justify-content: center;
 `,
 
   SizeButton: styled.button`
-width: 60px;
-height: 60px;
+width: 40px;
+height: 40px;
 background-color: ${(props) => (props.isSelected ? props.theme?.colors?.goldAccent  : "#f5f5f5")};
 border: 3px solid ${(props) => (props.isSelected ? props.theme?.colors?.goldAccent  : "#ccc")};
 color: ${(props) => (props.isSelected ? "#fff" : "#000")};
@@ -1071,7 +1074,7 @@ transition: all 0.3s ease;
    margin-top: 50px;
    width: 50%;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 60px;
   @media (max-width: 768px) {
     padding: 20px;
     width: 100%;
@@ -1213,7 +1216,6 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 &:hover {
-  transform: scale(1.02);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
    @media (max-width: 768px) {
@@ -1505,6 +1507,25 @@ animation: fadeIn 0.8s ease-in-out;
 
     &:hover {
       background-color: ${(props) => props.theme.colors.tableRowHoverBackground};
+    }
+  }
+    @media (max-width: 768px) {
+    th {
+      display: none;
+    }
+    td {
+      display: block;
+      text-align: right;
+      position: relative;
+      padding-left: 30%;
+    }
+    td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: ${(props) => props.theme.colors.textMuted};
     }
   }
 `,

@@ -61,7 +61,7 @@ const CardContainer = styled.div`
   border-radius: 12px;
   width: 90%;  
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 10px;
+  padding: 20px;
   margin: 10px;
   @media (max-width: 768px) {
 
