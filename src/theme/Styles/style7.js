@@ -276,7 +276,7 @@ DiscountBadge: styled.span`
 background: linear-gradient(45deg, ${(props) => props.theme.colors.discountBadgeBackground }, ${(props) => props.theme.colors.goldAccent });
 color: ${(props) => props.theme.colors.dangerHover};
 border-radius: 20px;
-padding: 10px 16px;
+padding: 5px 10px;
 font-size: 0.85rem;
 font-weight: bold;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

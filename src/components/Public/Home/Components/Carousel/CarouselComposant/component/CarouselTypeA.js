@@ -25,7 +25,7 @@ const CarouselTypeA = ({ category }) => {
         />
         <selectedStyle.CardBody>
         <h6 className="card-title">
-            {category.name.length > 10 ? `${category.name.slice(0, 15)}...` : category.name}
+            {category.name.length > 10 ? `${category.name.slice(0, 17)}...` : category.name}
           </h6>
        
           <p className="card-text">
